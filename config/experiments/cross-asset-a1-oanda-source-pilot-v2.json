@@ -1,0 +1,33 @@
+{
+  "activated_at": "2026-08-30T11:54:47Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-oanda-source-pilot-v1.json",
+    "sha256": "dacfb9dbe55446f2f0e45043481b53d44beccca49f2c6b0d1f76ef2577c99bd3"
+  },
+  "changes_from_predecessor": {
+    "new_provider_requests_allowed": false,
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2",
+    "raw_source_reuse_required": true,
+    "wtico_excluded_presegment_end": "2005-11-27T22:00:00Z",
+    "wtico_usable_segment_start_inclusive": "2005-11-27T22:00:00Z"
+  },
+  "experiment_id": "cross-asset-a1-oanda-source-pilot-v2",
+  "frozen_predecessor_evidence": {
+    "audit_report": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/audit-report.json",
+      "sha256": "da2e62bbe25dcfe6e4063000550fb0b204c34fce831c34ff4f3630f2da46d954"
+    },
+    "evidence_manifest": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/evidence-manifest.json",
+      "sha256": "91a8b89f1f3c1a73a37f907283d013e0880fa7a3a3ed7f47aa6dbd3303501ad0"
+    },
+    "source_manifest": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/source-manifest.json",
+      "sha256": "07c5a4df0e82125fa274e02a053bdf99ec1d4850bfa1110e7229cda473af7dd6"
+    }
+  },
+  "reason": "V1 rejected WTICO_USD solely for one frozen 120-hour gap from 2005-11-22T22:00:00Z to 2005-11-27T22:00:00Z. V2 excludes the contaminated presegment and starts immediately at the first post-gap candle without filling, deduplicating, changing any response or requesting new data.",
+  "schema_version": "cross-asset-a1-oanda-source-pilot-amendment-v1",
+  "status": "frozen",
+  "supersedes": "cross-asset-a1-oanda-source-pilot-v1"
+}

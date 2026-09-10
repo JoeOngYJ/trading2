@@ -1,0 +1,36 @@
+{
+  "activated_at": "2026-08-30T12:25:00Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-oanda-hourly-history-v1.json",
+    "sha256": "a6e12f6e3da7177d75dab18b725b21f36e942bb1fc90b481ae8ef8d6c6795d23"
+  },
+  "changes_from_predecessor": {
+    "candidate_pass_requires_complete_session_days_at_least": 3000,
+    "candidate_pass_requires_history_edges_and_no_gap_over_hours": 168,
+    "every_incomplete_session_date_disposition": "no_trade",
+    "incomplete_session_fraction_is_reported_not_a_source_rejection_gate": true,
+    "new_provider_requests_allowed": false,
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2",
+    "price_rows_may_be_changed_or_filled": false,
+    "raw_and_normalized_predecessor_reuse_required": true
+  },
+  "experiment_id": "cross-asset-a1-oanda-hourly-history-v2",
+  "frozen_predecessor_evidence": {
+    "audit_report": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/audit-report.json",
+      "sha256": "20614e84b4b6ac1b6b79d34a5f98bc82e3c85e7433c3d1a2ab448351fb09c39a"
+    },
+    "evidence_manifest": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/evidence-manifest.json",
+      "sha256": "e7414e64565ea1912292d520f9407d567adacc9747b08feaaeb3a481b080f534"
+    },
+    "source_manifest": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/source-manifest.json",
+      "sha256": "b3eba70b64ed5254f47148baf7e0f6726b124de654833cad459c4fc3b065bc10"
+    }
+  },
+  "reason": "V1 correctly preserved every missing required session-window bar as no_trade but incorrectly used the frequency of those no_trade dates as a source-corruption rejection gate. The failed dates are dominated by weekend-local fragments, holidays and early closes; every candidate still has more than 4000 complete session days, full frozen history edges, valid bid/ask prices and no gap over 168 hours. V2 changes no source row and publishes explicit availability masks so incomplete dates remain unavailable rather than being treated as evidence of corrupt complete dates.",
+  "schema_version": "cross-asset-a1-oanda-hourly-history-amendment-v1",
+  "status": "frozen",
+  "supersedes": "cross-asset-a1-oanda-hourly-history-v1"
+}

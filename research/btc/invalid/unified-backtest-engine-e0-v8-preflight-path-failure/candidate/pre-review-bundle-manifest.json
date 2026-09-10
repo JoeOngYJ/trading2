@@ -1,0 +1,15 @@
+{
+  "created_at":"2026-09-06T03:00:00.000000Z",
+  "experiment_id":"btc-unified-backtest-engine-e0-v8-c0-authority-boundary",
+  "files":[
+    {"path":"research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V8_C0_AUTHORITY_PLAN.md","role":"c0_plan","sha256":"4100c0a0a44ccf8930e4c5b08ca93bec8bdc05b7bb8d3eadea1951b971c1dfe0","size_bytes":3362},
+    {"path":"research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V8_C0_FAILURE_MATRIX.md","role":"c0_failure_matrix","sha256":"2b3de9764f0c6e9a015bd97dfcd61202b747d0a697399efded62fe2efcf1d7cc","size_bytes":1336},
+    {"path":"research/btc/specs/btc-backtest-c0-authority-interface-e0-v8.json","role":"c0_interface_spec","sha256":"9403e9a061535883ca9dfe8d467f441baef7f8e2ae832fa56944864add493658","size_bytes":10996},
+    {"path":"research/btc/specs/btc-backtest-c0-inherited-obligations-e0-v8.json","role":"c0_obligation_registry","sha256":"5c5264f05faa72923fee935fc08cdfa52784b7e245baa76d5281fc89d5f61e3b","size_bytes":5295},
+    {"path":"research/btc/contracts/btc-unified-backtest-engine-e0-v8-c0-authority-boundary.json","role":"c0_contract","sha256":"c790778d6534b9b2ad3fb23cc9550cc396f845510b089aa2d1c0bdd64c27c784","size_bytes":7192},
+    {"path":"scripts/validate_btc_unified_engine_e0_v8.py","role":"c0_validator","sha256":"a42301815be185f84f64d27268f7f7a576daf11568432619ee531c122e7f7030","size_bytes":18948},
+    {"path":"research/btc/tests/test_unified_engine_e0_v8.py","role":"c0_tests","sha256":"64029b0e35ff6636c7be4af215ffdf221704b61ee10d50062f7a547d129a1c91","size_bytes":4702}
+  ],
+  "schema_version":"btc-unified-backtest-engine-e0-v8-pre-review-bundle-v1",
+  "status":"frozen_pre_review"
+}

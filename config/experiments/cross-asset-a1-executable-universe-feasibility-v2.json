@@ -1,0 +1,173 @@
+{
+  "activated_at": "2026-08-29T23:58:21Z",
+  "decision_rules": {
+    "a1_stage_passed_by_this_review": false,
+    "cash_path_pass_requires_all_four_exact_lines": true,
+    "full_history_download_authorized_by_this_review": false,
+    "next_if_passed": "freeze_exact_lse_full_history_acquisition_and_action_reconciliation_v1",
+    "next_if_rejected": "select_one_broader_publicly_feasible_universe_before_any_new_data_purchase",
+    "strategy_evaluation_authorized": false
+  },
+  "evidence_boundary": {
+    "calendar": {
+      "path": "config/research/cross-asset-a1-calendars-2008-2025-v2.json",
+      "sha256": "1458a26e587bdf2dbbc3ba8e9b0c5d072990ceb82c967db27a906f80c29230cd"
+    },
+    "mandate": {
+      "path": "config/mandates/retail-cross-asset-research-v3.json",
+      "sha256": "d60eab15d8e839beb998867ae609f670068c9a5666182b449712bd1d5db37268"
+    },
+    "preceding_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/evidence-manifest.json",
+      "sha256": "eb4608c913843167f9a0e54482e509dda56238ea3131727fc631276c045f7d78"
+    },
+    "preceding_source_manifest": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/source-manifest.json",
+      "sha256": "455ab8ff9b3ef4ed7397411000788790e3a0e1478d49c5bdbd7328f22a5e234d"
+    },
+    "public_feasibility_facts": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/public-feasibility-facts.json",
+      "sha256": "e9089210a167bafe76a18df20e88787b7a9051ffb1bdf6d84abc320af1628a8c"
+    },
+    "sealed_2026_partition_accessed": false
+  },
+  "expected_instruments": [
+    {
+      "earliest_date_not_after": "2009-10-05",
+      "expected_currency": "GBp",
+      "expected_exchange_values": [
+        "LSE",
+        "London Stock Exchange"
+      ],
+      "expected_isin": "IE00B4L5Y983",
+      "expected_mic": "XLON",
+      "expected_type": "ETF",
+      "price_to_gbp_multiplier": "0.01",
+      "provider_symbol": "SWDA:LSE",
+      "symbol": "SWDA"
+    },
+    {
+      "earliest_date_not_after": "2019-06-27",
+      "expected_currency": "GBP",
+      "expected_exchange_values": [
+        "LSE",
+        "London Stock Exchange"
+      ],
+      "expected_isin": "IE00BG47K971",
+      "expected_mic": "XLON",
+      "expected_type": "ETF",
+      "price_to_gbp_multiplier": "1",
+      "provider_symbol": "VAGS:LSE",
+      "symbol": "VAGS"
+    },
+    {
+      "earliest_date_not_after": "2011-04-18",
+      "expected_currency": "GBp",
+      "expected_exchange_values": [
+        "LSE",
+        "London Stock Exchange"
+      ],
+      "expected_isin": "IE00B4ND3602",
+      "expected_mic": "XLON",
+      "expected_type": "ETF",
+      "price_to_gbp_multiplier": "0.01",
+      "provider_symbol": "SGLN:LSE",
+      "symbol": "SGLN"
+    },
+    {
+      "earliest_date_not_after": "2017-07-27",
+      "expected_currency": "GBp",
+      "expected_exchange_values": [
+        "LSE",
+        "London Stock Exchange"
+      ],
+      "expected_isin": "IE00BDFL4P12",
+      "expected_mic": "XLON",
+      "expected_type": "ETF",
+      "price_to_gbp_multiplier": "0.01",
+      "provider_symbol": "COMM:LSE",
+      "symbol": "COMM"
+    }
+  ],
+  "expected_pilot_sessions": [
+    "2025-02-03",
+    "2025-02-04",
+    "2025-02-05",
+    "2025-02-06",
+    "2025-02-07",
+    "2025-02-10",
+    "2025-02-11",
+    "2025-02-12",
+    "2025-02-13",
+    "2025-02-14",
+    "2025-02-17",
+    "2025-02-18",
+    "2025-02-19",
+    "2025-02-20",
+    "2025-02-21",
+    "2025-02-24",
+    "2025-02-25",
+    "2025-02-26",
+    "2025-02-27",
+    "2025-02-28"
+  ],
+  "hypothesis": "Without computing any return, score or signal, four exchange-qualified time-series requests using the provider-documented exclusive end-date convention can establish exact 20-session coverage for SWDA, VAGS, SGLN and COMM; checksummed v1 identity, earliest-history and corporate-action responses remain valid when action dates are required to be unique and monotonic in either provider-returned direction.",
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2",
+    "overwrite_existing_artifacts": false
+  },
+  "prohibitions": {
+    "account_or_broker_login_allowed": false,
+    "bulk_or_full_history_download_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "feature_generation_allowed": false,
+    "live_or_delayed_quote_retention_allowed": false,
+    "order_creation_allowed": false,
+    "order_preview_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "request_plan": {
+    "adjust": "none",
+    "documented_time_series_end_date_semantics": "exclusive_upper_boundary",
+    "end_date_exclusive": "2025-03-01",
+    "endpoint_path": "/time_series",
+    "interval": "1day",
+    "maximum_requests": 4,
+    "maximum_weighted_credits": 4,
+    "minute_credit_ceiling": 55,
+    "order": "ASC",
+    "outputsize": 100,
+    "start_date_inclusive": "2025-02-03",
+    "timezone": "UTC"
+  },
+  "reuse_policy": {
+    "allowed_endpoints": [
+      "dividends",
+      "earliest_timestamp",
+      "splits"
+    ],
+    "corporate_action_order_rule": "dates_must_be_unique_and_strictly_monotonic_ascending_or_descending",
+    "raw_bytes_may_be_modified": false,
+    "reused_source_manifest_must_validate_under_v1_contract": true
+  },
+  "review_id": "cross-asset-a1-executable-universe-feasibility-v2",
+  "schema_version": "cross-asset-a1-exact-lse-boundary-clarification-contract-v1",
+  "source_access": {
+    "api_base_url": "https://api.twelvedata.com",
+    "api_token_environment_variable": "TWELVEDATA_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "authorization_header_scheme": "apikey",
+    "existing_paid_subscription_use_authorized": true,
+    "further_paid_upgrade_authorized": false,
+    "official_semantics_source": "https://support.twelvedata.com/en/articles/5214728-getting-historical-data"
+  },
+  "status": "frozen"
+}

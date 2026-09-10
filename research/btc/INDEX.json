@@ -1,0 +1,1451 @@
+{
+  "actionable_arm_id": "no_trade",
+  "active_experiment": null,
+  "active_market": "BTC",
+  "archived_lanes": [
+    "ETH",
+    "cash_etf",
+    "cross_asset",
+    "multi_asset"
+  ],
+  "context_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v2/trigger/evidence-manifest.json",
+      "sha256": "db916a469e4db16b090243108eaf808adcb94ac7dae764250bf34b608a3dd9e7"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v2/trigger/trigger-gate-report.json",
+      "sha256": "d2111cfb101464ee3b76d783c04a9e00520c5ce69f6bcd8dfc9753b29610f917"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v2/trigger/triggers.jsonl.gz",
+      "sha256": "cc4ad2f43690a043aa45f20b06df91f88084a384f0ee881f50724125e07ce516"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-core-qualification-v1/evidence-manifest.json",
+      "sha256": "3fdb95da4f8d57361109892cc166cbdbb5b8365ef1fb1b0ef2eaae419d0584cc"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-core-qualification-v1/qualification-report.json",
+      "sha256": "f75ef8d73ab25a055671d0fc68417bb5cbc70c8ac79a55a1f78cd19d023e5a22"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-core-qualification-v1/synthetic-core-result.json",
+      "sha256": "228efa062b3018358fa357005e83aab87f4014cc896c1dfb9be9fbb758f6f814"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-scorecard-v1/btc-fixed-20d-10d-breakout-legacy-control-scorecard.json",
+      "sha256": "58612de8af6999727528b3f67697416e32341df60ae11c6d6fb9ed7c783a8071"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-scorecard-v1/btc-positive-funding-carry-v1-scorecard.json",
+      "sha256": "e652ef1fb51762a0f43c367f82d5d971510c3f948ea4ad251454bee33309abd1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-scorecard-v1/btc-regime-routing-s2-ewma-v2-scorecard.json",
+      "sha256": "a2821064029d93553ade4b88c176185acf2e8a97ef17358408bf0d771fa76d2a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-scorecard-v1/manifest.json",
+      "sha256": "f18e87d9bff40cb938e9c3aaa04942b3d50233fdd9436d467fcfc0af326c07e4"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/backtest-scorecard-v1/report.json",
+      "sha256": "def1c9d743507d0f240a898ab143c17fef05e67c6062557ee8b995865d24f510"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/deribit-dvol-source-pilot-v2/audit-report.json",
+      "sha256": "b62a3f3fd6042def7661aaf2a95230d1e4d1e032c465e2d4873809691f428749"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/deribit-dvol-source-pilot-v2/evidence-manifest.json",
+      "sha256": "811d94b79c1129471141658d34960df5a6beb34326e8c440453cc3d15eba3353"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/deribit-dvol-source-pilot-v2/source-manifest.json",
+      "sha256": "634c1f116658fbfffb5cc772ed4ee15ecbe030cbbcfe895a627950f232cfcf9c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/har-rv-risk-forecast-v1/evidence-manifest.json",
+      "sha256": "8d652a2c5fc514abca8dd911a11d2db5d0d99de87f297353b88cd7a7e736dbc6"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/har-rv-risk-forecast-v1/forecasts.jsonl.gz",
+      "sha256": "d56cfc92f6b768affdb38d9f704c523871bfb2a91dada1089e3530427ca3d0a0"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/har-rv-risk-forecast-v1/model-snapshots.jsonl.gz",
+      "sha256": "6ab3e28767f66897c604acf933867be68f8ed93fdafa5753d86c24bce4a1006e"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/har-rv-risk-forecast-v1/report.json",
+      "sha256": "9990e0dba0d86ca9132eeff9f10c16c5410e6d28a637e628ae28b60f78560e6c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/audit-report.json",
+      "sha256": "8945f156e398289370580051e2241ffd918e04682411a6d619495ed8029aa31c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/evidence-manifest.json",
+      "sha256": "451e1a3a0058dc30cb4a00dc8744a32b1078ecd338ec800d9a1c67a45641c289"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/source-manifest.json",
+      "sha256": "7640f3d7e3bb62bf64267498951a79672bde59f102e4f6f0254a2807f6990cb7"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/evidence-manifest.json",
+      "sha256": "23bd88f671595dd86b20ecc4926dc5be360ddcb07096e766cf80d259a7a68457"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/report.json",
+      "sha256": "4c3b8fafd945b24a54dfcbf0e23e87ac50872a196159d4e499bdc528f393818a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/validation-primary-trades.jsonl",
+      "sha256": "05bf894049cf8ca11920026d1ca993bd654011d42f1c87326ef0f8ddd8ce6921"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/audit-report.json",
+      "sha256": "64ac19463c5c3d934adc1ea99c90fe80d142acb6b7d7268f2cb0145b5395a722"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/evidence-manifest.json",
+      "sha256": "d7d9b046274f8a361ebc0f32f7c25342e5e0f9fc747c7e74fb5db66413e513a9"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs1-v1/availability-report.json",
+      "sha256": "b181832638bf69c34123ded46f67c9570fc84d36518ebc0be82ab11d4cbcc931"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs1-v1/evidence-manifest.json",
+      "sha256": "24867b0db7f0bbe1f28004ba41b3aa0d6d008edddf2fc0c65d694b0105c04a8a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs2-v1/evidence-manifest.json",
+      "sha256": "6f5f696e1ed426c135f65911d31cd43efe774d0d3357026eff1853c1eca7f6b6"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs2-v1/synthetic-qualification-report.json",
+      "sha256": "01014659587faa7eccadacf91dad6f0d90a834d083257fe8a6a39a9e441f9661"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/evidence-manifest.json",
+      "sha256": "3a3410bbe65c73f0d2432f2519b2401e4e026adb2abc1dd2e1cb6522b0d1cfe7"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/forecasts.jsonl.gz",
+      "sha256": "65ef7ca1ba66ad074a75862c77c8cc97fde9805bf4afbb4b2205c324115309bc"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/report.json",
+      "sha256": "36e2b04f6270d9f13f7c3463099e82aafee2e9fb6ff5e4d33e18a88b088883e4"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/events.jsonl.gz",
+      "sha256": "6661ee5fb10d10b5cd8ee884bc826c0ca800630ebcc8aca15ce1c9cdebb6d87e"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/evidence-manifest.json",
+      "sha256": "b457a5e413045417b24b23a0420f72d45f94886b0387baee7aeab0035b95f1e0"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/report.json",
+      "sha256": "5644f28bb7e4c7518e5f879f3d1d3dbad7f82c944b589b0c8b09a2d3ab4f5962"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/evidence-manifest.json",
+      "sha256": "003329d9685b692154bcfad710ca3afb47ca1ab6d355adb4f96f90ae9ca0a672"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/forecasts.jsonl.gz",
+      "sha256": "c63395131f637688bb7b2deba922bc2d2d24ed529040c3be0465f379ae2d6802"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/models.jsonl.gz",
+      "sha256": "a79b38ecd2f724a4a39320422352b805e1a5e71183bfec0982d2a168c7227104"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/report.json",
+      "sha256": "940a14b70ebe0dbefad0560293a7aa248d58367aeb31c9a1c6ab63e1d175d812"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/evidence-manifest.json",
+      "sha256": "2b5dede8dce898d6e1908e671013afc899258471414ecdcb927dcdc83e2c2fe0"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/forecasts.jsonl.gz",
+      "sha256": "9962704677a9704de539d64d4a1b65275a17afeb8904aca463fd7290c40f3ba8"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/measurements.jsonl.gz",
+      "sha256": "d0f0ed58e70979e198ecb8dc8cb042f2196b49f54330001d4fb64ced56d0ed6e"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/report.json",
+      "sha256": "916bd570a1e671c20530ed18209acb25546b9918f085269f3fff46bbba84d412"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-c-readiness-v1/evidence-manifest.json",
+      "sha256": "64b32e59006de9b270ad4f0cb254ae73fecb461f3aa94c12354cbf3ac4b9cefb"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-c-readiness-v1/readiness-report.json",
+      "sha256": "1db7081ad6dfda02874ae63f9c63ecc4cb19c834f7641524b074afe98a4e5409"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/score-combination-foundation-v1/evidence-manifest.json",
+      "sha256": "c06a03ab208ad61e70ffee156c6d2544255df4e10771e432dd66241084b8bf13"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/score-combination-foundation-v1/synthetic-qualification-report.json",
+      "sha256": "ed78abe4c24305371c64883e5f002ef61deccd7afb37ba8dcc4f3ba99ce6c00a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v1/audit-report.json",
+      "sha256": "94b27a02ffd64976b54f1cb5858e0f1e381a5e240bb41d2b722b704f4767c891"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v1/evidence-manifest.json",
+      "sha256": "46d0c45237d86d6f9488eb08e33a00e55dd1db6ab5ceb5a512390960dcd682ef"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v1/segment-report.json",
+      "sha256": "6a15ad26340c97e250af40c5cd3d673f3baeb17bfabe1c4b32ab157588069047"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v1/source-manifest.json",
+      "sha256": "97098e0282ba020a1b3a146a89014fc8d4a148388e46d938db31aef8acd1bf84"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v2/source-manifest.json",
+      "sha256": "eed7a2ea11e6f9cfbaa29cd810e4047f8b5416921a5271b4d4de5fa2bb06c1a4"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/audit-report.json",
+      "sha256": "556198f3222e79a660a1bbe49e63c79aea7fdb6423e261c6f6cf57107e423578"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/evidence-manifest.json",
+      "sha256": "32e0d66a18424b9dfedd4565132e2660922118ba37d1f85759a6dce88a0ef8ac"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/segment-report.json",
+      "sha256": "73e74d26fac65163027d488e76c1ac60c6c7444a8cc5164410c02c6a7408bec1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/source-manifest.json",
+      "sha256": "d7a0e6c2855bb0c67fff91e6712f099040123450973791ca5530460505c90bc3"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+      "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-development-v2.json",
+      "sha256": "a3b1dd712ad9b40c9f4a473cf0d9fb202a6db8e617112ecce802854af8a655cd"
+    },
+    {
+      "path": "config/mandates/retail-btc-spot-cross-market-input-research-v1.json",
+      "sha256": "5b3e3b1e9d91c5d600c38b92b6e060ec60652fcaa45785f0ee4ba150be6c8a93"
+    },
+    {
+      "path": "docs/BTC_DERIVATIVES_RESEARCH_MANDATE.md",
+      "sha256": "f8421e63e5e492dca81f663c19487889f9ac92fbbc892eb032b9af9105d27782"
+    },
+    {
+      "path": "docs/BTC_SPOT_PERP_INPUT_RESEARCH_MANDATE.md",
+      "sha256": "a3a8af2ab8600e3d0982c6f2eebd5f1a0a6bf00e3fb12a966c83c800d6575fcd"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "d979b8211ce605d72015164384a5c37d9e504d7eef541a3c79460df3508a8309"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "research/btc/BTC_EVIDENCE_CATALOG.json",
+      "sha256": "3548ae3f8f8f2f039e06f0f398a43566e83f7bdabb7ac3e3af2af8088cb085a9"
+    },
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    },
+    {
+      "path": "research/btc/BTC_ONLY_PROGRAM.md",
+      "sha256": "ae0cd53e6bca20b3be8a61f74a8a255b1c92196f081e096e6233750bf352b1c3"
+    },
+    {
+      "path": "research/btc/BTC_SPOT_PERP_CONTINUATION_EVIDENCE_CATALOG.json",
+      "sha256": "8a8818e705b3c5c8e85fe1b80b6ce88f9b6e32fe8c3829f688b45ad4dc320e85"
+    },
+    {
+      "path": "research/btc/BTC_SPOT_PERP_CONTINUATION_TRACKER.json",
+      "sha256": "be1fdd96f10bd6403dac2905b031484986cbbb84fa5f831a4d4178bc883ce98f"
+    },
+    {
+      "path": "research/btc/BTC_STRATEGY_DIRECTION_TRACKER.json",
+      "sha256": "65c489c5f5577e9839571d11ac98c4e8da6917add499a46996f04a3620b9c98f"
+    },
+    {
+      "path": "research/btc/BTC_STRATEGY_DIRECTION_TRACKER.md",
+      "sha256": "5b8906fb56176a4d70a1230b18a970590fc86f7eb9d805d5855306ea4184eed8"
+    },
+    {
+      "path": "research/btc/DECISIONS.jsonl",
+      "sha256": "c41853a14151351ae743f9318a8ab0d55b46a0c7e352bccdc025893ea8bc0226"
+    },
+    {
+      "path": "research/btc/HANDOFF.md",
+      "sha256": "2499af265ffb4082cb7980e5d94c0205a3415eb622828bf6e151668bbe470eb8"
+    },
+    {
+      "path": "research/btc/STRATEGY_TRIALS.jsonl",
+      "sha256": "6a4f6659cc7c5784d2a768b8a78c700b5d4c850d92976c666c14e2a078460b8f"
+    },
+    {
+      "path": "research/btc/contracts/btc-backtest-core-qualification-v1.json",
+      "sha256": "285b5403f515650620227efc43c71864d71f7fce4abe2535f0bb0fe7e02b9029"
+    },
+    {
+      "path": "research/btc/contracts/btc-breakout-event-catalogue-v5.json",
+      "sha256": "f52c078aa05144e97e0c6cc69570090dec1c165522d270f0b9ee9b075654deae"
+    },
+    {
+      "path": "research/btc/contracts/btc-cusum-trend-onset-v2.json",
+      "sha256": "b66d558c2c9dcad1179ca775e9c7f66fe1f1f42ed6e94ef2d810e3f3dbfa168b"
+    },
+    {
+      "path": "research/btc/reports/BTC_CUSUM_TREND_ONSET_RESEARCH_PLAN.md",
+      "sha256": "e64ab5bab8c67dfe173249075d112c96228adf748bc706122ba78b5bc9b3b627"
+    },
+    {
+      "path": "research/btc/reports/BTC_CUSUM_TREND_ONSET_TNE1_V2_RESULT.md",
+      "sha256": "27b5563cfa663b21148e107986a06732241922e487828c8a970c4bb92deb2b4c"
+    },
+    {
+      "path": "research/btc/contracts/btc-backtest-scorecard-v1.json",
+      "sha256": "2d7a3954f0ee2998a08295bf48cb2df29d25e2f0d13ecbe8c8b1088f8240cebf"
+    },
+    {
+      "path": "research/btc/contracts/btc-carry-data-qualification-v1.json",
+      "sha256": "30c739abe621121e9de18e6c6dec8d872fcb0d187b5fa2ee8d7f9aaaa666503e"
+    },
+    {
+      "path": "research/btc/contracts/btc-carry-gap-recovery-v1.json",
+      "sha256": "2b6bc794f72b6c123f8976c041bbfe7afbec7bdf919e721a767a66e7fd4c8cf9"
+    },
+    {
+      "path": "research/btc/contracts/btc-deribit-dvol-source-pilot-v1.json",
+      "sha256": "9be618628ea2efe75118450b1fc156f388f90302333adba098ac7f306b66d93e"
+    },
+    {
+      "path": "research/btc/contracts/btc-deribit-dvol-source-pilot-v2.json",
+      "sha256": "ba162b70780e09050fda4b48230c48f074ccd3ec6b53f566f27e05a728c1e99b"
+    },
+    {
+      "path": "research/btc/contracts/btc-har-rv-risk-forecast-v1.json",
+      "sha256": "fcccd0b23c6501b964b0f9b9ccc429eef32d494b2bdfe7b84abba79d80277945"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-v1.json",
+      "sha256": "0e7daffb6cd0ae92f684f6bec19cc40161e2387f00cbbbfd8abf955cedcb43df"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs1-v1.json",
+      "sha256": "244f780e68fa0d9cbe1f714903da282b849bfcc247741ebd424794c5d4c69de7"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs2-v1.json",
+      "sha256": "4c3499da9621d6dcfc9ab615934b39c2934bba4fb3749df6cd41b421b1a6ca0a"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-p-v1.json",
+      "sha256": "c78352b57563155d1055276cdbc1aaaff25f57a453ac07b2441c65ffed044901"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-r-v1.json",
+      "sha256": "76b8d2353ac3f25da9c2be52b3e979c7fc84c9b84e904662a945b5e1f5137f1c"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-d-v1.json",
+      "sha256": "1206acf6e80f985bd491e60f1a67aa7135c84f4ea541be5835bd7050cbed1024"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-j-v1.json",
+      "sha256": "0b96d3a5624d9a91f59e0c5a484b5515bb9ae06b00ff1ef72e3da384d6976fd2"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-c-readiness-v1.json",
+      "sha256": "9ca6fd35d7e10d90eced628e367641ad63653c993a5719537a8fdef309b72c24"
+    },
+    {
+      "path": "research/btc/contracts/btc-multidimensional-risk-foundation-v1.json",
+      "sha256": "6b5514f8d53420c99084430e9c85dee964313cfbf22c48fae1d0526346e63212"
+    },
+    {
+      "path": "research/btc/contracts/btc-score-combination-foundation-v1.json",
+      "sha256": "52757b49393cf3dd70d80cf376525637565929ebc3b40b16a7907b3837016a0f"
+    },
+    {
+      "path": "research/btc/contracts/btc-only-program-v1.json",
+      "sha256": "8b3a4dd4a720202afe73551e14140166f4829169070d2b84fdb0ee390bce9a9f"
+    },
+    {
+      "path": "research/btc/contracts/btc-positive-funding-carry-v1.json",
+      "sha256": "c1d4e5fe9e2f29651e48dd908e805033c41141c3b590b2926c25218041f173fc"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v1.json",
+      "sha256": "6584122ce6507ea1f62550c3f8720242e791eb792707b223a037fd113e20ef91"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v2.json",
+      "sha256": "83d9a9566b1518c00450ae96e7ab6dd60d01185d8820b8fef1cab586380aa3e3"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v3.json",
+      "sha256": "68070f31edb37c261654512e2e5f73331f839e5012fb825d7a02e39c87140a1d"
+    },
+    {
+      "path": "research/btc/reports/BTC_BACKTEST_CORE_QUALIFICATION_PLAN.md",
+      "sha256": "e20624129181aea6a785a47ceca23967cb3ba9551e35a112e41642b5c774e990"
+    },
+    {
+      "path": "research/btc/reports/BTC_BACKTEST_CORE_QUALIFICATION_RESULT.md",
+      "sha256": "916d22e1467a6cb06451d1019dced15d82498a8878e55377b16f0d67e1aacaa9"
+    },
+    {
+      "path": "research/btc/reports/BTC_BACKTEST_SCORECARD_PLAN.md",
+      "sha256": "cb590ecac9695d1fc70cf33220c720948c3e87a77e1e294204734f5d800f4ef1"
+    },
+    {
+      "path": "research/btc/reports/BTC_BACKTEST_SCORECARD_RESULT.md",
+      "sha256": "ecd65a4dc235e72a1597a71295d64481dc322efb624616afa0c37dfe111c76af"
+    },
+    {
+      "path": "research/btc/reports/BTC_CARRY_DATA_QUALIFICATION_PLAN.md",
+      "sha256": "a975daba089bb4b9af6501b26cb1e12175f872d01ec098944dc5f99e1846fa74"
+    },
+    {
+      "path": "research/btc/reports/BTC_CARRY_DATA_QUALIFICATION_RESULT.md",
+      "sha256": "0a90f38ce22a0cc8732e3a722135f656204979137faa9035ba0d7acdd4a059f5"
+    },
+    {
+      "path": "research/btc/reports/BTC_CARRY_GAP_RECOVERY_PLAN.md",
+      "sha256": "a5d143b27cec16eefd6464e3b6809de5de5d39036dd9825be1fa6b5b87006d6d"
+    },
+    {
+      "path": "research/btc/reports/BTC_CARRY_GAP_RECOVERY_RESULT.md",
+      "sha256": "43d92f61b8735d2020b4a37146e75afca601f6e8df3c9efad45c02c57ea9f7c4"
+    },
+    {
+      "path": "research/btc/reports/BTC_DERIBIT_DVOL_SOURCE_PILOT_RESULT.md",
+      "sha256": "b486221a82e3361f1e5ca4a97b536bf23dc6d640bd4e4ee822e0785599e88f0f"
+    },
+    {
+      "path": "research/btc/reports/BTC_DERIBIT_DVOL_SOURCE_PILOT_V1_RESULT.md",
+      "sha256": "b5b18da93701cb384a7c496a9eca22ffe66eafcf9e0b92d526b94fa6b99459ae"
+    },
+    {
+      "path": "research/btc/reports/BTC_HAR_RV_RISK_FORECAST_RESULT.md",
+      "sha256": "daec26c82f25a7ae4c93427c00faa3a8ecb500ac5b0e5003df42f7cbbcf4bff5"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS1_RESULT.md",
+      "sha256": "f036f24b72dc1b448d2496a9f9cb2d1eea1d09e9cc4d9d6ceed71f4cdd64f605"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS2_RESULT.md",
+      "sha256": "7f1e8a8c5be3e42b10172af6f54c93d104b0a15062c5b428a6adc8df905e6ca4"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_P_RESULT.md",
+      "sha256": "3bda4084db13c5f8a7b25a2dc9e0ae4338df913d269d0945dfb064f74d8d4514"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_R_RESULT.md",
+      "sha256": "cb0fbd57a2bb66817f1df693a08c2834143939468b57ee3d6cf020cacb01d88d"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_D_RESULT.md",
+      "sha256": "36bec03178d702d84a775e076d977b434307965174330b756ff6900124fb945b"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_J_RESULT.md",
+      "sha256": "931f9c4848a09fb4f7877d4683f2048a674eb0f439a679c279f784fef6697c6a"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_C_READINESS_RESULT.md",
+      "sha256": "5ca5e1feb4b8c9dbce886d8d968fbd1c41d286c7c3b5a44011a323fc6d99470e"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIDIMENSIONAL_RISK_FOUNDATION_RESULT.md",
+      "sha256": "d07dba7e2866ee4e2559d84ced174f2153ec8570b69383fe2f8fdf3ae48b6620"
+    },
+    {
+      "path": "research/btc/reports/BTC_ONCHAIN_SOURCE_FEASIBILITY_REVIEW.md",
+      "sha256": "e5b84ec62daee171de0c893c9f33c20a4e8480103ead1b1b57cd4aaa52bb7c58"
+    },
+    {
+      "path": "research/btc/reports/BTC_POSITIVE_FUNDING_CARRY_PLAN.md",
+      "sha256": "5d0fa3dfecb0546c594a410c9e04eb1981b238e9bda7ff02a987f85159254deb"
+    },
+    {
+      "path": "research/btc/reports/BTC_POSITIVE_FUNDING_CARRY_RESULT.md",
+      "sha256": "fb18d594b1be8701f31652eb63f8db4e86314dde64098930ca3e27aa553b05a0"
+    },
+    {
+      "path": "research/btc/reports/BTC_SCORE_COMBINATION_FOUNDATION_PLAN.md",
+      "sha256": "1fc30dbb9b93d6c43eda0ecec2f84e3fbef631aadbb8de1f26837930face8050"
+    },
+    {
+      "path": "research/btc/reports/BTC_SCORE_COMBINATION_FOUNDATION_RESULT.md",
+      "sha256": "281617e1a06b3e2bfdffdefb085474b164bc785f00497df1caa173c142cba7fe"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V1_RESULT.md",
+      "sha256": "0519d3fc658814033260d65c72e4b220776d0937b537525902ac31f94ee4f0ce"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V2_RESULT.md",
+      "sha256": "ae924cf720bce9b392d3d55a62d4ec6e55b114e0da2008baa0626669c127c9e2"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V3_RESULT.md",
+      "sha256": "11aebe888022dc43a66436b33c9504b79eec2f12a7fd19b21a1ddbac600cabff"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_RESEARCH_PLAN.md",
+      "sha256": "67851b1dc66267b70a5a060b7e474a73811f74ed00afb5d64ea8ebbe774e9d6d"
+    },
+    {
+      "path": "research/btc/tests/test_carry_data_acquisition.py",
+      "sha256": "d4fdcc120fd77ec43d4044eba70c93b24b72686111bd72ce9a7a0c58b0a99f77"
+    },
+    {
+      "path": "research/btc/tests/test_carry_data_audit.py",
+      "sha256": "24676162efb03e317d74ed816a5de57fa150e5ebb223e7d80406cb446116d04f"
+    },
+    {
+      "path": "research/btc/tests/test_carry_gap_recovery.py",
+      "sha256": "d61ea3d3e0170934c60c80eb4e451a7895e9c812133650aff78d1e41a0315335"
+    },
+    {
+      "path": "research/btc/tests/test_focused_context.py",
+      "sha256": "d7bf60ed301bd379fd77383f708751a00edf4bb8a643c644e8263cc0f97a4266"
+    },
+    {
+      "path": "research/btc/tests/test_spot_perp_continuation_data.py",
+      "sha256": "85aaf7952730b8fa6a5be579a14e946a32b47647db6003b694ed7ab11f623d17"
+    },
+    {
+      "path": "research/btc/tests/test_spot_perp_continuation_data_v2.py",
+      "sha256": "cce0f35e0361da00cf6053ed9bd9514e7fc5c66a5105479e7e1241943f8da464"
+    },
+    {
+      "path": "research/btc/tests/test_spot_perp_continuation_data_v3.py",
+      "sha256": "5e6d9b8f9e9456a614bf0f6071c5a9e337c1213325d340e67972d791e417ff87"
+    },
+    {
+      "path": "scripts/acquire_btc_carry_data.py",
+      "sha256": "ffc45bcf60e210ef37475c900009e05618f39e0a8840bcfa7607abf06993d3d9"
+    },
+    {
+      "path": "scripts/acquire_btc_spot_perp_continuation_data.py",
+      "sha256": "042cbb6a5dd5db4ead019181b9e59aa80b0bc91b152fa368c8feeb9f92b87f8f"
+    },
+    {
+      "path": "scripts/acquire_btc_spot_perp_continuation_data_v2.py",
+      "sha256": "3dea656fc3fee62e36dbe4a306d39ffc766d237583936ff769c732d6c41b81d5"
+    },
+    {
+      "path": "scripts/acquire_btc_spot_perp_continuation_data_v3.py",
+      "sha256": "fcbb7c7f55d67c62f1a759ce7470dec8d671573109d999e7179e86da232f0869"
+    },
+    {
+      "path": "scripts/audit_btc_carry_data.py",
+      "sha256": "c1bd7e4db4ce0278ff2055061e2b66d2c3c8a3af2d421e5c887309d25933894b"
+    },
+    {
+      "path": "scripts/audit_btc_deribit_dvol_source.py",
+      "sha256": "59d2260b7ed34b620f84d19635b4aadd489093e1ebeb99884fa255e9a3cb8c5d"
+    },
+    {
+      "path": "scripts/audit_btc_market_condition_inputs.py",
+      "sha256": "d279f23530026b7b6a0986b243fa1ecb4daee26cc83b463dd959ad92a33826b0"
+    },
+    {
+      "path": "scripts/audit_btc_spot_perp_continuation_data.py",
+      "sha256": "d1fc6286a283ec80f9d4f3c6d7b0c2adf818ff352cea4b101c60d26fc111c6fa"
+    },
+    {
+      "path": "scripts/audit_btc_spot_perp_continuation_data_v2.py",
+      "sha256": "321f4b169e8d175ebab344fb38ade18138bfd0f8105eb98efb58d23b78979539"
+    },
+    {
+      "path": "scripts/audit_btc_spot_perp_continuation_data_v3.py",
+      "sha256": "e6f25836cba1c54df53dcddb4ff455b9f2572074c11efb75033de90364913eb3"
+    },
+    {
+      "path": "scripts/backtest_btc_positive_funding_carry.py",
+      "sha256": "e8000fd60413be32cd9916d1ea50d233b2c5144a689c1caec330b1bb0b3a4f93"
+    },
+    {
+      "path": "scripts/build_btc_backtest_scorecards.py",
+      "sha256": "5bce40ee12417ae029b8a9f888791f8bfe534743ce93f1b40d0962de9b9096fc"
+    },
+    {
+      "path": "scripts/qualify_btc_backtest_core.py",
+      "sha256": "04381b82840a9f2569ce4bd500c7bedae9489d73aefc2c9370c3ee7b2c3e6fa3"
+    },
+    {
+      "path": "scripts/qualify_btc_market_condition_primitives.py",
+      "sha256": "0b1c8e2f410cba6dab761097da9b998e0cd889eb654daaef5b79cea77146928d"
+    },
+    {
+      "path": "scripts/qualify_btc_score_combination_foundation.py",
+      "sha256": "7cc86a500ad003c8a43e68ce602e892116840a1b7e22e970debd7016f0310bf4"
+    },
+    {
+      "path": "scripts/run_btc_persistence_information.py",
+      "sha256": "f0cc6432a4affdff5efd2849f5d112147176fda2964325d5e03f7a01e0adb3b0"
+    },
+    {
+      "path": "scripts/run_btc_reversion_information.py",
+      "sha256": "28c85b88c25e9d3b8ae8358ee89935f6ecbc4993e33786a7c477bc565def845d"
+    },
+    {
+      "path": "scripts/run_btc_downside_tail_information.py",
+      "sha256": "585ac2d966aaae5cc71da15f912a3200dc8dae530a625cee175be8f2580bc6a3"
+    },
+    {
+      "path": "scripts/run_btc_jump_information.py",
+      "sha256": "2f07d6fc3cd7ab2607974202842834a4f3cbb1356b516de4bb636c0dfaa34b79"
+    },
+    {
+      "path": "scripts/audit_btc_mcs3_c_readiness.py",
+      "sha256": "87ef72f990c29393cf9090f43eb8e8673f6ae0ddd66f272ed6edad56a6a4d6b2"
+    },
+    {
+      "path": "scripts/recover_btc_carry_gaps.py",
+      "sha256": "06c93996fc4306e3cd430542235080e4d6ef01daec30536f4472df2848d08154"
+    },
+    {
+      "path": "scripts/run_btc_har_rv_risk_forecast.py",
+      "sha256": "22f6a62f3c7be50ec443165c00f36bfcbe29a5f4b040af021baf9da442f4fd24"
+    },
+    {
+      "path": "scripts/validate_btc_focused_context.py",
+      "sha256": "a8f6091a45ce5499dfac825e38599bb61a5c19dfafd263c01dc9736fe9b4bf73"
+    },
+    {
+      "path": "src/trading_platform/btc_carry.py",
+      "sha256": "f0b12f170fb86b47818a8348fca22fe61eccc74f52dec78755a4401dba3aa719"
+    },
+    {
+      "path": "src/trading_platform/btc_backtest.py",
+      "sha256": "8fa614335ab854a4335bac4dea48fe4736f8341c89eaf8967e946c8cd4c831c1"
+    },
+    {
+      "path": "src/trading_platform/research_metrics.py",
+      "sha256": "6dd961cf3ca573edeaa6a669e09d8bbbd3fb80792a7b4cf9b4cdcae1f42e4dc3"
+    },
+    {
+      "path": "src/trading_platform/research_persistence.py",
+      "sha256": "3b1bbb1a39a183917c0728edc26a0f48267337722beb32419b34ab9a8070a21c"
+    },
+    {
+      "path": "src/trading_platform/research_market_conditions.py",
+      "sha256": "977fc4e799077cea6f2ab34eb6106a9f587a6c4f2a1d68370f2cd0e92a9615ec"
+    },
+    {
+      "path": "src/trading_platform/research_condition_scores.py",
+      "sha256": "4d74582802c329c169d892514f25b0ebbe3e73713f86bbb0da7a990687c77219"
+    },
+    {
+      "path": "src/trading_platform/research_har.py",
+      "sha256": "b826bcb33c312314afd93039ae16186292b45c15b398d7edd0af9fc0a58e0c46"
+    },
+    {
+      "path": "src/trading_platform/research_risk.py",
+      "sha256": "363ec3bbb098cf11f1a934b4c22cd3b7abb09e834701465eb16acfe7e040db10"
+    },
+    {
+      "path": "src/trading_platform/research_score_ensembles.py",
+      "sha256": "86d8d963a407c71a660fd2cc5e5be9c8eaf450427c9812fd684cd2fdf5025e39"
+    },
+    {
+      "path": "src/trading_platform/research_reversion.py",
+      "sha256": "ee3f3a7ae938bc26c4da61aaca4f39884240af0d39a78bcc1ca47eefe70a7bec"
+    },
+    {
+      "path": "src/trading_platform/research_downside.py",
+      "sha256": "0e72e8a9691a85083ee56b6aeebf759e8a2caf0dc85154f3902201925e27e1e5"
+    },
+    {
+      "path": "src/trading_platform/research_jump.py",
+      "sha256": "e2aa6a9cfa48cd9e699ebcca13f8d5907099059291675f46d1698706307c8f8c"
+    },
+    {
+      "path": "src/trading_platform/research_carry_readiness.py",
+      "sha256": "06e0d202992cf072bd7a104c2429147018b8ffb969aefa12265409f45f71161a"
+    },
+    {
+      "path": "tests/test_btc_backtest_core.py",
+      "sha256": "9a7ffda6898f48ec110ce0aa7a6b36e6b7925ee1e6ee760b047f39420273a5b5"
+    },
+    {
+      "path": "tests/test_btc_carry.py",
+      "sha256": "dddb18bf076158d27b2d830eb7136299b64a1d80f55d970c4187744ca3a23b00"
+    },
+    {
+      "path": "tests/test_btc_backtest_scorecards.py",
+      "sha256": "c02205031953766a05534e2731ce490b368f8123ed87bfa328cc2dd656685bfd"
+    },
+    {
+      "path": "tests/test_btc_deribit_dvol_source.py",
+      "sha256": "8d42423464f40b13e4fee788a939167594461bc6a0db8681c047efd6b5f1779e"
+    },
+    {
+      "path": "tests/test_research_metrics.py",
+      "sha256": "f1796165cc7a75c76e422253590b5e9c15086c4342617fe5f1e45bdf4111dca7"
+    },
+    {
+      "path": "tests/test_research_persistence.py",
+      "sha256": "8f2432898e59d63449b559285675189c5dc76ec9d2850991e12426f5c00bab01"
+    },
+    {
+      "path": "tests/test_research_market_conditions.py",
+      "sha256": "64733f35e0ea5b7fcbafb9cf22a9bbad24d84fdd4ad2b7cb284a917a631cfc7c"
+    },
+    {
+      "path": "tests/test_research_condition_scores.py",
+      "sha256": "a9e72c723eba9e59ca79aa75835ce67c973d065c0f0f776bbdb76410995ed391"
+    },
+    {
+      "path": "tests/test_research_score_ensembles.py",
+      "sha256": "d1c03125b2a8598e881cab5ca8e3d9aee9334f711cb00eb9d7fd8310a580c397"
+    },
+    {
+      "path": "tests/test_research_har.py",
+      "sha256": "632c061557612c8fc7328c41ffd6cef38ad496d11e084b30cfddf2f09f7ab39d"
+    },
+    {
+      "path": "tests/test_research_risk.py",
+      "sha256": "573d53070c3758c9120a295513121a6dd32603f9a2d81368140108087ddcbcd2"
+    },
+    {
+      "path": "tests/test_research_reversion.py",
+      "sha256": "337918b64b9464e05c6be95218dad8a83a37b6954a16168975a96d9da7fa3a2d"
+    },
+    {
+      "path": "tests/test_research_downside.py",
+      "sha256": "98a8eeb6c8aefe77fabc33f19f7d89228bbc9bf280e197b27af2355e0ee241f9"
+    },
+    {
+      "path": "tests/test_research_jump.py",
+      "sha256": "387175636e597c500ae4891c7b587e1f7a385fd4371dba10ed62233fcc053fc2"
+    },
+    {
+      "path": "tests/test_research_carry_readiness.py",
+      "sha256": "5c0142214b1955e44a01eed94dc7111d95581406c16cad427d62228bd989eb13"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/audit/audit-report.json",
+      "sha256": "aa9fbae11b6691ff967df895e97f60de910f9079713b3562bde69e06869f25ae"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/evidence-manifest.json",
+      "sha256": "bb41f2806c49683364d730ade5cfd3a714d76770af1b00d1b222c8070823871f"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/features/evidence-manifest.json",
+      "sha256": "00c157555f9a392efdeb986f4efd6f8d953ee3b8aeecc13d25001a1a3660e4f5"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/features/feature-gate-report.json",
+      "sha256": "43d754ae825c547e9812d8371f6224fd62e43dc66e01b91a9c9a7227b97a7b0d"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/features/features.jsonl.gz",
+      "sha256": "2181b5df0a20bc0b545634971ebe1b2d6a2313a22fccfe1a04e73b642070a1fa"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/labels/evidence-manifest.json",
+      "sha256": "7c320cb34b10a0ddf71e905c64fc62cc8a35ca61486c01f8a3879027b776bd79"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/labels/label-gate-report.json",
+      "sha256": "21b2790b4ff6f47bdc4f64e0e6ed041cae2546319ff7812435425e7d54ed629d"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/labels/labels.jsonl.gz",
+      "sha256": "c3f121be03447c0138424607897d4c87abe09959f168a8b20e307a0b9e1a1a7d"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v1.json",
+      "sha256": "a7d9b0d1a46d9972934e0f5bd49be85c9bbfbe8471483666691425958edc3b4c"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v2.json",
+      "sha256": "8bdca8bf01ec379cdb89397e9c5a09d8a8c0bb747726ffa50290a9a75efbf567"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_PLAN.md",
+      "sha256": "418ecfe17ec68d394d3da9642310408a90871d20bd9a2feea93e7a48b073c9a4"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V1_PREFLIGHT_RESULT.md",
+      "sha256": "1c3ea1877b937b9f85a462516336c3eaf5453f73bf146fac4f11e73e16f7778d"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V2_PLAN_ADDENDUM.md",
+      "sha256": "b38a5ba5ac2d6fa58a8de73afbedc4bfa61611a1d933b4cc70ca67afe0fbda8f"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V2_RESULT.md",
+      "sha256": "7b4b44167f9b904420197d926f568fa5e42ce6710aa0ffd50fee9da009cc0ff2"
+    },
+    {
+      "path": "research/btc/tests/test_spot_perp_continuation_information.py",
+      "sha256": "5180edf1d1ed92ca819fbb66cd87abebbbe97447ca687ab91d10c1d2dd030f52"
+    },
+    {
+      "path": "scripts/audit_btc_spot_perp_continuation_information.py",
+      "sha256": "e1b9d17899bee1caf02e6f8f3caf65654d0fb0b0dcf56246679cddd7e79d77b2"
+    },
+    {
+      "path": "scripts/run_btc_spot_perp_continuation_information.py",
+      "sha256": "364aa4c7be8b65bb233c0f58fadd5af9cf85dde21b83327966da4513ffefa86d"
+    },
+    {
+      "path": "src/trading_platform/research_spot_perp_continuation.py",
+      "sha256": "d892e5db73eb96cb493bb4d2c920d79b110d80dac094370f03f702aeea232a03"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/audit/audit-report.json",
+      "sha256": "20672beffd1b27956c7f2654073b33d2f4dd8a2f572974b877efc8c0b9ce1452"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/audit/evidence-manifest.json",
+      "sha256": "cf305d56ce0a5841b48018c1829df1ff335af454a216281a360dd18cd60da9d1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/endpoints/endpoint-gate-report.json",
+      "sha256": "062cacc473df143f4b51d9d445942d8842d2101f6d7096fe9187a21f9b5c3849"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/endpoints/endpoints.jsonl.gz",
+      "sha256": "f9f840f968401f5537a8d627da3761e6ccf62d668a2a31223b0f7fe7b12a8694"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/endpoints/evidence-manifest.json",
+      "sha256": "b3ac163767a6f65424d1dfd18041c8ac288ef0151c265119fd39d204be40b658"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/evidence-manifest.json",
+      "sha256": "c695eae28edbc065d7e06c4cda0542a9c8f163d9fe58bde2497eaef279672852"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/labels/evidence-manifest.json",
+      "sha256": "c788d316072122ea8ffabd0a2cd5237fd231d4fb9401c8df9eeeb4a45036a61c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/labels/label-gate-report.json",
+      "sha256": "998421dcbc8f2b72a6325ef16e78364ee2e1761d383f934438bb3a7cc4525717"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/labels/labels.jsonl.gz",
+      "sha256": "6c3bff77c0af80553312d8135640f93879a6148d21112f99525659cf26bf7f09"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/evidence-manifest.json",
+      "sha256": "ce96ec63555ee65b12d9edb6d3ff18f780668fe04fc867b82fd99caa7d5616bd"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/forecasts.jsonl.gz",
+      "sha256": "69778b8edc633657b6fbe2fe8d039db33218c5b68e7550c3c7e25cb33311d2da"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/model-snapshots.jsonl.gz",
+      "sha256": "f445b29a873952d39f7b155c061bb9eaed2d0a79baa6bde0b5517ac752cba5f3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/report.json",
+      "sha256": "a89f1bf3ebab91cb40c99b69faf4e60382d3610376fbcd8843c688d35c64b1ba"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v3.json",
+      "sha256": "2fd5da347538e8ff87fa852d26e822148b3110f944cad124a52e7c380151ab47"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V3_PLAN.md",
+      "sha256": "724d435bac25b4e65105a1064a3218246c7d6f2da9c456096a007766662ff8ee"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V3_RESULT.md",
+      "sha256": "98cacab3944f3b48c86ce4659e1474e12ba23a94e61aa79784103bef88a7b1ce"
+    },
+    {
+      "path": "research/btc/tests/test_spot_perp_continuation_information_v3.py",
+      "sha256": "05d256f9d86df0991d2b419ced1bddabd893a71cf0cdbc7ac5a6b25bbf83020e"
+    },
+    {
+      "path": "scripts/audit_btc_spot_perp_continuation_information_v3.py",
+      "sha256": "cc965b90c60e4ec80206a7ac896efc488b7ebc82883cffbaa6d9bb1a0953cd19"
+    },
+    {
+      "path": "scripts/run_btc_spot_perp_continuation_information_v3.py",
+      "sha256": "db1fc38e8211a97dede7b07dc57d934f427e1f4b90a05e5d5456794064f531c5"
+    },
+    {
+      "path": "src/trading_platform/research_spot_perp_continuation_v3.py",
+      "sha256": "5a734b16935090cb2c3d7a82f8d1f309353638827e52918bb3f8cef03141f942"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/safe-delta-neutral-funding-carry-v2/audit/audit-report.json",
+      "sha256": "9426d413900cf100d840e69aa1893bf57287e71fa168ff595f5a96784f8b7d81"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/safe-delta-neutral-funding-carry-v2/audit/evidence-manifest.json",
+      "sha256": "ec562ee8342b3a55ba57247bc58f94b8da6659298bdea595cc3812aa1214fb72"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/safe-delta-neutral-funding-carry-v2/report.json",
+      "sha256": "b894aec7a10675a6ace2169f73e8797aeaf51ba235c14eaff34d311f4d56b254"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/safe-delta-neutral-funding-carry-v2/evaluation-primary-trades.jsonl",
+      "sha256": "3820c0cad386259be388c0164fd57c97b21a24e58a9b9ad3f988e253797bd6aa"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/safe-delta-neutral-funding-carry-v2/evidence-manifest.json",
+      "sha256": "4fbfc4be0e91768a92717a84ad4470c619ed674f2463fdc429cc998eac938e1b"
+    },
+    {
+      "path": "research/btc/contracts/btc-safe-delta-neutral-funding-carry-v2.json",
+      "sha256": "bbc26048579c5078ac4e2eeb6262ffc80489a5688b8cd6714ba7f4aad56c9ec8"
+    },
+    {
+      "path": "research/btc/reports/BTC_SAFE_FUNDING_CARRY_RISK_V2_PLAN.md",
+      "sha256": "e6d4509c75e6277e1a72017fcdb080cbb19492b6e945e7df9084c1165f51bdb4"
+    },
+    {
+      "path": "research/btc/reports/BTC_SAFE_FUNDING_CARRY_RISK_V2_RESULT.md",
+      "sha256": "f666c216446f8b08e34b1056030e6ec531250a0cc5871db76f4f27c815b721c5"
+    },
+    {
+      "path": "src/trading_platform/btc_carry_risk_v2.py",
+      "sha256": "80b941452069def94ab5223a2434f3ede4045ed336226e57321b2cfbb92edc1f"
+    },
+    {
+      "path": "scripts/backtest_btc_safe_funding_carry_risk_v2.py",
+      "sha256": "e0f3461bab1051f693f1cadbfc9a0cabbed5a95334c3427dfbb1aea0d1672eb7"
+    },
+    {
+      "path": "scripts/audit_btc_safe_funding_carry_risk_v2.py",
+      "sha256": "3e8be3752bdebd7556b5fcf2e446c7190a5129abfde9342e9d4288ee38ec0782"
+    },
+    {
+      "path": "tests/test_btc_carry_risk_v2.py",
+      "sha256": "c653d39857bc8b4d89d8f1c30a4d3c5b07759027442dafb11eb4183bb077066d"
+    },
+    {
+      "path": "docs/BTC_DIRECTIONAL_PERPETUAL_RESEARCH_MANDATE.md",
+      "sha256": "3f45479d9e6461b725f7a21eaaeeea025d531fd30ba331930aea4cbde02a076d"
+    },
+    {
+      "path": "config/mandates/retail-btc-directional-perpetual-research-v1.json",
+      "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V1_PLAN.md",
+      "sha256": "0eca2df792e5d798551fc797f8cf3246ae7d3cd80592e453dd3c240fd25c8982"
+    },
+    {
+      "path": "research/btc/contracts/btc-multihorizon-perp-trend-v1.json",
+      "sha256": "6f6a2e63d91e9fded7553d43db3cdf3899620b895b0e71b9a94c78ed7699cfee"
+    },
+    {
+      "path": "scripts/audit_btc_multihorizon_perp_trend_t0.py",
+      "sha256": "5c776c34488b86f4e1d867723f09344539ac804307ff81adcf0b5451ef4ab15d"
+    },
+    {
+      "path": "research/btc/tests/test_multihorizon_perp_trend_t0.py",
+      "sha256": "9326f91be6603d8ea69da3cc166af3ac991f78d3d0928aa98722cac338aef262"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1/t0/report.json",
+      "sha256": "36049f7b92ea32633d887e39746831e44778257a4cc98c549c18a87e0f9b7150"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1/t0/evidence-manifest.json",
+      "sha256": "fd41c2ec98466ae318666b5422bc401eaacaf2a0d407b64e5e76f39efe170686"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1/t0-v2/report.json",
+      "sha256": "f5a1a06ae4cfa39b47bc1d09a4546777117431427e46d6af1b858b65d380aff8"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1/t0-v2/evidence-manifest.json",
+      "sha256": "c3e3a9ee7fc125288277763051375f1d877c261c0a614e8feb3818c7446365ed"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V1_T0_RESULT.md",
+      "sha256": "4394387c0b0c3dcc78e6b256d33c306b0c19f4978ccfc07d3ed691d47de2cc87"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V2_PLAN.md",
+      "sha256": "7831b3ca504807fa46e15a059d80a4430e10de5a6f09e4ecbe8c05c59b91ac98"
+    },
+    {
+      "path": "research/btc/contracts/btc-multihorizon-perp-trend-v2.json",
+      "sha256": "a648590ee37521a2eb58b1388a22b050cb4a6fcb0e1d317d06e7b35851551837"
+    },
+    {
+      "path": "src/trading_platform/btc_multihorizon_trend.py",
+      "sha256": "ecc8d2db2ef04a15ae18d49c420daaaeb58f967e0e818021eba4d8994a8afff9"
+    },
+    {
+      "path": "research/btc/tests/test_multihorizon_perp_trend_t1.py",
+      "sha256": "296bd19ed4e88012aee42360da9be4b682ae6b79726868f715af5f816756b3a9"
+    },
+    {
+      "path": "scripts/audit_btc_multihorizon_perp_trend_t1.py",
+      "sha256": "1ae779d048542b02e3bcf86323ff4143d9b03004b900d666232c09ee61ea0f09"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v2/t1/audit-report.json",
+      "sha256": "e54d779b34a7340fa29a85a80a3e4ad07f14ee6265947e9593d9ec1474ec7cd1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v2/t1/evidence-manifest.json",
+      "sha256": "c37a57459579c6bba9e18162ed0d206cdb2ba8c2cee17df150ede6b7fd4aca89"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V2_T1_RESULT.md",
+      "sha256": "6eab8528522097e7d88373a0bcdf7e4ed42d70691fb530316cd530f4ec2c88cd"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V3_EXECUTION_BINDING.md",
+      "sha256": "a2163db742eb10e86f0329baca5a484b8eb33f1915923d15674f64f123d364da"
+    },
+    {
+      "path": "research/btc/contracts/btc-multihorizon-perp-trend-v3.json",
+      "sha256": "dcfbadf1a79c1994792964baa15b7bcad7972eb1f199e72405b6d4d9a172e5b8"
+    },
+    {
+      "path": "research/btc/contracts/btc-multihorizon-perp-trend-v4.json",
+      "sha256": "ba173e808ef77a49ce4a4bb0747535bbf0f3a61407e96ea6e2197470d030c376"
+    },
+    {
+      "path": "research/btc/contracts/btc-multihorizon-perp-trend-v5.json",
+      "sha256": "fdec9fe6b8cda064ab91566174d4fccf3a73ed4cd669fe4470f0b131f4e66569"
+    },
+    {
+      "path": "scripts/run_btc_multihorizon_perp_trend_v5.py",
+      "sha256": "6ecab3d7b6fdf9136beffd845b0d7b3e5f4d6399dbee881dec3a77c968f9f83c"
+    },
+    {
+      "path": "research/btc/tests/test_multihorizon_perp_trend_v5_adapter.py",
+      "sha256": "31b816cc258f9daf48d6a027d98d7cefb118725f5e63caa75617f04831faa3fa"
+    },
+    {
+      "path": "scripts/audit_btc_multihorizon_perp_trend_v5.py",
+      "sha256": "597bd83fb440b4fe8e6f4589e1d46c66255f5dae06e5d22d747f626e52fbc13a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v5/report.json",
+      "sha256": "7ad817356fcdbef5781324cf4fd92331122c5b9a25c274346b679f799eb883e5"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v5/evidence-manifest.json",
+      "sha256": "49fad2d06be3f9290203aa8314f7aeece7df3c85e5385dd346a18048d71ddbee"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v5/audit/audit-report.json",
+      "sha256": "de96bf2251c0a4a676cda6f4d150eb1484d4e6093e846e219c94b01bf0fcad41"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v5/audit/evidence-manifest.json",
+      "sha256": "e2e1a3d4b6e2e85998652ca1c609c0fb28e1431dea568d98add9ae83c7204ca7"
+    },
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V5_RESULT.md",
+      "sha256": "88f8f0daf3eb3258aae68d1e13e0ee96412c6574f27d9def04e9859d24b07f28"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_PLAN.md",
+      "sha256": "db515111ebf718d14c73d894911de61278b4835234ab66cb9e1846d50e23b122"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_REVIEW.md",
+      "sha256": "65e8390e79804365668466895008a3ed969367f459e1b2dbf4fb6a4c4fa2e9d7"
+    },
+    {
+      "path": "scripts/validate_btc_unified_engine_e0.py",
+      "sha256": "ab243ff054bd7888c00fcd2696346ec9fdbc42d8adf3d51762c8fc1d28386871"
+    },
+    {
+      "path": "research/btc/tests/test_unified_engine_e0.py",
+      "sha256": "b31bfa654036b5ffcc43184632b94d08ad9bd58ab23f76c9b83f68104d5466cb"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/unified-backtest-engine-e0-v1/qualification-report.json",
+      "sha256": "25706a5ab9b2844af521f1652d3d43691cc64caf4b5792dc5bc7cac0ab73fe9b"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/unified-backtest-engine-e0-v1/evidence-manifest.json",
+      "sha256": "688c395db6315d006fee109d2f100873d82bae68a87cf86acd331beae1b77f03"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/unified-backtest-engine-e0-v1-failed-preflight-path-normalization/qualification-report.json",
+      "sha256": "25706a5ab9b2844af521f1652d3d43691cc64caf4b5792dc5bc7cac0ab73fe9b"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/unified-backtest-engine-e0-v1-failed-preflight-path-normalization/FAILURE.md",
+      "sha256": "33fc09ce3c8dfd73a10fbf158a46b450b89606f71b5cdb8314bdf9f678b0b37b"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v4-lineage-recovery.json",
+      "sha256": "d8b2852e6ef1e1c5b32bbf585f64683751d95480f9c87f890408708b58b5407c"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V4_LINEAGE_RECOVERY_PLAN.md",
+      "sha256": "15db934d98d1ceabae4b5da5d7ac87538fe47617b446741e5c8220c8ea169f35"
+    },
+    {
+      "path": "research/btc/incidents/unified-engine-v3-missing-paused-draft-tombstone.json",
+      "sha256": "2c3e5c7c65ef5b2323689693ed0c1a2e8d7a1fd52566857f04257cb4bee9ae26"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/README.md",
+      "sha256": "8f806d9e52bc908c2dcea9f332ea54645072dad6330485ea8685761e52e92af2"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/identity/BTC_UNIFIED_BACKTEST_ENGINE_E1_V14_MODULAR_PLAN.md",
+      "sha256": "ed3f0c7d26fcbd0aa4c343c1e2e3ee923c7fba76acdabb0be303c2c8f1f1ae1f"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/identity/btc-unified-backtest-engine-e1-v14-identity.json",
+      "sha256": "d9deacb388f46daa77fda6470b82feba13093b2bb2c4895be9c32b0caa0d1259"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/snapshot/candidate/candidate-manifest.json",
+      "sha256": "33af0cdb2eea21ce54d16786f17632a51fdbaebd4fdf598b9cfa3e1bf9e2268b"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v5-post-freeze-design-failure/README.md",
+      "sha256": "fe29ff4214457dc5b738a371711602bf7be459694252429140dbfe2e60f89aa5"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v6-overbroad-downstream-contract/README.md",
+      "sha256": "c04b14d58d2314ff98277b27fa44f6e6e3746615d543b71eb989f0e17ddf41be"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v7-c0-boundary-review-failure/README.md",
+      "sha256": "0aa4434e19e073d09be29d29f4befa14941fa03d0e4437a20db8b45b7888aa92"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v8-preflight-path-failure/README.md",
+      "sha256": "5d60366a3b76dc9335826731f66d100de51989d59ba94e2b263f72d020c85335"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v9-preflight-self-path-failure/README.md",
+      "sha256": "4a80239bee382f42e7a49033c10fef1bd2673476a7558b4e3e8b29f95a10a3c5"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v10-registry-lineage-review-failure/README.md",
+      "sha256": "208dda89d8b1781d4a53ee1124840ef793d92487d26edb37a877d339b31db1a1"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v11-semantic-closure-review-failure/README.md",
+      "sha256": "7eb17ed981944ac2e88cc6449bd0c9fc325d9a5eda64bf12475dfe24236d8241"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_NEXT_PLAN.md",
+      "sha256": "1b6b0a1216e913b0f859dac14d03b998f512e56ca57de6a9cd1ae0be46322c15"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/README.md",
+      "sha256": "98b08d8011438c69c5f2e6b2c1bfadb710a2fc2bb65855baaf8190f6c96cf93a"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/candidate/pre-review-bundle-manifest.json",
+      "sha256": "82abf80c66c49bb780bf764f17a9c1313bb611002ad6815c642386b2910c1516"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/research/btc/contracts/btc-unified-backtest-engine-e0-v12-c0-authority-boundary.json",
+      "sha256": "cb05d5ddcc7843882b1083633bd0bf0cdb948123c1debc1937afb9154e4a394b"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V12_C0_AUTHORITY_PLAN.md",
+      "sha256": "ce7fd6e2590338d634c12ad68698b62e5bb2e20c6b455ff30429a7535bcfc223"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V12_C0_FAILURE_MATRIX.md",
+      "sha256": "dda51027b8795a32c30f7aa0991b288885923d69f0afc9b779784226da8dae65"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/research/btc/specs/btc-backtest-c0-authority-interface-e0-v12.json",
+      "sha256": "ce7225d4959d3f60d176dab1f717adc1be906f1ba94214a8586c155e2ff0bbcf"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/research/btc/specs/btc-backtest-c0-inherited-obligations-e0-v12.json",
+      "sha256": "c26b5a39df660e306bf81db89bf270bff2e8929ac180f87e91ff8dbfe0012bad"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/research/btc/tests/test_unified_engine_e0_v12.py",
+      "sha256": "b3a4b90dccdb5b9e0f5acbe2b80f8db7fd4196f1b002ea9e1ee6866af961bf8b"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e0-v12-final-review-failure/snapshot/scripts/validate_btc_unified_engine_e0_v12.py",
+      "sha256": "756fd62b455b3a8890ba656c7ef6793d3708b3fa0bb0492e1cc86a6a4b37d41d"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-backtester-r0-v1.md",
+      "sha256": "49004b3da35d25d6067ad44a7f7a130e61f755162b2b060d95f6a5f955dca229"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-backtester-r0-v1-input-manifest.json",
+      "sha256": "c46e335ab642beb77709fde8aac6c33c7da60c56ab100445f9c4fa5993ebaa5a"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R0_V1_EXPECTATIONS.md",
+      "sha256": "ec25f69f9961accb2ba6abefed9a049dc6c7b7bb1ba845f207b595f5dd713879"
+    },
+    {
+      "path": "research/btc/reference_r0.py",
+      "sha256": "f1a2ba860f17395fa73442c5e8c7d63bb4d80a70c29f41e4bcd74d66c0a9b11d"
+    },
+    {
+      "path": "research/btc/tests/test_reference_r0.py",
+      "sha256": "0aad4cbd58cfed9bcb301638a96d96860dce4e32703344e57043ef5f974b3833"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R0_V1_REVIEW.md",
+      "sha256": "bb03c7d100748db8aa0469c78799bba46619e30b8f5e2cda8bc315e6126c70a1"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R0_V1_RESULT.md",
+      "sha256": "14f2b4af0719236aa70bbcbf198cf869cbd747bb7f36eddbea0d0559c0974f0c"
+    },
+    {
+      "path": "research/btc/reports/btc-reference-backtester-r0-v1-evidence.json",
+      "sha256": "6bd9944f6f1c451e899bd3a4f4b85ba0ab8376aca84e0a8371591a520054ac85"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R1_RECONCILIATION_PLAN.md",
+      "sha256": "48db3454aa40b5c147040d483500a7a32cc87b9c426e378ae16d9a486191bc80"
+    },
+    {
+      "path": "research/btc/reports/btc-reference-r1-source-review-manifest.json",
+      "sha256": "79de6cfa93f6ddfd1c82e8863835547e46807da3d3c5e7fda206ed66aea462a7"
+    },
+    {
+      "path": "research/btc/reference_r1.py",
+      "sha256": "b86d6d3be65f2d6b4b5e5c3e0e797b811ef4a33f04effa0a6341358f68d438ad"
+    },
+    {
+      "path": "research/btc/tests/test_reference_r1.py",
+      "sha256": "bf4d4ce930aa4ffabd56e3ee0bf952d91e2426f7c08ab10e102d115ba51bedd7"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-fill-accounting-r1-v1.md",
+      "sha256": "3559e66f274b4a37ee5c0d70e9ba2c3e68ce007e6e51fa1e85d3a6d1ccbe10c3"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-fill-accounting-r1-v2.md",
+      "sha256": "51f02a7a3ae60f7ae3215fdd464ba3e0db999a5db69a0515e7f6922adf43ddd9"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-r1-input-manifest.json",
+      "sha256": "ed0a033764afcf96e0c6332daf20a48d99f635bd7a07802d79e1f3c638f05c8c"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-r1-v2-input-manifest.json",
+      "sha256": "08e6e5426cb5fbc7f6d2fd5dd13f81d18990afe11d61a5b5b47d163b05875821"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_R1_LITERAL_CASES.md",
+      "sha256": "2ad5cd8f2dfe6ecac88a57fcc4ad3d8e2a94c0385d121560c68b5c043a57e1e7"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_R1_RESULT.md",
+      "sha256": "9a89732862264bd941da049ad69851e9747d7b6c6dd8c15a3bbafec0af0a4296"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_R1_REVIEW.md",
+      "sha256": "040ba695ef2dccfc1ce8fbf8ec078da527026158875b3aef2a51b51400bf9236"
+    },
+    {
+      "path": "research/btc/reports/btc-reference-r1-v2-evidence.json",
+      "sha256": "3df1dccba5176811a736881ded52c5d4df415043158ddaa1cb0055f228c21713"
+    },
+    {
+      "path": "research/btc/invalid/reference-fill-r1-v1-precision-failure/BTC_REFERENCE_R1_LITERAL_CASES.md",
+      "sha256": "2ad5cd8f2dfe6ecac88a57fcc4ad3d8e2a94c0385d121560c68b5c043a57e1e7"
+    },
+    {
+      "path": "research/btc/invalid/reference-fill-r1-v1-precision-failure/README.md",
+      "sha256": "c2e855950c1bc730614fa0f2ecec4bae77b02313fd726679ef09e67b7f50dbbc"
+    },
+    {
+      "path": "research/btc/invalid/reference-fill-r1-v1-precision-failure/btc-reference-fill-accounting-r1-v1.md",
+      "sha256": "3559e66f274b4a37ee5c0d70e9ba2c3e68ce007e6e51fa1e85d3a6d1ccbe10c3"
+    },
+    {
+      "path": "research/btc/invalid/reference-fill-r1-v1-precision-failure/btc-reference-r1-input-manifest.json",
+      "sha256": "ed0a033764afcf96e0c6332daf20a48d99f635bd7a07802d79e1f3c638f05c8c"
+    },
+    {
+      "path": "research/btc/invalid/reference-fill-r1-v1-precision-failure/reference_r1.py",
+      "sha256": "20748478b390f9be51e3b5903b2c27308bf9a898311c8873dcbe453ab02ca386"
+    },
+    {
+      "path": "research/btc/invalid/reference-fill-r1-v1-precision-failure/test_reference_r1.py",
+      "sha256": "5bcf0eb4b10440529bcbf0a74d044e08fb857f3debc688486709a20a0782cf5f"
+    },
+    {
+      "path": "research/btc/contracts/btc-archived-breakout-reconciliation-r2-v1.md",
+      "sha256": "8a4a9ee52eee4ed4e1400d3495c2d08e57fa78a514c17f71f2384c2ae83fec49"
+    },
+    {
+      "path": "research/btc/reports/BTC_ARCHIVED_BREAKOUT_R2_FREEZE.md",
+      "sha256": "7bbbd15bb8391b238377a3ec098874be4d4d6e16295c54abec8451ed45e90fba"
+    },
+    {
+      "path": "research/btc/contracts/btc-archived-breakout-r2-input-manifest.json",
+      "sha256": "b8d28244997b3ed3191ba93eaf86030a76c7651dfa61e9e78aeef5d98dd65d64"
+    },
+    {
+      "path": "research/btc/reconcile_r2.py",
+      "sha256": "4fc1d2a3b3eb3dd3df18568e9ab7e993639270ebdcd42838ba44f6eca09a8c87"
+    },
+    {
+      "path": "research/btc/tests/test_reconcile_r2.py",
+      "sha256": "3f75af599e70c56a3e9482fb9dc98306f5062019ca7e0bf6e2338f45dd95535f"
+    },
+    {
+      "path": "research/btc/reports/BTC_R2_REVIEW.md",
+      "sha256": "be2655048c9e0778a2ae98d46d7c837ef127278909dc436a1d2352f4f169b4f1"
+    },
+    {
+      "path": "research/btc/reports/btc-r2-reviewed-bundle.json",
+      "sha256": "732e02e7bf72f5711fcbd799ec228b60624511fef8b45170e55336ff51712580"
+    },
+    {
+      "path": "research/btc/reports/btc-r2-v1-compatibility-result.json",
+      "sha256": "fcb19591587ee59e40a88f0d8e18e143aa7523d953999fb12b2ef785c5ad882b"
+    },
+    {
+      "path": "research/btc/reports/BTC_R2_V1_RESULT.md",
+      "sha256": "9eeafdb053009917166c51962c436ad693565c72bf762cc0ac4a245d4b6f2e5d"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-fill-accounting-r1-v3.md",
+      "sha256": "b9fae5dc9f5b4d059e98855c36e2704452f0aa1d69ce6ce027845c4a0f37bdf5"
+    },
+    {
+      "path": "research/btc/contracts/btc-archived-breakout-reconciliation-r2-v2.md",
+      "sha256": "5e0b48515a63895310fd858bf95f357e50b8d97e2e386ecfb054011cdef44bf2"
+    },
+    {
+      "path": "research/btc/contracts/btc-wide-precision-successors-inputs.json",
+      "sha256": "4f496779b76a939efdbb8bf81e6c61c87b36121a515877eaba60c7b4a99ef0a2"
+    },
+    {
+      "path": "research/btc/contracts/btc-breakout-execution-source-audit-a0-v1.md",
+      "sha256": "1cc9f50278225b2029025516143c495f2cf7624c8a866b34b2549745882a7760"
+    },
+    {
+      "path": "research/btc/reference_r1_v3.py",
+      "sha256": "b8ce544728204d617a67b1907906d76a3ecd1597d14211bfa72d33e76dc7d648"
+    },
+    {
+      "path": "research/btc/reconcile_r2_v2.py",
+      "sha256": "031e4e7ea561a68ccbbafd33cad0a3e3f6a4d9c7229e9eb12b736a76f2373dab"
+    },
+    {
+      "path": "research/btc/tests/test_reference_r1_v3.py",
+      "sha256": "a74024e92165972cd36b9bda089d744d1b6614afac28c3f97852e164fb77251c"
+    },
+    {
+      "path": "research/btc/tests/test_reconcile_r2_v2.py",
+      "sha256": "b7e64775cb0eb1bacdaeb8aea2fb48d8c977c78188d20188b89b6dea17aac8f9"
+    },
+    {
+      "path": "research/btc/audit_breakout_execution_a0.py",
+      "sha256": "8a484eaa180f8045a9aeae0345ea0e977b1a0d7260b7e2c4fb794288afd6aee6"
+    },
+    {
+      "path": "research/btc/reports/BTC_WIDE_PRECISION_REVIEW.md",
+      "sha256": "379d0d95b38c5f87ed4cf8eefc9c24f4a18d8e40531eab2a30f1d456085045f8"
+    },
+    {
+      "path": "research/btc/reports/BTC_EXECUTION_A0_REVIEW.md",
+      "sha256": "26af04dbe7a137ca942b2fa7d206c1a6b8150eb606ac659d2c9ae4db0d57a704"
+    },
+    {
+      "path": "research/btc/reports/btc-wide-replay-reviewed-bundle.json",
+      "sha256": "7c3aa0b421fa4a4594555e9cc8020f5cb0f5e92ed8120fbfc4f1f7103bed4214"
+    },
+    {
+      "path": "research/btc/reports/btc-r2-v2-reconciliation-result.json",
+      "sha256": "37121e19a0f44e7acd75c5ee1664b1f36ace6ce33c448c827b31bc780e5ceb71"
+    },
+    {
+      "path": "research/btc/reports/btc-execution-a0-result.json",
+      "sha256": "40cdf0edae0c13784fcd09c5ecbc15238d818f7da503f8ea334659b78c5000b2"
+    },
+    {
+      "path": "research/btc/reports/BTC_ACCOUNTING_RECONCILED_EXECUTION_AUDIT_RESULT.md",
+      "sha256": "455f63598ecd7b9189bfccdb0d37b8d42a4dbdec127ac8fc3e48ca423ca9cb90"
+    },
+    {
+      "path": "research/btc/reports/btc-accounting-execution-audit-evidence.json",
+      "sha256": "f05d3d05dabf63ec8087eadb039d581e10a6de239a65ab27a874b60c7edf21c8"
+    },
+    {
+      "path": "research/btc/BTC_PROGRAM_REVIEW_2026_09_10.md",
+      "sha256": "2a6f995a3ce964ac3c08f41778cea514a918829c0218670f4b06986ab54f1a5f"
+    }
+  ],
+  "controls": [
+    "btc_fixed_breakout_development_control",
+    "btc_ewma_scaled_breakout_mandatory_risk_benchmark",
+    "flat",
+    "buy_and_hold",
+    "timestamp_and_exposure_matched_controls"
+  ],
+  "last_completed_experiment": "btc-breakout-execution-source-audit-a0-v1_execution_findings_confirmed",
+  "latest_decision_digest": "875d8f035c01d416fa7b03f5b32b21feb8ef524587fff60fb78c6a6496200de1",
+  "next_permitted_action": "Freeze_execution_correction_specification_then_synthetic_qualification_before_historical_replay",
+  "schema_version": "btc-focused-research-index-v1",
+  "selected_strategy_candidate": "none_multihorizon_perp_trend_v5_rejected",
+  "selected_strategy_direction": "materially_different_non_price_trend_BTC_alpha_required",
+  "status": "offline_research_only"
+}

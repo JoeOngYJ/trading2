@@ -1,0 +1,29 @@
+{
+  "actionable_arm_id": "no_trade",
+  "identity": "btc-archived-breakout-reconciliation-r2-v1",
+  "incompatible_fields": {
+    "entry_fill": {
+      "count": 2,
+      "max_digits": 17,
+      "max_fractional_digits": 13
+    },
+    "exit_fill": {
+      "count": 2,
+      "max_digits": 17,
+      "max_fractional_digits": 13
+    },
+    "quantity": {
+      "count": 201,
+      "max_digits": 20,
+      "max_fractional_digits": 19
+    }
+  },
+  "record_count": 201,
+  "run_at": "2026-09-08T00:13:29Z",
+  "scenario_counts": {
+    "candle-primary-30bps-rt-v1": 67,
+    "candle-severe-80bps-rt-v1": 67,
+    "candle-stress-40bps-rt-v1": 67
+  },
+  "status": "blocked_numeric_compatibility"
+}

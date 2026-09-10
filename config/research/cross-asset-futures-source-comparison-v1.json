@@ -1,0 +1,39 @@
+{
+  "automatic_purchase_allowed": false,
+  "candidates": [
+    {
+      "coverage_quote_state": "pending_exact_quote",
+      "gate_results": {},
+      "provider_id": "cme_datamine",
+      "provider_role": "direct_exchange",
+      "twelve_month_tco": null
+    },
+    {
+      "coverage_quote_state": "pending_exact_quote",
+      "gate_results": {},
+      "provider_id": "databento",
+      "provider_role": "cme_licensed_distributor",
+      "twelve_month_tco": null
+    }
+  ],
+  "currency": null,
+  "exact_quote_required": true,
+  "required_gates": [
+    "authorized_distribution",
+    "contract_definitions",
+    "exact_boundary_coverage",
+    "final_settlements",
+    "private_research_retention",
+    "publication_timestamps",
+    "reproducible_retrieval"
+  ],
+  "schema_version": "cross-asset-futures-source-comparison-v1",
+  "selected_provider_id": null,
+  "selection_rule": {
+    "databento_discount_must_exceed_fraction": "0.10",
+    "default_when_both_pass_and_discount_does_not_exceed_threshold": "cme_datamine",
+    "every_gate_must_pass": true
+  },
+  "status": "blocked_pending_exact_quotes",
+  "user_approval_required_before_purchase": true
+}

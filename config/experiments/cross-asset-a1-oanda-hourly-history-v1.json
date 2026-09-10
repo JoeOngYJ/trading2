@@ -1,0 +1,184 @@
+{
+  "acceptance_rules": {
+    "a1_pass_requires_at_least_candidate_count": 5,
+    "complete_session_day_minimum": 3000,
+    "fully_closed_local_dates_are_unavailable_not_gaps": true,
+    "history_first_candle_on_or_before": "2010-02-01T00:00:00Z",
+    "history_last_candle_on_or_after": "2025-12-15T00:00:00Z",
+    "identical_chunk_overlap_counted_once_without_raw_change": true,
+    "incomplete_observed_session_fraction_maximum": "0.02",
+    "maximum_internal_gap_hours": 168,
+    "minimum_core_roles": [
+      "us_index",
+      "europe_index",
+      "gold",
+      "eurusd",
+      "usdjpy"
+    ],
+    "missing_required_window_bar_disposition": "no_trade",
+    "optional_instrument_failure_restarts_vendor_selection": false,
+    "strategy_evaluation_authorized_by_this_experiment": false
+  },
+  "candidate_instruments": [
+    {
+      "family": "global_equity_index",
+      "instrument_id": "SPX500_USD",
+      "required_role": "us_index",
+      "session_profile": "new_york"
+    },
+    {
+      "family": "global_equity_index",
+      "instrument_id": "NAS100_USD",
+      "required_role": "us_index",
+      "session_profile": "new_york"
+    },
+    {
+      "family": "global_equity_index",
+      "instrument_id": "DE30_EUR",
+      "required_role": "europe_index",
+      "session_profile": "london"
+    },
+    {
+      "family": "global_equity_index",
+      "instrument_id": "UK100_GBP",
+      "required_role": "europe_index",
+      "session_profile": "london"
+    },
+    {
+      "family": "gold",
+      "instrument_id": "XAU_USD",
+      "required_role": "gold",
+      "session_profile": "new_york"
+    },
+    {
+      "family": "foreign_exchange",
+      "instrument_id": "EUR_USD",
+      "required_role": "eurusd",
+      "session_profile": "new_york"
+    },
+    {
+      "family": "foreign_exchange",
+      "instrument_id": "USD_JPY",
+      "required_role": "usdjpy",
+      "session_profile": "new_york"
+    }
+  ],
+  "cost_boundary_for_later_stages": {
+    "entry_and_exit_use_historical_bid_ask": true,
+    "fx_conversion_reported_separately": true,
+    "positions_flat_before_17_00_America_New_York": true,
+    "round_trip_additional_slippage_bps": [
+      0,
+      5,
+      15
+    ]
+  },
+  "evidence_boundary": {
+    "end_exclusive": "2026-01-01T00:00:00Z",
+    "sealed_2026_price_access_allowed": false,
+    "start_inclusive": "2010-01-01T00:00:00Z"
+  },
+  "experiment_id": "cross-asset-a1-oanda-hourly-history-v1",
+  "frozen_at": "2026-08-30T12:17:40Z",
+  "frozen_catalogue": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/raw/instrument-catalogue.json",
+    "sha256": "cc7db952caeadb4b8823529f81b6ccc7de56a9554ba6a8beae5b7a4a02d2de74"
+  },
+  "mandate": {
+    "path": "config/mandates/retail-cross-asset-research-v6.json",
+    "sha256": "789211dc38ca539b5d9a23d39848815fe4cb9087fddb33351f05fd9f42c9e957"
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1",
+    "normalized_rows_are_price_only": true,
+    "raw_responses_immutable": true
+  },
+  "prohibitions": {
+    "account_private_state_allowed": false,
+    "database_access_allowed": false,
+    "features_or_labels_allowed": false,
+    "market_returns_or_pnl_allowed": false,
+    "message_bus_access_allowed": false,
+    "order_or_preview_allowed": false,
+    "production_signal_or_position_allowed": false,
+    "strategy_parameters_or_ranking_allowed": false
+  },
+  "request_plan": {
+    "allowed_http_method": "GET",
+    "candle_query": {
+      "granularity": "H1",
+      "price": "BA",
+      "smooth": "false"
+    },
+    "chunk_boundaries": [
+      "2010-01-01T00:00:00Z",
+      "2010-07-01T00:00:00Z",
+      "2011-01-01T00:00:00Z",
+      "2011-07-01T00:00:00Z",
+      "2012-01-01T00:00:00Z",
+      "2012-07-01T00:00:00Z",
+      "2013-01-01T00:00:00Z",
+      "2013-07-01T00:00:00Z",
+      "2014-01-01T00:00:00Z",
+      "2014-07-01T00:00:00Z",
+      "2015-01-01T00:00:00Z",
+      "2015-07-01T00:00:00Z",
+      "2016-01-01T00:00:00Z",
+      "2016-07-01T00:00:00Z",
+      "2017-01-01T00:00:00Z",
+      "2017-07-01T00:00:00Z",
+      "2018-01-01T00:00:00Z",
+      "2018-07-01T00:00:00Z",
+      "2019-01-01T00:00:00Z",
+      "2019-07-01T00:00:00Z",
+      "2020-01-01T00:00:00Z",
+      "2020-07-01T00:00:00Z",
+      "2021-01-01T00:00:00Z",
+      "2021-07-01T00:00:00Z",
+      "2022-01-01T00:00:00Z",
+      "2022-07-01T00:00:00Z",
+      "2023-01-01T00:00:00Z",
+      "2023-07-01T00:00:00Z",
+      "2024-01-01T00:00:00Z",
+      "2024-07-01T00:00:00Z",
+      "2025-01-01T00:00:00Z",
+      "2025-07-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "maximum_requests": 224,
+    "permitted_endpoint_template": "/v3/instruments/{instrument}/candles",
+    "request_timeout_seconds": 45
+  },
+  "schema_version": "cross-asset-a1-oanda-hourly-history-contract-v1",
+  "session_profiles": {
+    "london": {
+      "local_candle_start_hours": [
+        8,
+        9,
+        10,
+        11,
+        15
+      ],
+      "timezone": "Europe/London"
+    },
+    "new_york": {
+      "local_candle_start_hours": [
+        9,
+        10,
+        11,
+        12,
+        16
+      ],
+      "timezone": "America/New_York"
+    }
+  },
+  "source_access": {
+    "account_id_environment_variable": "OANDA_ACCOUNT_ID",
+    "account_id_sha256": "34f424dd382ce2b9cc81056f8bec9daf49b0ef28669854e11488d6e7d8539910",
+    "api_base_url": "https://api-fxtrade.oanda.com",
+    "api_token_environment_variable": "OANDA_API_TOKEN",
+    "api_token_may_be_logged_or_serialized": false,
+    "api_url_environment_variable": "OANDA_API_URL"
+  },
+  "status": "frozen"
+}

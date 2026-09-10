@@ -1,0 +1,41 @@
+{
+  "actionable_arm_id": "no_trade",
+  "controls": [
+    "zero_yield_gbp_cash",
+    "equity_buy_and_hold",
+    "exposure_matched_continuous_equities",
+    "5000_seeded_random_monthly_windows_with_identical_exposure"
+  ],
+  "cost_scenarios_round_trip_bps": [
+    10,
+    25,
+    50
+  ],
+  "economic_results_read_before_freeze": false,
+  "experiment_id": "cash-etf-turn-of-month-proxy-v1",
+  "family": "cash_etf_turn_of_month",
+  "gates": {
+    "best_three_month_positive_pnl_max_fraction": "0.50",
+    "development_and_validation_net_return_positive": true,
+    "maximum_drawdown_fraction": "0.20",
+    "minimum_positive_calendar_year_fraction": "0.60",
+    "paired_month_block_excess_confidence_lower_bound_positive": true,
+    "stress_cost_net_return_positive": true,
+    "validation_minimum_calmar": "0.50",
+    "validation_minimum_sharpe": "0.50"
+  },
+  "primary_cost_round_trip_bps": 25,
+  "proxy_only": true,
+  "rule": {
+    "allocation_per_symbol": "0.50",
+    "cash_return_assumption": "zero_percent_gbp",
+    "entry_session": "final_us_session_open",
+    "exit_session": "fourth_us_session_next_month_open",
+    "symbols": [
+      "EFA",
+      "SPY"
+    ]
+  },
+  "schema_version": "cash-etf-proxy-strategy-contract-v1",
+  "status": "frozen"
+}

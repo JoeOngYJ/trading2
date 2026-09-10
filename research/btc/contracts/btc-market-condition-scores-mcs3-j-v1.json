@@ -1,0 +1,226 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "risk_cap_mapping_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "benchmark": {
+    "event_probability": "Jeffreys_smoothed_prevalence_equals_event_count_plus_0.5_divided_by_181_over_preceding_180_completed_same_segment_blocks_including_current_block",
+    "intensity": "arithmetic_mean_jump_share_over_preceding_180_completed_same_segment_blocks_including_current_block",
+    "lookback_blocks": 180,
+    "probability_smoothing_alpha": 0.5,
+    "probability_smoothing_beta": 0.5
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs2-v1.json",
+      "sha256": "4c3499da9621d6dcfc9ab615934b39c2934bba4fb3749df6cd41b421b1a6ca0a"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-d-v1.json",
+      "sha256": "1206acf6e80f985bd491e60f1a67aa7135c84f4ea541be5835bd7050cbed1024"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/evidence-manifest.json",
+      "sha256": "003329d9685b692154bcfad710ca3afb47ca1ab6d355adb4f96f90ae9ca0a672"
+    },
+    {
+      "path": "research/btc/contracts/btc-multidimensional-risk-foundation-v1.json",
+      "sha256": "6b5514f8d53420c99084430e9c85dee964313cfbf22c48fae1d0526346e63212"
+    },
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    }
+  ],
+  "candidate": {
+    "event_probability": "fixed_lambda_EWMA_of_completed_same_segment_event_indicators_updated_through_current_block",
+    "initialization": "same_Jeffreys_smoothed_180_block_event_probability_and_180_block_mean_intensity_as_benchmark",
+    "intensity": "fixed_lambda_EWMA_of_completed_same_segment_jump_shares_updated_through_current_block",
+    "lambda": 0.94,
+    "one_day_event_probability": "one_minus_one_minus_four_hour_probability_to_the_sixth_power",
+    "probability_log_loss_clip": [
+      1e-06,
+      0.999999
+    ],
+    "reset_rule": "reset_initialization_after_any_gap_or_segment_change"
+  },
+  "chronology": {
+    "block_alignment": "UTC_hours_00_04_08_12_16_20",
+    "decision_clock": "four_hour_block_close_after_complete_same_segment_block",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T04:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "observation_availability": "observed_at_equals_available_at_equals_four_hour_block_close",
+    "target_availability": "end_of_last_complete_future_target_block"
+  },
+  "disposition_rules": {
+    "accepted_for_future_offline_shock_risk_research": "all_frozen_primary_and_data_gates_pass",
+    "cap_or_strategy_use_requires_separate_contract": true,
+    "promotion_or_live_evidence": false,
+    "rejected": "any_frozen_primary_or_data_gate_fails",
+    "rerun_or_tuning_under_same_id": false
+  },
+  "event_definition": {
+    "caveat": "estimator_defined_dominant_discontinuous_variation_proxy_not_a_formal_statistically_significant_BNS_structural_jump_test",
+    "event": "jump_share_greater_than_or_equal_to_0.50",
+    "event_threshold": 0.5,
+    "inclusive_tie": true,
+    "intensity": "jump_share",
+    "unsigned": true
+  },
+  "experiment_id": "btc-market-condition-scores-mcs3-j-v1",
+  "frozen_at": "2026-08-31T16:00:00Z",
+  "gates": {
+    "all_input_causality_common_row_score_domain_isolation_and_replay_checks_pass": true,
+    "primary_4h_average_precision_above_control": true,
+    "primary_4h_average_precision_ratio_to_prevalence_minimum": 1.1,
+    "primary_4h_brier_and_log_improvements_positive_after_excluding_each_metrics_best_three_months": true,
+    "primary_4h_brier_skill_minimum": 0.02,
+    "primary_4h_candidate_brier_strictly_below_control": true,
+    "primary_4h_candidate_forecast_mean_inside_event_fraction_wilson_interval": true,
+    "primary_4h_candidate_intensity_mae_strictly_below_control": true,
+    "primary_4h_candidate_intensity_mse_strictly_below_control": true,
+    "primary_4h_candidate_log_loss_strictly_below_control": true,
+    "primary_4h_effective_observations_minimum": 500,
+    "primary_4h_event_count_minimum": 100,
+    "primary_4h_event_count_per_year_minimum": 8,
+    "primary_4h_event_prevalence_maximum": 0.2,
+    "primary_4h_event_prevalence_minimum": 0.005,
+    "primary_4h_forecast_count_minimum": 8000,
+    "primary_4h_intensity_improvement_positive_after_excluding_best_three_months": true,
+    "primary_4h_intensity_mse_improvement_month_block_lower_95_strictly_above": 0,
+    "primary_4h_intensity_quartile_realized_means_non_decreasing": true,
+    "primary_4h_joint_annual_event_loss_and_intensity_improvement_years_minimum": 5,
+    "primary_4h_joint_leave_one_year_out_positive_years_minimum": 6,
+    "primary_4h_log_loss_improvement_month_block_lower_95_strictly_above": 0,
+    "primary_4h_month_block_brier_improvement_lower_95_strictly_above": 0,
+    "primary_4h_overall_coverage_minimum": 0.65,
+    "primary_4h_per_year_coverage_minimum": 0.5,
+    "primary_4h_probability_calibration_ece_maximum": 0.02,
+    "primary_4h_top_minus_bottom_probability_quintile_event_rate_month_block_lower_95_strictly_above": 0,
+    "required_evaluation_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "valid_bootstrap_replications_minimum": 9500
+  },
+  "hypothesis": "Estimator-defined dominant discontinuous-variation events and jump intensity cluster at short horizons, so fixed-lambda causal EWMAs of completed event indicators and jump shares improve next-four-hour event probability and intensity forecasts over preceding-30-day rolling controls.",
+  "input_contract": {
+    "expected_interval": "5m",
+    "expected_rows": 878985,
+    "instrument": "BTC/USDT",
+    "rules": [
+      "canonical_UTC_Z_timestamps_only",
+      "observed_at_equals_available_at_equals_close_at",
+      "strictly_increasing_open_and_close_times",
+      "positive_finite_close",
+      "exact_5m_spacing_inside_each_segment",
+      "closed_segments_may_not_reappear",
+      "four_hour_measurement_and_future_target_windows_may_not_cross_segments_or_gaps",
+      "input_checksum_and_row_count_must_match",
+      "no_legacy_1h_input",
+      "no_2026_or_holdout_path"
+    ]
+  },
+  "measurement": {
+    "bipower_variation": "pi_over_2_times_48_over_47_times_sum_of_47_adjacent_absolute_five_minute_return_products",
+    "complete_four_hour_block": "exactly_48_contiguous_5m_candles_in_one_source_segment_plus_the_contiguous_prior_close",
+    "five_minute_return": "close_to_close_log_return",
+    "jump_share": "nonnegative_jump_variation_divided_by_realized_variance_when_realized_variance_positive_else_zero",
+    "nonnegative_jump_variation": "maximum_of_realized_variance_minus_bipower_variation_and_zero",
+    "realized_variance": "sum_of_48_squared_five_minute_returns"
+  },
+  "outputs": {
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/evidence-manifest.json",
+    "forecast_ledger": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/forecasts.jsonl.gz",
+    "measurement_ledger": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/measurements.jsonl.gz",
+    "report": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-j-v1/report.json",
+    "result_document": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_J_RESULT.md"
+  },
+  "prohibited": [
+    "calling_a_proxy_event_a_formally_proven_structural_jump",
+    "using_MCS3_D_semivariance_diagnostic_MCS3_R_downside_subset_or_rejected_HMM_jump_feature",
+    "adding_signed_jump_high_low_volume_L2_flow_derivatives_or_other_features",
+    "full_sample_or_outcome_selected_event_threshold_lambda_lookback_or_horizon",
+    "classification_accuracy_or_F1_as_primary_evidence",
+    "strategy_entry_exit_position_order_cost_or_PnL_logic",
+    "mapping_forecast_to_RiskCap_shock_cap_or_allocation",
+    "reopening_or_rescuing_rejected_strategy_or_score_families",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-market-condition-scores-mcs3-j-contract-v1",
+  "score_contract": {
+    "axis": "jump_change",
+    "candidate_and_benchmark_forecasts_must_use_identical_rows": true,
+    "completed_measurement_and_future_forecast_ledgers_separate": true,
+    "evidence_status_during_experiment": "development",
+    "future_offline_cap_research_requires_separate_contract": true,
+    "score_ids": [
+      "dominant_discontinuous_variation_event_probability",
+      "jump_share_intensity"
+    ]
+  },
+  "scoring": {
+    "average_precision": "descending_probability_stable_sort_with_equal_score_groups_integrated_at_group_boundaries",
+    "brier": "squared_probability_minus_binary_target",
+    "brier_skill": "one_minus_candidate_mean_brier_divided_by_control_mean_brier",
+    "calibration": "five_equal_count_probability_bins_and_expected_calibration_error_weighted_by_bin_count",
+    "effective_observations": "Bartlett_long_run_variance_adjustment_with_lag_six_on_primary_binary_target",
+    "intensity_mae": "absolute_forecast_minus_future_jump_share",
+    "intensity_mse": "squared_forecast_minus_future_jump_share",
+    "log_loss": "negative_binary_cross_entropy_after_frozen_probability_clip",
+    "rank_information": "Spearman_rank_correlation_for_intensity_diagnostic"
+  },
+  "stage_id": "MCS3-J",
+  "statistics": {
+    "confidence_interval": 0.95,
+    "month_block_bootstrap_replications": 10000,
+    "month_block_bootstrap_seed": 20260831,
+    "month_block_unit": "UTC_target_available_calendar_month",
+    "same_exact_seed_for_every_bootstrap": true,
+    "wilson_z": 1.959963984540054,
+    "year_assignment": "target_available_at_UTC_calendar_year"
+  },
+  "status": "frozen_before_any_future_jump_or_intensity_outcome_read",
+  "targets": [
+    {
+      "event_target": "next_complete_four_hour_block_event",
+      "horizon": "4h",
+      "intensity_target": "next_complete_four_hour_block_jump_share",
+      "role": "primary",
+      "target_blocks": 1
+    },
+    {
+      "event_target": "any_event_in_next_six_complete_four_hour_blocks_using_same_fixed_event_definition",
+      "horizon": "1d",
+      "intensity_target": "arithmetic_mean_jump_share_across_next_six_complete_four_hour_blocks",
+      "role": "secondary_diagnostic_cannot_rescue_primary",
+      "target_blocks": 6
+    }
+  ]
+}

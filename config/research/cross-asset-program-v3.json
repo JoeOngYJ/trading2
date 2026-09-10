@@ -1,0 +1,107 @@
+{
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "required_session_start_paths": [
+    "AGENTS.md",
+    "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/evidence-manifest.json",
+    "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2/evidence-manifest.json",
+    "config/experiments/cross-asset-a1-oanda-source-pilot-v1.json",
+    "config/experiments/cross-asset-a1-oanda-source-pilot-v2.json",
+    "config/mandates/retail-cross-asset-research-v5.json",
+    "config/research/cross-asset-data-contract-v3.json",
+    "config/research/cross-asset-decisions-v1.jsonl",
+    "config/research/cross-asset-instrument-access-v3.json",
+    "config/research/cross-asset-program-v3.json",
+    "config/research/cross-asset-status-v3.json",
+    "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+    "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+    "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+    "docs/EXECUTION_COST_MODEL.md",
+    "docs/RESEARCH_TRACKER.md",
+    "docs/STRATEGY_RESEARCH_STANDARD.md"
+  ],
+  "safety_boundaries": {
+    "actionable_arm_id": "no_trade",
+    "bulk_market_data_download_allowed": false,
+    "credentials_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "research_data_provider_api_tokens_allowed": true,
+    "running_soak_access_allowed": false,
+    "strategy_evaluation_allowed_in_a0": false
+  },
+  "schema_version": "cross-asset-research-program-v3",
+  "stages": [
+    {
+      "dependencies": [],
+      "next_action": "Preserve A0 as passed; all later source work remains offline and checksummed.",
+      "objective": "Freeze the research-only mandate, capital and risk boundary, stage graph, durable handoff and fail-closed validator.",
+      "pass_gate": "Contracts are canonical, unsafe runtime assumptions fail closed, no instrument or strategy is approved, and actionable output remains no_trade.",
+      "stage_id": "A0"
+    },
+    {
+      "dependencies": [
+        "A0"
+      ],
+      "next_action": "Freeze a bounded OANDA hourly bid/ask intraday pilot for FX, spot metal and index CFDs; do not use oil or bond CFDs until historical continuous financing is qualified.",
+      "objective": "Qualify an account-specific OANDA broker-native research universe with immutable bid/ask data, causal timestamps, segments and cost semantics without relabelling CFDs as futures.",
+      "pass_gate": "The selected development instruments pass hourly source, identity, timestamp, gap, bid/ask and intraday cost gates; all positions are flat before daily financing and no execution instrument is approved.",
+      "stage_id": "A1"
+    },
+    {
+      "dependencies": [
+        "A1"
+      ],
+      "next_action": "Record independent acceptance or rejection before selecting a non-trend family.",
+      "objective": "Evaluate one frozen intraday multi-market trend family at fixed risk using chronological and genuinely prospective evidence.",
+      "pass_gate": "The trend family beats flat, matched-exposure and simple controls after historical bid/ask and frozen slippage with acceptable uncertainty, concentration and drawdown; multiple speeds remain one family.",
+      "stage_id": "A2"
+    },
+    {
+      "dependencies": [
+        "A1"
+      ],
+      "next_action": "Continue to risk overlays only if at least one arm passes; routing still requires two distinct accepted families.",
+      "objective": "Evaluate one economically distinct non-trend intraday family selected before results.",
+      "pass_gate": "The chosen family independently passes causal, cost, capacity, robustness, attribution and unseen-evidence gates; no alternative opens after observing PnL.",
+      "stage_id": "A3"
+    },
+    {
+      "dependencies": [
+        "A2"
+      ],
+      "next_action": "Retain the simple risk benchmark regardless of result; do not create a universal directional regime oracle.",
+      "objective": "Evaluate continuous volatility, correlation and liquidity risk scaling for accepted arms, beginning with simple EWMA and covariance controls.",
+      "pass_gate": "Risk scaling improves frozen tail and risk-adjusted metrics without changing forecast direction, exceeding leverage limits or depending on hindsight thresholds.",
+      "stage_id": "A4"
+    },
+    {
+      "dependencies": [
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "next_action": "Freeze the complete shared-capital system before prospective observation.",
+      "objective": "Compare no_trade, the best single arm, a static accepted-arm blend and a deterministic risk-aware router using one shared capital account.",
+      "pass_gate": "At least two economically distinct arms are accepted and routing adds stable net value after costs, uncertainty, turnover and concentration while actionable output remains no_trade.",
+      "stage_id": "A5"
+    },
+    {
+      "dependencies": [
+        "A5"
+      ],
+      "next_action": "Require a new execution mandate, exact venue, credentials review and explicit written approval before any live-capital proposal.",
+      "objective": "Prospectively paper-observe each accepted arm and the shared-capital portfolio with availability, forecasts, fills, costs, risk and decay attribution.",
+      "pass_gate": "The frozen observer completes its predeclared duration and opportunity minimums without evidence contamination, unresolved operational failures or drawdown-limit breaches.",
+      "stage_id": "A6"
+    }
+  ],
+  "supersedes": {
+    "path": "config/research/cross-asset-program-v2.json",
+    "sha256": "4e64c242dd01f5bbd263b81226f64453da3a493ca0a12cf74e7b35e869c0d0d3"
+  }
+}

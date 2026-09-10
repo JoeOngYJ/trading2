@@ -1,0 +1,147 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "allocation_or_risk_cap_mapping_allowed": false,
+    "live_allocation_usdt": 0,
+    "promotion_evidence_allowed": false,
+    "strategy_return_or_pnl_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/contracts/btc-multidimensional-risk-foundation-v1.json",
+      "sha256": "6b5514f8d53420c99084430e9c85dee964313cfbf22c48fae1d0526346e63212"
+    },
+    {
+      "path": "config/experiments/btc-regime-routing-s2-ewma-v2.json",
+      "sha256": "11d0d0ba1ccca6460c52c83a287d6b897f4dadb899cf81c8df733d7de6fb5efd"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/btc-usdt-direct-1d-development-2017-2025.jsonl.gz",
+      "sha256": "b47b32f0f64371108d947fcb1b0656170dc728d81442accdf52808c2f95fba12"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/manifest.json",
+      "sha256": "417ac403fd06d71af9fd9c62e3d677065de8452f254c57cd7bcb9f3f10ea849d"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "src/trading_platform/research_volatility.py",
+      "sha256": "1cc67d574c10babd5629d36fe12f3071053b44581a456faeff20f5f7d467ee10"
+    }
+  ],
+  "data": {
+    "daily_close_control_rows": 3059,
+    "daily_close_source": "official_Binance_BTCUSDT_1d_close_only",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T04:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "expected_five_minute_rows": 878985,
+    "five_minute_source": "checksummed_S1_segment_aware_BTCUSDT_5m_candles",
+    "sealed_2026_access_allowed": false
+  },
+  "evaluation": {
+    "bootstrap_replications": 10000,
+    "bootstrap_seed": 20260831,
+    "common_row_comparison_required": true,
+    "controls": [
+      "mandatory_close_return_EWMA_lambda_0_94",
+      "same_input_realized_variance_EWMA_lambda_0_94"
+    ],
+    "evidence_classification": "consumed_development_only_not_promotion_evidence",
+    "forecast_horizons_days": [
+      1,
+      7
+    ],
+    "future_label_embargo": "training_row_eligible_only_when_target_end_is_not_after_refit_cutoff",
+    "losses": [
+      "QLIKE",
+      "MSE"
+    ],
+    "monthly_uncertainty": "paired_resampling_of_UTC_calendar_month_mean_loss_differences",
+    "qlike_formula": "log(forecast_variance)+realized_variance/forecast_variance",
+    "realized_variance_definition": "sum_of_squared_consecutive_five_minute_close_to_close_log_returns_over_a_complete_same_segment_UTC_horizon",
+    "refit_schedule": "first_UTC_midnight_of_each_calendar_month",
+    "year_2026_rows_allowed": false
+  },
+  "experiment_id": "btc-har-rv-risk-forecast-v1",
+  "frozen_at": "2026-08-31T02:06:26Z",
+  "hypothesis": "A causal log-HAR-RV forecast using completed daily, weekly and monthly realized-variance components improves one-day and seven-day BTC realized-variance forecasts over both the mandatory close-return EWMA and a same-input realized-variance EWMA, without direction, strategy PnL, risk-cap mapping, sealed data or executable output.",
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "protected_service_access_allowed": false,
+    "refuse_symlink_inputs": true
+  },
+  "model": {
+    "daily_realized_variance_floor": 1e-12,
+    "direct_models_by_horizon": true,
+    "features": {
+      "daily": "log_of_latest_completed_daily_realized_variance",
+      "monthly": "log_of_arithmetic_mean_of_latest_22_consecutive_completed_daily_realized_variances",
+      "weekly": "log_of_arithmetic_mean_of_latest_5_consecutive_completed_daily_realized_variances"
+    },
+    "forecast_ceiling": "past_training_target_99th_percentile",
+    "forecast_floor": "past_training_target_1st_percentile",
+    "minimum_training_samples": 250,
+    "refit_frequency": "monthly_expanding_window",
+    "ridge_penalty_on_standardized_slopes": 1e-06,
+    "same_input_ewma_initialization_observations": 30,
+    "same_input_ewma_lambda": 0.94,
+    "smearing_correction": "past_training_mean_of_exp_residual",
+    "target": "log_of_sum_of_future_daily_realized_variance_for_the_frozen_horizon",
+    "variant_id": "log_har_rv_d1_w5_m22_ridge_1e_6"
+  },
+  "output": {
+    "allow_overwrite_nonempty": false,
+    "deterministic_gzip_mtime": 0,
+    "root": "artifacts/agent-level-experiment/btc-focused/har-rv-risk-forecast-v1"
+  },
+  "prohibited": [
+    "strategy_signal",
+    "return_or_PnL_calculation",
+    "allocation_or_risk_cap_mapping",
+    "automatic_releveraging",
+    "bull_bear_sideways_label",
+    "parameter_search_or_post_result_selection",
+    "reopening_rejected_BOCPD_or_Student_t_HMM",
+    "2026_data",
+    "partial_OB0_access",
+    "protected_service_access",
+    "live_or_paper_exchange_action"
+  ],
+  "rejection_rule": "Reject this experiment without tuning if any causal, checksum, continuity, embargo, deterministic-output, isolation or no-trade gate fails, or if any frozen forecast-quality gate fails. Passing accepts at most a consumed-development standalone volatility-forecast challenger; it does not make the model a usable risk cap, validate a strategy, provide promotion evidence or authorize routing.",
+  "schema_version": "btc-har-rv-risk-forecast-contract-v1",
+  "status": "frozen_before_implementation_and_results",
+  "validity_gates": {
+    "calibration_fourth_quartile_realized_above_first_both_horizons": true,
+    "forecast_and_label_timestamps_strictly_causal": true,
+    "har_mean_mse_ratio_to_same_input_ewma_maximum_both_horizons": 1.05,
+    "har_mean_qlike_strictly_below_both_controls_one_day": true,
+    "har_mean_qlike_weakly_below_both_controls_seven_day": true,
+    "leave_one_year_out_positive_qlike_improvement_vs_same_input_ewma_minimum": 6,
+    "minimum_common_forecasts_one_day": 1800,
+    "minimum_common_forecasts_seven_day": 1700,
+    "minimum_monthly_refits_each_horizon": 80,
+    "minimum_one_day_calendar_year_qlike_wins_vs_same_input_ewma": 5,
+    "minimum_overall_common_row_coverage_each_horizon": 0.7,
+    "minimum_yearly_common_row_coverage_each_horizon": 0.5,
+    "one_day_month_bootstrap_qlike_improvement_lower_95_vs_same_input_ewma_strictly_positive": true,
+    "outputs_canonical_checksummed_and_byte_reproducible": true,
+    "risk_cap_eligible_after_result": false,
+    "strategy_or_pnl_computed": false
+  }
+}

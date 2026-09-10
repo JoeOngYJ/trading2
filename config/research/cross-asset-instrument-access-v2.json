@@ -1,0 +1,55 @@
+{
+  "approved_execution_instruments": [],
+  "default_planning_jurisdiction": "UK_retail",
+  "jurisdiction_selection_policy": {
+    "account_specific_permission_required_before_paper_or_live": true,
+    "anti_circumvention": true
+  },
+  "research_candidates": [
+    {
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity",
+      "instrument_id": "MES",
+      "market": "CME listed future",
+      "public_uk_retail_evidence": "CME UK PRIIPs document and IBKR public product/commission pages",
+      "research_data_state": "candidate"
+    },
+    {
+      "execution_state": "conditional_unapproved",
+      "family": "gold",
+      "instrument_id": "MGC",
+      "market": "COMEX listed future",
+      "public_uk_retail_evidence": "CME UK PRIIPs document and IBKR public product/commission pages",
+      "research_data_state": "candidate"
+    },
+    {
+      "execution_state": "conditional_unapproved",
+      "family": "energy",
+      "instrument_id": "MCL",
+      "market": "NYMEX listed future",
+      "public_uk_retail_evidence": "CME UK PRIIPs document and IBKR public product/commission pages",
+      "research_data_state": "candidate"
+    },
+    {
+      "execution_state": "conditional_unapproved",
+      "family": "foreign_exchange",
+      "instrument_id": "M6E",
+      "market": "CME listed future",
+      "public_uk_retail_evidence": "CME UK PRIIPs document and IBKR public product/commission pages",
+      "research_data_state": "candidate"
+    },
+    {
+      "execution_state": "conditional_unapproved",
+      "family": "sovereign_rates",
+      "instrument_id": "MTN",
+      "market": "CBOT listed future",
+      "public_uk_retail_evidence": "CME UK PRIIPs document and IBKR public product/commission pages",
+      "research_data_state": "candidate_short_exact_history"
+    }
+  ],
+  "schema_version": "cross-asset-instrument-access-v2",
+  "supersedes": {
+    "path": "config/research/cross-asset-instrument-access-v1.json",
+    "sha256": "137f061754018296f9967ac86b82842629ace8a106afafeaf90e7e096e273444"
+  }
+}

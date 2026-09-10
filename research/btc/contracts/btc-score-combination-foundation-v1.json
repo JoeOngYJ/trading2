@@ -1,0 +1,151 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "current_actionable_risk_control": "EWMA_volatility_benchmark_only",
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "real_market_score_combination_allowed": false,
+    "strategy_direction_or_pnl_evaluation_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs2-v1.json",
+      "sha256": "4c3499da9621d6dcfc9ab615934b39c2934bba4fb3749df6cd41b421b1a6ca0a"
+    },
+    {
+      "path": "research/btc/contracts/btc-multidimensional-risk-foundation-v1.json",
+      "sha256": "6b5514f8d53420c99084430e9c85dee964313cfbf22c48fae1d0526346e63212"
+    },
+    {
+      "path": "src/trading_platform/research_condition_scores.py",
+      "sha256": "4d74582802c329c169d892514f25b0ebbe3e73713f86bbb0da7a990687c77219"
+    },
+    {
+      "path": "src/trading_platform/research_risk.py",
+      "sha256": "363ec3bbb098cf11f1a934b4c22cd3b7abb09e834701465eb16acfe7e040db10"
+    }
+  ],
+  "calibration_policy": {
+    "calibration_is_display_or_model_input_only": true,
+    "full_sample_normalization_allowed": false,
+    "historical_samples_must_be_available_by_score_fit_cutoff": true,
+    "method": "causal_empirical_midrank_percentile",
+    "percentile_implies_favorable_market": false,
+    "raw_value_units_and_target_preserved": true
+  },
+  "current_score_catalogue": [
+    {
+      "component": "EWMA_volatility",
+      "evidence_status": "benchmark",
+      "permitted_role": "downward_only_risk_benchmark"
+    },
+    {
+      "component": "HAR_realized_volatility",
+      "evidence_status": "rejected",
+      "permitted_role": "diagnostic_control_only"
+    },
+    {
+      "component": "negative_semivariance_component",
+      "evidence_status": "rejected_joint_experiment",
+      "permitted_role": "diagnostic_control_only"
+    },
+    {
+      "component": "persistence",
+      "evidence_status": "rejected",
+      "permitted_role": "diagnostic_control_only"
+    },
+    {
+      "component": "reversion",
+      "evidence_status": "rejected",
+      "permitted_role": "diagnostic_control_only"
+    },
+    {
+      "component": "jump_change",
+      "evidence_status": "rejected",
+      "permitted_role": "diagnostic_control_only"
+    },
+    {
+      "component": "net_carry",
+      "evidence_status": "blocked_not_fitted",
+      "permitted_role": "none"
+    },
+    {
+      "component": "liquidity_L2",
+      "evidence_status": "blocked_pending_OB1",
+      "permitted_role": "background_data_engineering_only"
+    },
+    {
+      "component": "DVOL_implied_risk",
+      "evidence_status": "blocked_pending_full_source_qualification",
+      "permitted_role": "source_diagnostic_only"
+    }
+  ],
+  "ensemble_policy": {
+    "allowed_member_evidence": [
+      "accepted",
+      "benchmark"
+    ],
+    "combined_output_evidence_status": "development",
+    "fitted_or_dynamic_weights_allowed": false,
+    "member_target_horizon_kind_and_units_must_match": true,
+    "minimum_members": 2,
+    "missing_stale_unknown_or_ineligible_member_fails_closed": true,
+    "weights": "predeclared_nonnegative_convex_sum_to_one"
+  },
+  "experiment_id": "btc-score-combination-foundation-v1",
+  "frozen_at": "2026-08-31T18:00:00Z",
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_account_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "market_data_deserialization_allowed": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false
+  },
+  "output_contracts": [
+    "ScoreCatalogueEntry",
+    "ScoreCatalogue",
+    "CalibrationSample",
+    "CalibratedScore",
+    "ConvexEnsembleSpec",
+    "SameTargetEnsembleScore"
+  ],
+  "prohibited": [
+    "universal_master_market_score",
+    "averaging_different_targets_horizons_or_units",
+    "majority_vote_across_axes",
+    "combining_rejected_or_development_scores",
+    "fitting_weights_to_market_outcomes",
+    "treating_percentiles_as_favorable_or_actionable",
+    "activating_MCS4",
+    "mapping_any_output_to_strategy_direction_position_or_order",
+    "reopening_or_tuning_rejected_score_experiments"
+  ],
+  "risk_fusion_reference": {
+    "existing_contract": "btc-multidimensional-risk-foundation-v1",
+    "policy": "minimum_of_independently_usable_required_caps",
+    "reimplemented_in_this_experiment": false
+  },
+  "schema_version": "btc-score-combination-foundation-contract-v1",
+  "status": "frozen_before_implementation",
+  "validation_gates": {
+    "canonical_serialization_and_checksums": true,
+    "catalogue_duplicate_and_status_use_validation": true,
+    "causal_calibration_rejects_future_history": true,
+    "deterministic_midrank_tie_handling": true,
+    "ensemble_rejects_mixed_target_horizon_kind_or_units": true,
+    "ensemble_rejects_rejected_development_unknown_or_stale_members": true,
+    "ensemble_weights_are_nonnegative_and_sum_to_one": true,
+    "no_action_strategy_or_pnl_surface": true,
+    "standard_library_only_and_no_production_imports": true
+  }
+}

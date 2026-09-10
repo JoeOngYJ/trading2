@@ -1,0 +1,33 @@
+{
+  "actionable_arm_id": "no_trade",
+  "artifacts": [
+    {
+      "path": "research/btc/reference_r0.py",
+      "sha256": "f1a2ba860f17395fa73442c5e8c7d63bb4d80a70c29f41e4bcd74d66c0a9b11d",
+      "size_bytes": 5362
+    },
+    {
+      "path": "research/btc/tests/test_reference_r0.py",
+      "sha256": "0aad4cbd58cfed9bcb301638a96d96860dce4e32703344e57043ef5f974b3833",
+      "size_bytes": 8172
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-backtester-r0-v1-input-manifest.json",
+      "sha256": "c46e335ab642beb77709fde8aac6c33c7da60c56ab100445f9c4fa5993ebaa5a",
+      "size_bytes": 560
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R0_V1_REVIEW.md",
+      "sha256": "bb03c7d100748db8aa0469c78799bba46619e30b8f5e2cda8bc315e6126c70a1",
+      "size_bytes": 2908
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R0_V1_RESULT.md",
+      "sha256": "14f2b4af0719236aa70bbcbf198cf869cbd747bb7f36eddbea0d0559c0974f0c",
+      "size_bytes": 2212
+    }
+  ],
+  "decision": "passed_synthetic_accounting_only",
+  "experiment_id": "btc-reference-backtester-r0-v1",
+  "recorded_at": "2026-09-07T23:40:47Z"
+}

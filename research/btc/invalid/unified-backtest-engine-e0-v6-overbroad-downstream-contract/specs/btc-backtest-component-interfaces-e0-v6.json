@@ -1,0 +1,771 @@
+{
+  "actionable_arm_id": "no_trade",
+  "components": [
+    {
+      "acceptance_dependencies": [],
+      "forbidden_responsibilities": [
+        "account_or_position_mutation",
+        "execution_fact_creation",
+        "strategy_or_target_creation"
+      ],
+      "future_experiment_id": "btc-backtest-authorities-c0-v1",
+      "id": "C0",
+      "internal_inputs": [
+        "frozen_RunSpec_ID",
+        "canonical_authority_bytes",
+        "complete_component_manifest_bytes"
+      ],
+      "outputs": [
+        "immutable_verified_RunContext",
+        "complete_implementation_manifest_digest",
+        "authority_digests"
+      ],
+      "responsibilities": [
+        "canonical_duplicate_safe_finite_JSON",
+        "authority_checksum_role_and_safe_path_verification",
+        "adapter_scenario_mandate_compatibility",
+        "complete_transitive_implementation_identity"
+      ]
+    },
+    {
+      "acceptance_dependencies": [
+        "C0"
+      ],
+      "forbidden_responsibilities": [
+        "price_discovery_or_adapter_selection",
+        "pair_recovery_orchestration",
+        "control_intention_creation"
+      ],
+      "future_experiment_id": "btc-backtest-ledger-c1-v1",
+      "id": "C1",
+      "internal_inputs": [
+        "C0_delivered_verified_RunContext",
+        "authorized_target",
+        "authority_or_accepted_adapter_delivered_ExecutionFact",
+        "authority_delivered_mark_funding_and_risk_facts",
+        "before_state_digest_bound_transition_plan"
+      ],
+      "outputs": [
+        "before_state_bound_OrderIntention",
+        "before_state_bound_TransitionPlan",
+        "immutable_economic_event_rows",
+        "immutable_account_state",
+        "closed_episode_rows"
+      ],
+      "responsibilities": [
+        "authorized_target_to_OrderIntention_during_inherited_phase_clock",
+        "execution_neutral_Decimal_state_transitions",
+        "inherited_nine_phase_event_clock",
+        "funding_margin_liquidation_gap_and_terminal_accounting",
+        "asset_specific_fee_and_tax_balance_mutation",
+        "runtime_residual_gate_and_exact_synthetic_reconciliation"
+      ]
+    },
+    {
+      "acceptance_dependencies": [
+        "C0"
+      ],
+      "forbidden_responsibilities": [
+        "cash_inventory_or_collateral_mutation",
+        "partial_fill_creation",
+        "pair_or_control_orchestration"
+      ],
+      "future_experiment_id": "btc-backtest-candle-adapter-c2-v1",
+      "id": "C2",
+      "internal_inputs": [
+        "C0_delivered_verified_RunContext",
+        "authority_delivered_canonical_candle_observation",
+        "C1_delivered_before_state_bound_OrderIntention"
+      ],
+      "outputs": [
+        "all_or_none_next_open_ExecutionFact"
+      ],
+      "responsibilities": [
+        "candle_timestamp_segment_and_gap_validation",
+        "exact_next_open_price_selection",
+        "side_aware_price_bound_and_expiry",
+        "all_or_none_fill_fact_creation"
+      ]
+    },
+    {
+      "acceptance_dependencies": [
+        "C0"
+      ],
+      "forbidden_responsibilities": [
+        "cash_inventory_or_collateral_mutation",
+        "pair_recovery",
+        "cost_comparison_reporting"
+      ],
+      "future_experiment_id": "btc-backtest-l2-adapter-c3-v1",
+      "id": "C3",
+      "internal_inputs": [
+        "C0_delivered_verified_RunContext",
+        "authority_delivered_qualified_book_observations",
+        "C1_delivered_before_state_bound_OrderIntention"
+      ],
+      "outputs": [
+        "full_partial_unfilled_or_rejected_ExecutionFact"
+      ],
+      "responsibilities": [
+        "book_timestamp_segment_staleness_and_cross_validation",
+        "frozen_latency_application_for_every_fill_reason",
+        "side_aware_depth_walk_and_price_bound",
+        "VWAP_filled_unfilled_spread_depth_and_residual_impact_facts"
+      ]
+    },
+    {
+      "acceptance_dependencies": [
+        "C0",
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "forbidden_responsibilities": [
+        "price_discovery_or_book_walk",
+        "fill_rollback",
+        "new_accounting_formula",
+        "strategy_target_creation"
+      ],
+      "future_experiment_id": "btc-backtest-pair-coordinator-c4-v1",
+      "id": "C4",
+      "internal_inputs": [
+        "C0_delivered_verified_RunContext",
+        "authorized_pair_target",
+        "accepted_C1_transition_interface",
+        "accepted_C2_or_C3_execution_interface"
+      ],
+      "outputs": [
+        "complete_bound_outcome_preflight",
+        "final_fill_sequence_with_compensating_recovery",
+        "delta_neutral_pair_episode_or_sticky_invalid_unknown"
+      ],
+      "responsibilities": [
+        "currently_bound_pair_outcome_resource_and_rule_preflight",
+        "spot_first_final_fill_ordering_without_rollback",
+        "bounded_neutralization_and_pending_safety_orchestration",
+        "truthful_post_commit_invalid_unknown_termination"
+      ]
+    },
+    {
+      "acceptance_dependencies": [
+        "C0",
+        "C1",
+        "C2"
+      ],
+      "forbidden_responsibilities": [
+        "deriving_control_economics_from_candidate_rows",
+        "fill_creation_or_mutation",
+        "execution_adapter_logic_change",
+        "strategy_alpha_claim"
+      ],
+      "future_experiment_id": "btc-backtest-candle-controls-c5-v1",
+      "id": "C5",
+      "internal_inputs": [
+        "C0_delivered_verified_RunContext",
+        "accepted_C1_transition_interface",
+        "accepted_C2_candle_execution_interface",
+        "independently_frozen_control_intentions"
+      ],
+      "outputs": [
+        "flat_control_run",
+        "true_partition_buy_and_hold_control_run",
+        "timestamp_and_absolute_exposure_matched_control_run",
+        "complete_candle_30_40_80_bps_economic_runs"
+      ],
+      "qualification_extensions": [
+        "btc-backtest-l2-controls-c5-v2_requires_C3_and_uses_reporting_only_cost_comparisons",
+        "pair_control_extension_requires_C4_and_a_new_frozen_C5_experiment_ID"
+      ],
+      "responsibilities": [
+        "independent_control_intention_generation",
+        "same_adapter_and_ledger_control_execution",
+        "complete_cost_scenario_reporting",
+        "execution_metadata_identity_checks"
+      ]
+    },
+    {
+      "acceptance_dependencies": [
+        "C0",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5"
+      ],
+      "forbidden_responsibilities": [
+        "new_economic_execution_or_control_logic",
+        "private_state_mutation",
+        "strategy_or_historical_evaluation"
+      ],
+      "future_experiment_id": "btc-backtest-integration-c6-v1",
+      "id": "C6",
+      "internal_inputs": [
+        "accepted_btc-backtest-authorities-c0-v1",
+        "accepted_btc-backtest-ledger-c1-v1",
+        "accepted_btc-backtest-candle-adapter-c2-v1",
+        "accepted_btc-backtest-l2-adapter-c3-v1",
+        "accepted_btc-backtest-pair-coordinator-c4-v1",
+        "accepted_btc-backtest-candle-controls-c5-v1",
+        "accepted_btc-backtest-l2-controls-c5-v2",
+        "accepted_separately_frozen_pair-control-C5-extension"
+      ],
+      "outputs": [
+        "supported_public_research_backtest_facade",
+        "complete_integrated_lineage"
+      ],
+      "responsibilities": [
+        "dependency_wiring_only",
+        "supported_public_API_surface",
+        "complete_manifest_composition",
+        "end_to_end_conformance_handoff_to_Q0"
+      ]
+    }
+  ],
+  "producer_consumer_edges": [
+    {
+      "artifact": "verified_RunContext",
+      "consumer": "C1_C2_C3_C4_C5",
+      "producer": "C0"
+    },
+    {
+      "artifact": "OrderIntention",
+      "consumer": "C2_or_C3_as_bound_by_RunContext",
+      "producer": "C1"
+    },
+    {
+      "artifact": "ExecutionFact",
+      "consumer": "C1",
+      "producer": "C2_or_C3"
+    },
+    {
+      "artifact": "account_transition_interface",
+      "consumer": "C4_or_C5",
+      "producer": "C1"
+    },
+    {
+      "artifact": "execution_interface",
+      "consumer": "C4_or_C5",
+      "producer": "C2_or_C3_as_bound_by_RunContext"
+    },
+    {
+      "artifact": "accepted_component_artifacts",
+      "consumer": "C6",
+      "producer": "C0_C1_C2_C3_C4_C5"
+    },
+    {
+      "artifact": "canonical_emitted_JSON_only",
+      "consumer": "Q0",
+      "producer": "C6"
+    }
+  ],
+  "public_API": {
+    "caller_may_supply": [
+      "frozen_RunSpec_ID",
+      "authorized_target"
+    ],
+    "caller_must_not_supply": [
+      "authoritative_price_or_timestamp",
+      "fill_or_fee_or_tax_outcome",
+      "cost_scenario_or_adapter",
+      "account_state_or_phase_or_cursor",
+      "event_sequence_or_lineage_digest"
+    ],
+    "qualification_scope": "documented_public_API_calls_and_emitted_canonical_outputs",
+    "unsupported_hostile_actions": [
+      "private_module_import_or_underscore_member_use",
+      "reflection_or_closure_inspection",
+      "monkey_patching",
+      "object___setattr__",
+      "arbitrary_process_memory_mutation"
+    ]
+  },
+  "qualification_authority": {
+    "candidate_component_id": false,
+    "id": "Q0",
+    "implementation_import_allowed": false,
+    "input": "frozen_authorities_plus_canonical_emitted_JSON",
+    "oracle_values_created_only_after_candidate_snapshot": true,
+    "responsibility": "independent_closed_form_oracle_and_mutation_qualification"
+  },
+  "row_lineage": {
+    "always_required": [
+      "run_context_digest",
+      "complete_implementation_manifest_digest",
+      "before_state_digest",
+      "after_state_digest",
+      "row_digest",
+      "event_sequence",
+      "row_kind"
+    ],
+    "event_specific_required_or_not_applicable": [
+      "source_digest",
+      "instrument_rule_digest",
+      "margin_rule_digest",
+      "selected_mandate_digest",
+      "semantic_settings_digest",
+      "execution_scenario_digest",
+      "mark_index_or_funding_source_digest"
+    ],
+    "row_kind_timestamp_rules": {
+      "account_or_margin_checkpoint": {
+        "forbidden": [
+          "decision_at_UTC",
+          "execution_at_UTC"
+        ],
+        "required": [
+          "economic_at_UTC",
+          "available_at_UTC"
+        ]
+      },
+      "decision_or_order": {
+        "forbidden": [
+          "execution_at_UTC",
+          "funding_effective_at_UTC"
+        ],
+        "required": [
+          "decision_at_UTC",
+          "available_at_UTC"
+        ]
+      },
+      "fill": {
+        "forbidden": [
+          "funding_effective_at_UTC"
+        ],
+        "required": [
+          "decision_at_UTC",
+          "available_at_UTC",
+          "execution_at_UTC"
+        ]
+      },
+      "funding": {
+        "forbidden": [
+          "decision_at_UTC",
+          "execution_at_UTC"
+        ],
+        "required": [
+          "available_at_UTC",
+          "funding_effective_at_UTC"
+        ]
+      },
+      "terminal": {
+        "forbidden": [
+          "decision_at_UTC",
+          "funding_effective_at_UTC"
+        ],
+        "required": [
+          "available_at_UTC",
+          "economic_at_UTC"
+        ]
+      }
+    }
+  },
+  "schema_version": "btc-backtest-component-interfaces-e0-v6",
+  "stage": "design_only_no_implementation",
+  "trust_model": "supported_public_API_contract_not_hostile_Python_security_boundary",
+  "type_schemas": {
+    "AccountState": [
+      {
+        "name": "state_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "status",
+        "nullable": false,
+        "producer": "C1",
+        "type": "enum_active_invalid_unknown_terminal"
+      },
+      {
+        "name": "phase",
+        "nullable": false,
+        "producer": "C1",
+        "type": "integer_1_to_9"
+      },
+      {
+        "name": "quote_cash",
+        "nullable": false,
+        "producer": "C1",
+        "type": "decimal_string"
+      },
+      {
+        "name": "asset_balances",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sorted_map_asset_decimal_string"
+      },
+      {
+        "name": "positions",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sorted_map_instrument_decimal_string"
+      },
+      {
+        "name": "isolated_collateral",
+        "nullable": false,
+        "producer": "C1",
+        "type": "decimal_string"
+      },
+      {
+        "name": "liabilities",
+        "nullable": false,
+        "producer": "C1",
+        "type": "decimal_string"
+      },
+      {
+        "name": "NAV",
+        "nullable": false,
+        "producer": "C1",
+        "type": "decimal_string"
+      }
+    ],
+    "ComponentManifest": [
+      {
+        "name": "component_id",
+        "nullable": false,
+        "producer": "C0",
+        "type": "enum_C0_to_C6"
+      },
+      {
+        "name": "experiment_id",
+        "nullable": false,
+        "producer": "C0",
+        "type": "string"
+      },
+      {
+        "name": "schema_version",
+        "nullable": false,
+        "producer": "C0",
+        "type": "string"
+      },
+      {
+        "name": "files",
+        "nullable": false,
+        "producer": "C0",
+        "type": "sorted_unique_list_safe_path_sha256_size_role"
+      },
+      {
+        "name": "authority_bindings",
+        "nullable": false,
+        "producer": "C0",
+        "type": "sorted_unique_list_safe_path_sha256_role"
+      },
+      {
+        "name": "dependency_acceptances",
+        "nullable": false,
+        "producer": "C0",
+        "type": "sorted_unique_list_experiment_manifest_review_digest"
+      },
+      {
+        "name": "manifest_digest",
+        "nullable": false,
+        "producer": "C0",
+        "type": "sha256_hex"
+      }
+    ],
+    "EventRow": [
+      {
+        "name": "row_kind",
+        "nullable": false,
+        "producer": "C1",
+        "type": "enum_decision_order_fill_funding_margin_account_terminal"
+      },
+      {
+        "name": "event_sequence",
+        "nullable": false,
+        "producer": "C1",
+        "type": "nonnegative_integer"
+      },
+      {
+        "name": "run_context_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "complete_implementation_manifest_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "before_state_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "after_state_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "transition_plan_digest",
+        "nullable": true,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "economic_terms",
+        "nullable": false,
+        "producer": "C1",
+        "type": "fixed_map_decimal_string"
+      },
+      {
+        "name": "exact_residual",
+        "nullable": false,
+        "producer": "C1",
+        "type": "decimal_string"
+      },
+      {
+        "name": "timestamps",
+        "nullable": false,
+        "producer": "C1",
+        "type": "row_kind_timestamp_object"
+      },
+      {
+        "name": "event_lineage",
+        "nullable": false,
+        "producer": "C1",
+        "type": "row_kind_required_digest_or_not_applicable_object"
+      },
+      {
+        "name": "row_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      }
+    ],
+    "ExecutionFact": [
+      {
+        "name": "execution_fact_digest",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "order_intention_digest",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "run_context_digest",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "before_state_digest",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "adapter_id",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "string"
+      },
+      {
+        "name": "execution_mode",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "enum_candle_taker_book_taker"
+      },
+      {
+        "name": "status",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "enum_filled_partial_unfilled_rejected_expired"
+      },
+      {
+        "name": "side",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "enum_buy_sell"
+      },
+      {
+        "name": "requested_rounded_filled_unfilled_quantities",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "fixed_map_decimal_string"
+      },
+      {
+        "name": "price_and_VWAP",
+        "nullable": true,
+        "producer": "C2_or_C3",
+        "type": "fixed_map_decimal_string"
+      },
+      {
+        "name": "fee_asset_amount_tax_and_implicit_cost",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "fixed_economic_cost_object"
+      },
+      {
+        "name": "available_at_UTC",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "UTC_timestamp"
+      },
+      {
+        "name": "execution_at_UTC",
+        "nullable": true,
+        "producer": "C2_or_C3",
+        "type": "UTC_timestamp"
+      },
+      {
+        "name": "latency_ms",
+        "nullable": true,
+        "producer": "C2_or_C3",
+        "type": "nonnegative_integer"
+      },
+      {
+        "name": "source_rule_scenario_and_depth_lineage",
+        "nullable": false,
+        "producer": "C2_or_C3",
+        "type": "digest_or_not_applicable_object"
+      }
+    ],
+    "OrderIntention": [
+      {
+        "name": "order_intention_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "run_context_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "before_state_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "decision_at_UTC",
+        "nullable": false,
+        "producer": "C1",
+        "type": "UTC_timestamp"
+      },
+      {
+        "name": "available_at_UTC",
+        "nullable": false,
+        "producer": "C1",
+        "type": "UTC_timestamp"
+      },
+      {
+        "name": "instrument_side_requested_and_rounded_quantity",
+        "nullable": false,
+        "producer": "C1",
+        "type": "fixed_order_object"
+      },
+      {
+        "name": "price_bound_and_expiry",
+        "nullable": false,
+        "producer": "C1",
+        "type": "fixed_bound_object"
+      },
+      {
+        "name": "adapter_scenario_source_rule_and_mandate_digests",
+        "nullable": false,
+        "producer": "C1",
+        "type": "fixed_digest_object"
+      }
+    ],
+    "RunContext": [
+      {
+        "name": "run_context_digest",
+        "nullable": false,
+        "producer": "C0",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "run_spec_id",
+        "nullable": false,
+        "producer": "C0",
+        "type": "string"
+      },
+      {
+        "name": "selected_mandate_id_and_digest",
+        "nullable": false,
+        "producer": "C0",
+        "type": "fixed_identity_object"
+      },
+      {
+        "name": "adapter_id_execution_mode_and_latency",
+        "nullable": false,
+        "producer": "C0",
+        "type": "fixed_execution_identity_object"
+      },
+      {
+        "name": "source_rule_margin_settings_and_scenario_digests",
+        "nullable": false,
+        "producer": "C0",
+        "type": "fixed_digest_object"
+      },
+      {
+        "name": "complete_implementation_manifest_digest",
+        "nullable": false,
+        "producer": "C0",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "partition_start_and_exclusive_terminal_UTC",
+        "nullable": false,
+        "producer": "C0",
+        "type": "fixed_UTC_boundary_object"
+      }
+    ],
+    "TransitionPlan": [
+      {
+        "name": "transition_plan_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "run_context_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "before_state_digest",
+        "nullable": false,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "order_intention_or_execution_fact_digest",
+        "nullable": true,
+        "producer": "C1",
+        "type": "sha256_hex"
+      },
+      {
+        "name": "phase_and_row_kind",
+        "nullable": false,
+        "producer": "C1",
+        "type": "fixed_phase_row_object"
+      },
+      {
+        "name": "source_rule_margin_mandate_settings_scenario_digests",
+        "nullable": false,
+        "producer": "C1",
+        "type": "digest_or_not_applicable_object"
+      },
+      {
+        "name": "stale_or_mismatched_binding_response",
+        "nullable": false,
+        "producer": "C1",
+        "type": "literal_reject_before_mutation"
+      }
+    ]
+  }
+}

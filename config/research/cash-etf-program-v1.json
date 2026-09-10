@@ -1,0 +1,104 @@
+{
+  "program_id": "retail-cash-etf-multi-strategy-v1",
+  "required_session_start_paths": [
+    "AGENTS.md",
+    "config/mandates/retail-cash-etf-research-v1.json",
+    "config/research/cash-etf-decisions-v1.jsonl",
+    "config/research/cash-etf-evidence-boundaries-v1.json",
+    "config/research/cash-etf-program-v1.json",
+    "config/research/cash-etf-proxy-registry-v1.json",
+    "config/research/cash-etf-status-v1.json",
+    "docs/CASH_ETF_RESEARCH_HANDOFF.md",
+    "docs/CASH_ETF_RESEARCH_PROGRAM.md",
+    "docs/EXECUTION_COST_MODEL.md",
+    "docs/RESEARCH_TRACKER.md",
+    "docs/STRATEGY_RESEARCH_STANDARD.md"
+  ],
+  "safety_boundaries": {
+    "actionable_arm_id": "no_trade",
+    "automatic_data_purchase_allowed": false,
+    "database_access_allowed": false,
+    "direct_futures_data_allowed": false,
+    "exchange_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "running_soak_access_allowed": false
+  },
+  "schema_version": "cash-etf-research-program-v1",
+  "stages": [
+    {
+      "dependencies": [],
+      "next_action": "Activate C1 only after the context validator passes and no economic result has been read.",
+      "objective": "Freeze the no-futures mandate, proxy and exact-line registries, evidence boundaries, two pre-result hypotheses and fail-closed context.",
+      "pass_gate": "Canonical contracts, checksums, stage graph and import boundaries pass; accepted arms and approved instruments remain empty and actionable output remains no_trade.",
+      "stage_id": "C0"
+    },
+    {
+      "dependencies": [
+        "C0"
+      ],
+      "next_action": "If every source and action gate passes, build only the open development ledger; otherwise record a blocked decision without computing returns.",
+      "objective": "Prepartition source rows without decoding values and build a causal GBP total-return ledger from raw prices, actions and GBP/USD.",
+      "pass_gate": "Every required proxy, corporate action, FX observation, availability timestamp and checksum passes; locked numeric partitions are not decoded.",
+      "stage_id": "C1"
+    },
+    {
+      "dependencies": [
+        "C1"
+      ],
+      "next_action": "Record both independent proxy decisions; never tune a rejected ID or promote a proxy to execution eligibility.",
+      "objective": "Evaluate the price-blind frozen slow-trend and turn-of-month proxy mechanisms independently with fixed controls, costs and gates.",
+      "pass_gate": "A mechanism passes all development and chronological validation gates at primary and stress costs; any pass remains proxy-only.",
+      "stage_id": "C2"
+    },
+    {
+      "dependencies": [
+        "C2"
+      ],
+      "next_action": "Stop for explicit user approval of a bounded source pilot; do not purchase or access broker-private data automatically.",
+      "objective": "Qualify exact SWDA, IGLT, SGLN and AGCP London histories, actions, availability, spread, retention and cost evidence without inspecting strategy results.",
+      "pass_gate": "All exact lines pass identity, full-history, corporate-action, quote-unit, retention and cost gates under a lawful source contract.",
+      "stage_id": "C3"
+    },
+    {
+      "dependencies": [
+        "C3"
+      ],
+      "next_action": "Preserve exact-line acceptance or rejection before any risk overlay.",
+      "objective": "Validate each supported proxy mechanism independently on the precommitted exact UK lines under a new frozen experiment ID.",
+      "pass_gate": "The unchanged economic rule passes chronological exact-line evidence, cost, uncertainty, concentration and drawdown gates.",
+      "stage_id": "C4"
+    },
+    {
+      "dependencies": [
+        "C4"
+      ],
+      "next_action": "Retain every base result unchanged and reject any risk model that changes direction or rescues rejected alpha.",
+      "objective": "Evaluate EWMA volatility, covariance concentration and qualified liquidity controls as downward-only risk multipliers for accepted exact-line arms.",
+      "pass_gate": "Risk scaling improves frozen tail and risk-adjusted metrics while retaining at least ninety percent of base CAGR and never increasing exposure.",
+      "stage_id": "C5"
+    },
+    {
+      "dependencies": [
+        "C5"
+      ],
+      "next_action": "Remain blocked until two economically distinct exact-line arms pass independently.",
+      "objective": "Compare no_trade, best single arm, static blend, risk-balanced blend and deterministic counterfactual routing using shared capital.",
+      "pass_gate": "At least two distinct arms pass and routing adds stable net value after costs, turnover, dependence and uncertainty while actionable output remains no_trade.",
+      "stage_id": "C6"
+    },
+    {
+      "dependencies": [
+        "C6"
+      ],
+      "next_action": "Require a separate paper mandate, exact venue and written approval before any observer with broker connectivity.",
+      "objective": "Prospectively observe accepted exact-line arms and the shared-capital portfolio with availability, intended fills, costs, risk and decay attribution.",
+      "pass_gate": "The predeclared duration and opportunity minimums complete without evidence contamination, unresolved operational failure or risk-limit breach.",
+      "stage_id": "C7"
+    }
+  ]
+}

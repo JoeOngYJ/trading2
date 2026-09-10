@@ -1,0 +1,210 @@
+{
+  "action_mapping": {
+    "actionable_arm_id": "no_trade",
+    "allocation_formula": "frozen_s2_ewma_allocation_fraction * (1 - 0.5 * stress_risk_probability)",
+    "allocation_when_unknown": 0,
+    "direction_changes_allowed": false,
+    "entry_only_sizing": true,
+    "intra_trade_rebalancing_allowed": false,
+    "locked_s1_opportunity_path": true,
+    "maximum_allocation_fraction": 0.1,
+    "minimum_multiplier_when_known": 0.5,
+    "state_probability_changes_entry_eligibility": false,
+    "zero_sized_cohort_retains_s1_busy_interval": true
+  },
+  "controls": {
+    "hmm_constant_capital_time_match_is_ex_post_diagnostic": true,
+    "required": [
+      "flat_no_trade",
+      "fixed_10_percent_breakout",
+      "primary_ewma_scaled_breakout",
+      "student_t_hmm_on_ewma_breakout",
+      "constant_capital_time_matched_hmm_breakout",
+      "fixed_10_percent_segmented_btc_participation",
+      "primary_ewma_scaled_segmented_btc_participation",
+      "student_t_hmm_on_ewma_segmented_btc_participation"
+    ]
+  },
+  "data": {
+    "daily_risk_source": {
+      "audit_report_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/daily-data-audit-report.json",
+      "audit_report_sha256": "695fbecb60978010739f2add729b66dbe57558e357396f90d40e5f1810323e0e",
+      "dataset_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/btc-usdt-direct-1d-development-2017-2025.jsonl.gz",
+      "dataset_sha256": "b47b32f0f64371108d947fcb1b0656170dc728d81442accdf52808c2f95fba12",
+      "expected_rows": 3059,
+      "feature_fields": [
+        "close",
+        "high",
+        "low"
+      ],
+      "prohibited_fields": [
+        "base_volume",
+        "open",
+        "quote_volume",
+        "trade_count"
+      ],
+      "source_segment_id": "binance-direct-daily-continuous-2017-2025-v1"
+    },
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T00:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "evidence_boundary_path": "config/research/btc-directional-trend-evidence-boundaries-v2.json",
+    "evidence_boundary_sha256": "f3736036b628c97cc7eb635ec6815f571c49564469c168821d54bc6a02364af1",
+    "s1_candles_path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+    "s1_candles_rows": 878985,
+    "s1_candles_sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab",
+    "s1_opportunities_path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-trades.jsonl.gz",
+    "s1_opportunities_rows": 201,
+    "s1_opportunities_sha256": "22d68c6174edc18b055041ba3a32c03c1f8945d9e532b7169bcb370507629809",
+    "s1_report_path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-reproduction-report.json",
+    "s1_report_sha256": "e4d631998153f2841e54f2d36ee7008a9c5874201f65ad3b8e19bb9bca2a9b61",
+    "s2_allocations_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/opportunity-allocations.jsonl.gz",
+    "s2_allocations_sha256": "24445abf6b10ab49e25d94c0e483727554944072f8e8f7fa666e36989d16896b",
+    "s2_contract_path": "config/experiments/btc-regime-routing-s2-ewma-v2.json",
+    "s2_contract_sha256": "11d0d0ba1ccca6460c52c83a287d6b897f4dadb899cf81c8df733d7de6fb5efd",
+    "s2_manifest_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/manifest.json",
+    "s2_manifest_sha256": "0b10e3ce5f99bbfac0fa95e305c2f81cecfd0f98556a6e9b17123eaa75a2b4b1",
+    "s2_report_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/s2-ewma-report.json",
+    "s2_report_sha256": "15effc218435e6388edde2b30349a078b942205eabed8ae070a6ffa7ea7ce30e",
+    "sealed_2026_path_allowed": false
+  },
+  "economic_hypothesis": "A causally fitted persistent heavy-tailed two-state model can identify forward BTC stress risk that is not captured by the frozen EWMA level alone, and continuously reduce EWMA-sized exposure during stress without changing breakout direction, timestamps, or entry eligibility.",
+  "experiment_id": "btc-regime-routing-s3-student-t-hmm-v1",
+  "features": {
+    "availability": "Each feature row uses only completed official UTC daily bars and becomes available at the close of its latest bar.",
+    "definitions": [
+      {
+        "feature_id": "realized_volatility_ratio_10_60",
+        "formula": "sqrt(mean(last 10 close-to-close log returns squared) / mean(last 60 close-to-close log returns squared))"
+      },
+      {
+        "feature_id": "downside_semivariance_share_20",
+        "formula": "sum(last 20 squared close-to-close log returns where return < 0) / sum(last 20 squared close-to-close log returns)"
+      },
+      {
+        "feature_id": "high_low_range_ratio_10_60",
+        "formula": "sqrt(mean(last 10 squared log(high / low)) / mean(last 60 squared log(high / low)))"
+      },
+      {
+        "feature_id": "normalized_jump_magnitude_1_60",
+        "formula": "absolute latest close-to-close log return / sqrt(mean(last 60 close-to-close log returns squared))"
+      }
+    ],
+    "minimum_completed_returns": 60,
+    "nonpositive_denominator_behavior": "unknown",
+    "reset_on_daily_gap": true
+  },
+  "fitting": {
+    "canonical_label_rule": "At every refit, ordinary_risk is the state with the lower arithmetic mean of its four standardized emission-location coordinates; ties use lower summed diagonal variance then original state index.",
+    "covariance": "diagonal",
+    "degrees_of_freedom": 5,
+    "emission": "multivariate_independent_student_t",
+    "initial_state_probabilities": [
+      0.5,
+      0.5
+    ],
+    "initial_transition_matrix": [
+      [
+        0.97,
+        0.03
+      ],
+      [
+        0.03,
+        0.97
+      ]
+    ],
+    "initialization": "Split the robust-scaled training rows at the median arithmetic mean of their four coordinates; initialize each state's location and diagonal variance from its deterministic half.",
+    "maximum_em_iterations": 100,
+    "minimum_self_transition_probability": 0.9,
+    "minimum_training_observations": 365,
+    "optimizer": "one deterministic Baum-Welch EM run; no restarts and no alternative selection",
+    "refit_cutoff": "first UTC midnight of each calendar month",
+    "refit_schedule": "monthly expanding window",
+    "scaler": {
+      "clip_absolute_scaled_value": 8,
+      "dispersion": "1.4826 * median absolute deviation",
+      "dispersion_floor": 1e-06,
+      "location": "median",
+      "training_rows": "strictly available before the monthly refit cutoff"
+    },
+    "transition_pseudocounts": {
+      "self": 20,
+      "switch": 1
+    },
+    "variance_ceiling": 100,
+    "variance_floor": 0.0001
+  },
+  "frozen_at": "2026-08-28T23:19:08Z",
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "holdout_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "refuse_symlink_inputs": true
+  },
+  "operational_state": {
+    "confidence": "maximum filtered state probability",
+    "entropy": "negative sum of p * natural_log(p) over the two filtered probabilities",
+    "hard_state_rule": "stress_risk when stress_risk_probability >= 0.5, otherwise ordinary_risk",
+    "maximum_age_hours_exclusive": 24,
+    "state_age": "consecutive completed filtered observations under the hard-state rule",
+    "unknown_on": [
+      "missing_or_gapped_feature",
+      "insufficient_training_history",
+      "nonfinite_parameter_or_probability",
+      "nonconverged_refit",
+      "stale_observation"
+    ]
+  },
+  "output": {
+    "allow_overwrite_nonempty": false,
+    "deterministic_gzip_mtime": 0,
+    "root": "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1"
+  },
+  "overlay_gates": {
+    "best_month_neutralization": "Set both HMM-overlay and EWMA-control daily returns to zero in the same three UTC months having the largest positive HMM-minus-EWMA monthly return differences, then recompute unchanged-timeline gates.",
+    "maximum_drawdown_or_worst_rolling_90_day_loss_improvement_fraction_minimum": 0.1,
+    "minimum_ewma_cagr_retention_fraction": 0.9,
+    "minimum_ewma_calmar_improvement_fraction": 0.1,
+    "required_cost_scenarios": [
+      "candle-primary-30bps-rt-v1",
+      "candle-severe-80bps-rt-v1"
+    ],
+    "required_net_return_sign": "strictly_positive"
+  },
+  "rejection_rule": "Reject S3 for any lineage, canonical-serialization, causality, feature, refit, convergence, label, probability, stale-state, coverage, locked-opportunity, direction, timestamp, allocation, cost, determinism, isolation, actionable-route, or sealed-boundary failure. Evaluate standalone gates before overlay economics. Do not change features, windows, model parameters, mapping, gates, or costs after observing results.",
+  "s4_branch": {
+    "build_jump_model_only_when": "Both forward-risk separation gates pass, but S3 fails a frozen transition-count, median-dwell, or one-day-flicker gate.",
+    "skip_when_hmm_passes_all_gates": true,
+    "stop_latent_branch_when_forward_risk_separation_fails": true
+  },
+  "schema_version": "regime-routing-s3-student-t-hmm-contract-v1",
+  "stage_id": "S3",
+  "standalone_gates": {
+    "forward_label_horizon_days": 7,
+    "minimum_hard_state_occupancy_fraction": 0.15,
+    "minimum_median_dwell_observations_each_state": 5,
+    "minimum_out_of_sample_transitions": 10,
+    "minimum_valid_forward_labels": 1500,
+    "month_block_bootstrap_replications": 10000,
+    "month_block_bootstrap_seed": 20260829,
+    "one_day_run_fraction_maximum": 0.2,
+    "require_all_refits_canonically_labeled": true,
+    "stress_minus_ordinary_next_7d_downside_loss_ci95_lower_bound": "strictly_positive",
+    "stress_minus_ordinary_next_7d_realized_variance_ci95_lower_bound": "strictly_positive"
+  },
+  "statistics": {
+    "leave_one_calendar_year_out": true,
+    "risk_free_rate": 0,
+    "worst_rolling_window_days": 90
+  },
+  "status": "frozen"
+}

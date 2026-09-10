@@ -1,0 +1,82 @@
+{
+  "decision": "There is no eligible unseen BTC directional-trend partition. S2 may use only the already-consumed 2017-2025 development evidence for a frozen risk benchmark; January-July 2026 remains sealed, unread, and ineligible.",
+  "frozen_at": "2026-08-28T22:07:00Z",
+  "inspections": [
+    {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "information_scope": "signals_parameters_performance_and_controls",
+      "inspection_id": "btc-4h-trend-and-breakout-development-history",
+      "notes": "Prior SMA and fixed-breakout work inspected this price-family development interval.",
+      "recorded_at": "2026-08-28T00:00:00Z",
+      "start": "2017-08-17T04:00:00Z",
+      "strategy_family": "btc-directional-trend"
+    },
+    {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "information_scope": "fixed_breakout_reproduction_and_attribution",
+      "inspection_id": "btc-regime-routing-s1-reproduction",
+      "notes": "S1 reproduced the already-inspected fixed breakout and controls; this is not new validation.",
+      "recorded_at": "2026-08-28T20:44:00Z",
+      "start": "2017-08-17T04:00:00Z",
+      "strategy_family": "btc-directional-trend"
+    },
+    {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "information_scope": "causal_ewma_risk_forecast_and_locked_breakout_sizing_development_evaluation",
+      "inspection_id": "btc-regime-routing-s2-ewma-development",
+      "notes": "S2 is authorized to evaluate one frozen EWMA risk benchmark on consumed development evidence only; this creates no validation or promotion evidence.",
+      "recorded_at": "2026-08-28T22:07:00Z",
+      "start": "2017-08-17T04:00:00Z",
+      "strategy_family": "btc-directional-trend"
+    }
+  ],
+  "label_horizon_hours": 336,
+  "minimum_embargo_hours": 336,
+  "partitions": [
+    {
+      "access_state": "consumed",
+      "allowed_purposes": [
+        "development",
+        "reproduction",
+        "risk_benchmark_development"
+      ],
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "minimum_events": null,
+      "notes": "Checksummed 2017-2025 source used by prior trend work and now authorized for the frozen S2 EWMA development benchmark.",
+      "partition_id": "btc-development-2017-2025-consumed",
+      "role": "development",
+      "start": "2017-08-17T04:00:00Z"
+    },
+    {
+      "access_state": "sealed_ineligible",
+      "allowed_purposes": [],
+      "end_exclusive": "2026-08-01T00:00:00Z",
+      "minimum_events": null,
+      "notes": "No S2 inspection is authorized. Immediate adjacency violates the 336-hour embargo and seven months cannot satisfy the later twelve-month minimum.",
+      "partition_id": "btc-2026-jan-jul-sealed-ineligible",
+      "role": "excluded",
+      "start": "2026-01-01T00:00:00Z"
+    }
+  ],
+  "prospective_requirement": {
+    "analysis_policy": "One-time analysis requires an explicit unlock revision after frozen duration and event gates pass.",
+    "clean_partition_currently_declared": false,
+    "earliest_start_rule": "At least 336 hours after the final consumed family observation and only after the complete experiment, code, costs, and collection contract are frozen.",
+    "minimum_duration_months": 12,
+    "minimum_filled_trades": 30,
+    "minimum_risk_state_transitions": 4,
+    "required_new_experiment_id": true
+  },
+  "registry_id": "btc-directional-trend-evidence-boundaries-v2",
+  "schema_version": "research-evidence-boundaries-v1",
+  "source_lineage": {
+    "development_dataset_sha256": "316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8",
+    "development_manifest_sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae",
+    "previous_registry_path": "config/research/btc-directional-trend-evidence-boundaries-v1.json",
+    "previous_registry_sha256": "041b1966ede73129e9a33f7469b9e24d441ae39452a4babddb87abc47b56fca8",
+    "sealed_dataset_sha256": "1d50d201211ad78ab5985d2099e4238a24c73efb480848379ba7b88254df1212",
+    "sealed_manifest_sha256": "80788958a0b57fe171f862e2be1a72509c5b20ef1ca01bf3e853eb3e5a3ba414"
+  },
+  "status": "frozen_no_clean_unseen_partition",
+  "strategy_family": "btc-directional-trend"
+}

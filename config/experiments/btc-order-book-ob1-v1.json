@@ -1,0 +1,82 @@
+{
+  "schema_version": "strategy-experiment-v1",
+  "experiment_id": "btc-order-book-ob1-v1",
+  "status": "protocol_frozen_data_blocked",
+  "frozen_at": "2026-08-25",
+  "research_only": true,
+  "live_trading_authorized": false,
+  "data_gate": {
+    "minimum_accepted_development_days": 60,
+    "sealed_test_days": 30,
+    "test_must_be_contiguous_and_later": true,
+    "ob0_may_be_used_for_predictive_analysis": false,
+    "active_partial_capture_may_be_read": false
+  },
+  "sampling": {
+    "decision_frequency_ms": 1000,
+    "utc_anchor": true,
+    "availability_timestamp": "local_receipt_time_ns",
+    "maximum_book_age_ms": 500,
+    "trailing_window_left_open_right_closed": true,
+    "segment_crossing_allowed": false
+  },
+  "features": {
+    "primary_l2": [
+      "queue_imbalance_l1",
+      "ofi_l1_sum_1s",
+      "microprice_minus_mid_spreads"
+    ],
+    "signed_trade_control": [
+      "signed_trade_quote_qty_1s",
+      "trade_count_1s",
+      "absolute_trade_quote_qty_1s",
+      "return_1s"
+    ],
+    "state_controls": [
+      "spread",
+      "l1_total_depth",
+      "depth_event_count_1s",
+      "book_age_ms",
+      "realized_volatility_10s"
+    ],
+    "secondary_diagnostics": [
+      "queue_imbalance_l5",
+      "queue_imbalance_l10",
+      "bid_add_qty",
+      "bid_remove_qty",
+      "ask_add_qty",
+      "ask_remove_qty"
+    ]
+  },
+  "labels": {
+    "price": "latest accepted mid with receipt timestamp no later than target timestamp",
+    "maximum_target_book_age_ms": 500,
+    "primary_horizon_seconds": 5,
+    "primary_latency_ms": 250,
+    "sensitivity_horizons_seconds": [1, 2, 10],
+    "sensitivity_latencies_ms": [100, 500, 1000],
+    "target": "log(mid(decision+latency+horizon)/mid(decision+latency))"
+  },
+  "walk_forward": {
+    "initial_training_days": 30,
+    "validation_day_ranges_inclusive": [[31, 37], [38, 44], [45, 51], [52, 58]],
+    "final_development_fit_days_inclusive": [1, 60],
+    "purge_seconds_each_side": 10,
+    "standardization_fit_on_training_only": true,
+    "regularization_grid": [0.01, 0.1, 1, 10]
+  },
+  "decision_gates": {
+    "incremental_primary_oos_r_squared_positive": true,
+    "day_block_bootstrap_lower_95_above_zero": true,
+    "positive_development_folds_minimum": 3,
+    "single_day_or_state_concentration_rejected": true,
+    "classification_metrics_must_not_contradict_regression": true
+  },
+  "promotion_eligible": false,
+  "blockers": [
+    "OB0 is acquisition validation only.",
+    "At least 60 accepted development days do not yet exist.",
+    "A later contiguous 30-day test must be sealed before development review.",
+    "Passing OB1 establishes information only; OB3 must separately establish executable value."
+  ]
+}

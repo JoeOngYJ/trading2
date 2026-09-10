@@ -1,0 +1,52 @@
+{
+  "actionable_arm_id": "no_trade",
+  "allowed_research_position": {
+    "directions": [
+      "long",
+      "short",
+      "flat"
+    ],
+    "instrument": "BTCUSDT_USD_M_perpetual",
+    "maximum_absolute_notional_fraction_of_equity": 0.25,
+    "maximum_concurrent_positions": 1
+  },
+  "authority": {
+    "account_connection_allowed": false,
+    "credentials_allowed": false,
+    "live_allocation_usdt": 0,
+    "live_trading_allowed": false,
+    "order_submission_allowed": false,
+    "paper_orders_sent_to_exchange_allowed": false,
+    "production_integration_allowed": false,
+    "transfers_allowed": false
+  },
+  "legacy_mandates_unchanged": [
+    "retail-btc-spot-v2",
+    "retail-btc-delta-neutral-research-v1"
+  ],
+  "mandate_id": "retail-btc-directional-perpetual-research-v1",
+  "margin_policy": {
+    "cross_margin_allowed": false,
+    "historical_rule_gap_means_non_promotion_evidence": true,
+    "isolated_margin_only": true,
+    "multi_asset_mode_allowed": false,
+    "portfolio_margin_allowed": false,
+    "single_collateral_asset": "USDT"
+  },
+  "normalized_research_equity_usdt": 1000,
+  "prohibited": [
+    "live_credentials",
+    "live_or_exchange_paper_orders",
+    "production_signal_or_order_intent",
+    "cross_or_portfolio_margin",
+    "multi_asset_collateral",
+    "pyramiding_or_averaging_down",
+    "options",
+    "partial_OB0_access",
+    "protected_service_access",
+    "year_2026_historical_data"
+  ],
+  "research_venue": "Binance_public_BTCUSDT_USD_M_archives",
+  "schema_version": "btc-directional-perpetual-research-mandate-v1",
+  "status": "frozen_offline_zero_capital_research_only"
+}

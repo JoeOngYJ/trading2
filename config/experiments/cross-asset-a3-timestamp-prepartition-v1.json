@@ -1,0 +1,152 @@
+{
+  "code_binding": {
+    "path": "src/trading_platform/cross_asset_prepartition.py",
+    "sha256": "c486d87aa9055f41a7f05c4d6b94199bf438511c4a9244a8bd3f32d0cab1692b"
+  },
+  "experiment_id": "cross-asset-a3-timestamp-prepartition-v1",
+  "frozen_at": "2026-08-30T16:36:00Z",
+  "inputs": [
+    {
+      "instrument_id": "SPX500_USD",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/spx500_usd-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "add035eb5aefe32302ac9e55d4ac3b5fa40120b31347847d5a4fa5a3aca809eb"
+    },
+    {
+      "instrument_id": "NAS100_USD",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/nas100_usd-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "093156c4112c9bd16aa3f446dabc7bdb304a67a69a006dbe834b90d9862f9e76"
+    },
+    {
+      "instrument_id": "DE30_EUR",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/de30_eur-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "0734eb8ca465e8956bbf5d8e165c5f9414e1f37d5522882cfcf608ba9fdd7a57"
+    },
+    {
+      "instrument_id": "UK100_GBP",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/uk100_gbp-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "51ff4d97522174b9087afd8fe827e071ca04674d22a692ba6a1a41d367ebd5c3"
+    },
+    {
+      "instrument_id": "XAU_USD",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/xau_usd-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "f3be466050b6eed2b983e0cf6dd4b67ad794fe190b452b0b4aeae3b3c13cdd94"
+    },
+    {
+      "instrument_id": "EUR_USD",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/eur_usd-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "781a169d406a55092110feaf1600cc44d64fa27ffeb797ff33419c02e34ba4df"
+    },
+    {
+      "instrument_id": "USD_JPY",
+      "kind": "market",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/normalized/usd_jpy-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "91fb89019840d91e70e8e5ccf46f789227efc021adb7dfab8733179434a12bbc"
+    },
+    {
+      "instrument_id": "SPX500_USD",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/spx500_usd-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "a20305e2ef01d5dcd8669e3ab16d40683137ec5bfa8e3c651af6f4a1c4831bd9"
+    },
+    {
+      "instrument_id": "NAS100_USD",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/nas100_usd-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "c31ac89baa9ce76a67110e72447613c961700654adea42c77a9a51ae268af07f"
+    },
+    {
+      "instrument_id": "DE30_EUR",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/de30_eur-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "ecd1054741f5df61adc405e33621bc70ba0b191692a365bca58fd87dbf1030ba"
+    },
+    {
+      "instrument_id": "UK100_GBP",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/uk100_gbp-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "1f52826ff8b6094816a0d5fc2d953b4333b1415247c4b1dacba592b22f225283"
+    },
+    {
+      "instrument_id": "XAU_USD",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/xau_usd-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "6e6951769acf394c9da9868eb239f2589ba341c6af4ccfdb88ff8569c0986c76"
+    },
+    {
+      "instrument_id": "EUR_USD",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/eur_usd-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "bb320ed8db4c777a8236c849003297eacb1a5301bdf718e9fa58b616e58149d1"
+    },
+    {
+      "instrument_id": "USD_JPY",
+      "kind": "availability",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/availability/usd_jpy-availability.jsonl",
+      "routing_field": "local_date",
+      "sha256": "bfeb083258b7df39beb7105ed014e40f288343474513f37dfdf28106817d5cee"
+    },
+    {
+      "instrument_id": "GBP_USD",
+      "kind": "conversion",
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-gbp-conversion-source-v1/normalized-gbp_usd-h1.jsonl",
+      "routing_field": "observed_at",
+      "sha256": "efa10c71dc3d5e54a395e20d169508b930d7b4167f950493e0c34b8678302340"
+    }
+  ],
+  "method": "opaque_jsonl_copy_routed_only_by_timestamp_or_local_date",
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a3-timestamp-prepartition-v1",
+    "immutable_after_first_success": true
+  },
+  "partitions": [
+    {
+      "end_exclusive": "2022-01-01T00:00:00Z",
+      "partition_id": "development",
+      "start_inclusive": "2010-01-01T00:00:00Z"
+    },
+    {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "partition_id": "validation",
+      "start_inclusive": "2022-01-01T00:00:00Z"
+    }
+  ],
+  "prohibitions": {
+    "economic_metric_computation_allowed": false,
+    "market_value_deserialization_allowed": false,
+    "network_or_runtime_access_allowed": false,
+    "prospective_price_access_allowed": false,
+    "strategy_feature_or_signal_computation_allowed": false
+  },
+  "prospective_final": {
+    "collection_contract_required_before_use": true,
+    "minimum_duration_months": 12,
+    "price_rows_may_be_present": false,
+    "start_inclusive": "2026-08-31T00:00:00Z"
+  },
+  "schema_version": "cross-asset-a3-timestamp-prepartition-contract-v1",
+  "status": "frozen",
+  "supersedes_partition_rule": {
+    "path": "config/experiments/cross-asset-a3-overnight-gap-reversion-v1.json",
+    "reason": "The v1 mechanism remains frozen, but its matching-A2-partition instruction is unusable after the A2 boundary-integrity failure.",
+    "sha256": "5853ebc3acbb742cdff50991c1fea4cb84b967e9405ce3c71e22e1185cc6be60"
+  }
+}

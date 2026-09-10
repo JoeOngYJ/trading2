@@ -1,0 +1,116 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "market_data_value_deserialization_allowed": false,
+    "model_or_score_fit_allowed": false,
+    "order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "strategy_or_pnl_evaluation_allowed": false
+  },
+  "audit_id": "btc-market-condition-scores-mcs3-c-readiness-v1",
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/audit-report.json",
+      "sha256": "64ac19463c5c3d934adc1ea99c90fe80d142acb6b7d7268f2cb0145b5395a722"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/evidence-manifest.json",
+      "sha256": "d7d9b046274f8a361ebc0f32f7c25342e5e0f9fc747c7e74fb5db66413e513a9"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/audit-report.json",
+      "sha256": "8945f156e398289370580051e2241ffd918e04682411a6d619495ed8029aa31c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/evidence-manifest.json",
+      "sha256": "451e1a3a0058dc30cb4a00dc8744a32b1078ecd338ec800d9a1c67a45641c289"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs1-v1/availability-report.json",
+      "sha256": "b181832638bf69c34123ded46f67c9570fc84d36518ebc0be82ab11d4cbcc931"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/evidence-manifest.json",
+      "sha256": "23bd88f671595dd86b20ecc4926dc5be360ddcb07096e766cf80d259a7a68457"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/report.json",
+      "sha256": "4c3b8fafd945b24a54dfcbf0e23e87ac50872a196159d4e499bdc528f393818a"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-development-v2.json",
+      "sha256": "a3b1dd712ad9b40c9f4a473cf0d9fb202a6db8e617112ecce802854af8a655cd"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+      "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+    },
+    {
+      "path": "docs/BTC_DERIVATIVES_RESEARCH_MANDATE.md",
+      "sha256": "f8421e63e5e492dca81f663c19487889f9ac92fbbc892eb032b9af9105d27782"
+    },
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    },
+    {
+      "path": "research/btc/contracts/btc-carry-data-qualification-v1.json",
+      "sha256": "30c739abe621121e9de18e6c6dec8d872fcb0d187b5fa2ee8d7f9aaaa666503e"
+    },
+    {
+      "path": "research/btc/contracts/btc-carry-gap-recovery-v1.json",
+      "sha256": "2b6bc794f72b6c123f8976c041bbfe7afbec7bdf919e721a767a66e7fd4c8cf9"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-v1.json",
+      "sha256": "0e7daffb6cd0ae92f684f6bec19cc40161e2387f00cbbbfd8abf955cedcb43df"
+    },
+    {
+      "path": "research/btc/contracts/btc-positive-funding-carry-v1.json",
+      "sha256": "c1d4e5fe9e2f29651e48dd908e805033c41141c3b590b2926c25218041f173fc"
+    }
+  ],
+  "decision_rules": {
+    "all_research_readiness_gates_required": true,
+    "exact_account_fee_is_promotion_only": true,
+    "failed_result": "mcs3_c_not_ready_stop_score_panel_branch",
+    "passed_result": "mcs3_c_contract_may_be_frozen_separately",
+    "planning_assumptions_may_replace_historical_rules": false,
+    "premium_index_one_hour_gap_blocks_basic_score": false
+  },
+  "gates": {
+    "causal_matched_carry_metadata_available": true,
+    "collateral_and_financing_policy_frozen": true,
+    "effective_dated_historical_fee_schedule_archived": true,
+    "effective_dated_historical_margin_brackets_archived": true,
+    "funding_history_complete": true,
+    "historical_contract_funding_liquidation_and_adl_rules_archived": true,
+    "index_history_complete_after_exact_recovery": true,
+    "mark_history_complete_after_exact_recovery": true,
+    "perpetual_execution_history_complete": true,
+    "rejected_carry_v1_identity_preserved": true,
+    "spot_execution_history_available_with_explicit_segments": true
+  },
+  "known_evidence": {
+    "coverage_end_exclusive": "2026-01-01T00:00:00Z",
+    "coverage_start": "2020-01-01T00:00:00Z",
+    "premium_index_gap_policy": "one_missing_hour_is_a_hard_boundary_but_premium_is_not_required_for_basic_carry_score",
+    "review_type": "consolidation_of_already_consumed_metadata_not_new_market_validation"
+  },
+  "prohibited": [
+    "opening_raw_candle_funding_trade_feature_label_or_pnl_ledgers",
+    "score_or_model_fit",
+    "strategy_or_pnl_evaluation",
+    "changing_rejected_carry_v1_parameters",
+    "substituting_planning_assumptions_for_missing_historical_rules",
+    "partial_OB0_access",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_risk_cap_or_route_creation"
+  ],
+  "schema_version": "btc-market-condition-scores-mcs3-c-readiness-contract-v1",
+  "stage_id": "MCS3-C-READINESS",
+  "status": "frozen_before_automated_metadata_readiness_audit"
+}

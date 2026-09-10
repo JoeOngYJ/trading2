@@ -1,0 +1,33 @@
+{
+  "activated_at": "2026-08-30T21:15:00Z",
+  "changes_from_predecessor": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v2",
+    "distribution_event_counts": {
+      "BIL": 75
+    },
+    "distribution_row_policy": "dated_official_rows_with_zero_total_cash_are_schedule_diagnostics_not_cash_distribution_events"
+  },
+  "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v2",
+  "predecessor": {
+    "evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v1/evidence-manifest.json",
+    "evidence_sha256": "43f6b56620574d11d261ac886ee9654b9a1c756bcb238533ef2292d379fa7d1e",
+    "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v1",
+    "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v1.json",
+    "sha256": "ebf9be95c929651602a41978e783ef52778ca7dbd3a964abec786787f7acbc87"
+  },
+  "predecessor_disposition": "rejected_implementation_zero_cash_schedule_rows_misclassified",
+  "schema_version": "cash-etf-c1-pragmatic-action-ledger-successor-v1",
+  "status": "frozen",
+  "unchanged_fields": [
+    "acceptance_gates_except_BIL_distribution_event_count",
+    "boundary",
+    "causality",
+    "fail_closed_rules",
+    "forbidden_actions",
+    "gld_zero_distribution_triangulation",
+    "inputs",
+    "ledger_convention",
+    "retention_policy",
+    "split_candidate_detection"
+  ]
+}

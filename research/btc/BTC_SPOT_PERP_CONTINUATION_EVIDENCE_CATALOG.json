@@ -1,0 +1,48 @@
+{
+  "actionable_arm_id": "no_trade",
+  "candidate_experiment_id": "btc-spot-perp-continuation-information-v1",
+  "entries": [
+    {
+      "contract": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v1.json",
+      "disposition": "rejected_feature_readiness_after_hourly_gap_resets",
+      "experiment_id": "btc-spot-perp-continuation-d0-v1",
+      "result": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V1_RESULT.md"
+    },
+    {
+      "contract": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v2.json",
+      "disposition": "preflight_invalid_no_audit_report",
+      "experiment_id": "btc-spot-perp-continuation-d0-v2",
+      "result": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V2_RESULT.md"
+    },
+    {
+      "artifact_directory": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3",
+      "contract": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v3.json",
+      "disposition": "passed_label_blind_data_qualification_only",
+      "experiment_id": "btc-spot-perp-continuation-d0-v3",
+      "result": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V3_RESULT.md"
+    },
+    {
+      "contract": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v1.json",
+      "disposition": "preflight_invalid_before_any_D1_historical_row",
+      "experiment_id": "btc-spot-perp-continuation-information-d1-v1",
+      "result": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V1_PREFLIGHT_RESULT.md"
+    },
+    {
+      "artifact_directory": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2",
+      "contract": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v2.json",
+      "disposition": "rejected_at_frozen_2021_label_coverage_gate_before_model",
+      "experiment_id": "btc-spot-perp-continuation-information-d1-v2",
+      "result": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V2_RESULT.md"
+    },
+    {
+      "artifact_directory": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3",
+      "contract": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v3.json",
+      "disposition": "rejected_and_closed_after_endpoint_validated_information_gate",
+      "experiment_id": "btc-spot-perp-continuation-information-d1-v3",
+      "result": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V3_RESULT.md"
+    }
+  ],
+  "next_permitted_action": "freeze_a_materially_different_BTC_hypothesis_under_a_new_experiment_ID_without_reopening_D1_v3",
+  "schema_version": "btc-spot-perp-continuation-evidence-catalog-v1",
+  "strategy_or_model_accepted": false
+}

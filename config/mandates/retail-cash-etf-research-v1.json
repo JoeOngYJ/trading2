@@ -1,0 +1,38 @@
+{
+  "authority": {
+    "broker_private_state_access_allowed": false,
+    "execution_credentials_allowed": false,
+    "live_trading_authorized": false,
+    "maximum_live_allocation_gbp": 0,
+    "order_submission_allowed": false,
+    "paper_trading_authorized": false,
+    "research_data_provider_tokens_allowed": false
+  },
+  "capital": {
+    "hard_drawdown_ceiling_fraction": 0.2,
+    "research_equity_gbp": 20000,
+    "soft_drawdown_stop_fraction": 0.12
+  },
+  "instrument_boundary": {
+    "cfds_require_later_amendment": true,
+    "direct_futures_allowed": false,
+    "initial_direction": "long_or_flat",
+    "initial_instrument_type": "unlevered_cash_etf_or_etp",
+    "leverage_allowed": false,
+    "options_allowed": false,
+    "perpetuals_allowed": false,
+    "shorting_requires_later_amendment": true
+  },
+  "mandate_id": "retail-cash-etf-research-v1",
+  "objective": {
+    "headline_return_may_not_select_parameters_or_leverage": true,
+    "stretch_annualized_return_fraction": 0.5,
+    "stretch_return_is_acceptance_gate": false
+  },
+  "predecessor": {
+    "program_id": "retail-cross-asset-multi-strategy-v1",
+    "status_path": "config/research/cross-asset-status-v7.json"
+  },
+  "schema_version": "cash-etf-research-mandate-v1",
+  "status": "frozen_offline_research_only"
+}

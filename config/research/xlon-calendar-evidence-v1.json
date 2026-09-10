@@ -1,0 +1,35 @@
+{
+  "frozen_at": "2026-08-30T01:30:00Z",
+  "official_lse_artifact": {
+    "coverage": "official LSE 2025 trading-services calendar",
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/lse-calendar-2025.pdf",
+    "sha256": "1364d8de19add3822f668f44a8eaccdc8a775f74d7d911d4f05efd6631e534ed"
+  },
+  "schema_version": "xlon-calendar-evidence-v1",
+  "sources": [
+    {
+      "evidence_id": "exceptional_closures",
+      "policy": "Only the dates frozen in the calendar module may supplement or displace recurring holidays; changing them requires a new calendar ID.",
+      "source_class": "official_UK_government_and_LSE_notices",
+      "url": "https://www.gov.uk/bank-holidays"
+    },
+    {
+      "evidence_id": "half_day_sessions",
+      "policy": "LSE-declared Christmas Eve and New Year's Eve half-days remain valid sessions and close at 12:30 Europe/London.",
+      "source_class": "official_LSE_trading_calendar",
+      "url": "https://www.londonstockexchange.com/trade/trading-access/business-days"
+    },
+    {
+      "evidence_id": "lse_trading_calendar",
+      "policy": "Official LSE evidence governs exchange sessions when it conflicts with generic bank-holiday rules.",
+      "source_class": "official_LSE",
+      "url": "https://www.londonstockexchange.com/trade/trading-access/business-days"
+    },
+    {
+      "evidence_id": "uk_bank_holiday_rules",
+      "policy": "Generate England-and-Wales recurring bank holidays, including substitute days, then apply frozen LSE exceptions.",
+      "source_class": "official_UK_government",
+      "url": "https://www.gov.uk/bank-holidays"
+    }
+  ]
+}

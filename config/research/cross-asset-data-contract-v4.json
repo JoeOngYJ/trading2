@@ -1,0 +1,98 @@
+{
+  "accepted_sources": [
+    {
+      "evidence_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2/evidence-manifest.json",
+      "qualification": "daily_bid_ask_context_only",
+      "source_id": "oanda_v20_broker_history_daily"
+    },
+    {
+      "evidence_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+      "qualification": "hourly_bid_ask_intraday_research_with_no_trade_masks",
+      "source_id": "oanda_v20_broker_history_hourly"
+    }
+  ],
+  "bulk_download_authorized": false,
+  "candidate_asset_classes": [
+    "spot_fx",
+    "spot_metal",
+    "index_cfd"
+  ],
+  "contract_id": "cross-asset-data-qualification-a1-v4",
+  "cost_and_cashflow_policy": {
+    "broker_bid_ask_candles_are_required_for_entry_and_exit": true,
+    "cash_and_collateral_yield_primary": "zero_percent",
+    "fees_spread_slippage_financing_dividends_and_fx_conversion_must_be_separate": true,
+    "historical_financing_may_not_be_invented": true,
+    "round_trip_additional_slippage_bps": [
+      0,
+      5,
+      15
+    ]
+  },
+  "gap_policy": {
+    "cross_gap_features": "reject",
+    "forward_fill_prices": "reject",
+    "incomplete_session_window": "no_trade",
+    "missing_expected_observation": "segment_or_reject",
+    "silent_repair": "reject"
+  },
+  "intraday_policy": {
+    "availability_masks_required": true,
+    "commodity_and_bond_cfds_eligible_without_historical_financing": false,
+    "historical_bid_ask_required": true,
+    "positions_must_be_flat_before_17_00_America_New_York": true
+  },
+  "license_policy": {
+    "automatic_data_deletion_allowed": false,
+    "existing_authenticated_account_use_only": true,
+    "post_account_closure_archival_use": "unresolved_promotion_blocker",
+    "source_purchase_requires_user_approval": true
+  },
+  "oanda_source_policy": {
+    "broker_native_prices_may_be_relabelled_as_exchange_futures": false,
+    "hourly_bid_ask_source_qualification_passed": true,
+    "oil_and_bond_economic_evaluation_allowed": false,
+    "sealed_2026_price_accessed": false
+  },
+  "required_fields_by_instrument_type": {
+    "index_cfd": [
+      "instrument_id",
+      "bid_ask_ohlc",
+      "event_time",
+      "available_at",
+      "availability_mask",
+      "source_digest"
+    ],
+    "spot_fx": [
+      "instrument_id",
+      "bid_ask_ohlc",
+      "event_time",
+      "available_at",
+      "availability_mask",
+      "source_digest"
+    ],
+    "spot_metal": [
+      "instrument_id",
+      "bid_ask_ohlc",
+      "event_time",
+      "available_at",
+      "availability_mask",
+      "source_digest"
+    ]
+  },
+  "schema_version": "cross-asset-data-contract-v4",
+  "strategy_evaluation_authorized": false,
+  "strategy_evaluation_may_be_authorized_only_by_separately_frozen_a2_or_a3_contract": true,
+  "supersedes": {
+    "path": "config/research/cross-asset-data-contract-v3.json",
+    "sha256": "84f9e5086c4f914ed6d8bc96b4fdaeac61e1064be8f9292743f7e500328e3130"
+  },
+  "timestamp_policy": {
+    "availability_after_observation": true,
+    "future_dependent_rows": "reject",
+    "naive_timestamps": "reject",
+    "publication_and_retrieval_times_separate": true,
+    "reversed_timestamps": "reject",
+    "timezone": "UTC"
+  }
+}

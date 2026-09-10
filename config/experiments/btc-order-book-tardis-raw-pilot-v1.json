@@ -1,0 +1,125 @@
+{
+  "access_and_budget": {
+    "credentials_may_be_stored_in_repository": false,
+    "dated_quote_required": true,
+    "observed_public_pricing": {
+      "business_spot_monthly_usd": 3500,
+      "minimum_one_off_order_usd": 300,
+      "observed_at": "2026-08-29T00:50:00Z",
+      "professional_spot_monthly_usd": 1350,
+      "raw_replay_listed_for": [
+        "professional",
+        "business"
+      ],
+      "source": "https://tardis.dev/",
+      "status": "public_list_price_not_a_quote"
+    },
+    "purchase_authorized": false,
+    "quote_must_cover": [
+      "one_off_raw_replay_access_for_exact_pilot_dates",
+      "binance_spot_btcusdt_only",
+      "all_required_native_channels_and_disconnect_markers",
+      "taxes_and_total_payable_amount",
+      "quote_expiry_and_no_auto_renewal",
+      "internal_research_and_retention_rights_after_access_ends"
+    ]
+  },
+  "audit_id": "btc-order-book-tardis-raw-pilot-v1",
+  "boundaries": {
+    "development_only": true,
+    "exact_partition_dates": [
+      "2019-12-01",
+      "2022-12-01",
+      "2025-12-01"
+    ],
+    "mechanical_date_selection": "The provider-documented BTCUSDT sample day followed by first-of-month dates at three-year intervals; no date was selected from price, volatility, feature, or PnL outcomes.",
+    "sealed_2026_access_allowed": false
+  },
+  "decision_rule": {
+    "adapter_fixture_acceptance_requires": [
+      "all_three_declared_dates_are_complete_and_checksummed",
+      "exchange_native_messages_and_local_timestamps_are_preserved",
+      "native_depth_U_and_u_fields_are_present",
+      "generated_initial_and_reconnect_snapshots_are_present",
+      "disconnect_boundaries_are_explicitly_located",
+      "aggregate_trade_ids_and_native_message_boundaries_are_present",
+      "venue_symbol_channel_and_partition_are_exact",
+      "timestamps_are_utc_partition_bounded_and_local_time_is_non_decreasing_within_segments",
+      "deterministic_replay_reconstructs_an_uncrossed_positive_book",
+      "all_sequence_or_snapshot_alignment_failures_are_rejected_or_segmented",
+      "provider_incident_metadata_is_preserved",
+      "license_allows_internal_research_and_permitted_retention"
+    ],
+    "fail_closed": true,
+    "normalized_csv_can_satisfy_raw_contract": false,
+    "pilot_acceptance_is_not_ob0_ob1_or_strategy_evidence": true,
+    "pilot_pass_requires_every_declared_date": true
+  },
+  "execution_prerequisites": {
+    "active_ob0_may_be_inspected_to_decide_readiness": false,
+    "final_ob0_acceptance_required": true,
+    "provider_access_or_normal_browser_download_required": true,
+    "quote_acceptance_by_user_required_before_payment": true,
+    "state": "blocked_pending_final_ob0_acceptance_and_provider_access"
+  },
+  "frozen_at": "2026-08-29T00:50:00Z",
+  "hypothesis": "Tardis exchange-native raw Binance spot replay can satisfy the OB1 provider replay contract because it preserves native depth messages with U/u, generated snapshots, aggregate trades, local arrival timestamps, and disconnect boundaries; reject the provider if any declared pilot date cannot independently prove those properties and deterministic segment-aware replay.",
+  "inputs": {
+    "allowed_host": "api.tardis.dev",
+    "allowed_path": "/v1/data-feeds/binance",
+    "channels": [
+      "aggTrade",
+      "depth",
+      "depthSnapshot"
+    ],
+    "client": {
+      "package": "tardis-dev",
+      "version": "4.2.1"
+    },
+    "format": "exchange_native_ndjson_with_local_timestamp",
+    "market": "spot",
+    "provider_documentation": [
+      "https://docs.tardis.dev/historical-data-details/binance",
+      "https://docs.tardis.dev/api/http",
+      "https://docs.tardis.dev/faq/data",
+      "https://docs.tardis.dev/legal/terms-of-service"
+    ],
+    "symbol": "btcusdt",
+    "venue": "binance"
+  },
+  "isolation": {
+    "active_or_partial_ob0_access_allowed": false,
+    "database_access_allowed": false,
+    "economic_or_predictive_analysis_allowed": false,
+    "exchange_api_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "production_signal_or_order_access_allowed": false,
+    "provider_api_access_allowed_after_prerequisites": true,
+    "running_service_or_container_access_allowed": false
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/btc-order-book/provider-audits/tardis-raw-pilot-v1",
+    "economic_metrics_allowed": false,
+    "feature_generation_allowed": false,
+    "forecast_generation_allowed": false,
+    "raw_partitions_are_write_once": true,
+    "strategy_stage_transition_allowed": false
+  },
+  "prohibited_actions": [
+    "execute_pilot_before_final_ob0_acceptance",
+    "purchase_without_user_approval_of_dated_quote",
+    "download_any_undeclared_date_or_channel",
+    "download_any_2026_object",
+    "substitute_normalized_csv_for_raw_replay",
+    "bypass_cloudflare_paywall_login_captcha_or_rate_limit",
+    "store_api_key_or_credentials_in_repository_or_artifacts",
+    "redistribute_provider_data",
+    "inspect_active_or_partial_ob0",
+    "compute_features_labels_forecasts_or_pnl",
+    "connect_to_database_nats_freqtrade_or_exchange",
+    "treat_pilot_acceptance_as_ob0_ob1_or_strategy_evidence"
+  ],
+  "schema_version": "btc-order-book-provider-raw-pilot-contract-v1",
+  "status": "frozen"
+}

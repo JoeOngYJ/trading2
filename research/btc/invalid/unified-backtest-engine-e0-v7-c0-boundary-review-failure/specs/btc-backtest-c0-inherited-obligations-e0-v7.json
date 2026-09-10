@@ -1,0 +1,27 @@
+{
+  "c0_owned_obligations": [
+    {"obligation_id": "C0O01", "owner": "C0", "probe_id": "P03", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "source_pointer": "/bound_authorities", "value_sha256": "c38311c021efe5a61cf81906dcb2efc4bf544ff6e67eb449afbc7c0f7a3f7d78"},
+    {"obligation_id": "C0O02", "owner": "C0", "probe_id": "P02", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "source_pointer": "/data_contract", "value_sha256": "7458f27e1d2b03fd0bb890c19d4b0994a7f7e373a10f265f603069d5778395f8"},
+    {"obligation_id": "C0O03", "owner": "C0", "probe_id": "P01", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "source_pointer": "/serialization_and_digest_contract", "value_sha256": "29c5ec914b75f84a98fe07a2df6703286bed0004729c564b2c7a074488d033de"},
+    {"obligation_id": "C0O04", "owner": "C0", "probe_id": "P06", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "source_pointer": "/applicable_mandates", "value_sha256": "d8d6314ef1c0ee517d8a43fbadff5d17acbc86006f3173deef6f1a6fa11fcefb"},
+    {"obligation_id": "C0O05", "owner": "C0", "probe_id": "P09", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "source_pointer": "/action_boundary", "value_sha256": "cdbf7f41d7d5fbc3eb4d87257c5e992b4deb9cea6a06f1c4cdd27d459eba45f7"},
+    {"obligation_id": "C0O06", "owner": "C0", "probe_id": "P10", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "source_pointer": "/prohibited", "value_sha256": "a2076ead8c0a66d59aaa98470ba5c7dde46ba25476249f5c89941fb7a51888db"},
+    {"obligation_id": "C0O07", "owner": "C0", "probe_id": "P12", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json", "source_pointer": "/predecessor", "value_sha256": "b718997dd9559787e3bc8f57647f6ed5adb875684edcc9847629b4b3dca44946"},
+    {"obligation_id": "C0O08", "owner": "C0", "probe_id": "P09", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json", "source_pointer": "/action_boundary", "value_sha256": "0ba0e7d8d99f8399fd14f04007dea70073f6db3af5d2bf129e5be125f8b4d9ea"},
+    {"obligation_id": "C0O09", "owner": "C0", "probe_id": "P03", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json", "source_pointer": "/authority_bindings", "value_sha256": "e0e36659aa687895abd06ed67b810400e612006cf45db492a6e1374325c2d9d3"},
+    {"obligation_id": "C0O10", "owner": "C0", "probe_id": "P12", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json", "source_pointer": "/inheritance", "value_sha256": "3c489ca2047d79d9261116515484e55a7d0ab38deb218634b54b224fdad53827"},
+    {"obligation_id": "C0O11", "owner": "C0", "probe_id": "P09", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json", "source_pointer": "/action_boundary", "value_sha256": "a526f725dfe2e5ca9cb1aeee72432a9b44f06c431db52ca1f31f0e00cc5a8283"},
+    {"obligation_id": "C0O12", "owner": "C0", "probe_id": "P10", "source_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json", "source_pointer": "/prohibited", "value_sha256": "1be65eac9d047b05009debed9510310877309e3f23a5b2313075f81d03d3d387"}
+  ],
+  "deferred_inherited_domains": [
+    {"future_owner": "C1", "status": "unresolved_not_closed", "topics": ["accounting_contract", "event_order", "fee_asset_contract", "funding", "signed_pnl", "residuals"]},
+    {"future_owner": "C2", "status": "unresolved_not_closed", "topics": ["candle_execution", "gap_semantics", "next_open"]},
+    {"future_owner": "C3", "status": "unresolved_not_closed", "topics": ["L2_depth", "latency", "partial_fill", "book_costs"]},
+    {"future_owner": "C4", "status": "unresolved_not_closed", "topics": ["atomic_pair_preflight", "pair_commit", "pair_recovery"]},
+    {"future_owner": "C5", "status": "unresolved_not_closed", "topics": ["margin", "liquidation", "risk_controls", "stale_unknown"]},
+    {"future_owner": "C6", "status": "unresolved_not_closed", "topics": ["integration", "economic_row_timestamps", "cost_reports", "controls", "output_contract"]}
+  ],
+  "experiment_id": "btc-unified-backtest-engine-e0-v7-c0-authority-boundary",
+  "scope_rule": "This registry is exhaustive only for obligations owned by C0; every omitted economic obligation remains binding and unresolved for a future separately frozen component contract.",
+  "schema_version": "btc-backtest-c0-inherited-obligations-e0-v7"
+}

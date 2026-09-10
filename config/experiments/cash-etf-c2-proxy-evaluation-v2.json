@@ -1,0 +1,16 @@
+{
+  "activated_at": "2026-08-30T22:45:00Z",
+  "changes_from_predecessor": {
+    "c1_ledger_evidence": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v5/evidence-manifest.json",
+    "c1_ledger_evidence_sha256": "2dd1848b80cb65fb54f4c9a59ef920b9058092eda135d16f9f4603bf1395130c",
+    "execution_fields_available": ["open", "gbp_open_equivalent"]
+  },
+  "experiment_id": "cash-etf-c2-proxy-evaluation-v2",
+  "predecessor": {
+    "path": "config/experiments/cash-etf-c2-proxy-evaluation-v1.json",
+    "sha256": "41232ecea4cdf861ac9da1f8d3cdb8a2972863d33d22e8b7ade503659d792fbd"
+  },
+  "reason": "v1 preflight found that v4 ledgers omitted required open execution fields; v5 adds causal open equivalents without changing prices, actions, boundaries, costs, controls or gates.",
+  "schema_version": "cash-etf-c2-proxy-evaluation-successor-v1",
+  "status": "frozen"
+}

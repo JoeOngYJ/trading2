@@ -1,0 +1,207 @@
+{
+  "cost_policy": {
+    "cash_and_collateral_yield": "zero_percent_primary",
+    "explicit_cost_components": [
+      "broker_commission",
+      "exchange_fee",
+      "clearing_fee",
+      "regulatory_fee",
+      "overnight_fee",
+      "tax",
+      "fx_conversion",
+      "rounding"
+    ],
+    "implicit_round_trip_bps": [
+      10,
+      30,
+      80
+    ]
+  },
+  "evidence_boundary": {
+    "latest_completed_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/evidence-manifest.json",
+      "sha256": "21ab3bd70f334968fda03f914c6d978de1caf291daa4fef96a9ef6a45caed440"
+    },
+    "sealed_2026_access_allowed": false
+  },
+  "experiment_id": "cross-asset-a1-lse-futures-expansion-v1",
+  "frozen_at": "2026-08-30T01:30:00Z",
+  "futures_source_comparison": {
+    "automatic_purchase_allowed": false,
+    "candidates": [
+      {
+        "official_or_authorized": "direct_exchange",
+        "source_id": "cme_datamine"
+      },
+      {
+        "official_or_authorized": "CME_licensed_distributor",
+        "source_id": "databento"
+      }
+    ],
+    "direct_source_tie_threshold_fraction": "0.10",
+    "required_gates": [
+      "authorized_distribution",
+      "contract_definitions",
+      "exact_boundary_coverage",
+      "final_settlements",
+      "private_research_retention",
+      "publication_timestamps",
+      "reproducible_retrieval"
+    ],
+    "selection_rule": "Choose Databento only when both candidates pass and its twelve-month TCO is more than 10 percent below CME DataMine; otherwise choose CME DataMine.",
+    "user_approval_required_after_exact_quote": true
+  },
+  "listed_funds": [
+    {
+      "family": "global_equity",
+      "isin": "IE00B4L5Y983",
+      "price_to_gbp_multiplier": "0.01",
+      "provider_symbol": "SWDA:LSE",
+      "quote_unit": "GBp",
+      "symbol": "SWDA",
+      "usable_end": "2025-12-31",
+      "usable_start": "2009-10-05"
+    },
+    {
+      "family": "sovereign_bond",
+      "isin": "IE00BG47K971",
+      "price_to_gbp_multiplier": "1",
+      "provider_symbol": "VAGS:LSE",
+      "quote_unit": "GBP",
+      "symbol": "VAGS",
+      "usable_end": "2025-12-31",
+      "usable_start": "2019-06-27"
+    },
+    {
+      "family": "gold",
+      "isin": "IE00B4ND3602",
+      "price_to_gbp_multiplier": "0.01",
+      "provider_symbol": "SGLN:LSE",
+      "quote_unit": "GBp",
+      "symbol": "SGLN",
+      "usable_end": "2025-12-31",
+      "usable_start": "2011-04-18"
+    },
+    {
+      "family": "commodity",
+      "isin": "IE00BDFL4P12",
+      "price_to_gbp_multiplier": "0.01",
+      "provider_symbol": "COMM:LSE",
+      "quote_unit": "GBp",
+      "symbol": "COMM",
+      "usable_end": "2025-12-31",
+      "usable_start": "2017-07-27"
+    }
+  ],
+  "listed_futures": [
+    {
+      "family": "global_equity",
+      "micro_root": "MES",
+      "micro_usable_start": "2019-05-06",
+      "parent_root": "ES",
+      "parent_usable_start": "2009-10-05",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCME"
+    },
+    {
+      "family": "gold",
+      "micro_root": "MGC",
+      "micro_usable_start": "2010-10-04",
+      "parent_root": "GC",
+      "parent_usable_start": "2009-10-05",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCEC"
+    },
+    {
+      "family": "energy",
+      "micro_root": "MCL",
+      "micro_usable_start": "2021-07-12",
+      "parent_root": "CL",
+      "parent_usable_start": "2009-10-05",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XNYM"
+    },
+    {
+      "family": "foreign_exchange",
+      "micro_root": "M6E",
+      "micro_usable_start": "2009-10-05",
+      "parent_root": "6E",
+      "parent_usable_start": "2009-10-05",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCME"
+    },
+    {
+      "family": "sovereign_rates",
+      "micro_root": "MTN",
+      "micro_usable_start": "2024-03-25",
+      "parent_root": "TN",
+      "parent_usable_start": "2016-01-11",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCBT"
+    }
+  ],
+  "lse_acquisition": {
+    "api_base_url": "https://api.twelvedata.com",
+    "api_token_environment_variable": "TWELVEDATA_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "authorization_header_scheme": "apikey",
+    "end_date_exclusive": "2026-01-01",
+    "endpoint_credit_weights": {
+      "dividends": 20,
+      "splits": 20,
+      "time_series": 1
+    },
+    "endpoint_paths": {
+      "dividends": "/dividends",
+      "splits": "/splits",
+      "time_series": "/time_series"
+    },
+    "existing_paid_subscription_use_authorized": true,
+    "further_paid_upgrade_authorized": false,
+    "maximum_requests": 12,
+    "maximum_weighted_credits": 164,
+    "minute_credit_ceiling": 55,
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-lse-futures-expansion-v1/lse-history",
+    "phase_offsets_seconds": [
+      0,
+      61,
+      122,
+      183
+    ],
+    "query": {
+      "adjust": "none",
+      "interval": "1day",
+      "order": "ASC",
+      "outputsize": "5000",
+      "timezone": "UTC"
+    },
+    "transactional_write_required": true
+  },
+  "prohibitions": {
+    "account_or_broker_login_allowed": false,
+    "automatic_data_purchase_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "feature_generation_allowed": false,
+    "order_or_order_preview_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "roll_policy": {
+    "decision_information": "previous_completed_session_only",
+    "minimum_sessions_before_delivery_risk": 5,
+    "parent_history_is_mechanism_evidence_only": true,
+    "vendor_continuous_series_allowed": false
+  },
+  "schema_version": "cross-asset-a1-lse-futures-expansion-contract-v1",
+  "status": "frozen",
+  "xlon_calendar": {
+    "path": "config/research/xlon-calendar-2009-2025-v1.json",
+    "sha256": "d0c3e2226a3873690c149d61d2fa001ba788cbffd83eecc244136b92e21b10db"
+  }
+}

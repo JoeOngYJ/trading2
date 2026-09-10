@@ -1,0 +1,69 @@
+{
+  "actionable_arm_id": "no_trade",
+  "allowed_research_position": {
+    "futures_leg": "short_BTCUSDT_USD_M_perpetual",
+    "maximum_absolute_delta_mismatch_fraction": 0.01,
+    "maximum_futures_notional_fraction_of_equity": 0.5,
+    "maximum_spot_notional_fraction_of_equity": 0.5,
+    "position_structure": "matched_delta_neutral_pair_only",
+    "spot_leg": "long_BTCUSDT_spot"
+  },
+  "authority": {
+    "account_connection_allowed": false,
+    "credentials_allowed": false,
+    "live_allocation_usdt": 0,
+    "live_trading_allowed": false,
+    "order_submission_allowed": false,
+    "paper_orders_sent_to_exchange_allowed": false,
+    "transfers_allowed": false
+  },
+  "execution_boundary": {
+    "atomic_research_intention_required": true,
+    "missing_or_partial_leg": "fail_closed_and_simulate_immediate_neutralization_under_severe_cost",
+    "production_integration_allowed": false
+  },
+  "legacy_spot_mandate": "retail-btc-spot-v2",
+  "mandate_id": "retail-btc-delta-neutral-research-v1",
+  "margin_policy": {
+    "assumed_perpetual_leverage": 1.0,
+    "cross_margin_allowed": false,
+    "effective_dated_maintenance_margin_required": true,
+    "historical_rule_gap_policy": "fail_closed",
+    "isolated_margin_only": true,
+    "multi_asset_mode_allowed": false,
+    "portfolio_margin_allowed": false,
+    "project_current_brackets_backward": false,
+    "single_collateral_asset": "USDT"
+  },
+  "normalized_research_equity_usdt": 1000,
+  "prohibited": [
+    "naked_futures_short",
+    "directional_perpetual_position",
+    "spot_borrowing",
+    "cross_margin",
+    "portfolio_margin",
+    "multi_asset_collateral",
+    "options",
+    "live_credentials",
+    "live_orders"
+  ],
+  "research_venue": "Binance_public_BTCUSDT_spot_and_USD_M_perpetual_data",
+  "required_attribution": [
+    "spot_price_pnl",
+    "perpetual_price_pnl",
+    "funding_cashflow",
+    "basis_convergence",
+    "spot_fees_and_slippage",
+    "perpetual_fees_and_slippage",
+    "hedge_error",
+    "collateral_and_opportunity_cost",
+    "liquidation_ADL_and_venue_failure",
+    "missed_or_partial_leg_cost"
+  ],
+  "schema_version": "btc-delta-neutral-research-mandate-v1",
+  "status": "frozen_offline_research_only",
+  "universe": [
+    "BTCUSDT_spot",
+    "BTCUSDT_USD_M_perpetual"
+  ]
+}

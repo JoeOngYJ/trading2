@@ -1,0 +1,240 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "cost_or_execution_model_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "perpetual_position_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "config/mandates/retail-btc-spot-cross-market-input-research-v1.json",
+      "sha256": "5b3e3b1e9d91c5d600c38b92b6e060ec60652fcaa45785f0ee4ba150be6c8a93"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_RESEARCH_PLAN.md",
+      "sha256": "67851b1dc66267b70a5a060b7e474a73811f74ed00afb5d64ea8ebbe774e9d6d"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_PLAN.md",
+      "sha256": "418ecfe17ec68d394d3da9642310408a90871d20bd9a2feea93e7a48b073c9a4"
+    },
+    {
+      "path": "research/btc/contracts/btc-spot-perp-continuation-data-audit-v3.json",
+      "sha256": "68070f31edb37c261654512e2e5f73331f839e5012fb825d7a02e39c87140a1d"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D0_V3_RESULT.md",
+      "sha256": "11aebe888022dc43a66436b33c9504b79eec2f12a7fd19b21a1ddbac600cabff"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/source-manifest.json",
+      "sha256": "d7a0e6c2855bb0c67fff91e6712f099040123450973791ca5530460505c90bc3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/audit-report.json",
+      "sha256": "556198f3222e79a660a1bbe49e63c79aea7fdb6423e261c6f6cf57107e423578"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/segment-report.json",
+      "sha256": "73e74d26fac65163027d488e76c1ac60c6c7444a8cc5164410c02c6a7408bec1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v3/evidence-manifest.json",
+      "sha256": "32e0d66a18424b9dfedd4565132e2660922118ba37d1f85759a6dce88a0ef8ac"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    }
+  ],
+  "candidate_experiment_id": "btc-spot-perp-continuation-information-v1",
+  "chronology": {
+    "decision_time_utc": "00:05:00",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start_inclusive": "2021-01-01T00:05:00Z",
+    "feature_bar_observed_at": "daily_bar_open_plus_24h",
+    "feature_decision_and_available_at": "daily_bar_open_plus_24h_plus_5m",
+    "fit_cutoff": "first_eligible_00_05_UTC_decision_of_each_calendar_month",
+    "minimum_training_rows": 300,
+    "training_label_rule": "target_available_at_strictly_before_fit_cutoff"
+  },
+  "disposition_rules": {
+    "D1_information_passed": "all_feature_label_model_causality_coverage_uncertainty_stability_and_sign_gates_pass",
+    "promotion_or_strategy_acceptance": false,
+    "rejected": "any_frozen_gate_fails",
+    "rerun_or_tuning_under_same_id": false
+  },
+  "environment": {
+    "canonical_numeric_decimal_places": 12,
+    "numeric_type": "float64",
+    "numpy": "2.5.2",
+    "python": "3.13.14",
+    "required_thread_environment": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "experiment_id": "btc-spot-perp-continuation-information-d1-v1",
+  "feature_contract": {
+    "candidate_features": [
+      "basis_impulse_z",
+      "spot_minus_perpetual_turnover_z"
+    ],
+    "clip_absolute_z": 5,
+    "control_features": [
+      "lagged_72h_spot_return_z",
+      "log_spot_rv7_z",
+      "spot_turnover_z"
+    ],
+    "expected_candidate_coefficient_sign": {
+      "basis_impulse_z": "positive",
+      "spot_minus_perpetual_turnover_z": "positive"
+    },
+    "formulas": {
+      "basis_impulse": "log(perpetual_close_t/spot_close_t)-log(perpetual_close_t_minus_1/spot_close_t_minus_1)",
+      "lagged_72h_spot_return": "log(spot_close_t/spot_close_t_minus_3)",
+      "log_spot_rv7": "log(sqrt(sum_i_0_to_6(log(spot_close_t_minus_i/spot_close_t_minus_i_minus_1)^2)))",
+      "perpetual_turnover": "log(perpetual_quote_volume_t)",
+      "spot_minus_perpetual_turnover_z": "robust_z(log_spot_quote_volume_t)-robust_z(log_perpetual_quote_volume_t)",
+      "spot_turnover": "log(spot_quote_volume_t)"
+    },
+    "missing_or_invalid_behavior": "unknown_and_excluded_never_imputed",
+    "robust_scale": "1.4826_times_median_absolute_deviation",
+    "robust_window_days": 90,
+    "robust_window_excludes_current": true,
+    "zero_or_nonfinite_scale_behavior": "unknown_and_excluded"
+  },
+  "feature_gates": {
+    "all_causality_checksum_timestamp_and_segment_checks_pass": true,
+    "evaluation_feature_coverage_minimum": 0.98,
+    "evaluation_feature_rows_each_year_minimum": 340,
+    "evaluation_months_missing_maximum": 0,
+    "feature_segments_required": 1,
+    "invalid_feature_rows_maximum": 0,
+    "pre_2021_feature_rows_minimum": 300
+  },
+  "freeze_recorded_at": "2026-09-01T20:48:00Z",
+  "hypothesis": "After controlling for BTC's completed lagged 72-hour spot return, seven-day close-based realized volatility and abnormal spot turnover, a positive daily spot-perpetual basis impulse and spot-dominant abnormal quote turnover contain positive incremental information about the raw next-72-hour BTC spot log return.",
+  "label_gates": {
+    "all_exact_open_checksum_timestamp_segment_and_2026_checks_pass": true,
+    "evaluation_label_coverage_minimum": 0.98,
+    "evaluation_label_rows_each_year_minimum": 340,
+    "evaluation_label_rows_minimum": 1700,
+    "invalid_or_cross_segment_labels_maximum": 0,
+    "per_year_label_coverage_minimum": 0.95,
+    "pre_2021_training_labels_minimum": 300
+  },
+  "model_contract": {
+    "B0": "expanding_arithmetic_mean_raw_72h_log_return",
+    "M0": "expanding_OLS_intercept_plus_three_control_features",
+    "M1": "expanding_OLS_intercept_plus_M0_plus_two_candidate_features",
+    "fit_schedule": "monthly_expanding",
+    "model_or_hyperparameter_selection": "none",
+    "prediction_target": "raw_next_72h_BTC_spot_log_return"
+  },
+  "model_gates": {
+    "M1_MSE_strictly_below_B0": true,
+    "M1_MSE_strictly_below_M0": true,
+    "M1_relative_MSE_improvement_over_M0_minimum": 0.005,
+    "aggregate_improvement_after_excluding_each_year_strictly_positive": true,
+    "basis_coefficient_median_strictly_positive": true,
+    "basis_positive_refit_fraction_minimum": 0.6,
+    "best_three_months_excluded_improvement_strictly_positive": true,
+    "bootstrap_incremental_rank_ic_lower_95_strictly_above": 0,
+    "bootstrap_squared_error_improvement_lower_95_strictly_above": 0,
+    "evaluation_years_positive_improvement_minimum": 4,
+    "per_year_relative_MSE_improvement_minimum": -0.02,
+    "required_evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "spot_minus_perpetual_turnover_coefficient_median_strictly_positive": true,
+    "spot_minus_perpetual_turnover_positive_refit_fraction_minimum": 0.6,
+    "valid_bootstrap_replications_minimum": 9500
+  },
+  "outputs": {
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/evidence-manifest.json",
+    "feature_ledger": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/features/features.jsonl.gz",
+    "feature_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/features/evidence-manifest.json",
+    "feature_report": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/features/feature-gate-report.json",
+    "forecast_ledger": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/model/forecasts.jsonl.gz",
+    "label_ledger": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/labels/labels.jsonl.gz",
+    "label_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/labels/evidence-manifest.json",
+    "label_report": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/labels/label-gate-report.json",
+    "model_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/model/evidence-manifest.json",
+    "model_report": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/model/report.json",
+    "model_snapshots": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v1/model/model-snapshots.jsonl.gz"
+  },
+  "phase_order": [
+    "synthetic_qualification",
+    "features",
+    "labels_if_features_pass",
+    "model_if_labels_pass",
+    "independent_replay_and_context_validation"
+  ],
+  "prohibited": [
+    "alternative_feature_window_horizon_interaction_or_model_search",
+    "strategy_entry_exit_position_or_order_logic",
+    "return_or_PnL_backtest",
+    "cost_leverage_or_exposure_optimization",
+    "using_rejected_regime_or_condition_scores",
+    "using_a_filter_to_rescue_a_failed_information_test",
+    "funding_open_interest_liquidation_news_or_partial_OB0_input",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-spot-perp-continuation-information-contract-v1",
+  "statistics": {
+    "bootstrap": "joint_non_circular_three_calendar_month_moving_block",
+    "bootstrap_replications": 10000,
+    "bootstrap_seed": 20260901,
+    "confidence_interval": 0.95,
+    "incremental_rank_information": "Spearman_rank_correlation_of_M1_minus_M0_prediction_with_actual_minus_M0_prediction",
+    "month_assignment": "decision_at_UTC_calendar_month",
+    "same_joint_resample_for_named_statistics": true,
+    "year_assignment": "decision_at_UTC_calendar_year"
+  },
+  "status": "frozen_before_any_D1_label_or_model_materialization",
+  "target_contract": {
+    "formula": "log(exact_spot_5m_open_at_decision_plus_72h/exact_spot_5m_open_at_decision)",
+    "horizon_hours": 72,
+    "missing_open_behavior": "ineligible_never_imputed",
+    "same_five_minute_segment_required": true,
+    "target_available_at": "exact_exit_5m_open_at",
+    "target_end_strictly_before_2026": true
+  }
+}

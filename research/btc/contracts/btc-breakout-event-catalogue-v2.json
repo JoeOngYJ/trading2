@@ -1,0 +1,34 @@
+{
+  "base_contract": {
+    "path": "research/btc/contracts/btc-breakout-event-catalogue-v1.json",
+    "sha256": "2599f8a4885bbdcbfa77419135f5c70346545ad4e45e1ba2344f8564234a0c8d"
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex1-v2",
+  "frozen_at": "2026-09-01T01:30:00Z",
+  "override_semantics": "apply_only_the_exact_JSON_pointer_replacements_below_to_the_immutable_base_contract_all_other_fields_remain_identical",
+  "overrides": [
+    {
+      "json_pointer": "/experiment_id",
+      "replacement": "btc-upside-compression-breakout-v1-bex1-v2"
+    },
+    {
+      "json_pointer": "/bound_inputs/1/path",
+      "replacement": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json"
+    },
+    {
+      "json_pointer": "/bound_inputs/1/sha256",
+      "replacement": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae"
+    },
+    {
+      "json_pointer": "/frozen_at",
+      "replacement": "2026-09-01T01:30:00Z"
+    },
+    {
+      "json_pointer": "/status",
+      "replacement": "frozen_successor_before_historical_event_outcomes"
+    }
+  ],
+  "reason_for_successor": "BEX1_v1_bound_a_nonexistent_manifest_path_and_wrong_digest_and_was_rejected_before_historical_source_load",
+  "schema_version": "btc-breakout-event-catalogue-successor-contract-v2",
+  "status": "frozen_successor_before_historical_event_outcomes"
+}

@@ -1,0 +1,71 @@
+{
+  "approved_execution_instruments": [],
+  "default_planning_jurisdiction": "UK_retail",
+  "jurisdiction_selection_policy": {
+    "account_specific_permission_required_before_paper_or_live": true,
+    "anti_circumvention": true
+  },
+  "research_candidates": [
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity_index",
+      "instrument_id": "SPX500_USD",
+      "market": "OANDA OTC index CFD",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    },
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity_index",
+      "instrument_id": "NAS100_USD",
+      "market": "OANDA OTC index CFD",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    },
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity_index",
+      "instrument_id": "DE30_EUR",
+      "market": "OANDA OTC index CFD",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    },
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity_index",
+      "instrument_id": "UK100_GBP",
+      "market": "OANDA OTC index CFD",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    },
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "gold",
+      "instrument_id": "XAU_USD",
+      "market": "OANDA spot metal",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    },
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "foreign_exchange",
+      "instrument_id": "EUR_USD",
+      "market": "OANDA spot FX",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    },
+    {
+      "economic_evaluation_state": "eligible_for_separately_frozen_intraday_research_only",
+      "execution_state": "conditional_unapproved",
+      "family": "foreign_exchange",
+      "instrument_id": "USD_JPY",
+      "market": "OANDA spot FX",
+      "research_data_state": "hourly_bid_ask_qualified_with_no_trade_mask"
+    }
+  ],
+  "schema_version": "cross-asset-instrument-access-v4",
+  "supersedes": {
+    "path": "config/research/cross-asset-instrument-access-v3.json",
+    "sha256": "af95bac62e8b3eb411b2ee9d32840283162e67729afc8845ea69c40d5ef62d88"
+  }
+}

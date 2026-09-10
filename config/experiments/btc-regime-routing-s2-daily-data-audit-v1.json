@@ -1,0 +1,102 @@
+{
+  "audit_id": "btc-regime-routing-s2-daily-data-audit-v1",
+  "boundaries": {
+    "archive_end_period": "2025-12",
+    "archive_start_period": "2017-08",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T00:00:00Z",
+    "expected_daily_rows": 3059,
+    "expected_monthly_archives": 101,
+    "sealed_2026_access_allowed": false
+  },
+  "decision_rule": {
+    "fail_closed": true,
+    "minimum_consecutive_completed_returns_at_affected_decision": 30,
+    "required_affected_risk_observation_times": [
+      "2019-04-01T00:00:00Z",
+      "2020-07-23T00:00:00Z",
+      "2021-09-03T00:00:00Z",
+      "2021-10-19T00:00:00Z",
+      "2023-04-14T00:00:00Z"
+    ],
+    "suitable_for_successor_when": "Every official checksum is valid; the direct daily series has exactly one UTC-aligned bar per calendar day; direct OHLC values match every overlapping complete S1 daily bar exactly; and every affected observation has at least 30 consecutive completed direct-daily close-to-close returns.",
+    "volume_or_trade_count_differences_are_diagnostic_only": true
+  },
+  "frozen_at": "2026-08-28T22:40:25Z",
+  "hypothesis": "Official Binance BTCUSDT daily archives form an independent, continuous, point-in-time development source that reconciles with complete S1 daily bars and can support an untuned successor evaluation of the unchanged EWMA benchmark.",
+  "inputs": {
+    "checksum_suffix": ".CHECKSUM",
+    "monthly_base_url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1d",
+    "official_host_allowlist": [
+      "data.binance.vision"
+    ],
+    "s1_daily_candles_path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-1d.jsonl.gz",
+    "s1_daily_candles_sha256": "690252f80851a24c3b1f6874af96e4434b1d4978b896144822555e00d0adf5d1",
+    "symbol": "BTCUSDT",
+    "venue": "Binance spot"
+  },
+  "isolation": {
+    "database_access_allowed": false,
+    "exchange_api_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "official_public_archive_download_allowed": true,
+    "partial_l2_access_allowed": false,
+    "production_signal_or_order_access_allowed": false,
+    "running_service_or_container_access_allowed": false
+  },
+  "lineage": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-1d.jsonl.gz",
+      "sha256": "690252f80851a24c3b1f6874af96e4434b1d4978b896144822555e00d0adf5d1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/raw/btc-history-source-manifest.json",
+      "sha256": "41ad227706e3ac49cee3edb7933803f6d42167e652e16117f7ca4aab4e71acf9"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+      "sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae"
+    },
+    {
+      "path": "config/experiments/btc-regime-routing-s2-ewma-v1.json",
+      "sha256": "ee1037b07c3b829a74c36350d2118fd7ec3dd80b9f7f699250bda33b267e339a"
+    },
+    {
+      "path": "docs/BTC_REGIME_ROUTING_S2_RESULT.md",
+      "sha256": "329b4fca7961a4572f13daf2dc668576977507087adaec0e8c366f88c2d8c721"
+    }
+  ],
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1",
+    "economic_metrics_allowed": false,
+    "forecast_generation_allowed": false,
+    "program_stage_transition_allowed": false,
+    "successor_experiment_activation_allowed": false
+  },
+  "prohibited_changes": [
+    "alter_s2_v1",
+    "relax_s2_v1_coverage_gates",
+    "shorten_s2_v1_initialization",
+    "carry_state_across_missing_direct_daily_bars",
+    "inspect_sealed_2026",
+    "calculate_ewma_forecasts",
+    "calculate_strategy_pnl",
+    "fit_hmm_or_jump_model"
+  ],
+  "reconciliation": {
+    "direct_daily_availability": "A daily bar opening at UTC midnight is available only at the following UTC midnight.",
+    "first_listing_day_may_be_partial": true,
+    "ohlc_comparison": "Exact decimal equality on every UTC day present in the complete S1 daily ledger.",
+    "report_direct_only_days": true,
+    "report_s1_only_days": true,
+    "s1_volume_comparison_absolute_tolerance": "0.000001",
+    "timestamp_unit_rule": "Accept a uniform 13-digit millisecond or 16-digit microsecond source timestamp within each official archive and normalize to milliseconds without rounding."
+  },
+  "schema_version": "btc-regime-routing-s2-daily-data-audit-contract-v1",
+  "status": "frozen"
+}

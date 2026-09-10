@@ -1,0 +1,131 @@
+{
+  "audit_id": "btc-order-book-cryptolake-sample-audit-v1",
+  "boundaries": {
+    "allowed_partition_dates": [
+      "2022-10-01",
+      "2024-04-01"
+    ],
+    "development_only": true,
+    "sealed_2026_access_allowed": false
+  },
+  "decision_rule": {
+    "adapter_fixture_acceptance_requires": [
+      "all_declared_objects_match_content_length_and_etag",
+      "all_declared_objects_are_valid_parquet",
+      "required_columns_are_present",
+      "venue_symbol_and_partition_are_exact",
+      "required_values_are_non_null_and_finite",
+      "timestamps_are_utc_partition_bounded_and_non_decreasing",
+      "prices_are_positive_and_sizes_are_non_negative",
+      "sequence_numbers_are_non_decreasing",
+      "snapshot_best_bid_is_strictly_below_best_ask",
+      "trade_ids_are_strictly_increasing"
+    ],
+    "fail_closed": true,
+    "raw_replay_acceptance_requires": [
+      "exchange_native_message_boundaries",
+      "first_update_id_U",
+      "final_update_id_u",
+      "initial_and_reconnect_snapshots",
+      "exchange_and_local_receipt_timestamps",
+      "gap_reconnect_resubscribe_parse_clock_and_drop_incidents",
+      "raw_aggregate_trades_with_exchange_ids"
+    ]
+  },
+  "frozen_at": "2026-08-29T00:00:00Z",
+  "hypothesis": "The explicitly public Crypto Lake Binance spot BTC-USDT samples are suitable as checksummed adapter and bounded data-quality fixtures, but must fail the exchange-native replay contract unless the downloaded schemas independently preserve original Binance U/u message ranges, snapshots, both timestamp clocks, incident metadata, and matching raw aggregate trades.",
+  "inputs": {
+    "allowed_host": "s3.eu-west-1.amazonaws.com",
+    "allowed_path_prefix": "/sample.crypto.lake/",
+    "objects": [
+      {
+        "dataset": "book",
+        "expected_bytes": 267304100,
+        "expected_etag": "b242821da36630c33999c5f262744c3d-32",
+        "filename": "book-binance-btc-usdt-2022-10-01.snappy.parquet",
+        "partition_date": "2022-10-01",
+        "required_columns": [
+          "received_time",
+          "sequence_number",
+          "bid_0_price",
+          "bid_0_size",
+          "ask_0_price",
+          "ask_0_size",
+          "exchange",
+          "symbol"
+        ],
+        "url": "https://s3.eu-west-1.amazonaws.com/sample.crypto.lake/book/exchange=BINANCE/symbol=BTC-USDT/dt=2022-10-01/1.snappy.parquet"
+      },
+      {
+        "dataset": "trades",
+        "expected_bytes": 63447788,
+        "expected_etag": "342e4ba68b7428c83896a60f15d2a266-8",
+        "filename": "trades-binance-btc-usdt-2022-10-01.snappy.parquet",
+        "partition_date": "2022-10-01",
+        "required_columns": [
+          "side",
+          "quantity",
+          "price",
+          "trade_id",
+          "origin_time",
+          "received_time",
+          "exchange",
+          "symbol"
+        ],
+        "url": "https://s3.eu-west-1.amazonaws.com/sample.crypto.lake/trades/exchange=BINANCE/symbol=BTC-USDT/dt=2022-10-01/1.snappy.parquet"
+      },
+      {
+        "dataset": "book_delta_v2",
+        "expected_bytes": 169813154,
+        "expected_etag": "b6704cb99f255ab49d114f88f8e00df4-21",
+        "filename": "book-delta-v2-binance-btc-usdt-2024-04-01.snappy.parquet",
+        "partition_date": "2024-04-01",
+        "required_columns": [
+          "received_time",
+          "sequence_number",
+          "side_is_bid",
+          "price",
+          "size",
+          "exchange",
+          "symbol"
+        ],
+        "url": "https://s3.eu-west-1.amazonaws.com/sample.crypto.lake/book_delta_v2/exchange=BINANCE/symbol=BTC-USDT/dt=2024-04-01/1.snappy.parquet"
+      }
+    ],
+    "provider_data_documentation": "https://crypto-lake.com/data/",
+    "provider_free_data_documentation": "https://crypto-lake.com/free-data/",
+    "provider_terms": "https://crypto-lake.com/terms-of-service/",
+    "symbol": "BTC-USDT",
+    "venue": "BINANCE"
+  },
+  "isolation": {
+    "active_ob0_access_allowed": false,
+    "database_access_allowed": false,
+    "economic_or_predictive_analysis_allowed": false,
+    "exchange_api_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "production_signal_or_order_access_allowed": false,
+    "public_sample_download_allowed": true,
+    "running_service_or_container_access_allowed": false
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/btc-order-book/provider-audits/cryptolake-sample-v1",
+    "economic_metrics_allowed": false,
+    "feature_generation_allowed": false,
+    "forecast_generation_allowed": false,
+    "strategy_stage_transition_allowed": false
+  },
+  "prohibited_actions": [
+    "download_any_undeclared_object",
+    "download_any_2026_object",
+    "bulk_scrape_provider_data",
+    "redistribute_provider_data",
+    "inspect_active_or_partial_ob0",
+    "compute_features_labels_forecasts_or_pnl",
+    "connect_to_database_nats_freqtrade_or_exchange",
+    "treat_adapter_acceptance_as_ob0_ob1_or_strategy_evidence"
+  ],
+  "schema_version": "btc-order-book-provider-sample-audit-contract-v1",
+  "status": "frozen"
+}

@@ -1,0 +1,290 @@
+{
+  "actionable_arm_id": "no_trade",
+  "authorities": {
+    "execution_scenarios": {
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    },
+    "mandate_options": [
+      {
+        "mandate_id": "retail-btc-spot-v2",
+        "path": "config/retail_mandate.json",
+        "sha256": "7e34cfb0928b4373bbf52b5c5505f63a2b19e674124059191c1b6c62ec129041"
+      },
+      {
+        "mandate_id": "retail-btc-directional-perpetual-research-v1",
+        "path": "config/mandates/retail-btc-directional-perpetual-research-v1.json",
+        "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d"
+      },
+      {
+        "mandate_id": "retail-btc-delta-neutral-research-v1",
+        "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+        "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+      }
+    ],
+    "run_binding": "immutable_selected_mandate_path_ID_and_exact_file_sha256_plus_execution_scenario_and_effective_cost_fee_authority_rules_sources_margin_and_semantic_settings"
+  },
+  "blind_oracle_boundary": {
+    "implementer_readable_expected_or_prior_numerical_terminal_outputs": "forbidden",
+    "implementer_readable_fixture_information": "named_semantic_categories_and_declared_input_fields_only",
+    "reviewer_derivation_time": "only_after_immutable_candidate_snapshot",
+    "reviewer_independence": "no_kernel_code_dataclasses_execution_accounting_helpers_or_shared_metrics"
+  },
+  "clean_room": {
+    "allowed_implementation_inputs": "independently_accepted_E0_v1_v2_v3_v4_and_E1_v7_plans_contracts_plus_exact_machine_authorities_only",
+    "implementer_must_not_inspect": "any_research_btc_invalid_file_prior_E1_source_test_result_report_qualification_terminal_outcome_candidate_snapshot_or_reviewer_oracle_material",
+    "reviewer_may_compare_negative_evidence_only_after_snapshot": true,
+    "source_reuse_or_in_place_repair": "forbidden"
+  },
+  "economic_and_lineage_inheritance": {
+    "changes_in_E1_v7_identity_contract": "none",
+    "conflict_rule": "later_E0_contract_controls_only_the_issue_it_explicitly_clarified",
+    "must_implement": "exact_combined_E0_v1_v2_v3_v4_semantics_and_lineage",
+    "relaxation_or_reinterpretation_allowed": false
+  },
+  "experiment_id": "btc-unified-backtest-engine-e1-v7",
+  "implementation_identity": {
+    "active_module_path": "src/trading_platform/btc_accounting_state_machine_e1_v7.py",
+    "active_test_path": "research/btc/tests/test_btc_accounting_state_machine_e1_v7.py",
+    "code_test_or_snapshot_allowed_before_independent_preflight_pass": false,
+    "paths_must_be_absent_at_preflight": true,
+    "snapshot_directory": "research/btc/candidates/unified-backtest-engine-e1-v7"
+  },
+  "inherited_records": [
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_PLAN.md",
+      "role": "E0_v1_plan",
+      "sha256": "db515111ebf718d14c73d894911de61278b4835234ab66cb9e1846d50e23b122"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "role": "E0_v1_contract",
+      "sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V2_PLAN.md",
+      "role": "E0_v2_plan",
+      "sha256": "57cfc7fcb4ba0bd2729595234b21a00c4038bf14f87f01d93f03ae54eb3809c8"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "role": "E0_v2_contract",
+      "sha256": "201bbaad8f1fb6e00efdc2b3c25d632d0d3da94d8b8521c2f92b37da29cde887"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V3_PAIR_CLOSE_PLAN.md",
+      "role": "E0_v3_plan",
+      "sha256": "9454f21e8d1c1005a21c79b5071d76f04ee2ae8306d875cfed37f3eef000eef9"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "role": "E0_v3_contract",
+      "sha256": "b0cea8cb6b35df31d51c7745a6b2ec1b3a4a3c6ac99f67c4d5db12a021057df1"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V4_LINEAGE_RECOVERY_PLAN.md",
+      "role": "E0_v4_plan",
+      "sha256": "15db934d98d1ceabae4b5da5d7ac87538fe47617b446741e5c8220c8ea169f35"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v4-lineage-recovery.json",
+      "role": "E0_v4_contract",
+      "sha256": "d8b2852e6ef1e1c5b32bbf585f64683751d95480f9c87f890408708b58b5407c"
+    }
+  ],
+  "mandatory_semantics": {
+    "A_manifest_and_snapshot": "literal_UTC_creation_timestamp_every_entry_path_sha256_size_bytes_semantic_role_canonical_compact_duplicate_nonfinite_free_active_snapshot_file_sets_and_bytes_identical",
+    "B_phase_atomicity_funding_and_PnL": "canonical_nine_phase_engine_owned_timestamp_segment_progression_phase_2_protective_reductions_only_all_preflight_side_effect_free_including_funding_key_and_third_fee_residual_no_timestamp_or_segment_rewrite_outside_canonical_phase_adverse_mark_only_for_margin_liquidation_close_to_close_PnL_separate_and_no_funding_event_or_row_after_observed_open_liquidation",
+    "C_pair_entry_and_failure_disposition": "every_forced_recovery_leg_price_fee_rule_cap_and_funding_path_validated_before_spot_leg_1_commit_and_every_failed_atomic_pair_intention_invalid_unknown_after_neutralization_even_when_flat",
+    "D_controls_gap_partition_and_terminal": "flat_true_partition_boundary_buy_and_hold_and_same_exposure_controls_are_real_ledger_runs_under_frozen_partition_terminal_convention_gap_uses_first_valid_in_boundary_open_captures_full_observed_path_invalidates_interval_and_resets_segment_and_rolling_state",
+    "E_partial_Cartesian_and_pair_close": "qualified_partial_adapter_supplies_checksummed_point_in_time_depth_outcome_universe_engine_derives_every_intermediate_R_and_each_permitted_q_for_every_R_with_spot_and_perpetual_outcome_VWAP_explicit_implicit_cost_fee_mutation_rules_and_tick_validation_caller_endpoints_insufficient",
+    "F_severe_delayed_and_mismatch": "candle_severe_price_and_source_are_engine_observed_same_instrument_open_actual_path_not_worse_than_frozen_worst_marks_memo_delay_and_segment_are_engine_owned_source_derived_delayed_state_invalid_unknown_before_permitted_crossing_exact_partition_terminal_guard_no_read_beyond_boundary_and_one_finite_nonrecursive_whole_pair_mismatch_attempt_catches_fill_failures_records_commits_and_invalidates",
+    "G_mandate_cost_binding_and_terminal": "run_binding_immutable_operations_and_order_rows_enforce_selected_mandate_instrument_caps_leverage_and_exact_effective_cost_fee_authority_arbitrary_tax_or_base_fee_rejected_unless_explicitly_permitted_no_pyramiding_without_mandate_permission_and_terminal_or_liquidated_state_rejects_future_timestamps_ordinary_decisions_orders_and_fills_with_protective_reduction_only",
+    "H_digests_and_row_lineage": "implementation_digest_only_from_manifest_bound_exact_active_snapshot_bytes_no_caller_path_or_value_fill_rules_sources_and_margin_digests_verify_immutable_run_binding_and_every_row_repeats_or_references_exact_contract_implementation_execution_mandate_rule_source_margin_and_semantic_lineage",
+    "I_risk_gates": "daily_loss_less_than_or_equal_to_minus_1_5_percent_drawdown_less_than_or_equal_to_minus_10_percent_exact_reset_and_reductions_or_protective_exits_remain_allowed",
+    "J_canonical_rules": "exact_price_tick_and_quantity_rules_Decimal_only_duplicate_JSON_and_post_stringification_key_collision_rejection_nonfinite_rejection_and_pair_outcome_prices_validate_bound_ticks_rules",
+    "K_ledgers_episodes_and_invalidation": "exact_E0_ledger_field_names_account_real_segment_and_exact_maintenance_requirement_every_ordinary_row_invalidation_reason_or_null_liquidation_order_then_fill_sequential_before_after_transitions_full_observed_lineage_episode_references_actual_emitted_fill_row_digest_per_episode_funding_delta_spot_and_pair_direction_price_PnL_MAE_MFE_complete_rejected_expired_partial_unfilled_and_cost_attribution_and_invalid_interval_sticky_in_rows_and_results"
+  },
+  "preimplementation_gates": {
+    "all_bound_hashes_sizes_and_complete_negative_file_sets_verify": true,
+    "all_mandatory_semantics_and_probes_explicit": true,
+    "canonical_contract_duplicate_and_nonfinite_free": true,
+    "independent_preflight_review_passed": false,
+    "new_module_test_and_snapshot_paths_absent": true,
+    "no_numerical_terminal_oracle_output_in_implementer_readable_v7_artifact": true,
+    "only_no_trade_actionable": true
+  },
+  "prequalification_probes": [
+    "B_reject_phase_2_ordinary_increase",
+    "B_failing_preflight_leaves_state_keys_orders_and_rows_unchanged",
+    "B_reject_post_observed_open_liquidation_funding_event_and_row",
+    "B_adverse_extreme_does_not_replace_close_to_close_PnL_mark",
+    "C_reject_pair_entry_before_leg_1_when_any_recovery_path_missing_or_invalid",
+    "C_failed_pair_intention_is_invalid_unknown_after_complete_immediate_neutralization",
+    "D_controls_emit_real_ledgers_and_obey_predeclared_partition_terminal_convention",
+    "D_gap_uses_first_valid_in_bound_open_full_path_and_resets_sticky_invalid_interval",
+    "E_reject_caller_endpoint_only_partial_Cartesian_set_and_missing_intermediate_R_or_q",
+    "E_reject_any_spot_or_perpetual_outcome_VWAP_cost_fee_or_tick_without_qualified_source",
+    "F_reject_caller_substituted_candle_open_common_marks_memo_delay_or_segment",
+    "F_reject_delayed_price_at_or_beyond_frozen_terminal_partition_boundary",
+    "F_pair_mismatch_fill_failure_records_committed_rows_and_ends_invalid_unknown_after_one_attempt",
+    "G_reject_mutating_run_binding_wrong_instrument_order_unauthorized_tax_or_base_fee_and_prohibited_pyramiding",
+    "G_reject_post_terminal_order_decision_fill_and_future_timestamp",
+    "H_reject_caller_path_or_value_implementation_digest_and_mismatched_rule_source_or_margin_digest",
+    "K_reconcile_liquidation_order_and_fill_sequentially_and_match_episode_exit_fill_digest",
+    "K_verify_per_episode_not_lifetime_funding_spot_pair_direction_price_PnL_MAE_MFE_and_sticky_invalid_rows_results",
+    "J_reject_pair_outcome_off_tick_price"
+  ],
+  "prohibited": [
+    "numerical_terminal_oracle_outputs_in_implementer_readable_artifact",
+    "implementer_access_to_prior_E1_or_invalid_archive_or_reviewer_oracle",
+    "historical_market_rows_strategy_results_sealed_2026_or_partial_OB0_data",
+    "credentials_network_exchange_database_NATS_Freqtrade_production_paper_or_live_access",
+    "actionable_arm_other_than_no_trade",
+    "implementation_test_snapshot_or_oracle_before_independent_preflight_pass",
+    "repair_failed_E1_v7_in_place"
+  ],
+  "rejected_archives": [
+    {
+      "directory": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented",
+      "exact_complete_file_set": [
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented/README.md",
+          "semantic_role": "negative_evidence_disposition",
+          "sha256": "1291d3b27218d7cd1c994850f2a69033c3cc7e305498bb88b2d2f715cf7e2cb1",
+          "size_bytes": 1377
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented/active/btc_unified_accounting_e1_v4.py",
+          "semantic_role": "rejected_active_module",
+          "sha256": "faf1c244311e90e68f803d62a032a38080b8f1a54f0b33d991037086b1e5424e",
+          "size_bytes": 72500
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented/active/test_btc_unified_accounting_e1_v4.py",
+          "semantic_role": "rejected_active_tests",
+          "sha256": "1b0c2cf568f47cbf0d646f64038e187e83a57dcdd39f35ebf9ba0f5046b58d15",
+          "size_bytes": 24265
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented/snapshot/btc_unified_accounting_e1_v4.py",
+          "semantic_role": "rejected_snapshot_module",
+          "sha256": "faf1c244311e90e68f803d62a032a38080b8f1a54f0b33d991037086b1e5424e",
+          "size_bytes": 72500
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented/snapshot/candidate-manifest.json",
+          "semantic_role": "rejected_candidate_manifest",
+          "sha256": "306c452f84c6781f7629838d7e69efa8b560b2d3b3ac2ffda8ed96bd1c294120",
+          "size_bytes": 2039
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v4-underimplemented/snapshot/test_btc_unified_accounting_e1_v4.py",
+          "semantic_role": "rejected_snapshot_tests",
+          "sha256": "1b0c2cf568f47cbf0d646f64038e187e83a57dcdd39f35ebf9ba0f5046b58d15",
+          "size_bytes": 24265
+        }
+      ]
+    },
+    {
+      "directory": "research/btc/invalid/unified-backtest-engine-e1-v5-oracle-leak",
+      "exact_complete_file_set": [
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v5-oracle-leak/BTC_UNIFIED_BACKTEST_ENGINE_E1_V5_IDENTITY_PLAN.md",
+          "semantic_role": "rejected_oracle_leak_plan",
+          "sha256": "445e59f665eb57e8bdf5b3cea461fed01ce36992314348ef6a9ddd2933fa29d5",
+          "size_bytes": 6491
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v5-oracle-leak/README.md",
+          "semantic_role": "negative_evidence_disposition",
+          "sha256": "5d20c7f770ce9124b61167046e079285d09248640b7a1b51f4cfaed4d0a522ee",
+          "size_bytes": 1216
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v5-oracle-leak/btc-unified-backtest-engine-e1-v5-identity.json",
+          "semantic_role": "rejected_oracle_leak_contract",
+          "sha256": "75ed8939415b968c181948a7fc607a65c45e4bf35f844e59f229ef69f9162ab3",
+          "size_bytes": 13163
+        }
+      ]
+    },
+    {
+      "directory": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure",
+      "exact_complete_file_set": [
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/README.md",
+          "semantic_role": "negative_evidence_disposition",
+          "sha256": "fdd999eb007eb650bab425993c78d226ead8975fa95ce3265c56ee1de1a10887",
+          "size_bytes": 1273
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/active/btc_accounting_state_machine_e1_v6.py",
+          "semantic_role": "rejected_active_module",
+          "sha256": "552573e09262db9cab5f457476538b1d425a389babeaae3c9bca57650b15bf32",
+          "size_bytes": 83997
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/active/test_btc_accounting_state_machine_e1_v6.py",
+          "semantic_role": "rejected_active_tests",
+          "sha256": "6ec6e7560c647f3af2f7ffaa2017b80641075dc5e4f441408eafc51afb634b28",
+          "size_bytes": 39929
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/identity/BTC_UNIFIED_BACKTEST_ENGINE_E1_V6_IDENTITY_PLAN.md",
+          "semantic_role": "rejected_identity_plan",
+          "sha256": "7a34039be571e29c7c462dccf05e65da443e8131eb1d7161d3dc649db18b47bb",
+          "size_bytes": 6940
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/identity/btc-unified-backtest-engine-e1-v6-identity.json",
+          "semantic_role": "rejected_identity_contract",
+          "sha256": "5a2f05ab500d21dfbbb9bed4d257ea57b9f107264518f451df68ef70138cf714",
+          "size_bytes": 15598
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/snapshot/btc_accounting_state_machine_e1_v6.py",
+          "semantic_role": "rejected_snapshot_module",
+          "sha256": "552573e09262db9cab5f457476538b1d425a389babeaae3c9bca57650b15bf32",
+          "size_bytes": 83997
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/snapshot/candidate-manifest.json",
+          "semantic_role": "rejected_candidate_manifest",
+          "sha256": "cfe85b2303d575a270e285a1bfb69e41b9ad5df2eff5aaffddcd69f73c8b65b2",
+          "size_bytes": 3634
+        },
+        {
+          "path": "research/btc/invalid/unified-backtest-engine-e1-v6-structural-failure/snapshot/test_btc_accounting_state_machine_e1_v6.py",
+          "semantic_role": "rejected_snapshot_tests",
+          "sha256": "6ec6e7560c647f3af2f7ffaa2017b80641075dc5e4f441408eafc51afb634b28",
+          "size_bytes": 39929
+        }
+      ]
+    }
+  ],
+  "schema_version": "btc-unified-backtest-engine-e1-v7-identity-contract-v1",
+  "scope": "preimplementation_offline_synthetic_zero_capital_only",
+  "snapshot_before_review": {
+    "active_and_snapshot_bytes_and_file_sets_identical": true,
+    "directory": "research/btc/candidates/unified-backtest-engine-e1-v7",
+    "manifest_canonicalization": "UTF8_sorted_keys_compact_separators_LF_duplicate_keys_and_nonfinite_values_rejected",
+    "manifest_literal_creation_key": "UTC_creation_timestamp",
+    "manifest_path": "research/btc/candidates/unified-backtest-engine-e1-v7/candidate-manifest.json",
+    "manifest_required_bindings": "active_and_snapshot_module_test_E0_v1_v2_v3_v4_E1_v7_contract_execution_authority_selected_mandate_experiment_ID_no_trade",
+    "manifest_required_entry_fields": [
+      "path",
+      "sha256",
+      "size_bytes",
+      "semantic_role"
+    ],
+    "manifest_sha256_bound_by_independent_review": true,
+    "mutation_or_failure": "archive_exact_attempt_and_issue_new_experiment_ID_never_patch_in_place"
+  },
+  "status": "frozen_pending_independent_preflight_review",
+  "subsequent_boundary": {
+    "on_fail": "archive_exact_v7_plan_contract_and_issue_new_ID_no_code",
+    "on_pass": "only_E1_v7_exact_paths_may_be_created_then_snapshot_before_blind_review",
+    "still_prohibited": "historical_strategy_pre_snapshot_oracle_paper_live_production_work"
+  }
+}

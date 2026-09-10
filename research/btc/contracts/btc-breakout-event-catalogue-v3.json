@@ -1,0 +1,40 @@
+{
+  "base_contract": {
+    "path": "research/btc/contracts/btc-breakout-event-catalogue-v2.json",
+    "sha256": "09341d1f21ab0c0e1c0a8ffc513a7b705b796c097e9b64a34c9702ccdfea6c87"
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex1-v3",
+  "frozen_at": "2026-09-01T00:31:32Z",
+  "patch_operations": [
+    {
+      "op": "replace",
+      "path": "/experiment_id",
+      "value": "btc-upside-compression-breakout-v1-bex1-v3"
+    },
+    {
+      "op": "replace",
+      "path": "/frozen_at",
+      "value": "2026-09-01T00:31:32Z"
+    },
+    {
+      "op": "remove",
+      "path": "/bound_inputs/5"
+    },
+    {
+      "op": "add",
+      "path": "/bound_inputs/-",
+      "value": {
+        "path": "research/btc/reports/BTC_UPSIDE_BREAKOUT_RESEARCH_PLAN_V2.md",
+        "sha256": "52874e4b877143b92fe7bb1d542627ce2d620f65ca24a34bf33d0788f17e94fb"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "frozen_validated_successor_before_historical_event_outcomes"
+    }
+  ],
+  "reason_for_successor": "BEX1_v2_was_future_dated_and_inherited_a_mutable_tracker_binding_and_was_rejected_before_historical_source_load",
+  "schema_version": "btc-breakout-event-catalogue-successor-contract-v3",
+  "status": "frozen_validated_successor_before_historical_event_outcomes"
+}

@@ -1,0 +1,226 @@
+{
+  "activated_at": "2026-08-29T23:40:56Z",
+  "candidate_paths": {
+    "broader_derivatives_and_fx": {
+      "candidates": [
+        {
+          "economic_role": "us_equity",
+          "instrument": "Micro E-mini S&P 500 futures",
+          "symbol": "MES"
+        },
+        {
+          "economic_role": "gold",
+          "instrument": "Micro Gold futures",
+          "symbol": "MGC"
+        },
+        {
+          "economic_role": "energy",
+          "instrument": "Micro WTI Crude Oil futures",
+          "symbol": "MCL"
+        },
+        {
+          "economic_role": "fx",
+          "instrument": "GBP/USD spot FX",
+          "symbol": "GBP/USD"
+        },
+        {
+          "economic_role": "fx",
+          "instrument": "EUR/USD spot FX",
+          "symbol": "EUR/USD"
+        },
+        {
+          "economic_role": "crypto",
+          "instrument": "BTC and ETH spot or derivatives",
+          "symbol": "BTC-ETH"
+        }
+      ],
+      "decision_scope": "public_document_feasibility_only",
+      "required_facts": [
+        "UK-retail legal and account-access state",
+        "contract multiplier, minimum tick and expiry or funding mechanics",
+        "conservative margin and GBP 20000 capital compatibility",
+        "daily historical source availability and licensing",
+        "roll, settlement, financing and corporate-action requirements",
+        "commission and spread inputs needed for a later exact cost contract"
+      ]
+    },
+    "exact_lse_cash": {
+      "expected_instruments": [
+        {
+          "earliest_date_not_after": "2009-10-05",
+          "expected_currency": "GBp",
+          "expected_exchange_values": [
+            "LSE",
+            "London Stock Exchange"
+          ],
+          "expected_isin": "IE00B4L5Y983",
+          "expected_mic": "XLON",
+          "expected_type": "ETF",
+          "price_to_gbp_multiplier": "0.01",
+          "provider_symbol": "SWDA:LSE",
+          "symbol": "SWDA"
+        },
+        {
+          "earliest_date_not_after": "2019-06-27",
+          "expected_currency": "GBP",
+          "expected_exchange_values": [
+            "LSE",
+            "London Stock Exchange"
+          ],
+          "expected_isin": "IE00BG47K971",
+          "expected_mic": "XLON",
+          "expected_type": "ETF",
+          "price_to_gbp_multiplier": "1",
+          "provider_symbol": "VAGS:LSE",
+          "symbol": "VAGS"
+        },
+        {
+          "earliest_date_not_after": "2011-04-18",
+          "expected_currency": "GBp",
+          "expected_exchange_values": [
+            "LSE",
+            "London Stock Exchange"
+          ],
+          "expected_isin": "IE00B4ND3602",
+          "expected_mic": "XLON",
+          "expected_type": "ETF",
+          "price_to_gbp_multiplier": "0.01",
+          "provider_symbol": "SGLN:LSE",
+          "symbol": "SGLN"
+        },
+        {
+          "earliest_date_not_after": "2017-07-27",
+          "expected_currency": "GBp",
+          "expected_exchange_values": [
+            "LSE",
+            "London Stock Exchange"
+          ],
+          "expected_isin": "IE00BDFL4P12",
+          "expected_mic": "XLON",
+          "expected_type": "ETF",
+          "price_to_gbp_multiplier": "0.01",
+          "provider_symbol": "COMM:LSE",
+          "symbol": "COMM"
+        }
+      ],
+      "expected_pilot_sessions": [
+        "2025-02-03",
+        "2025-02-04",
+        "2025-02-05",
+        "2025-02-06",
+        "2025-02-07",
+        "2025-02-10",
+        "2025-02-11",
+        "2025-02-12",
+        "2025-02-13",
+        "2025-02-14",
+        "2025-02-17",
+        "2025-02-18",
+        "2025-02-19",
+        "2025-02-20",
+        "2025-02-21",
+        "2025-02-24",
+        "2025-02-25",
+        "2025-02-26",
+        "2025-02-27",
+        "2025-02-28"
+      ],
+      "pilot_boundary": {
+        "end_inclusive": "2025-02-28",
+        "start_inclusive": "2025-02-03"
+      },
+      "provider_currency_policy": "Twelve Data GBp is accepted as the provider display label for an LSE GBX minor-unit line only when the exact symbol and XLON MIC also match",
+      "request_plan": {
+        "adjust": "none",
+        "corporate_action_end": "2025-02-28",
+        "corporate_action_start": "2024-01-01",
+        "endpoint_credit_weights": {
+          "dividends": 20,
+          "earliest_timestamp": 1,
+          "splits": 20,
+          "time_series": 1
+        },
+        "endpoint_paths": {
+          "dividends": "/dividends",
+          "earliest_timestamp": "/earliest_timestamp",
+          "splits": "/splits",
+          "time_series": "/time_series"
+        },
+        "interval": "1day",
+        "maximum_requests": 16,
+        "maximum_weighted_credits": 168,
+        "minute_credit_ceiling": 55,
+        "order": "ASC",
+        "outputsize": 100,
+        "phase_policy": "eight one-credit identity/history requests first; then one instrument's dividends and splits per separate quota minute",
+        "timezone": "UTC"
+      }
+    }
+  },
+  "decision_rules": {
+    "active_subscription_use_is_sufficient_for_current_research": true,
+    "cash_path_failure_automatically_accepts_derivatives": false,
+    "cash_path_pass_requires_all_four_exact_lines": true,
+    "economic_proxy_can_replace_exact_execution_line": false,
+    "full_history_download_authorized_by_this_review": false,
+    "headline_return_can_select_universe": false,
+    "next_if_cash_path_fails": "choose_one_broader_path_from_public_feasibility_before_any_new_data_purchase",
+    "next_if_cash_path_passes": "freeze_exact_lse_full_history_acquisition_and_action_reconciliation_v1",
+    "strategy_evaluation_authorized": false
+  },
+  "evidence_boundary": {
+    "calendar": {
+      "path": "config/research/cross-asset-a1-calendars-2008-2025-v2.json",
+      "sha256": "1458a26e587bdf2dbbc3ba8e9b0c5d072990ceb82c967db27a906f80c29230cd"
+    },
+    "mandate": {
+      "path": "config/mandates/retail-cross-asset-research-v3.json",
+      "sha256": "d60eab15d8e839beb998867ae609f670068c9a5666182b449712bd1d5db37268"
+    },
+    "preceding_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/evidence-manifest.json",
+      "sha256": "91af46ef7afa3f0f4fb2332f22cd0ab0cb8dffcbac8daf023b5cea2bb2f7471a"
+    },
+    "sealed_2026_partition_accessed": false
+  },
+  "hypothesis": "Without computing any return, score or signal, exact exchange-qualified Twelve Data requests can determine whether SWDA, VAGS, SGLN and COMM have sufficient same-line daily history and corporate-action endpoint support; independently, current official public documents can determine whether a small broader derivatives, FX and crypto universe deserves a later data-qualification contract if the cash path fails.",
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1",
+    "overwrite_existing_artifacts": false
+  },
+  "prohibitions": {
+    "account_or_broker_login_allowed": false,
+    "bulk_or_full_history_download_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "feature_generation_allowed": false,
+    "live_or_delayed_quote_retention_allowed": false,
+    "order_creation_allowed": false,
+    "order_preview_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "review_id": "cross-asset-a1-executable-universe-feasibility-v1",
+  "schema_version": "cross-asset-a1-executable-universe-feasibility-contract-v1",
+  "source_access": {
+    "api_base_url": "https://api.twelvedata.com",
+    "api_token_environment_variable": "TWELVEDATA_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "authorization_header_scheme": "apikey",
+    "existing_paid_subscription_use_authorized": true,
+    "further_paid_upgrade_authorized": false,
+    "official_public_domains": [
+      "cmegroup.com",
+      "fca.org.uk",
+      "interactivebrokers.co.uk",
+      "twelvedata.com"
+    ]
+  },
+  "status": "frozen"
+}

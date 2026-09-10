@@ -1,0 +1,107 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "new_strategy_outcome_allowed": false,
+    "regime_model_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/contracts/btc-only-program-v1.json",
+      "sha256": "8b3a4dd4a720202afe73551e14140166f4829169070d2b84fdb0ee390bce9a9f"
+    },
+    {
+      "path": "research/btc/BTC_EVIDENCE_CATALOG.json",
+      "sha256": "8fe6e0e1a1935b183de3109518aa1acd11917bd68bd518e8f2aac8e6b938533f"
+    },
+    {
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-reproduction-report.json",
+      "sha256": "e4d631998153f2841e54f2d36ee7008a9c5874201f65ad3b8e19bb9bca2a9b61"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/btc-4h-sma-10-30-execution-model-v1-report.json",
+      "sha256": "aad1d7822b968a0e3a94ba2ed9e6f7c7ad8b44a77feb5a9c4fdc4351436594bd"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+      "sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae"
+    }
+  ],
+  "core_requirements": {
+    "canonical_result_digest": true,
+    "completed_information_only": true,
+    "daily_loss_stop_fraction": 0.015,
+    "deterministic_plan_ordering": true,
+    "entry_frequency_per_rolling_seven_days": 4,
+    "entry_frequency_per_utc_day": 1,
+    "execution_observation_not_before_decision": true,
+    "flat_buy_hold_and_timestamp_exposure_controls_required_for_future_strategy": true,
+    "gap_inside_segment_policy": "reject",
+    "mark_to_market_open_positions": true,
+    "maximum_allocation_fraction": 0.25,
+    "maximum_planned_risk_fraction": 0.005,
+    "maximum_strategy_drawdown_fraction": 0.1,
+    "one_open_position": true,
+    "same_segment_entry_exit_required": true,
+    "shared_execution_scenarios": [
+      "candle-primary-30bps-rt-v1",
+      "candle-stress-40bps-rt-v1",
+      "candle-severe-80bps-rt-v1"
+    ]
+  },
+  "evidence_boundary": {
+    "development_history": "2017-08-17T04:00:00Z_through_2025-12-31T23:59:59Z_consumed",
+    "new_market_outcome_access_allowed": false,
+    "partial_OB0_access_allowed": false,
+    "sealed_2026_access_allowed": false
+  },
+  "expected_golden_controls": {
+    "fixed_20d_10d_breakout_30bps": {
+      "cagr": 0.022599325584939933,
+      "maximum_drawdown_fraction": 0.05024784472933819,
+      "net_return": 0.1693554713741534,
+      "profit_factor": 1.8755973019684713,
+      "trade_count": 67
+    },
+    "sma_10_30_4h_25pct_30bps": {
+      "cagr": 0.09563983360361274,
+      "maximum_drawdown_fraction": 0.2909671913542429,
+      "net_return": 1.1487799838374,
+      "profit_factor": 1.505119250512035,
+      "trade_count": 353
+    }
+  },
+  "output_root": "artifacts/agent-level-experiment/btc-focused/backtest-core-qualification-v1",
+  "prohibited": [
+    "new_alpha_hypothesis",
+    "parameter_selection",
+    "strategy_family_tuning",
+    "regime_detector",
+    "return_target_optimization",
+    "production_signal",
+    "live_or_paper_order",
+    "network_database_NATS_Freqtrade_or_exchange_access",
+    "partial_L2_access",
+    "2026_market_data_access"
+  ],
+  "qualification_gates": {
+    "bound_inputs_unchanged": true,
+    "core_causality_gap_execution_risk_and_metric_tests_pass": true,
+    "core_imports_no_network_database_message_bus_or_exchange_clients": true,
+    "golden_control_metrics_exact": true,
+    "result_replay_byte_identical": true,
+    "strategy_and_regime_evaluation_not_run": true
+  },
+  "qualification_id": "btc-backtest-core-qualification-v1",
+  "schema_version": "btc-backtest-core-qualification-contract-v1",
+  "status": "frozen_before_core_implementation_and_qualification",
+  "test_fixture_policy": "Synthetic fixtures may exercise the new core; historical outputs may only be read as frozen golden regression evidence."
+}

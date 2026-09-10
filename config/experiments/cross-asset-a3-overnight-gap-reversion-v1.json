@@ -1,0 +1,41 @@
+{
+  "activation_rule": {
+    "a2_result_may_change_this_hypothesis": false,
+    "implementation_and_evaluation_require_separate_user_authorization_after_a2_disposition": true
+  },
+  "costs_and_risk": {
+    "cost_scenarios_must_match_a2": true,
+    "maximum_gross_exposure_fraction": "0.70",
+    "maximum_notional_per_position_fraction": "0.15",
+    "planned_risk_per_position_fraction": "0.0025"
+  },
+  "data_bindings": {
+    "a1_hourly_evidence_sha256": "1edafecafe08387fac0d1ce8884d7d035602ac2c998ddced250b02e9a0fe0008",
+    "gbp_conversion_evidence_sha256": "ccdf18fd96ef3bfb95516bc7caaf3c949fde6852064aa0141b5d78d3284c1080"
+  },
+  "economic_hypothesis": "Large close-to-open local-session gaps frequently contain temporary inventory and liquidity pressure; when the first completed session hour does not continue through the gap direction, price partially reverts toward the prior eligible session reference over the next two hours.",
+  "experiment_id": "cross-asset-a3-overnight-gap-reversion-v1",
+  "frozen_at": "2026-08-30T12:50:00Z",
+  "instrument_universe": [
+    "SPX500_USD",
+    "NAS100_USD",
+    "DE30_EUR",
+    "UK100_GBP",
+    "XAU_USD",
+    "EUR_USD",
+    "USD_JPY"
+  ],
+  "partitions_must_match_a2": true,
+  "schema_version": "cross-asset-a3-hypothesis-contract-v1",
+  "signal_outline": {
+    "decision": "after_first_local_session_hour_completes",
+    "direction": "opposite_the_prior_eligible_session_exit_to_current_session_open_gap",
+    "entry": "next_hour_open",
+    "exit": "two_hours_after_entry_or_protective_stop",
+    "gap_threshold": "absolute_gap_at_least_0.75_times_past_only_median_twenty_session_range",
+    "lookback_complete_sessions": 20,
+    "no_trade_if_first_hour_has_already_crossed_prior_session_reference": true,
+    "protective_stop": "one_past_only_median_twenty_session_range_from_entry"
+  },
+  "status": "frozen_hypothesis_only_unimplemented"
+}

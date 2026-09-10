@@ -1,0 +1,14 @@
+{
+  "audit_id": "btc-derivatives-crowding-data-audit-v2",
+  "changes": [
+    "paginate_complete_2020_2023_Binance_basis",
+    "archive_2020_2023_CFTC_TFF_futures_only_Bitcoin_rows",
+    "require_independent_source_before_pass"
+  ],
+  "predecessor": "btc-derivatives-crowding-data-audit-v1",
+  "predecessor_disposition": "implementation_rejected_for_counting_two_Binance_series_as_independent_sources",
+  "preserved_boundary": "2020-01-01_through_2023-12-31_development_only",
+  "schema_version": "btc-derivatives-crowding-data-audit-successor-v1",
+  "status": "frozen",
+  "strategy_evaluation_forbidden": true
+}

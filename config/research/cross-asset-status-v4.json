@@ -1,0 +1,141 @@
+{
+  "a1_contract_path": "config/experiments/cross-asset-a1-oanda-hourly-history-v2.json",
+  "a1_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "context_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/evidence-manifest.json",
+      "sha256": "e7414e64565ea1912292d520f9407d567adacc9747b08feaaeb3a481b080f534"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+      "sha256": "1edafecafe08387fac0d1ce8884d7d035602ac2c998ddced250b02e9a0fe0008"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-oanda-hourly-history-v1.json",
+      "sha256": "a6e12f6e3da7177d75dab18b725b21f36e942bb1fc90b481ae8ef8d6c6795d23"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-oanda-hourly-history-v2.json",
+      "sha256": "3b2df9fd6a32f2a3e283ed8b2c2890274c42506a1350f5dc64f857374be6afb3"
+    },
+    {
+      "path": "config/mandates/retail-cross-asset-research-v6.json",
+      "sha256": "789211dc38ca539b5d9a23d39848815fe4cb9087fddb33351f05fd9f42c9e957"
+    },
+    {
+      "path": "config/research/cross-asset-data-contract-v4.json",
+      "sha256": "c0eddd637a91591ae918628a8eb5a740ca684cb53fa7873aec37af920ee7aaac"
+    },
+    {
+      "path": "config/research/cross-asset-decisions-v1.jsonl",
+      "sha256": "b8de9003f4e4393abcde3ae74c25e052852d9ad86459512eac79e4e7033df9f2"
+    },
+    {
+      "path": "config/research/cross-asset-instrument-access-v4.json",
+      "sha256": "59fef4786ba59f0e69784b9a8bf69b744f6b512c6390277b7d6014269dd3fe29"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_OANDA_HOURLY_HISTORY_RESULT.md",
+      "sha256": "7e3731c39df77b1a53da03dd11b55307b89330b3a73bfe5766bd6650d9f64ecd"
+    },
+    {
+      "path": "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+      "sha256": "3fb74696a772d1aa8235d5c197ea80c9bc01607a12dcd56490134d796bed7b81"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+      "sha256": "e109514ff9dc5634da664507f6c14f5a4a8c05e756ef5a5e2aa8ca47e81d46b9"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+      "sha256": "f8b2b33b775ea176c5f2ee37b6893687c574da28e332b9e72d831ad2d9747bf2"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "5a42ef09574f429392faf54989027af74922c089353077833ca85aa9dd3fa2a0"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_oanda_hourly.py",
+      "sha256": "03521494410f16e5320638a1c34f09866c27a91d0e4eb31816421f0e251bcdc5"
+    }
+  ],
+  "current_stage": "A1",
+  "current_state": "passed",
+  "decision_log_path": "config/research/cross-asset-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "src/trading_platform/cross_asset_oanda_hourly.py"
+  ],
+  "latest_decision_digest": "67ed17d7b763b4ad5bd343d7e8343e62822c58936ff59da6dff69e624109cb25",
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "schema_version": "cross-asset-program-status-v4",
+  "stages": [
+    {
+      "artifact_paths": [
+        "config/research/cross-asset-program-v1.json",
+        "config/research/cross-asset-status-v1.json"
+      ],
+      "completed_at": "2026-08-29T12:18:35Z",
+      "decision_record_digest": "a71a53d35c69b0f92ed2b8fd7141ce967a1242bb1257f4ad4f4fd87bf3831abf",
+      "stage_id": "A0",
+      "state": "passed"
+    },
+    {
+      "activated_at": "2026-08-30T11:56:20Z",
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+        "config/experiments/cross-asset-a1-oanda-hourly-history-v1.json",
+        "config/experiments/cross-asset-a1-oanda-hourly-history-v2.json",
+        "docs/CROSS_ASSET_A1_OANDA_HOURLY_HISTORY_RESULT.md"
+      ],
+      "completed_at": "2026-08-30T12:30:00Z",
+      "decision_record_digest": "67ed17d7b763b4ad5bd343d7e8343e62822c58936ff59da6dff69e624109cb25",
+      "stage_id": "A1",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A2",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A3",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A4",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A5",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A6",
+      "state": "planned"
+    }
+  ],
+  "supersedes": {
+    "path": "config/research/cross-asset-status-v3.json",
+    "sha256": "773f3ca17679fabec06dca5998dc1914858c53d89533efea874f29a3564a68c4"
+  }
+}

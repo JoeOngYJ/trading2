@@ -1,0 +1,255 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "cost_or_pnl_calculation_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/BTCUSDT-5m-taker-trade-flow-development-2017-2025-316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8.csv.gz",
+      "role": "source",
+      "sha256": "316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+      "role": "source_manifest",
+      "sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae"
+    },
+    {
+      "path": "research/btc/reports/BTC_CUSUM_TREND_ONSET_RESEARCH_PLAN.md",
+      "role": "design",
+      "sha256": "e64ab5bab8c67dfe173249075d112c96228adf748bc706122ba78b5bc9b3b627"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "role": "research_standard",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "role": "mandate",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "role": "cost_model",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "src/trading_platform/btc_cusum_trend_events.py",
+      "role": "event_module",
+      "sha256": "2137a89f68187a457b53f50766733c23984dc0a8c25e752fb5c6cc6900716df2"
+    },
+    {
+      "path": "scripts/run_btc_cusum_trend_catalogue.py",
+      "role": "event_runner",
+      "sha256": "0fdeabcca5c3c79ddf4cfc35447f7a1a3f3f9cbee84fc5ecb84cb2b934078106"
+    },
+    {
+      "path": "tests/test_btc_cusum_trend_events.py",
+      "role": "event_tests",
+      "sha256": "4e30ff187a0f652142106e0c2cdb5dd4d889da1924a76ddc561a773cb1761d29"
+    },
+    {
+      "path": "scripts/qualify_btc_cusum_design.py",
+      "role": "calibration_script",
+      "sha256": "bdd16bff3a4b531c45ae1b6e33bbe1c9147e4956af7036ed24c42e18fff0ccb7"
+    },
+    {
+      "path": "src/trading_platform/btc_cusum_trend_models.py",
+      "role": "model_module",
+      "sha256": "8081d75ff3b5468d07475466c0fc5591e86fb91dd1fddb921cedf60f25e02dbc"
+    },
+    {
+      "path": "scripts/run_btc_cusum_trend_models.py",
+      "role": "model_runner",
+      "sha256": "cb6a7fa129bd28576e5814e1d6d8bca67a9c134aa07f495cf04f9c08043f88bd"
+    },
+    {
+      "path": "tests/test_btc_cusum_trend_models.py",
+      "role": "model_tests",
+      "sha256": "b4671d36eed56734bcf98ed1c0558e7b2e6ef195e68bd2681b8baea5c99b2d20"
+    },
+    {
+      "path": "research/btc/reports/BTC_UPSIDE_BREAKOUT_BEX1_V5_RESULT.md",
+      "role": "predecessor_result",
+      "sha256": "1e5b9dfa8cff3da280841d74bf1ed05e4f8f2c6e15c40e03d32980ec2cc2745d"
+    }
+  ],
+  "chronology": {
+    "decision_end_exclusive_ms": 1767225600000,
+    "development_is_promotion_holdout": false,
+    "outer_evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "year_2026_numeric_rows": "forbidden"
+  },
+  "experiment_id": "btc-cusum-trend-onset-tne1-v1",
+  "frozen_at": "2026-09-01T08:14:10Z",
+  "hypothesis": "Distributed_positive_hourly_innovations_detected_online_by_a_volatility_normalized_Page_CUSUM_have_positive_next_72h_return_and_their_path_geometry_adds_chronological_forecast_information_beyond_endpoint_momentum",
+  "input_contract": {
+    "expected_rows": 878985,
+    "instrument": "BTCUSDT",
+    "interval": "5m",
+    "raw_close": "open_time_plus_299999ms",
+    "causal_availability": "open_time_plus_300000ms",
+    "required_aggregation": "complete_contiguous_same_segment_1h_only"
+  },
+  "label_gates": {
+    "complete_per_evaluation_year_minimum": 25,
+    "evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "minimum_coverage": 0.9
+  },
+  "label_rules": {
+    "administrative_horizon_hours": 72,
+    "diagnostic_first_passage": "first_completed_same_segment_1h_close_at_or_beyond_plus_or_minus_one_frozen_daily_volatility_adverse_first_tie",
+    "fill_reference": "exact_next_same_segment_5m_open_at_completed_hour_decision_boundary",
+    "primary_target": "log_exact_72h_completed_1h_close_over_fill_divided_by_predecision_sigma_hourly_times_sqrt_24",
+    "segment_or_source_loss": "right_censoring",
+    "strategy_or_pnl_label": false
+  },
+  "model_gates": {
+    "m1_mse_better_than_m0": true,
+    "m2_annual_wins_minimum": 4,
+    "m2_best_three_month_exclusion_strictly_positive": true,
+    "m2_mae_improvement_minimum": 0.0,
+    "m2_month_block_bootstrap_lower_strictly_positive": true,
+    "m2_mse_better_than_m0": true,
+    "m2_mse_better_than_m1": true,
+    "m2_relative_mse_improvement_minimum": 0.02,
+    "m2_top_year_positive_improvement_fraction_maximum": 0.5,
+    "standalone_best_three_event_month_exclusion_strictly_positive": true,
+    "standalone_month_block_bootstrap_lower_strictly_positive": true,
+    "standalone_pooled_actual_mean_strictly_positive": true,
+    "standalone_positive_annual_means_minimum": 4
+  },
+  "model_rules": {
+    "bootstrap_block_months": 3,
+    "bootstrap_method": "circular_moving_block_complete_utc_calendar",
+    "bootstrap_repetitions": 10000,
+    "bootstrap_seed": 20260901,
+    "continuation_bootstrap_seed": 20260903,
+    "embargo_hours": 72,
+    "fold_requirements": {
+      "min_inner_evaluation": 15,
+      "min_inner_folds": 2,
+      "min_inner_train": 50,
+      "min_outer_evaluation": 25,
+      "min_outer_train": 120
+    },
+    "inner_folds": "expanding_chronological",
+    "label_horizon_hours": 72,
+    "m1_features": [
+      "momentum_24h_z",
+      "momentum_72h_z",
+      "sigma24_over_sigma7d",
+      "hour_of_week_sin",
+      "hour_of_week_cos"
+    ],
+    "m2_additional_features": [
+      "cusum_run_hours",
+      "cusum_positive_contributor_count",
+      "cusum_trigger_score_over_threshold_excess",
+      "cusum_max_one_hour_contribution_fraction"
+    ],
+    "outer_evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "primary_metric": "pooled_oof_mse_normalized_72h_log_return",
+    "ridge_alphas": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "standardization": "training_only",
+    "total_boundary_separation_hours": 144
+  },
+  "outputs": {
+    "label": {
+      "catalogue": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/label/labels.jsonl.gz",
+      "manifest": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/label/evidence-manifest.json",
+      "report": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/label/label-gate-report.json"
+    },
+    "model": {
+      "catalogue": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/model/oof-predictions.jsonl.gz",
+      "manifest": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/model/evidence-manifest.json",
+      "report": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/model/model-report.json"
+    },
+    "trigger": {
+      "catalogue": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/trigger/triggers.jsonl.gz",
+      "manifest": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/trigger/evidence-manifest.json",
+      "report": "artifacts/agent-level-experiment/btc-focused/cusum-trend-onset-v1/tne1-v1/trigger/trigger-gate-report.json"
+    }
+  },
+  "prohibited": [
+    "strategy_return_PnL_entry_exit_position_size_cost_or_leverage",
+    "post_result_change_to_clock_scale_k_h_clip_suppression_target_features_folds_or_gates",
+    "compression_range_high_moving_average_volume_taker_news_macro_BOCPD_HMM_or_rejected_scores",
+    "partial_OB0_or_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "rules": {
+    "label_hours": 72,
+    "minimum_active_hours": 3,
+    "minimum_positive_contributors": 3,
+    "page_drift": 0.25,
+    "page_threshold": 4.5,
+    "sigma_preceding_1h_returns": 168,
+    "suppression_boundary": "through_trigger_plus_72h_inclusive_first_fresh_contribution_ends_plus_73h",
+    "suppression_hours": 72,
+    "z_clip": 2.0
+  },
+  "schema_version": "btc-cusum-trend-onset-contract-v1",
+  "status": "frozen_before_historical_trigger_access",
+  "synthetic_design": {
+    "maximum_hours": 3000,
+    "means": [
+      0.0,
+      0.5
+    ],
+    "null_mean_first_passage_hours": 125.1543,
+    "null_median_first_passage_hours": 89.0,
+    "paths_per_mean": 10000,
+    "positive_shift_mean_first_passage_hours": 16.5476,
+    "positive_shift_median_first_passage_hours": 14.0,
+    "seed": 20260901
+  },
+  "trigger_count_gates": {
+    "distinct_months_minimum": 36,
+    "evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "maximum_year_share": 0.3,
+    "model_ready_minimum": 300,
+    "per_evaluation_year_minimum": 30,
+    "pre_2021_minimum": 150,
+    "top_three_month_share": 0.2
+  }
+}

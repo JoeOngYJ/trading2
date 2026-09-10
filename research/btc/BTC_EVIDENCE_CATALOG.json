@@ -1,0 +1,188 @@
+{
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "catalog_id": "btc-evidence-catalog-v1",
+  "controls": [
+    {
+      "evidence_status": "development_control_only",
+      "id": "btc_fixed_20d_10d_breakout"
+    },
+    {
+      "evidence_status": "mandatory_risk_benchmark_not_alpha",
+      "id": "btc-regime-routing-s2-ewma-v2",
+      "manifest_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/manifest.json",
+      "manifest_sha256": "0b10e3ce5f99bbfac0fa95e305c2f81cecfd0f98556a6e9b17123eaa75a2b4b1"
+    },
+    {
+      "evidence_status": "control",
+      "id": "flat_no_trade"
+    },
+    {
+      "evidence_status": "control",
+      "id": "btc_buy_and_hold"
+    },
+    {
+      "evidence_status": "required_control",
+      "id": "timestamp_and_exposure_matched"
+    }
+  ],
+  "data_families": [
+    {
+      "availability": "2017_to_2025_consumed_development",
+      "id": "binance_btcusdt_spot_5m",
+      "manifest_path": "artifacts/agent-level-experiment/binance-market-data-manifest.json",
+      "manifest_sha256": "8cdb190112cb3d51d37ca152ca72df4b46f783ec1c82ff501c02a011ac305ec7",
+      "status": "accepted_research_input"
+    },
+    {
+      "availability": "derived_from_checksummed_spot_5m",
+      "id": "btc_1h_4h_timeframes",
+      "manifest_path": "artifacts/agent-level-experiment/derived-timeframe-manifest.json",
+      "manifest_sha256": "b0da844e63ed56bb19b3c2065ecf995df41b187846417737001addc647d32b6e",
+      "status": "accepted_research_input"
+    },
+    {
+      "availability": "2017_to_2025_consumed_development",
+      "id": "btc_causal_5m_4h_daily_ledgers",
+      "manifest_path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "manifest_sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435",
+      "status": "accepted_research_infrastructure"
+    },
+    {
+      "availability": "2017_to_2025_consumed_development",
+      "id": "binance_btcusdt_official_daily_close",
+      "manifest_path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/manifest.json",
+      "manifest_sha256": "417ac403fd06d71af9fd9c62e3d677065de8452f254c57cd7bcb9f3f10ea849d",
+      "status": "accepted_for_close_only_EWMA"
+    },
+    {
+      "availability": "three_bounded_pre_2026_fifteen_day_windows_only",
+      "id": "deribit_btc_dvol_public_pilot",
+      "manifest_path": "artifacts/agent-level-experiment/btc-focused/deribit-dvol-source-pilot-v2/evidence-manifest.json",
+      "manifest_sha256": "811d94b79c1129471141658d34960df5a6beb34326e8c440453cc3d15eba3353",
+      "status": "technical_pilot_passed_historical_model_input_not_approved"
+    },
+    {
+      "availability": "2017_to_2025_consumed_development",
+      "id": "btc_aggregate_taker_flow",
+      "manifest_path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+      "manifest_sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae",
+      "status": "accepted_data_rejected_alpha_family"
+    },
+    {
+      "availability": "2020_to_2023_consumed_information_development",
+      "id": "btc_funding_basis_and_cftc_positioning",
+      "manifest_path": "artifacts/agent-level-experiment/btc-focused/derivatives-crowding-information-v1/manifest.json",
+      "manifest_sha256": "bbb678573a7c0bae1184aad316d93028a1b4d56b57164245479425e4e30fd61b",
+      "status": "accepted_data_rejected_absolute_crowding_information_mechanism"
+    },
+    {
+      "availability": "mutable_background_capture",
+      "id": "btc_spot_L2_OB0_OB1",
+      "policy_path": "docs/BTC_ORDER_BOOK_RESEARCH.md",
+      "policy_sha256": "8a1baca2d67d83b6570234ed51a8720f66211d741cc7c2c06e79a3446bb4aeb4",
+      "status": "not_accepted_partial_data_must_not_be_inspected"
+    }
+  ],
+  "evidence_boundaries": [
+    {
+      "boundary": "2017-01-01_through_2025-12-31",
+      "disposition": "consumed_development_for_BTC_price_and_trend_families"
+    },
+    {
+      "boundary": "2020-01-01_through_2023-12-31",
+      "disposition": "consumed_development_for_existing_derivatives_crowding_information"
+    },
+    {
+      "boundary": "2024-01-01_through_2025-12-31",
+      "disposition": "not_clean_promotion_holdout_BTC_outcomes_known_elsewhere"
+    },
+    {
+      "boundary": "2026-01-01_through_2026-07-31",
+      "disposition": "sealed_ineligible_under_legacy_BTC_program"
+    },
+    {
+      "boundary": "after_next_strategy_contract_freeze",
+      "disposition": "only_eligible_source_of_genuinely_prospective_evidence"
+    }
+  ],
+  "experiment_families": [
+    {
+      "disposition": "rejected_unstable_years_and_excessive_drawdown",
+      "family": "moving_average_and_price_trend_scaffolds",
+      "result_path": "docs/BTC_4H_TREND_ROBUSTNESS.md",
+      "result_sha256": "e589ffce0db8fbe830b135bb9f1f6c25c1be19f46ef51812ff8faf7156ef4f70"
+    },
+    {
+      "disposition": "rejected_breakout_timing_not_better_than_frozen_random_control",
+      "family": "fixed_breakout_timing",
+      "result_path": "docs/BTC_REGIME_ROUTING_S5_BREAKOUT_MECHANISM_RESULT.md",
+      "result_sha256": "3e5d4b8dca67d079fcb25c3086526acb0ef8dc0c84fbd70dbfa8e3cf7533ad3d"
+    },
+    {
+      "disposition": "rejected",
+      "family": "BOCPD_gated_breakout",
+      "result_path": "docs/BTC_ONLINE_REGIME_BREAKOUT_DEVELOPMENT_RESULT.md",
+      "result_sha256": "3b30afa9beb6cd4616f9f7021086fd48a753c98901bc02a8f0e77d4222d42b5d"
+    },
+    {
+      "disposition": "rejected_forward_downside_separation_failed",
+      "family": "Student_t_HMM_risk_state",
+      "result_path": "docs/BTC_REGIME_ROUTING_S3_RESULT.md",
+      "result_sha256": "d2f437a9d888bcefe55cafad4755c4bbedf67747614ed40640c2ee88805d5eb7"
+    },
+    {
+      "disposition": "passed_offline_multidimensional_risk_contracts_no_model_fitted",
+      "family": "multidimensional_risk_forecast_and_downward_only_fusion_infrastructure",
+      "result_path": "research/btc/reports/BTC_MULTIDIMENSIONAL_RISK_FOUNDATION_RESULT.md",
+      "result_sha256": "d07dba7e2866ee4e2559d84ced174f2153ec8570b69383fe2f8fdf3ae48b6620"
+    },
+    {
+      "disposition": "rejected_data_coverage_all_frozen_forecast_quality_gates_passed_not_risk_cap_eligible",
+      "family": "HAR_RV_standalone_volatility_forecast",
+      "result_path": "research/btc/reports/BTC_HAR_RV_RISK_FORECAST_RESULT.md",
+      "result_sha256": "daec26c82f25a7ae4c93427c00faa3a8ecb500ac5b0e5003df42f7cbbcf4bff5"
+    },
+    {
+      "disposition": "rejected_family_closed",
+      "family": "aggregate_taker_flow_thresholds_and_absorption",
+      "result_path": "docs/BTC_SELL_FLOW_ABSORPTION_RESULT.md",
+      "result_sha256": "29bd2ddc8712e66907e3700ea89ff320da41f53fc7911e659782edc2b569f4e4"
+    },
+    {
+      "disposition": "rejected",
+      "family": "volatility_expansion_continuation",
+      "result_path": "docs/BTC_VOLATILITY_EXPANSION_DEVELOPMENT_RESULT.md",
+      "result_sha256": "182cb70d187c4be37bc96ef2146d99b6fd6eb40d51d4be1980a6482f5f142dee"
+    },
+    {
+      "disposition": "rejected",
+      "family": "BTC_ETH_residual_catchup",
+      "result_path": "docs/BTC_ETH_RELATIVE_CATCHUP_R2_RESULT.md",
+      "result_sha256": "0f1eca175e837533b81a0bfabe2eb318ce302e9aabc880a4eb88cb661b6b597d"
+    },
+    {
+      "disposition": "rejected_absolute_extremes_did_not_improve_risk_forecast",
+      "family": "derivatives_crowding_risk_information",
+      "result_path": "research/btc/reports/BTC_DERIVATIVES_CROWDING_INFORMATION_RESULT.md",
+      "result_sha256": "9c2a30100564487db12e0c6628a32bb46251a6d5794f74cdb4a6306402313c4b"
+    },
+    {
+      "disposition": "data_blocked_not_a_strategy",
+      "family": "L2_microstructure",
+      "protocol_path": "config/experiments/btc-order-book-ob1-v1.json",
+      "protocol_sha256": "2cfc4576271469af1f1221e34a7d3bb0bc1f199719990a67406d5fe4c8f7a558"
+    }
+  ],
+  "focus": {
+    "active_market": "BTC",
+    "archived": [
+      "ETH",
+      "cash_etf",
+      "cross_asset",
+      "multi_asset"
+    ],
+    "maximum_active_strategy_hypotheses": 1
+  },
+  "schema_version": "btc-evidence-catalog-v1"
+}

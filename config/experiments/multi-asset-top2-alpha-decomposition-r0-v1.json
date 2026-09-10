@@ -1,0 +1,113 @@
+{
+  "schema_version": "strategy-attribution-experiment-v1",
+  "experiment_id": "multi-asset-top2-alpha-decomposition-r0-v1",
+  "source_experiment_id": "multi-asset-top2-causal-v1",
+  "status": "development_frozen",
+  "frozen_at": "2026-08-26",
+  "research_only": true,
+  "live_trading_authorized": false,
+  "objective": "Determine whether the frozen midnight-UTC top-two result contains incremental cross-sectional selection alpha after separating regime timing, eligible-universe beta, sizing, and costs.",
+  "isolation": {
+    "network_access_allowed": false,
+    "database_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "allowed_data_directory": "artifacts/agent-level-experiment/multi-asset-top2/development-input",
+    "allowed_signal_ledger": "artifacts/agent-level-experiment/multi-asset-top2/development-v1/signals.csv.gz",
+    "allowed_output_root": "artifacts/agent-level-experiment/multi-asset-top2",
+    "refuse_symlink_inputs": true
+  },
+  "development_period": {
+    "start": "2021-01-01T00:00:00Z",
+    "end_exclusive": "2026-01-01T00:00:00Z",
+    "sealed_period_not_read": "2026-01-01 onward"
+  },
+  "frozen_input_sha256": {
+    "BTC/USDT": "e1254333eb3ed9e28d268975221f6134988c17577026177f503df012816ed688",
+    "ETH/USDT": "44bb979c6e01652ff3a7d563be4480e1766a42b51a038beb23a519137d5079e3",
+    "SOL/USDT": "716b91de82a7267955bc049e5d9f43967e8b8f72c8bbd3be684ea2b8e7de9676",
+    "XRP/USDT": "d38754130e8abbf1fd1735328691f9d4a74c3a197593745004c1fee35d021a9f",
+    "BNB/USDT": "cb2370682bd41e1f463a371c21ca92bbea9024b8f9228a97ec33354717fd4adc",
+    "DOGE/USDT": "4d79854b5f0906d25db8c285309a114deb6d65c95a561031b31cc8c27ded765c",
+    "ADA/USDT": "51a3f9dee1deddcb1fb5a952ae255092cba14912bf4573ff8d8a3684f671521d"
+  },
+  "frozen_signal_ledger_sha256": "4b634096b13227bee52668e804beb87dfd33c6b223841bb9d80aae1148e4fc2e",
+  "candidate": {
+    "cadence": "one signal per UTC date at 00:00 UTC only",
+    "decision_information_cutoff": "completed 00:00 UTC 15-minute signal candle",
+    "entry": "next 15-minute open at signal_time plus 15 minutes",
+    "exit": "open exactly 48 hours after entry",
+    "starting_equity_usdt": 1000,
+    "cohort_fraction": 0.25,
+    "maximum_gross_exposure_fraction": 0.25,
+    "basket_weighting": "equal notional",
+    "position_policy": "spot long/flat; atomic basket entry; no leverage; no 12-hour reduction"
+  },
+  "universe": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "SOL/USDT",
+    "XRP/USDT",
+    "BNB/USDT",
+    "DOGE/USDT",
+    "ADA/USDT"
+  ],
+  "shared_capital_controls": [
+    "ranked_top2",
+    "gate_qualified_top4_equal_weight",
+    "eligible_universe7_equal_weight",
+    "btc_only",
+    "eth_only",
+    "eligible_remainder_equal_weight"
+  ],
+  "diagnostics": {
+    "selected_minus_remainder": "paired next-open 48-hour equal-weight event return; diagnostic only, not a claimed tradable short book",
+    "random_top2": {
+      "simulations": 5000,
+      "seed": 20260826,
+      "sampling": "two assets without replacement independently at every frozen signal from the same seven eligible assets",
+      "statistic": "mean primary-cost return on allocated capital"
+    },
+    "regime_gate_timing": {
+      "simulations": 5000,
+      "seed": 20260828,
+      "matching": "for every gated signal choose a non-signal midnight from the same UTC calendar month; compare eligible-universe event returns",
+      "statistic": "mean primary-cost return on allocated capital"
+    },
+    "beta_model": "OLS of ranked-top2 primary-cost event return on the timestamp-matched eligible-universe event return with an intercept",
+    "confidence": {
+      "method": "calendar-month block bootstrap",
+      "replications": 10000,
+      "seed": 20260827,
+      "interval": 0.95
+    }
+  },
+  "execution_scenarios": [
+    "candle-primary-30bps-rt-v1",
+    "candle-stress-40bps-rt-v1",
+    "candle-severe-80bps-rt-v1"
+  ],
+  "acceptance_gates": {
+    "minimum_filled_ranked_cohorts": 60,
+    "ranked_top2_primary_net_return_positive": true,
+    "ranked_top2_severe_net_return_positive": true,
+    "ranked_minus_universe_mean_return_bps_strictly_above": 0,
+    "ranked_minus_top4_mean_return_bps_strictly_above": 0,
+    "selection_delta_bootstrap_lower_95_bps_strictly_above": 0,
+    "random_selection_one_sided_p_maximum": 0.10,
+    "regime_gate_one_sided_p_maximum": 0.10,
+    "positive_selection_delta_calendar_years_minimum": 3,
+    "top_three_profitable_months_share_maximum": 0.50,
+    "maximum_entry_gross_exposure_fraction": 0.25,
+    "point_in_time_universe_membership_required": true,
+    "no_post_signal_information": true,
+    "sealed_2026_not_read": true
+  },
+  "known_pre_execution_limitations": [
+    "The seven-asset universe is static and historical point-in-time constituent membership is unavailable; this is a predeclared promotion blocker.",
+    "The strategy family and development period have already been inspected, so this experiment can reject a selection-alpha claim but cannot create independent promotion evidence.",
+    "Historical exchange-rule snapshots are unavailable and generic research market rules remain in use.",
+    "Candle data cannot reproduce order-book depth, queue position, or partial fills."
+  ],
+  "decision_rule": "Pass only if every acceptance gate passes. Any failure rejects the selection-alpha claim for this experiment ID; parameters and gates may not be changed after results are read."
+}

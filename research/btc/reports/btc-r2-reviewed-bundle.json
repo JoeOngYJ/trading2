@@ -1,0 +1,27 @@
+{
+  "files": [
+    {
+      "path": "research/btc/contracts/btc-archived-breakout-reconciliation-r2-v1.md",
+      "sha256": "8a4a9ee52eee4ed4e1400d3495c2d08e57fa78a514c17f71f2384c2ae83fec49"
+    },
+    {
+      "path": "research/btc/reconcile_r2.py",
+      "sha256": "4fc1d2a3b3eb3dd3df18568e9ab7e993639270ebdcd42838ba44f6eca09a8c87"
+    },
+    {
+      "path": "research/btc/tests/test_reconcile_r2.py",
+      "sha256": "3f75af599e70c56a3e9482fb9dc98306f5062019ca7e0bf6e2338f45dd95535f"
+    },
+    {
+      "path": "research/btc/reference_r1.py",
+      "sha256": "b86d6d3be65f2d6b4b5e5c3e0e797b811ef4a33f04effa0a6341358f68d438ad"
+    },
+    {
+      "path": "research/btc/reports/BTC_R2_REVIEW.md",
+      "sha256": "be2655048c9e0778a2ae98d46d7c837ef127278909dc436a1d2352f4f169b4f1"
+    }
+  ],
+  "frozen_at": "2026-09-08T00:13:16Z",
+  "identity": "btc-archived-breakout-reconciliation-r2-v1",
+  "status": "frozen_reviewed_before_first_decode"
+}

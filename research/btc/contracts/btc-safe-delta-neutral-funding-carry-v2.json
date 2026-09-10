@@ -1,0 +1,164 @@
+{
+  "accepted_strategy_arms_before_test": [],
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "credentials_allowed": false,
+    "live_or_exchange_paper_orders_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "protected_service_access_allowed": false,
+    "year_2026_access_allowed": false
+  },
+  "attribution": [
+    "spot_price_pnl",
+    "perpetual_price_pnl",
+    "basis_convergence",
+    "funding_cashflow",
+    "explicit_fees",
+    "implicit_cost",
+    "turnover",
+    "exposure",
+    "margin_stress",
+    "risk_exits",
+    "net_return_per_unit_leg_fraction"
+  ],
+  "base_experiment": {
+    "contract_path": "research/btc/contracts/btc-positive-funding-carry-v1.json",
+    "contract_sha256": "c1d4e5fe9e2f29651e48dd908e805033c41141c3b590b2926c25218041f173fc",
+    "experiment_id": "btc-positive-funding-carry-v1",
+    "result_path": "research/btc/reports/BTC_POSITIVE_FUNDING_CARRY_RESULT.md",
+    "result_sha256": "fb18d594b1be8701f31652eb63f8db4e86314dde64098930ca3e27aa553b05a0"
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/reports/BTC_SAFE_FUNDING_CARRY_RISK_V2_PLAN.md",
+      "sha256": "e6d4509c75e6277e1a72017fcdb080cbb19492b6e945e7df9084c1165f51bdb4"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-development-v2.json",
+      "sha256": "a3b1dd712ad9b40c9f4a473cf0d9fb202a6db8e617112ecce802854af8a655cd"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/source-manifest.json",
+      "sha256": "7640f3d7e3bb62bf64267498951a79672bde59f102e4f6f0254a2807f6990cb7"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/report.json",
+      "sha256": "4c3b8fafd945b24a54dfcbf0e23e87ac50872a196159d4e499bdc528f393818a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/evidence-manifest.json",
+      "sha256": "23bd88f671595dd86b20ecc4926dc5be360ddcb07096e766cf80d259a7a68457"
+    }
+  ],
+  "controls": [
+    "flat",
+    "btc_spot_buy_and_hold_same_25pct_leg_fraction",
+    "always_on_matched_carry_same_25pct_leg_fraction",
+    "signal_windows_without_funding_same_25pct_leg_fraction",
+    "signal_windows_funding_only_same_25pct_leg_fraction",
+    "rejected_v1_49pct_result_as_sizing_attribution_only"
+  ],
+  "cost_scenarios": [
+    "candle-primary-30bps-rt-v1",
+    "candle-stress-40bps-rt-v1",
+    "candle-severe-80bps-rt-v1"
+  ],
+  "data": {
+    "funding_events": "official_Binance_USD_M_8h_archives",
+    "mark_price": "official_Binance_USD_M_1h_archive_plus_exact_REST_recovery",
+    "perpetual_execution": "official_Binance_USD_M_1h_klines",
+    "premium_index_consumed": false,
+    "spot_execution": "checksummed_Binance_spot_5m_causal_ledger",
+    "symbol": "BTCUSDT"
+  },
+  "evidence_boundary": {
+    "development_end_inclusive": "2023-12-31T23:00:00Z",
+    "development_start_inclusive": "2020-02-03T00:00:00Z",
+    "evaluation_end_inclusive": "2025-12-31T23:00:00Z",
+    "evaluation_is_consumed_and_not_promotion_evidence": true,
+    "evaluation_start_inclusive": "2024-01-01T00:00:00Z",
+    "partition_crossing_position": "force_flat_before_boundary",
+    "year_2026_access": "forbidden"
+  },
+  "experiment_id": "btc-safe-delta-neutral-funding-carry-v2",
+  "frozen_gates": {
+    "best_three_month_positive_pnl_fraction_max": 0.6,
+    "best_trade_positive_pnl_fraction_max": 0.6,
+    "data_causality_matched_quantity_and_no_2026_required": true,
+    "minimum_closed_trades": 4,
+    "observed_margin_breaches_max": 0,
+    "primary_funding_cashflow_min_exclusive": 0.0,
+    "primary_maximum_drawdown_max": 0.1,
+    "primary_net_return_min_exclusive": 0.0,
+    "primary_return_per_exposed_day_minus_same_exposure_always_on_min_exclusive": 0.0,
+    "severe_net_return_min_exclusive": 0.0,
+    "shocked_margin_breaches_max": 0,
+    "shocked_margin_ratio_below_minimum_executions_max": 0,
+    "strictly_positive_evaluation_years_required": 2
+  },
+  "output_root": "artifacts/agent-level-experiment/btc-focused/safe-delta-neutral-funding-carry-v2",
+  "parameters": {
+    "decision_time_utc": "Monday_00:05",
+    "entry_exit_time_utc": "next_01:00",
+    "entry_threshold_cumulative_funding_bps": 60,
+    "exit_threshold_cumulative_funding_bps": 30,
+    "lookback_funding_events": 84,
+    "maximum_holding_days": 84,
+    "maximum_notional_fraction_per_leg": 0.25,
+    "quantity_step_BTC": "0.00001",
+    "weekly_decision_interval_days": 7
+  },
+  "prohibited": [
+    "parameter_tuning_after_result",
+    "regime_filter",
+    "premium_index_consumption_or_imputation",
+    "strategy_combination",
+    "leverage_or_exposure_scaling_as_alpha",
+    "credentials",
+    "live_or_exchange_paper_orders",
+    "partial_OB0_access",
+    "protected_service_access",
+    "2026_historical_data",
+    "naked_or_directional_short"
+  ],
+  "risk_model": {
+    "adverse_mark_shock_fraction": 0.2,
+    "collateral_fraction_of_equity_before_fees": 0.75,
+    "historical_bracket_claim_allowed": false,
+    "isolated_margin_only": true,
+    "maintenance_margin_fraction_of_mark_notional": 0.1,
+    "minimum_shocked_margin_equity_to_maintenance_ratio": 2.0,
+    "post_risk_exit_reentry": "ordinary_later_Monday_decision_only",
+    "risk_exit_execution": "next_available_hour_open_with_severe_20bps_fee_and_20bps_implicit_per_fill",
+    "risk_releveraging_intratrade_allowed": false,
+    "stress_and_observed_margin_checked_after_each_completed_hour": true
+  },
+  "schema_version": "btc-safe-delta-neutral-funding-carry-contract-v2",
+  "status": "frozen_before_any_v2_return_calculation"
+}

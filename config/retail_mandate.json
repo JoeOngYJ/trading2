@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "mandate_id": "retail-btc-spot-v2",
+  "effective_date": "2026-08-25",
+  "status": "frozen_research_execution_model_v1",
+  "live_trading_authorized": false,
+  "scope": {
+    "research_exchange": "binance",
+    "live_execution_exchange": null,
+    "market_type": "spot",
+    "pairs": [
+      "BTC/USDT"
+    ],
+    "position_directions": [
+      "long",
+      "flat"
+    ],
+    "prohibited": [
+      "shorting",
+      "margin",
+      "leverage",
+      "futures",
+      "options",
+      "borrowing",
+      "market_making"
+    ]
+  },
+  "capital": {
+    "research_equity_usdt": 1000,
+    "dry_run_wallet_usdt": 1000,
+    "maximum_live_allocation_usdt": 0,
+    "maximum_position_fraction": 0.25
+  },
+  "risk": {
+    "maximum_risk_per_trade_fraction": 0.005,
+    "daily_loss_stop_fraction": 0.015,
+    "strategy_drawdown_stop_fraction": 0.10,
+    "maximum_open_positions": 1,
+    "loss_limits_include_realized_and_unrealized_pnl": true,
+    "breach_action": "disable_new_entries_and_require_manual_review",
+    "protective_exits_remain_enabled": true
+  },
+  "cadence": {
+    "context_timeframe": "4h",
+    "decision_timeframe": "1h",
+    "completed_candles_only": true,
+    "maximum_new_entries_per_utc_day": 1,
+    "maximum_new_entries_per_rolling_7_days": 4,
+    "maximum_holding_period_hours": 336
+  },
+  "hosting": {
+    "research_host": "local_workstation",
+    "unattended_paper_or_live_host": "always_on_host_required",
+    "local_workstation_approved_for_unattended_live": false
+  },
+  "execution_policy": {
+    "status": "research_execution_model_v1_account_calibration_pending",
+    "entry_policy": "bounded_order_only_no_unbounded_price_chasing",
+    "maker_policy": "allowed_only_with_a_defined_fill_deadline",
+    "taker_fallback_policy": "allowed_only_when_predeclared_by_the_strategy_and_within_price_protection",
+    "protective_exit_policy": "safety_first_may_cross_spread_and_must_not_be_blocked_by_entry_controls",
+    "partial_fill_policy": "cancel_unfilled_remainder_at_deadline_unless_protective_exit",
+    "primary_execution": "price_protected_taker",
+    "primary_price_protection_bps": 10,
+    "maker_timeout_seconds": 60,
+    "maker_timeout_sensitivities_seconds": [10, 30, 120],
+    "latency_sensitivities_ms": [100, 250, 500, 1000],
+    "default_taker_fee_bps_per_fill": 10,
+    "default_maker_fee_bps_per_fill": 10,
+    "fee_tier": "unknown_conservative_default_no_bnb_discount",
+    "scenario_config": "config/execution_scenarios.json"
+  },
+  "promotion": {
+    "live_credentials_allowed": false,
+    "live_funds_allowed": false,
+    "minimum_paper_trading_days": 14,
+    "requires_separate_written_live_approval": true
+  },
+  "change_control": {
+    "material_changes_require_new_mandate_id": true,
+    "material_fields": [
+      "exchange",
+      "market_type",
+      "pairs",
+      "position_directions",
+      "capital_limits",
+      "risk_limits",
+      "cadence",
+      "execution_policy"
+    ]
+  }
+}

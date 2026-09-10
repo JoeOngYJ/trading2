@@ -1,0 +1,119 @@
+{
+  "action_boundary": {
+    "E1_implementation_allowed_before_independent_v2_pass": false,
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "historical_market_rows_results_metrics_or_strategy_logic_allowed": false,
+    "live_or_exchange_paper_capital": "0",
+    "production_credentials_network_orders_or_integrations_allowed": false
+  },
+  "clarifications_replacing_ambiguous_v1_wording": {
+    "adverse_intrabar_mark": {
+      "flat_perpetual": "no_perpetual_margin_extreme",
+      "long_perpetual": "interval_low_first",
+      "post_breach_path": "observed_liquidation_is_terminal_do_not_inspect_favourable_extreme_or_close",
+      "short_perpetual": "interval_high_first"
+    },
+    "atomic_pair_net_spot_and_neutralization": {
+      "entry_preflight": "before_first_leg_prove_severe_neutralization_is_fee_funded_rule_valid_and_leaves_exactly_zero_BTC_else_reject_without_mutation",
+      "failure_order": "close_any_filled_perpetual_quantity_first_then_sell_validated_actual_net_spot_inventory",
+      "net_spot_quantity": "actual_BTC_inventory_after_entry_fill_and_base_asset_fee_state_mutations_not_requested_or_gross_quantity",
+      "neutralization_base_fee": "gross_spot_sale_plus_its_effective_base_fee_must_not_exceed_actual_inventory_and_must_leave_exactly_zero_after_rule_quantization",
+      "prohibited": "selling_original_requested_or_gross_entry_quantity_instead_of_actual_post_fee_inventory",
+      "second_leg_sizing_and_mismatch": "use_actual_post_fee_net_spot_inventory_and_each_legs_point_in_time_price"
+    },
+    "decimal_and_quantization": {
+      "cashflow_and_state_rounding": "forbidden_keep_exact_finite_Decimal_products_and_sums",
+      "instrument_quantization": "apply_once_before_transition_only_to_fields_named_by_effective_rules_with_declared_rounding_direction",
+      "residual_action": "compare_absolute_exact_residual_to_0.00000001_USDT_without_mutating_state_or_rounding_residual",
+      "residual_gate": "absolute_exact_event_residual_less_than_or_equal_to_0.00000001_USDT",
+      "universal_quote_quantum_role": "reconciliation_tolerance_only_not_cash_or_NAV_quantizer"
+    },
+    "exit_cost_reserve": {
+      "allowed_zero": "only_when_fixture_metadata_explicitly_sets_zero_exit_reserve_fixture_true",
+      "cash_effect": "memo_only_not_debited",
+      "flat_value": "0",
+      "formula": "absolute_current_perpetual_quantity_times_current_official_mark_times_bound_perpetual_exit_cost_rate",
+      "liquidation_replacement": "single_realized_liquidation_fee",
+      "ordinary_exit_replacement": "realized_ordinary_exit_cost",
+      "rate": "one_nonnegative_Decimal_rate_bound_by_run_contract_and_immutable_while_position_open_zero_otherwise_rejected",
+      "refresh_checkpoints": [
+        "after_opening_mark",
+        "after_funding",
+        "after_every_fill_or_neutralization",
+        "after_adverse_intrabar_mark",
+        "after_close_mark"
+      ]
+    },
+    "initial_margin": {
+      "increase_formula": "absolute_filled_quantity_delta_times_accounting_fill_price_divided_by_frozen_run_leverage",
+      "leverage": "bound_by_run_contract_and_may_not_change_while_position_is_open",
+      "method": "additive_per_increasing_fill",
+      "prohibited": "whole_position_repricing_or_recomputation_after_price_change",
+      "transfer_order": "transfer_exact_increment_quote_cash_to_isolated_collateral_before_increase"
+    },
+    "liquidation_cost": {
+      "formula": "absolute_pre_liquidation_quantity_times_observed_adverse_mark_times_effective_liquidation_fee_rate",
+      "ordinary_close_commission": "not_charged",
+      "ordinary_implicit_exit_cost": "not_charged",
+      "policy": "liquidation_fee_replaces_all_ordinary_close_costs_and_is_debited_exactly_once",
+      "source_supported_additive_change": "requires_new_E0_contract_version_not_adapter_choice"
+    },
+    "partial_collateral_release": {
+      "cash_release": "minimum_of_released_initial_margin_memo_and_nonnegative_post_realized_PnL_funding_and_cost_isolated_collateral",
+      "denominator": "absolute_pre_reduction_perpetual_quantity",
+      "full_close_deficit": "negative_residual_becomes_liability_and_never_creates_quote_cash",
+      "memo_formula": "old_allocated_initial_margin_memo_times_closed_absolute_quantity_divided_by_absolute_pre_reduction_quantity",
+      "memo_update": "subtract_full_formula_amount_even_when_cash_release_is_capped"
+    },
+    "terminal_execution": {
+      "allowed": [
+        "absolute_exposure_reduction",
+        "protective_exit",
+        "forced_neutralization",
+        "predeclared_terminal_flatten"
+      ],
+      "boundary_binding": "terminal_timestamp_and_market_on_close_or_eligible_next_open_convention_frozen_before_run",
+      "prohibited": "any_order_that_increases_absolute_spot_or_perpetual_exposure_including_reversal_residual"
+    }
+  },
+  "invalid_E1_v1_draft_evidence": [
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v1-ambiguous-draft/README.md",
+      "sha256": "78dead38d1ffad3fc8ff9e85cc677916ea8df6e4a9f4e670b9c26ad171565831"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v1-ambiguous-draft/unified_btc_accounting.py",
+      "sha256": "7176baafa0e96377c2f7dfbb2aa86a0ead55f376fdab59eb956e28d718a5e0b0"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v1-ambiguous-draft/test_unified_btc_accounting_e1.py",
+      "sha256": "b117f763ecba61799a00a95233ae735aa905f52bbdcdb234d288b5ff5bb77740"
+    }
+  ],
+  "predecessor": {
+    "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+    "contract_sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e",
+    "disposition": "superseded_after_E1_drafting_started_before_any_E1_test_or_qualification",
+    "inheritance": "all_v1_fields_remain_binding_except_where_v2_clarifications_explicitly_replace_ambiguous_wording",
+    "plan_path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_PLAN.md",
+    "plan_sha256": "db515111ebf718d14c73d894911de61278b4835234ab66cb9e1846d50e23b122",
+    "reason": "independent_oracle_construction_found_eight_economically_material_implementation_choices"
+  },
+  "qualification_gates": {
+    "active_E1_v1_draft_paths_absent": true,
+    "all_predecessor_and_invalid_evidence_digests_verify": true,
+    "combined_v1_v2_semantics_independently_reviewed_without_open_choice": true,
+    "contract_canonical_and_deterministic": true,
+    "no_E1_test_engine_historical_result_metric_strategy_or_oracle_executed": true,
+    "only_no_trade_actionable": true
+  },
+  "qualification_id": "btc-unified-backtest-engine-e0-v2",
+  "schema_version": "btc-unified-backtest-engine-clarification-contract-e0-v2",
+  "status": "frozen_before_fresh_E1_implementation_pending_independent_review",
+  "subsequent_phase_boundary": {
+    "on_fail": "replace_under_new_E0_ID_without_resuming_E1",
+    "on_pass": "implement_fresh_E1_kernel_and_synthetic_tests_without_copying_or_importing_invalid_draft",
+    "still_prohibited_after_pass": "historical_market_access_strategy_metrics_oracle_paper_live_and_production_work"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "approved_execution_instruments": [],
+  "default_planning_jurisdiction": "UK_retail",
+  "jurisdiction_selection_policy": {
+    "anti_circumvention": true,
+    "execution_account_country_must_match_lawful_facts": true,
+    "legal_or_tax_advice_claimed": false,
+    "research_data_access_does_not_imply_execution_access": true,
+    "revalidate_before_paper_or_live": true
+  },
+  "jurisdictions": [
+    {
+      "jurisdiction_id": "UK_retail",
+      "observed_at": "2026-08-29T12:18:34Z",
+      "product_access": [
+        {
+          "execution_state": "conditional_unapproved",
+          "product_family": "cash_and_listed_securities",
+          "reason": "Requires an exact regulated broker, instrument eligibility, KID where applicable, fees, tax wrapper and account permissions."
+        },
+        {
+          "execution_state": "conditional_unapproved",
+          "product_family": "non_crypto_exchange_traded_derivatives",
+          "reason": "Requires exact broker permissions, appropriateness, contract size, margin, loss capacity and cost audit."
+        },
+        {
+          "execution_state": "conditional_unapproved",
+          "product_family": "non_crypto_retail_cfd_or_spread_bet",
+          "reason": "Requires an FCA-authorized provider, retail protections, financing-cost audit and instrument-specific eligibility; no provider is approved in A0."
+        },
+        {
+          "execution_state": "conditional_unapproved",
+          "product_family": "crypto_spot_or_eligible_listed_product",
+          "reason": "Requires exact platform and product eligibility; certain listed products do not imply derivative access."
+        },
+        {
+          "execution_state": "blocked",
+          "product_family": "crypto_derivatives",
+          "reason": "FCA COBS 22.6 retail prohibition remains the conservative A0 assumption."
+        }
+      ],
+      "source_references": [
+        {
+          "as_of": "2026-07-23",
+          "title": "FCA Handbook COBS 22.6",
+          "url": "https://handbook.fca.org.uk/handbook/cobs22/cobs22s6?date=23-07-2026&timeline=true"
+        },
+        {
+          "as_of": "2026-08-29",
+          "title": "FCA overview of cryptoasset regime policy statements",
+          "url": "https://www.fca.org.uk/publications/policy-statements/cryptoasset-regime"
+        }
+      ]
+    },
+    {
+      "jurisdiction_id": "Malaysia_retail_alternative",
+      "observed_at": "2026-08-29T12:18:34Z",
+      "product_access": [
+        {
+          "execution_state": "conditional_unapproved",
+          "product_family": "cash_and_listed_securities",
+          "reason": "Requires actual Malaysian residency/account facts and an exact regulated broker and product audit."
+        },
+        {
+          "execution_state": "conditional_unapproved",
+          "product_family": "regulated_crypto_spot",
+          "reason": "Only an exact Securities Commission Malaysia registered DAX and approved product may be considered; no venue is approved in A0."
+        },
+        {
+          "execution_state": "blocked",
+          "product_family": "crypto_derivatives",
+          "reason": "No lawful retail execution venue or product has been established in A0."
+        },
+        {
+          "execution_state": "research_only",
+          "product_family": "offshore_or_unregistered_crypto_venue",
+          "reason": "Public data may support source research, but unregistered venue execution is not eligible and Binance is not treated as a Malaysian execution venue."
+        }
+      ],
+      "source_references": [
+        {
+          "as_of": "2026-07-20",
+          "title": "Securities Commission Malaysia registered digital asset exchanges",
+          "url": "https://www.sc.com.my/regulation/guidelines/recognizedmarkets/list-of-registered-digital-asset-exchanges"
+        },
+        {
+          "as_of": "2021-07-30",
+          "title": "Securities Commission Malaysia enforcement action on Binance",
+          "url": "https://www.sc.com.my/resources/media/media-release/sc-takes-enforcement-actions-on-binance-for-illegally-operating-in-malaysia"
+        }
+      ]
+    }
+  ],
+  "matrix_id": "cross-asset-instrument-access-v1",
+  "schema_version": "cross-asset-instrument-access-v1"
+}

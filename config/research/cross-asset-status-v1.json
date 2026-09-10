@@ -1,0 +1,698 @@
+{
+  "a1_contract_path": "config/experiments/cross-asset-a1-executable-universe-feasibility-v2.json",
+  "a1_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/evidence-manifest.json",
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "context_artifacts": [
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/account-observations.json",
+      "sha256": "dc975274c1d464c01da48d482306266e0c44c6cb08517bdc490c835ca36b3964"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/audit-report.json",
+      "sha256": "8bacc2239ff5aa250fdb996924530c97401ed8673d9d45b16790712a2d0212e9"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/evidence-manifest.json",
+      "sha256": "ecbafc21e6678b50a4c564f201153f04cb6bbf4c18305f1f68d7c92b2d878883"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/progress-record.json",
+      "sha256": "cf02f38b19bec28a5fae1f9ddffb4ffc24ed01be6dceb56ff48474a1dbb1a3d4"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/audit-report.json",
+      "sha256": "fca42279143e0aa2bc54a4ba0026af58700ab6da10197bffc1509e374b5ebdce"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/evidence-manifest.json",
+      "sha256": "5c9e13ef4a7de7daca9a4778c6332e67039687ea905951ebd643189dc631fc3c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/source-facts.json",
+      "sha256": "16f8a35497aea39d34fdf776fc89c5c740e2f4f3857b9abcd9040d80d6d975ca"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/audit-report.json",
+      "sha256": "a6ae8d8095bc912872ca2478127993c509a945dd822910389867844ae48e4004"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/evidence-manifest.json",
+      "sha256": "eb4608c913843167f9a0e54482e509dda56238ea3131727fc631276c045f7d78"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/public-feasibility-facts.json",
+      "sha256": "e9089210a167bafe76a18df20e88787b7a9051ffb1bdf6d84abc320af1628a8c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/source-manifest.json",
+      "sha256": "455ab8ff9b3ef4ed7397411000788790e3a0e1478d49c5bdbd7328f22a5e234d"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/audit-report.json",
+      "sha256": "3f8549842c0fd4b9deb046f3dedfaaf7779bece31cb4f374c16ff86f09d4ae73"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/evidence-manifest.json",
+      "sha256": "21ab3bd70f334968fda03f914c6d978de1caf291daa4fef96a9ef6a45caed440"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/source-manifest.json",
+      "sha256": "90c84c6912e0b01d2a49d3c3934ad7821338a614a3ed32ef0f25c971829f15ee"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/audit-report.json",
+      "sha256": "f91f62edae676603da26ed602da0543f55dc47c33d634e2201a9fe64160fecec"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/evidence-manifest.json",
+      "sha256": "91af46ef7afa3f0f4fb2332f22cd0ab0cb8dffcbac8daf023b5cea2bb2f7471a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/source-facts.json",
+      "sha256": "35788a5d528957da4539f9935fa9ce5d5ddbbb29f4521c3f34634f504ed51142"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/audit-report.json",
+      "sha256": "5b533c9b0f64a1eee643cfb740679cefcbf84d556d5f4441237327464c8b9692"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/evidence-manifest.json",
+      "sha256": "740ef9be6d6208242e9eadb987dcc67363fbc5f8909f23296eb3a82700386b30"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/comm-issuer.html",
+      "sha256": "3b2d59c2b6bdf2125f3b69a319bae42914a171ca07e6590c952f486d1551ca9a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/sgln-issuer.html",
+      "sha256": "7854b36832c8384f1baf9d635dc16064175bbacbf6b19cb4e6da7286197260c6"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/swda-issuer.html",
+      "sha256": "9a99a68a3036793f7e51cb2d78add498221796e4ffe8486798a43cb6c1efea1b"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/vags-issuer.html",
+      "sha256": "e538c439f20da09724d9642abcf6f24cbe62bcceea945d1421a719bccad76fa2"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/source-manifest.json",
+      "sha256": "1afa9e6f8c271bd37e67e97a9fc2af8e7a532e44222fdb9add62cb792032f1a6"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v1/failure-report.json",
+      "sha256": "abb918d4d09bcceabe7d020cf3b408febbe95e597c80a6a89eb1c92b7ee7e3d2"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v2/failure-report.json",
+      "sha256": "5d9cf8c5ab81cc128ffaaca6f6cb1aae20e8b85ffe28ad46a271259d8a93b335"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3/audit-report.json",
+      "sha256": "a5db8ac1b36e1706c67944afe6cad12e086c7d8ee01c0551e836698f570a4b5b"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3/evidence-manifest.json",
+      "sha256": "b79226408e6c225d8ffe0458b73a354786c0397a5bad4b43f1caa503949ce9e3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3/failure-report.json",
+      "sha256": "a5cb652d15e3547ca8bee201821b3673c8e619bac4611ce04ad5c7adb609f78a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/audit-report.json",
+      "sha256": "3865d0e2ace992fd239314ec0019dc01f4be45478e3eb4467ab68874ded23b78"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/evidence-manifest.json",
+      "sha256": "503d9be184796263273140aecfcc3e7a96c9b2e4181966ae32afc444a17c95c2"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/source-manifest.json",
+      "sha256": "b04ef85f1f04d08dde34824b969a265a908782e807ab3f91b9477bca0b2b0704"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/audit-report.json",
+      "sha256": "2d18f02405d09aaca4f4e45d5252901cb329f76a066a7e9d277ae1f733363244"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/evidence-manifest.json",
+      "sha256": "827b5bcce1a16480caacc61df0d0aa017b5e724755ebf231969aa617dfbd7a93"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/source-manifest.json",
+      "sha256": "1e095ca55bad2838d00086cd1abbba322b84b4f95a00b90ddfc4d1a144e89b38"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v1/failure-report.json",
+      "sha256": "e02a9793cf0c786f053d1db0ac770d0b7a5fd2a89db97f6d693e441ead6d7898"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/audit-report.json",
+      "sha256": "bc3b7783fb5782ccd38e8c0a475d1399f0e15b1485252d2d4c11228992c6c47c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/evidence-manifest.json",
+      "sha256": "550a78799913afeda9c1bba3645a12065d9ac340eb20599fa069aa2ca3a650ab"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/source-manifest.json",
+      "sha256": "fbc29cfb90c35b33ae9c394a13ac481c391ab3748e33d1f0a157748032a7e686"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/audit-report.json",
+      "sha256": "7b4b8e42cebee1d15887446bab388d1f2409c22a2e17fe1695e62990094bc131"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/evidence-manifest.json",
+      "sha256": "72dca315d92feced97442d502db46775f634dc7b4363764dd6dbf4c14bb61c98"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/source-manifest.json",
+      "sha256": "1740eb80100c28d0fe2c49f5385b6f80c87ef944bb0795ba99cffddff905c9d6"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-uk-broker-access-review-v1/access-report.json",
+      "sha256": "00255e4f9d6a3e590b29110b86f5519a18205ca90895018a19d708469e6a73ca"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-account-instrument-verification-v1.json",
+      "sha256": "baa6dc84968c6d12f6709b211011111a82d41426f231a675b1923018d7595426"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-completion-review-v1.json",
+      "sha256": "e8254bbfe26298cd97d4433e5767b04a6b9c4ded90a9aeee07757aed4c7b38cb"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-executable-universe-feasibility-v1.json",
+      "sha256": "96ab5ac11430c7e31a9330effc4328ab980d1bbb0665aa680bb36989b66d0ccf"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-executable-universe-feasibility-v2.json",
+      "sha256": "7324a4c45125f18a907b3404aa8ef593b7459a74b010ce4b766605ff54c7b5fb"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-ibkr-contract-details-public-review-v1.json",
+      "sha256": "8a50713997d21cabdcde9ad959bec2f4612daf45dbb442dc8a32a9ae16717a07"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-lse-source-pilot-v1.json",
+      "sha256": "3a1150fec3ec44cbf3e18706589231890e33892cce9713680410cb297588fd71"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v1.json",
+      "sha256": "623e11b4f555dd67db529fd1dc7f841b878c9d1837c7f12628d07ec1ec6d8ce7"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v2.json",
+      "sha256": "527144c7b3e042e2b4d143a0b4e4813947d54b47b77fb64b4d3ca63d5eff834e"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v3.json",
+      "sha256": "9085926f68166e4d88c2b0c17f5cdb6c2beeca2fef8f42df57d187c54e81c521"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-twelvedata-economic-proxy-pilot-v1.json",
+      "sha256": "6fba0c1d57f2c496435812e7ce13aedd3de8d81a059a7595387808f2a3c42f36"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-twelvedata-economic-proxy-pilot-v2.json",
+      "sha256": "9e053082ac8bd3e346436497bfa2162aa01165054354e1f40eee3918c43b661a"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-twelvedata-full-history-v1.json",
+      "sha256": "fe8bd4353dedc117049e482bdab74451c14cd4ab403f2c122b5d0f5e284639e6"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-twelvedata-full-history-v2.json",
+      "sha256": "0e648b0d3349ffb8a944f76bccbef550bbb6704fff773569db99e26a4acdf901"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-twelvedata-recovery-v3.json",
+      "sha256": "17e29a9c55e5a79788b388574c72a3081678f71e84103a41a693dab6098335ec"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-uk-broker-access-review-v1.json",
+      "sha256": "c670174ed699c4614350f2413cc13704b254f801cb851604ef38e77ab2569b06"
+    },
+    {
+      "path": "config/mandates/retail-cross-asset-research-v1.json",
+      "sha256": "c09c854b3936822a6e81b0364483a8e89b70c1a03abb522a808691e3c9222838"
+    },
+    {
+      "path": "config/mandates/retail-cross-asset-research-v2.json",
+      "sha256": "29d6056a378c75a9526f159f3421d76297aff8d9d5e2305bbad3ea3f5c2b894a"
+    },
+    {
+      "path": "config/mandates/retail-cross-asset-research-v3.json",
+      "sha256": "d60eab15d8e839beb998867ae609f670068c9a5666182b449712bd1d5db37268"
+    },
+    {
+      "path": "config/research/cross-asset-data-contract-v1.json",
+      "sha256": "2bedbfd16509703a9a9683cc1e7e96bf72c367b5a25d10a0226f106833864c00"
+    },
+    {
+      "path": "config/research/cross-asset-a1-calendars-2008-2025-v1.json",
+      "sha256": "85bb13a34457acccf980bfc0e623b75bc532146422f3a51fd402dd3103ce8da2"
+    },
+    {
+      "path": "config/research/cross-asset-a1-calendars-2008-2025-v2.json",
+      "sha256": "1458a26e587bdf2dbbc3ba8e9b0c5d072990ceb82c967db27a906f80c29230cd"
+    },
+    {
+      "path": "config/research/cross-asset-decisions-v1.jsonl",
+      "sha256": "98c6d64a42012303e95cadff68a741fd55f091273e4f36992c5e6fc9c451540b"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_EXECUTABLE_UNIVERSE_FEASIBILITY_RESULT.md",
+      "sha256": "e7eabdf3f39d86fdad1d657483039e762c644fb1a0dc74d1b2f9926fc0c25c72"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_twelvedata_lse_clarification.py",
+      "sha256": "8d1e773a5bd82425ba2b1a16b29a145e92dd4ebf9b3d52e8c4d48675d02f1ef9"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_twelvedata_lse_clarification.py",
+      "sha256": "d9b6722ce72f8341ffb2d9fa46615b06be092aa805f71d1ff5de4799086a676e"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_twelvedata_lse_pilot.py",
+      "sha256": "dc9b7b2ac1b1383a867be92d63f9dd41c254130952032ec28c6b7653a01c21d3"
+    },
+    {
+      "path": "config/research/cross-asset-instrument-access-v1.json",
+      "sha256": "137f061754018296f9967ac86b82842629ace8a106afafeaf90e7e096e273444"
+    },
+    {
+      "path": "config/research/cross-asset-program-v1.json",
+      "sha256": "b1559c40ee4a03f34df81f2f883dcae2f4c8945f755e7af6da16b3114d4ae704"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_ACCOUNT_INSTRUMENT_VERIFICATION_RESULT.md",
+      "sha256": "b402d02593836ceae836342a8cbccade9eedacf71e9805fcde52e842584dd3d4"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_IBKR_CONTRACT_DETAILS_PUBLIC_REVIEW_RESULT.md",
+      "sha256": "94ccd71f8bb5987480f49b36411c9a17e8be45639158e9cf62285293e3998190"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_COMPLETION_REVIEW_RESULT.md",
+      "sha256": "cd0f7002c960a1ab39ae5f4624071dcecb95de44c1fa81b56ace90a60fb4b20d"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_SOURCE_SUCCESSOR_RESEARCH.md",
+      "sha256": "24c37489904f3e10346d6f4a0dbc12681ee63377a87f6198c40a80c2615fdf8c"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_TWELVEDATA_PILOT_RESULT.md",
+      "sha256": "cd9cbbe1988da5c53258df4f532260520c1c65abde8de41e4ab69e19ef4c74c6"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_TWELVEDATA_FULL_HISTORY_RESULT.md",
+      "sha256": "019b5e6e4e71b973f61e21a50caeb4e36c14b240154fdc1d9f5cd7211eb798fc"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_TWELVEDATA_RECOVERY_V3_RESULT.md",
+      "sha256": "13e60da94e0a6c3e088039e45e29d094b230e118d95cf1c8dbd976cf4cc1b91f"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_UK_BROKER_ACCESS_REVIEW.md",
+      "sha256": "7c59aee68fcb9891e143c560bb7ef20dec06a74814f44f3ee5370d46037e2f92"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_LSE_SOURCE_PILOT_RESULT.md",
+      "sha256": "038ebb28d2146c1ecce97336ce693b119aa6505dd941fc8a5e212f6256925c82"
+    },
+    {
+      "path": "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+      "sha256": "6bf52822092c110c95aff9c5733d2fff47776153616a48f5be7c8a16651020d1"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+      "sha256": "4cf91bbacb6fca7482d8466f771a199825ce2200187c8b2a39c75dab40cb3480"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+      "sha256": "60d7d4d32290de0136f299700f31eb64640391501fae2b4410249f769b014f3f"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "fa865aa46d40b375075ff0f7ef94774461f5f5c00dd27f9dc9bcd5adf462c742"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_completion.py",
+      "sha256": "b9da35e468bcabf8f696246e74fed78a41fc2428936a2393a0f22f1f62129363"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_lse_sources.py",
+      "sha256": "25a0ee44d2394d853db3869243ad9ca251686fddd018378b29fee7dc2c4c035f"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_marketstack_sources.py",
+      "sha256": "a2d3bdf64645c96a64f632fa0fb178a6c0e66aed2f2ecb0d7408570db34551b8"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_twelvedata_sources.py",
+      "sha256": "49c1f427dad7992fd5e0e26781d3a2972c1f9f90c3b0edd91c4b4dd4233980c9"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_twelvedata_history.py",
+      "sha256": "c4ed85c3af5bb3a6f4c1be8442034cc970ac502a332b22d9dd4c810fdc03d04a"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_twelvedata_recovery.py",
+      "sha256": "5bb385fcfd9290879a7b6dab106630d182b4ff09de28340a0a49ece4d299c715"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_lse_pilot.py",
+      "sha256": "238e20bd30272cd4c42b1f7607b95c576aba4237bcfd0afe641d18cecf17634d"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_marketstack_pilot.py",
+      "sha256": "8761f3637848bf20d00a00d487bfd900ef8a06442bab154c7a53280d0ccc0fe0"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_twelvedata_pilot.py",
+      "sha256": "f2c3925c3c9fa6d53ab56f7a534b799f7cd827d30f8ab2d2f77ec913becdebd7"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_twelvedata_history.py",
+      "sha256": "47444d9daf558ff9ee361c5a77b2d97b005235898a17856fc5adb30c794dff86"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_twelvedata_lse_pilot.py",
+      "sha256": "912ce7723021ce7969d794219faa3cd731b37b10324793fbc5bb40c26b494d59"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_twelvedata_recovery.py",
+      "sha256": "393520ae440074ab01e6bf5bb40486d9f9391ad6596c4e386dfc5657a481ff82"
+    },
+    {
+      "path": "scripts/generate_cross_asset_a1_calendars.py",
+      "sha256": "041dd996d749262a04e00361479609cb8b35d534b71704ace8fb42e1a952030b"
+    },
+    {
+      "path": "scripts/validate_cross_asset_research_context.py",
+      "sha256": "a2f5ae9f778f4afaded832c3bce0124d8494faf47ee21431fa0e51275f34880c"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_a1_completion.py",
+      "sha256": "5db91024602b7e2100c287f95b5fef8f82522680dcbca2d74fc56e6d22591b19"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_data_audit.py",
+      "sha256": "b1739de9acdff420b30ad5592d40ee6458bb3efd9f1affa969b5ea5022dfa4a5"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_calendar.py",
+      "sha256": "e0b6839486f5d8b74fa044acfd8b9965e38ad4c99d89b22360fb70c602b70dd0"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_calendar_v2.py",
+      "sha256": "78001f866a562a05b789af8445ee5db4ee6c17ac5dbd2478debdfcd69c5c584b"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_marketstack_audit.py",
+      "sha256": "c155ae8f4177f522cbfffbdf5d13e040d8a2b7b2956126e4ffa44a25525cd40b"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_twelvedata_audit.py",
+      "sha256": "a1dee634ee1dff390adcc0025c33ecc3fbfb00f855ab385eb40aefb243dd2564"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_twelvedata_history.py",
+      "sha256": "8ba9d0b14c947a86781b6759e74ffc5eca4851775f6cd9224e7e25fda64e218e"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_twelvedata_recovery.py",
+      "sha256": "9c46a0664efb90490ae36c23bd768b9c255604e0f203e7558f2bf9421a0c2501"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_program.py",
+      "sha256": "d685c3e46febc84e0c1ce6ad760a8ce10ed270862de60f991c0dbed5a528858b"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_twelvedata_lse_clarification.py",
+      "sha256": "0cd1ba8edb7c3a590e3b96f154629f68ff637c36548c420956672e131010ca9f"
+    },
+    {
+      "path": "tests/test_cross_asset_twelvedata_lse_clarification.py",
+      "sha256": "b203df4216735a499b815e130d1933c9c425d616a6f2c177cb9430b475cfe6aa"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_twelvedata_lse_audit.py",
+      "sha256": "fad950ce1a1e912df85b7da6e1d3cfdc25acf28ffe7add3273254dfc6de83fa2"
+    },
+    {
+      "path": "tests/test_cross_asset_a1_completion.py",
+      "sha256": "36d07826acac08e4a524847dba1349d199fad52524a8c7efa74a403781a6bebd"
+    },
+    {
+      "path": "tests/test_cross_asset_calendar.py",
+      "sha256": "9b70468d766e9c06e15eae7516b3be640a572c6d58f9499cb1fd124850a01318"
+    },
+    {
+      "path": "tests/test_cross_asset_calendar_v2.py",
+      "sha256": "b9faf8e08b82433c7c6fff398d6d21149c071db9f2d07ec2d906a6878197f7c0"
+    },
+    {
+      "path": "tests/test_cross_asset_data_audit.py",
+      "sha256": "a3364c1cd7399380258eea303b9ddb9f6bfa432599f6c4dbc4a11c56239136d2"
+    },
+    {
+      "path": "tests/test_cross_asset_marketstack_audit.py",
+      "sha256": "9e4ac040282b9ea8e05c33ece47b1d3645637aae38cff04275765dc6ab9f3500"
+    },
+    {
+      "path": "tests/test_cross_asset_program.py",
+      "sha256": "14f026bed7898fc0430bc15ca759063e37ed601110e13360385141ca8e0091db"
+    },
+    {
+      "path": "tests/test_cross_asset_twelvedata_lse_audit.py",
+      "sha256": "f9d06b300f6ed6a5bb30e1251cca8d58fc93e7a425f2a9ea895709979c5f13e9"
+    },
+    {
+      "path": "tests/test_cross_asset_twelvedata_audit.py",
+      "sha256": "4570516ec6f6a474edc635ba036f00e70a0af1aa70914fec165d545bf4bf647d"
+    },
+    {
+      "path": "tests/test_cross_asset_twelvedata_history.py",
+      "sha256": "65c2c421676544e184e7d8965f979e7eb8f23f930bf0690835631944ceacf7a7"
+    },
+    {
+      "path": "tests/test_cross_asset_twelvedata_recovery.py",
+      "sha256": "a0bbf244e414400c0f51235b1b969739bee90d2336c340f719713a266daa102f"
+    }
+  ],
+  "current_stage": "A1",
+  "current_state": "blocked",
+  "decision_log_path": "config/research/cross-asset-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "scripts/audit_cross_asset_a1_completion.py",
+    "scripts/audit_cross_asset_a1_lse_sources.py",
+    "scripts/audit_cross_asset_a1_marketstack_sources.py",
+    "scripts/audit_cross_asset_a1_twelvedata_sources.py",
+    "scripts/audit_cross_asset_a1_twelvedata_history.py",
+    "scripts/audit_cross_asset_a1_twelvedata_lse_clarification.py",
+    "scripts/audit_cross_asset_a1_twelvedata_lse_pilot.py",
+    "scripts/audit_cross_asset_a1_twelvedata_recovery.py",
+    "scripts/download_cross_asset_a1_twelvedata_history.py",
+    "scripts/download_cross_asset_a1_twelvedata_lse_clarification.py",
+    "scripts/download_cross_asset_a1_twelvedata_lse_pilot.py",
+    "scripts/download_cross_asset_a1_twelvedata_recovery.py",
+    "scripts/download_cross_asset_a1_marketstack_pilot.py",
+    "scripts/download_cross_asset_a1_twelvedata_pilot.py",
+    "scripts/generate_cross_asset_a1_calendars.py",
+    "scripts/validate_cross_asset_research_context.py",
+    "src/trading_platform/cross_asset_a1_completion.py",
+    "src/trading_platform/cross_asset_data_audit.py",
+    "src/trading_platform/cross_asset_calendar.py",
+    "src/trading_platform/cross_asset_calendar_v2.py",
+    "src/trading_platform/cross_asset_marketstack_audit.py",
+    "src/trading_platform/cross_asset_twelvedata_audit.py",
+    "src/trading_platform/cross_asset_twelvedata_history.py",
+    "src/trading_platform/cross_asset_twelvedata_lse_clarification.py",
+    "src/trading_platform/cross_asset_twelvedata_lse_audit.py",
+    "src/trading_platform/cross_asset_twelvedata_recovery.py",
+    "src/trading_platform/cross_asset_program.py"
+  ],
+  "latest_decision_digest": "1a417c288c10a8971f67f4a4055193d540304dcc70a2f9caf69686b577cca7e6",
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "schema_version": "cross-asset-program-status-v1",
+  "stages": [
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v2/source-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/public-feasibility-facts.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/source-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3/failure-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v2/failure-report.json",
+        "config/mandates/retail-cross-asset-research-v1.json",
+        "config/research/cross-asset-data-contract-v1.json",
+        "config/research/cross-asset-decisions-v1.jsonl",
+        "config/research/cross-asset-instrument-access-v1.json",
+        "config/research/cross-asset-program-v1.json",
+        "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+        "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+        "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+        "scripts/validate_cross_asset_research_context.py",
+        "src/trading_platform/cross_asset_program.py",
+        "tests/test_cross_asset_program.py"
+      ],
+      "completed_at": "2026-08-29T12:18:35Z",
+      "decision_record_digest": "a71a53d35c69b0f92ed2b8fd7141ce967a1242bb1257f4ad4f4fd87bf3831abf",
+      "stage_id": "A0",
+      "state": "passed"
+    },
+    {
+      "access_reviewed_at": "2026-08-29T18:45:00Z",
+      "activated_at": "2026-08-29T12:40:00Z",
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/account-observations.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/progress-record.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-ibkr-contract-details-public-review-v1/source-facts.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/source-facts.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-uk-broker-access-review-v1/access-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v1/failure-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/source-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/source-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v1/failure-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/source-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/source-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/audit-report.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/source-manifest.json",
+        "config/experiments/cross-asset-a1-account-instrument-verification-v1.json",
+        "config/experiments/cross-asset-a1-lse-source-pilot-v1.json",
+        "config/experiments/cross-asset-a1-completion-review-v1.json",
+        "config/experiments/cross-asset-a1-executable-universe-feasibility-v1.json",
+        "config/experiments/cross-asset-a1-executable-universe-feasibility-v2.json",
+        "config/experiments/cross-asset-a1-ibkr-contract-details-public-review-v1.json",
+        "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v1.json",
+        "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v2.json",
+        "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v3.json",
+        "config/experiments/cross-asset-a1-twelvedata-economic-proxy-pilot-v1.json",
+        "config/experiments/cross-asset-a1-twelvedata-economic-proxy-pilot-v2.json",
+        "config/experiments/cross-asset-a1-twelvedata-full-history-v1.json",
+        "config/experiments/cross-asset-a1-twelvedata-full-history-v2.json",
+        "config/experiments/cross-asset-a1-twelvedata-recovery-v3.json",
+        "config/experiments/cross-asset-a1-uk-broker-access-review-v1.json",
+        "config/mandates/retail-cross-asset-research-v2.json",
+        "config/mandates/retail-cross-asset-research-v3.json",
+        "config/research/cross-asset-a1-calendars-2008-2025-v1.json",
+        "config/research/cross-asset-a1-calendars-2008-2025-v2.json",
+        "docs/CROSS_ASSET_A1_ACCOUNT_INSTRUMENT_VERIFICATION_RESULT.md",
+        "docs/CROSS_ASSET_A1_EXECUTABLE_UNIVERSE_FEASIBILITY_RESULT.md",
+        "docs/CROSS_ASSET_A1_IBKR_CONTRACT_DETAILS_PUBLIC_REVIEW_RESULT.md",
+        "docs/CROSS_ASSET_A1_LSE_SOURCE_PILOT_RESULT.md",
+        "docs/CROSS_ASSET_A1_COMPLETION_REVIEW_RESULT.md",
+        "docs/CROSS_ASSET_A1_SOURCE_SUCCESSOR_RESEARCH.md",
+        "docs/CROSS_ASSET_A1_TWELVEDATA_PILOT_RESULT.md",
+        "docs/CROSS_ASSET_A1_TWELVEDATA_FULL_HISTORY_RESULT.md",
+        "docs/CROSS_ASSET_A1_TWELVEDATA_RECOVERY_V3_RESULT.md",
+        "docs/CROSS_ASSET_A1_UK_BROKER_ACCESS_REVIEW.md",
+        "scripts/audit_cross_asset_a1_completion.py",
+        "scripts/audit_cross_asset_a1_lse_sources.py",
+        "scripts/audit_cross_asset_a1_marketstack_sources.py",
+        "scripts/audit_cross_asset_a1_twelvedata_sources.py",
+        "scripts/audit_cross_asset_a1_twelvedata_history.py",
+        "scripts/audit_cross_asset_a1_twelvedata_lse_clarification.py",
+        "scripts/audit_cross_asset_a1_twelvedata_lse_pilot.py",
+        "scripts/audit_cross_asset_a1_twelvedata_recovery.py",
+        "scripts/download_cross_asset_a1_lse_pilot.py",
+        "scripts/download_cross_asset_a1_marketstack_pilot.py",
+        "scripts/download_cross_asset_a1_twelvedata_pilot.py",
+        "scripts/download_cross_asset_a1_twelvedata_history.py",
+        "scripts/download_cross_asset_a1_twelvedata_lse_clarification.py",
+        "scripts/download_cross_asset_a1_twelvedata_lse_pilot.py",
+        "scripts/download_cross_asset_a1_twelvedata_recovery.py",
+        "scripts/generate_cross_asset_a1_calendars.py",
+        "src/trading_platform/cross_asset_a1_completion.py",
+        "src/trading_platform/cross_asset_data_audit.py",
+        "src/trading_platform/cross_asset_calendar_v2.py",
+        "src/trading_platform/cross_asset_marketstack_audit.py",
+        "src/trading_platform/cross_asset_twelvedata_audit.py",
+        "src/trading_platform/cross_asset_twelvedata_history.py",
+        "src/trading_platform/cross_asset_twelvedata_lse_clarification.py",
+        "src/trading_platform/cross_asset_twelvedata_lse_audit.py",
+        "src/trading_platform/cross_asset_twelvedata_recovery.py",
+        "tests/test_cross_asset_data_audit.py",
+        "tests/test_cross_asset_a1_completion.py",
+        "tests/test_cross_asset_marketstack_audit.py",
+        "tests/test_cross_asset_calendar.py",
+        "tests/test_cross_asset_calendar_v2.py",
+        "tests/test_cross_asset_twelvedata_audit.py",
+        "tests/test_cross_asset_twelvedata_history.py",
+        "tests/test_cross_asset_twelvedata_lse_clarification.py",
+        "tests/test_cross_asset_twelvedata_lse_audit.py",
+        "tests/test_cross_asset_twelvedata_recovery.py"
+      ],
+      "blocked_at": "2026-08-30T00:07:45Z",
+      "decision_record_digest": "1a417c288c10a8971f67f4a4055193d540304dcc70a2f9caf69686b577cca7e6",
+      "prior_attempt_blocked_at": "2026-08-29T12:45:00Z",
+      "prior_completion_blocked_at": "2026-08-29T22:35:21Z",
+      "reactivated_at": "2026-08-29T23:58:21Z",
+      "stage_id": "A1",
+      "state": "blocked"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A2",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A3",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A4",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A5",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A6",
+      "state": "planned"
+    }
+  ]
+}

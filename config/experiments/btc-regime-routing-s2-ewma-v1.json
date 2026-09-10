@@ -1,0 +1,176 @@
+{
+  "action_mapping": {
+    "actionable_arm_id": "no_trade",
+    "allocation_formula": "base_allocation_fraction * min(1, target_annualized_volatility / forecast_annualized_volatility)",
+    "allocation_when_forecast_variance_is_zero": 0.1,
+    "allocation_when_unknown": 0,
+    "direction_changes_allowed": false,
+    "entry_only_sizing": true,
+    "intra_trade_rebalancing_allowed": false,
+    "locked_s1_opportunity_path": true,
+    "maximum_allocation_fraction": 0.1,
+    "positive_allocation_floor": null,
+    "zero_sized_cohort_retains_s1_busy_interval": true
+  },
+  "controls": {
+    "constant_exposure_match_formula": "sum(allocation_fraction_i * holding_seconds_i) / sum(holding_seconds_i)",
+    "constant_exposure_match_is_ex_post_diagnostic": true,
+    "required": [
+      "flat_no_trade",
+      "fixed_10_percent_breakout",
+      "primary_ewma_scaled_breakout",
+      "constant_capital_time_matched_breakout",
+      "fixed_10_percent_segmented_btc_participation",
+      "primary_ewma_scaled_segmented_btc_participation"
+    ]
+  },
+  "data": {
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T04:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "evidence_boundary_path": "config/research/btc-directional-trend-evidence-boundaries-v2.json",
+    "evidence_boundary_sha256": "f3736036b628c97cc7eb635ec6815f571c49564469c168821d54bc6a02364af1",
+    "s1_source_artifacts": {
+      "breakout-reproduction-report.json": {
+        "sha256": "e4d631998153f2841e54f2d36ee7008a9c5874201f65ad3b8e19bb9bca2a9b61"
+      },
+      "breakout-trades.jsonl.gz": {
+        "expected_rows": 201,
+        "sha256": "22d68c6174edc18b055041ba3a32c03c1f8945d9e532b7169bcb370507629809"
+      },
+      "candles-5m.jsonl.gz": {
+        "expected_rows": 878985,
+        "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+      },
+      "features-1d.jsonl.gz": {
+        "expected_rows": 3024,
+        "sha256": "e68936724c0cfc5a73222ff03da6701f4ba1670b5e5f1970b8edbc94aefd7b1b"
+      },
+      "manifest.json": {
+        "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+      }
+    },
+    "s1_source_root": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1",
+    "sealed_2026_path_allowed": false
+  },
+  "economic_scorecard": {
+    "best_month_neutralization": "Set both strategies' daily returns to zero in the same three UTC months having the largest positive EWMA-minus-fixed monthly return differences, then recompute on the unchanged timeline.",
+    "development_overlay_gate_name": "development_overlay_gate_met",
+    "maximum_drawdown_or_worst_rolling_90_day_loss_improvement_fraction_minimum": 0.1,
+    "minimum_calmar_improvement_fraction": 0.1,
+    "minimum_fixed_cagr_retention_fraction": 0.9,
+    "required_cost_scenarios": [
+      "candle-primary-30bps-rt-v1",
+      "candle-severe-80bps-rt-v1"
+    ],
+    "required_forecast_gate": "primary_one_day_mean_qlike_strictly_below_expanding_variance_control",
+    "required_net_return_sign": "strictly_positive",
+    "stage_can_pass_when_development_overlay_gate_is_false": true
+  },
+  "engineering_hypothesis": "A frozen, causal daily EWMA risk estimate can be applied only to the allocation of the unchanged S1 breakout opportunity path, producing a deterministic professional-style risk benchmark without direction changes, new entry timestamps, leverage, model search, sealed-partition access, or executable output.",
+  "experiment_id": "btc-regime-routing-s2-ewma-v1",
+  "forecast_evaluation": {
+    "expanding_variance_control": "Past-only expanding zero-mean mean squared daily log return with the same 30-return initialization and segment resets.",
+    "future_labels_allowed_for_action_mapping": false,
+    "horizons_days": [
+      1,
+      7
+    ],
+    "mean_squared_error_reported": true,
+    "predicted_volatility_quartile_realizations_reported": true,
+    "qlike_formula": "log(forecast_variance) + realized_variance / forecast_variance",
+    "realized_variance": "Sum of squared close-to-close five-minute log returns over a fully contiguous future UTC horizon in the same source segment.",
+    "reject_labels_crossing_development_end": true,
+    "reject_labels_crossing_segment": true
+  },
+  "frozen_at": "2026-08-28T22:07:00Z",
+  "initialization": {
+    "first_forecast_rule": "After 30 completed consecutive same-segment daily close-to-close log returns, initialize next-day variance to their arithmetic mean squared return.",
+    "minimum_returns": 30,
+    "reset_at_segment_boundary": true,
+    "zero_mean": true
+  },
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "holdout_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "refuse_symlink_inputs": true
+  },
+  "output": {
+    "allow_overwrite_nonempty": false,
+    "deterministic_gzip_mtime": 0,
+    "root": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1"
+  },
+  "parameters": {
+    "annualization_days": 365,
+    "base_allocation_fraction": 0.1,
+    "daily_decay_lambda": 0.94,
+    "execution_scenario_ids": [
+      "candle-primary-30bps-rt-v1",
+      "candle-stress-40bps-rt-v1",
+      "candle-severe-80bps-rt-v1"
+    ],
+    "forecast_maximum_age_hours_exclusive": 24,
+    "maximum_planned_risk_fraction": 0.005,
+    "protective_stop_fraction": 0.04,
+    "target_annualized_volatility": 0.4,
+    "traded_instrument": "BTC/USDT"
+  },
+  "rejection_rule": "Reject S2 for any checksum, canonical-serialization, causal-timing, future-label leakage, segment, coverage, locked-opportunity, direction, entry/exit timestamp, allocation-cap, planned-risk, cost, deterministic-output, isolation, actionable-route, or sealed-boundary failure. Do not change decay, target, initialization, coverage, controls, thresholds, or execution after observing results. A valid economically inferior EWMA still passes as the frozen mandatory control and does not validate or promote the breakout.",
+  "robustness": {
+    "non_selectable_one_at_a_time_diagnostics": [
+      {
+        "daily_decay_lambda": 0.9,
+        "target_annualized_volatility": 0.4,
+        "variant_id": "fast-decay-090"
+      },
+      {
+        "daily_decay_lambda": 0.97,
+        "target_annualized_volatility": 0.4,
+        "variant_id": "slow-decay-097"
+      },
+      {
+        "daily_decay_lambda": 0.94,
+        "target_annualized_volatility": 0.3,
+        "variant_id": "low-target-030"
+      },
+      {
+        "daily_decay_lambda": 0.94,
+        "target_annualized_volatility": 0.5,
+        "variant_id": "high-target-050"
+      }
+    ],
+    "primary_variant_id": "primary-lambda094-target040",
+    "replacement_selection_after_results_allowed": false,
+    "run_cartesian_grid": false
+  },
+  "schema_version": "regime-routing-s2-ewma-contract-v1",
+  "stage_id": "S2",
+  "statistics": {
+    "bootstrap_replications": 10000,
+    "bootstrap_scope": "Paired additive monthly account-return and trade-return differences only; never maximum drawdown or Calmar.",
+    "bootstrap_seed": 20260828,
+    "daily_return_annualization": 365,
+    "leave_one_calendar_year_out": true,
+    "risk_free_rate": 0,
+    "worst_rolling_window_days": 90
+  },
+  "status": "frozen",
+  "validity_gates": {
+    "maximum_allocation_fraction": 0.1,
+    "minimum_opportunity_coverage_each_calendar_year": 0.9,
+    "minimum_opportunity_coverage_overall": 0.95,
+    "planned_risk_includes_round_trip_cost": true,
+    "s1_expected_filled_opportunities_per_cost_scenario": 67,
+    "s1_fixed_result_exact_parity_required": true
+  }
+}

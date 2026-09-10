@@ -1,0 +1,64 @@
+{
+  "schema_version": "research-evidence-boundaries-v1",
+  "registry_id": "multi-asset-top2-evidence-boundaries-v1",
+  "strategy_family": "multi-asset-top2",
+  "status": "frozen_incomplete_no_clean_unseen_partition",
+  "frozen_at": "2026-08-26T00:00:00Z",
+  "label_horizon_hours": 48,
+  "minimum_embargo_hours": 48,
+  "partitions": [
+    {
+      "partition_id": "development-2021-2025-inspected",
+      "role": "development",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "access_state": "consumed",
+      "allowed_purposes": [
+        "development",
+        "reproduction"
+      ],
+      "minimum_events": null,
+      "notes": "Used by the prior repository, causal reconstruction, and R0 attribution. It is development evidence only."
+    },
+    {
+      "partition_id": "historical-2026-known-contaminated",
+      "role": "excluded",
+      "start": "2026-01-01T00:00:00Z",
+      "end_exclusive": "2026-08-26T00:00:00Z",
+      "access_state": "contaminated",
+      "allowed_purposes": [],
+      "minimum_events": null,
+      "notes": "Related prior research inspected data through May 2026. This interval cannot be relabelled as a clean holdout for the family. R0 did not read it."
+    }
+  ],
+  "inspections": [
+    {
+      "inspection_id": "prior-crypto-repository-family-selection",
+      "strategy_family": "multi-asset-top2",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-06-01T00:00:00Z",
+      "recorded_at": "2026-08-25T00:00:00Z",
+      "information_scope": "signals_parameters_and_performance",
+      "notes": "The prior repository selected this family using data extending through May 2026."
+    },
+    {
+      "inspection_id": "causal-reconstruction-and-r0",
+      "strategy_family": "multi-asset-top2",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "recorded_at": "2026-08-26T00:00:00Z",
+      "information_scope": "signals_controls_performance_and_attribution",
+      "notes": "The shared-capital reconstruction and frozen R0 attribution inspected the development interval."
+    }
+  ],
+  "prospective_requirement": {
+    "clean_partition_currently_declared": false,
+    "required_new_experiment_id": true,
+    "earliest_start_rule": "after the new specification, point-in-time universe evidence, code and costs are frozen, plus at least the 48-hour label embargo",
+    "collection_policy": "A locked prospective partition may collect sealed observations without exposing outcomes to strategy research.",
+    "analysis_policy": "Analysis remains locked until its frozen end/minimum-event rule and explicit one-time unlock review pass.",
+    "minimum_events_floor": 60,
+    "previously_inspected_2026_eligible": false
+  },
+  "decision": "There is no clean unseen multi-asset top-two evaluation partition today. The registry must fail closed until a separately frozen prospective partition is added under a new version."
+}

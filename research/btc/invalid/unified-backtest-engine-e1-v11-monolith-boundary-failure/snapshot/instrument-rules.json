@@ -1,0 +1,1 @@
+{"instruments":{"BTC/USDT":{"maximum_quantity":"10","minimum_notional":"5","step":"0.1","tick":"0.01"},"BTCUSDT_USD_M_perpetual":{"maximum_quantity":"10","minimum_notional":"5","step":"0.1","tick":"0.01"}},"schema_version":"e1-v11-synthetic-rules-v1"}

@@ -1,0 +1,33 @@
+{
+  "base_contract": {
+    "path": "research/btc/contracts/btc-breakout-model-dependencies-v3.json",
+    "sha256": "d499c1c7a88c838afcdc86d3714f44763fb7b755f436f313eb6703101bd2da38"
+  },
+  "contract_id": "btc-breakout-model-dependencies-v4",
+  "frozen_at": "2026-09-01T00:42:16Z",
+  "patch_operations": [
+    {
+      "op": "replace",
+      "path": "/contract_id",
+      "value": "btc-breakout-model-dependencies-v4"
+    },
+    {
+      "op": "replace",
+      "path": "/qualification_script/sha256",
+      "value": "f51305364a5f106a0b66e18def93eb356560979df8a0c5a52885e31034435412"
+    },
+    {
+      "op": "replace",
+      "path": "/frozen_at",
+      "value": "2026-09-01T00:42:16Z"
+    },
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "frozen_fresh_process_CPU_only_successor_after_normalizing_loader_addresses_before_environment_qualification"
+    }
+  ],
+  "reason_for_successor": "dependency_v3_probe_compared_nondeterministic_runtime_loader_addresses_in_ldd_output_despite_identical_predictions_threadpools_and_binary_hash_and_was_rejected_before_model_fit",
+  "schema_version": "btc-breakout-model-dependency-successor-contract-v4",
+  "status": "frozen_fresh_process_CPU_only_successor_after_normalizing_loader_addresses_before_environment_qualification"
+}

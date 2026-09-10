@@ -1,0 +1,11 @@
+[console_scripts]
+platform-audit = trading_platform.audit_api:main
+platform-bridge = trading_platform.bridge:main
+platform-capture-audit = trading_platform.capture_audit:main
+platform-market-collector = trading_platform.market_collector:main
+platform-monitor = trading_platform.monitor:main
+platform-outbox = trading_platform.outbox:main
+platform-reconcile = trading_platform.reconcile:main
+platform-scheduler = trading_platform.scheduler:main
+platform-synthetic-signal = trading_platform.synthetic:main
+platform-worker = trading_platform.worker:main

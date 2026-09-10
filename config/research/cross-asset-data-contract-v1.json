@@ -1,0 +1,127 @@
+{
+  "accepted_sources": [],
+  "bulk_download_authorized": false,
+  "candidate_asset_classes": [
+    "cash",
+    "global_equity_index",
+    "sovereign_bond",
+    "commodity",
+    "gold",
+    "foreign_exchange",
+    "crypto_spot"
+  ],
+  "contract_id": "cross-asset-data-feasibility-a0-v1",
+  "cost_and_cashflow_policy": {
+    "all_costs_must_be_effective_dated": true,
+    "borrow_and_financing_required_for_short_or_leveraged_products": true,
+    "cash_yield_and_collateral_yield_required": true,
+    "dividends_and_distributions_required": true,
+    "fees_spread_slippage_and_tax_must_be_separate": true,
+    "funding_and_basis_cashflows_required_for_perpetuals": true,
+    "roll_yield_and_roll_execution_required_for_futures": true
+  },
+  "gap_policy": {
+    "cross_gap_features": "reject",
+    "forward_fill_prices": "reject",
+    "missing_expected_session": "segment_or_reject",
+    "silent_repair": "reject"
+  },
+  "point_in_time_universe": {
+    "current_survivors_as_history": "reject",
+    "delisting_and_suspension_treatment_required": true,
+    "eligibility_evidence_required_at_each_decision": true,
+    "listing_age_and_liquidity_lookback_required": true,
+    "unavailable_membership": "unknown_and_ineligible"
+  },
+  "required_fields_by_instrument_type": {
+    "cash": [
+      "currency",
+      "effective_at",
+      "available_at",
+      "yield_or_zero_yield_policy",
+      "source_digest"
+    ],
+    "crypto_spot": [
+      "venue",
+      "symbol",
+      "event_or_bar_time",
+      "available_at",
+      "ohlcv_or_trade_fields",
+      "market_rules",
+      "fee_schedule",
+      "source_digest"
+    ],
+    "future": [
+      "venue",
+      "contract_id",
+      "underlying",
+      "expiry",
+      "multiplier",
+      "tick_value",
+      "settlement_method",
+      "initial_and_maintenance_margin",
+      "roll_rule_and_prices",
+      "event_or_bar_time",
+      "available_at",
+      "source_digest"
+    ],
+    "fx": [
+      "venue_or_reference_source",
+      "base_currency",
+      "quote_currency",
+      "bid_ask_or_conservative_spread",
+      "event_or_bar_time",
+      "available_at",
+      "financing_or_rollover",
+      "source_digest"
+    ],
+    "listed_fund": [
+      "venue",
+      "stable_instrument_identifier",
+      "trading_currency",
+      "raw_ohlcv",
+      "corporate_actions",
+      "distributions",
+      "total_return_derivation",
+      "event_or_bar_time",
+      "available_at",
+      "market_rules",
+      "source_digest"
+    ],
+    "perpetual": [
+      "venue",
+      "contract_id",
+      "index_price",
+      "mark_price",
+      "trade_price",
+      "funding_rate",
+      "funding_effective_time",
+      "contract_rules",
+      "initial_and_maintenance_margin",
+      "liquidation_rule",
+      "event_or_bar_time",
+      "available_at",
+      "source_digest"
+    ]
+  },
+  "schema_version": "cross-asset-data-contract-v1",
+  "source_acceptance_gates": [
+    "stable instrument identity and exact executable mapping",
+    "license and reproducible retrieval permit repository use",
+    "explicit UTC event and availability semantics",
+    "checksummed immutable raw bytes and deterministic parser",
+    "complete expected-session and gap report",
+    "point-in-time universe and rules evidence",
+    "corporate-action, cashflow, roll and FX conversion lineage where applicable",
+    "no strategy result inspected during source qualification"
+  ],
+  "strategy_evaluation_authorized": false,
+  "timestamp_policy": {
+    "availability_after_observation": true,
+    "future_dependent_rows": "reject",
+    "naive_timestamps": "reject",
+    "publication_and_retrieval_times_separate": true,
+    "reversed_timestamps": "reject",
+    "timezone": "UTC"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "risk_model_input_approval_allowed": false,
+    "strategy_feature_label_return_or_pnl_allowed": false
+  },
+  "allowed_hosts": [
+    "docs.deribit.com",
+    "insights.deribit.com",
+    "www.deribit.com"
+  ],
+  "data_requests": [
+    {
+      "currency": "BTC",
+      "end_timestamp": 1617839999999,
+      "request_id": "early-2021-03-24_2021-04-07",
+      "resolution": "1D",
+      "start_timestamp": 1616544000000
+    },
+    {
+      "currency": "BTC",
+      "end_timestamp": 1655337599999,
+      "request_id": "stress-2022-06-01_2022-06-15",
+      "resolution": "1D",
+      "start_timestamp": 1654041600000
+    },
+    {
+      "currency": "BTC",
+      "end_timestamp": 1763251199999,
+      "request_id": "recent-2025-11-01_2025-11-15",
+      "resolution": "1D",
+      "start_timestamp": 1761955200000
+    }
+  ],
+  "documentation_evidence": [
+    {
+      "evidence_id": "official_api_reference",
+      "required_phrases": [
+        "public/get_volatility_index_data",
+        "historical volatility index values",
+        "timestamp",
+        "open",
+        "high",
+        "low",
+        "close"
+      ],
+      "url": "https://docs.deribit.com/api-reference/market-data/public-get-volatility-index-data"
+    },
+    {
+      "evidence_id": "official_dvol_methodology",
+      "required_phrases": [
+        "30 day",
+        "forward-looking",
+        "variance swap methodology",
+        "subject to change"
+      ],
+      "url": "https://insights.deribit.com/exchange-updates/dvol-deribit-implied-volatility-index/"
+    }
+  ],
+  "endpoint": {
+    "credentials": "forbidden",
+    "method": "GET",
+    "path": "/api/v2/public/get_volatility_index_data",
+    "query_parameters": [
+      "currency",
+      "start_timestamp",
+      "end_timestamp",
+      "resolution"
+    ]
+  },
+  "experiment_id": "btc-deribit-dvol-source-pilot-v1",
+  "frozen_at": "2026-08-31T00:52:21Z",
+  "full_historical_use_gates": {
+    "complete_requested_history": "not_tested_by_bounded_pilot",
+    "effective_dated_methodology_archive": "must_be_established_separately",
+    "historical_publication_and_revision_semantics": "must_be_established_separately",
+    "private_research_retention_rights": "must_be_established_separately"
+  },
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_account_access_allowed": false,
+    "sealed_2026_access_allowed": false
+  },
+  "output_root": "artifacts/agent-level-experiment/btc-focused/deribit-dvol-source-pilot-v1",
+  "prohibited": [
+    "credentials",
+    "interpolation",
+    "2026_data",
+    "strategy_or_PnL_evaluation",
+    "regime_or_risk_model_fitting",
+    "live_or_paper_exchange_action",
+    "partial_OB0_access",
+    "protected_service_access"
+  ],
+  "schema_version": "btc-deribit-dvol-source-pilot-contract-v1",
+  "status": "frozen_before_any_request",
+  "technical_pilot_gates": {
+    "all_http_responses_200_and_jsonrpc_error_free": true,
+    "all_rows_have_timestamp_open_high_low_close": true,
+    "daily_timestamps_strictly_increasing_unique_and_contiguous": true,
+    "each_window_has_exactly_15_daily_rows": true,
+    "official_documentation_contains_required_phrases": true,
+    "ohlc_values_finite_positive_and_ordered": true,
+    "raw_responses_and_documentation_checksummed": true
+  }
+}

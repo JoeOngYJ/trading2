@@ -1,0 +1,118 @@
+{
+  "acceptance_rules": {
+    "a1_stage_passed_by_this_pilot": false,
+    "candidate_instrument_minimum": 4,
+    "candidate_instrument_pass": "catalogue identity matches, at least 3500 complete daily bid/ask candles exist by 2025-12-31, timestamps are unique and increasing, prices are positive and uncrossed, and no internal gap exceeds 98 hours",
+    "required_families": [
+      "energy",
+      "foreign_exchange",
+      "global_equity",
+      "gold"
+    ],
+    "source_pilot_pass": "all required families pass independently; sovereign_rates is optional for this bounded pilot",
+    "strategy_research_authorized_by_this_pilot": false
+  },
+  "candidate_instruments": [
+    {
+      "family": "global_equity",
+      "instrument_id": "SPX500_USD",
+      "minimum_complete_daily_candles": 3500,
+      "minimum_usable_start_on_or_before": "2010-01-04"
+    },
+    {
+      "family": "gold",
+      "instrument_id": "XAU_USD",
+      "minimum_complete_daily_candles": 3500,
+      "minimum_usable_start_on_or_before": "2010-01-04"
+    },
+    {
+      "family": "energy",
+      "instrument_id": "WTICO_USD",
+      "minimum_complete_daily_candles": 3500,
+      "minimum_usable_start_on_or_before": "2010-01-04"
+    },
+    {
+      "family": "foreign_exchange",
+      "instrument_id": "EUR_USD",
+      "minimum_complete_daily_candles": 3500,
+      "minimum_usable_start_on_or_before": "2010-01-04"
+    },
+    {
+      "family": "sovereign_rates",
+      "instrument_id": "USB10Y_USD",
+      "minimum_complete_daily_candles": 3500,
+      "minimum_usable_start_on_or_before": "2010-01-04"
+    }
+  ],
+  "evidence_boundary": {
+    "candle_end_exclusive": "2026-01-01T00:00:00Z",
+    "candle_start_inclusive": "2005-01-01T00:00:00Z",
+    "sealed_2026_price_access_allowed": false
+  },
+  "experiment_id": "cross-asset-a1-oanda-source-pilot-v1",
+  "frozen_at": "2026-08-30T11:46:14Z",
+  "lineage": {
+    "predecessor_experiment_id": "cross-asset-a1-lse-futures-expansion-v1",
+    "predecessor_result": "rejected_exact_xlon_history_futures_unresolved",
+    "replacement_scope": "OANDA broker-native spot FX and OTC CFD source qualification; no prior negative result is repaired"
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1",
+    "credentials_or_account_id_may_be_serialized": false,
+    "raw_responses_are_immutable": true,
+    "transactional_write_required": true
+  },
+  "prohibitions": {
+    "account_balance_access_allowed": false,
+    "account_position_access_allowed": false,
+    "account_summary_access_allowed": false,
+    "account_trade_or_transaction_access_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "feature_generation_allowed": false,
+    "order_or_order_preview_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "request_plan": {
+    "allowed_http_method": "GET",
+    "candle_query": {
+      "alignmentTimezone": "America/New_York",
+      "dailyAlignment": "17",
+      "granularity": "D",
+      "price": "BA",
+      "smooth": "false"
+    },
+    "chunk_boundaries": [
+      "2005-01-01T00:00:00Z",
+      "2010-01-01T00:00:00Z",
+      "2014-01-01T00:00:00Z",
+      "2018-01-01T00:00:00Z",
+      "2022-01-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ],
+    "maximum_requests": 26,
+    "permitted_endpoint_templates": [
+      "/v3/accounts/{accountID}/instruments",
+      "/v3/instruments/{instrument}/candles"
+    ],
+    "request_timeout_seconds": 45
+  },
+  "schema_version": "cross-asset-a1-oanda-source-pilot-contract-v1",
+  "source_access": {
+    "account_id_environment_variable": "OANDA_ACCOUNT_ID",
+    "account_id_sha256": "34f424dd382ce2b9cc81056f8bec9daf49b0ef28669854e11488d6e7d8539910",
+    "api_base_url": "https://api-fxtrade.oanda.com",
+    "api_token_environment_variable": "OANDA_API_TOKEN",
+    "api_token_may_be_logged_or_serialized": false,
+    "api_url_environment_variable": "OANDA_API_URL",
+    "authorization_header_scheme": "Bearer",
+    "existing_zero-funded_account_read_only_use_authorized_by_user": true
+  },
+  "status": "frozen"
+}

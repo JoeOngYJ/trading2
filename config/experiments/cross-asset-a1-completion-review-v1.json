@@ -1,0 +1,154 @@
+{
+  "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1",
+  "decision_rules": {
+    "a1_pass_requires_all_gates": true,
+    "account_specific_access_may_be_inferred_from_public_catalog": false,
+    "ambiguous_or_silent_corporate_action_difference": "block_instrument",
+    "archival_permission_must_explicitly_survive_subscription_termination": true,
+    "economically_similar_product_is_exact_mapping": false,
+    "execution_mapping_must_be": [
+      "same_stable_instrument_identifier_and_trading_line_as_qualified_history",
+      "or_separately_qualified_executable_line_with_frozen_proxy_basis_treatment"
+    ],
+    "missing_or_account_specific_fact": "blocked",
+    "public_catalog_presence_is_execution_approval": false,
+    "strategy_evaluation_can_repair_failed_a1_gate": false
+  },
+  "evidence_boundary": {
+    "accepted_recovery_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/evidence-manifest.json",
+      "sha256": "72dca315d92feced97442d502db46775f634dc7b4363764dd6dbf4c14bb61c98"
+    },
+    "data_contract": {
+      "path": "config/research/cross-asset-data-contract-v1.json",
+      "sha256": "2bedbfd16509703a9a9683cc1e7e96bf72c367b5a25d10a0226f106833864c00"
+    },
+    "development_end_inclusive": "2025-12-31",
+    "development_start_inclusive": "2008-01-02",
+    "instrument_access_registry": {
+      "path": "config/research/cross-asset-instrument-access-v1.json",
+      "sha256": "137f061754018296f9967ac86b82842629ace8a106afafeaf90e7e096e273444"
+    },
+    "mandate": {
+      "path": "config/mandates/retail-cross-asset-research-v3.json",
+      "sha256": "d60eab15d8e839beb998867ae609f670068c9a5666182b449712bd1d5db37268"
+    },
+    "sealed_2026_partition_accessed": false
+  },
+  "evidence_sources": {
+    "broker_and_regulatory": [
+      "https://www.fca.org.uk/firms/authorised-recognised-funds",
+      "https://www.interactivebrokers.com/campus/trading-lessons/trading-overseas-with-ibkr/",
+      "https://www.interactivebrokers.co.uk/en/pricing/commissions-stocks.php",
+      "https://helpcentre.trading212.com/hc/en-us/articles/11471996799517-What-are-the-fees-in-the-Invest-ISAs-and-SIPP",
+      "https://helpcentre.trading212.com/hc/en-us/articles/360018909758-What-is-the-FX-fee-Invest-Stocks-ISA",
+      "https://www.trading212.com/trading-instruments/invest/COMM.GB",
+      "https://www.trading212.com/trading-instruments/invest/SGLN.GB",
+      "https://www.trading212.com/trading-instruments/invest/SWDA.GB",
+      "https://www.trading212.com/trading-instruments/invest/VAGS.GB"
+    ],
+    "issuer_or_sponsor": [
+      "https://www.ssga.com/us/en/intermediary/etfs/spdr-sp-500-etf-trust-spy",
+      "https://www.ishares.com/us/products/239623/ishares-msci-eafe-etf",
+      "https://www.ishares.com/us/products/239456/ishares-710-year-treasury-bond-etf",
+      "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf",
+      "https://www.ssga.com/us/en/intermediary/etfs/spdr-gold-shares-gld",
+      "https://www.invesco.com/us/financial-products/etfs/product-detail?audienceType=Investor&productId=ETF-DBC",
+      "https://www.ssga.com/us/en/intermediary/etfs/spdr-bloomberg-1-3-month-t-bill-etf-bil"
+    ],
+    "source_license": [
+      "https://twelvedata.com/terms",
+      "https://twelvedata.com/pricing"
+    ],
+    "source_policy": "current official public documents only; unresolved, inaccessible or contradictory facts fail closed"
+  },
+  "frozen_at": "2026-08-29T22:25:48Z",
+  "gates": {
+    "archival_use": [
+      "explicit personal internal research use is permitted",
+      "repository retention and deterministic reproduction are permitted",
+      "continued use of already acquired raw and derived data after cancellation is explicit"
+    ],
+    "corporate_actions": [
+      "issuer identity matches each exact US trading line",
+      "every provider dividend date and cash amount is reconciled or explicitly explained",
+      "every provider split date and factor is reconciled or explicitly explained",
+      "zero-action histories require affirmative issuer or independent official support",
+      "total-return derivation remains disabled until reconciliation passes"
+    ],
+    "cost_model": [
+      "broker commission and minimums are effective-dated",
+      "trading currency and FX conversion cost are explicit",
+      "spread, slippage, taxes, rejection and partial-fill policies are separate",
+      "cost assumptions bind to the exact executable trading line"
+    ],
+    "executable_mapping": [
+      "planning jurisdiction and retail classification are explicit",
+      "broker and exact cash trading line are identified",
+      "stable identifier, venue and trading currency match the qualified history",
+      "account-specific unknown access remains conditional_unapproved",
+      "substitute UCITS or ETC lines require their own qualified history"
+    ]
+  },
+  "instruments": [
+    {
+      "economic_role": "global_equity",
+      "instrument_id": "US-ARCX-SPY-USD",
+      "symbol": "SPY"
+    },
+    {
+      "economic_role": "international_equity",
+      "instrument_id": "US-ARCX-EFA-USD",
+      "symbol": "EFA"
+    },
+    {
+      "economic_role": "intermediate_sovereign_bonds",
+      "instrument_id": "US-XNAS-IEF-USD",
+      "symbol": "IEF"
+    },
+    {
+      "economic_role": "long_sovereign_bonds",
+      "instrument_id": "US-XNAS-TLT-USD",
+      "symbol": "TLT"
+    },
+    {
+      "economic_role": "gold",
+      "instrument_id": "US-ARCX-GLD-USD",
+      "symbol": "GLD"
+    },
+    {
+      "economic_role": "broad_commodities",
+      "instrument_id": "US-ARCX-DBC-USD",
+      "symbol": "DBC"
+    },
+    {
+      "economic_role": "cash_proxy",
+      "instrument_id": "US-ARCX-BIL-USD",
+      "symbol": "BIL"
+    },
+    {
+      "economic_role": "fx_conversion",
+      "instrument_id": "FX-GBP-USD",
+      "symbol": "GBP/USD"
+    }
+  ],
+  "prohibitions": {
+    "account_login_allowed": false,
+    "broker_credentials_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "feature_generation_allowed": false,
+    "new_market_price_download_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "review_id": "cross-asset-a1-completion-review-v1",
+  "schema_version": "cross-asset-a1-completion-review-contract-v1",
+  "status": "frozen"
+}

@@ -1,0 +1,224 @@
+{
+  "acceptance_gates": {
+    "dbc_distribution_years_complete": "each_calendar_year_2009_through_2023_covered_by_an_issuer_filed_annual_report",
+    "dbc_event_amount_comparison": "absolute_difference_lte_half_unit_of_provider_last_decimal_place",
+    "dbc_ex_date_derivation": "issuer_filed_record_date_minus_one_nyse_arca_business_day_under_pre_2024_rule_7_4_e",
+    "dbc_ex_date_must_equal_provider_date": true,
+    "gld_zero_distribution_history": "explicit_official_complete_event_history_or_year_by_year_issuer_filed_zero_evidence_required",
+    "positive_split_history": "official_event_date_and_ratio_required",
+    "zero_split_history": "official_archive_explicitly_complete_for_the_full_boundary_and_containing_zero_events_required"
+  },
+  "activated_at": "2026-08-30T18:30:00Z",
+  "artifact_policy": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v1",
+    "overwrite_existing_artifacts": false,
+    "preserve_action_only_html_extracts": true,
+    "preserve_exchange_rule_filing": true,
+    "preserve_full_market_or_product_data": false,
+    "record_response_sha256": true
+  },
+  "boundary": {
+    "end_inclusive": "2023-12-31",
+    "start_inclusive": "2009-01-02"
+  },
+  "experiment_id": "cash-etf-c1-issuer-action-ledger-source-v1",
+  "fail_closed_rules": [
+    "an_annual_report_covering_fewer_than_all_boundary_years_cannot_establish_dbc_distribution_completeness",
+    "a_record_date_may_be_mapped_to_an_ex_date_only_under_the_effective_official_exchange_rule_and_frozen_exchange_calendar",
+    "an_issuer_statement_of_no_income_does_not_by_itself_prove_zero_cash_distributions",
+    "absence_of_a_split_from_a_product_page_filing_search_or_provider_file_is_not_affirmative_zero_split_evidence",
+    "no_price_nav_return_feature_signal_trade_or_pnl_may_be_downloaded_or_computed",
+    "no_missing_action_may_be_imputed_from_adjusted_prices",
+    "unresolved_evidence_blocks_only_the_affected_instrument_and_blocks_the_whole_universe_gate"
+  ],
+  "forbidden_data": [
+    "adjusted_prices",
+    "broker_private_state",
+    "features",
+    "market_prices",
+    "nav",
+    "pnl",
+    "returns",
+    "signals",
+    "strategy_metrics",
+    "trades"
+  ],
+  "frozen_dbc_expected_distribution_by_year": {
+    "2009": "0",
+    "2010": "0",
+    "2011": "0",
+    "2012": "0",
+    "2013": "0",
+    "2014": "0",
+    "2015": "0",
+    "2016": "0",
+    "2017": "0",
+    "2018": "0.18853",
+    "2019": "0.25383",
+    "2020": "0",
+    "2021": "0",
+    "2022": "0.14467",
+    "2023": "1.08926"
+  },
+  "frozen_dbc_expected_events": [
+    {
+      "amount_per_share": "0.18853",
+      "derived_ex_date": "2018-12-24",
+      "payable_date": "2018-12-31",
+      "record_date": "2018-12-26"
+    },
+    {
+      "amount_per_share": "0.25383",
+      "derived_ex_date": "2019-12-23",
+      "payable_date": "2019-12-31",
+      "record_date": "2019-12-24"
+    },
+    {
+      "amount_per_share": "0.14467",
+      "derived_ex_date": "2022-12-19",
+      "payable_date": "2022-12-23",
+      "record_date": "2022-12-20"
+    },
+    {
+      "amount_per_share": "1.08926",
+      "derived_ex_date": "2023-12-18",
+      "payable_date": "2023-12-22",
+      "record_date": "2023-12-19"
+    }
+  ],
+  "inherited_action_sources": [
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/sources/state-street-historical-distributions.xlsx",
+      "sha256": "eeab3a8a1a0af2e8e44852bd79e3f1cf4556a15d36accad8193069b0be8a58c2",
+      "symbols": ["SPY", "BIL"]
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/sources/ishares-efa-distribution-component.json",
+      "sha256": "a76896f501441989dc0ad28a0a95932b646066fe8d6570ab53fd5a7470d8a215",
+      "symbols": ["EFA"]
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/sources/ishares-ief-distribution-component.json",
+      "sha256": "d2d3e0356af65ed2f8fac0dcd5de11cdff20435eb725e090ad2a83ef604af077",
+      "symbols": ["IEF"]
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/sources/ishares-tlt-distribution-component.json",
+      "sha256": "84ec21ae1a357d75b9c2e61adcae60b05b7ff157a1acf59c516d48f021d0d0f0",
+      "symbols": ["TLT"]
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/sources/bil-2017-form-8937.pdf",
+      "sha256": "e1b28c61ea9e73051cd7f34a8b8d310cb37e6b54aaa2b5793805784c9308fb55",
+      "symbols": ["BIL"]
+    }
+  ],
+  "operational_limits": {
+    "allowed_http_method": "GET",
+    "maximum_response_bytes": 10000000,
+    "maximum_responses": 17,
+    "network_access_scope": "official_public_issuer_exchange_and_issuer_filed_regulatory_action_sources_only"
+  },
+  "prior_reconciliation_report": {
+    "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/reconciliation-report.json",
+    "sha256": "8d0fb4b3608c85b6065816a7a477bc9577d490a7b17504d83774dd657bbbcbe5"
+  },
+  "provider_dbc_dividends": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/dbc-dividends.jsonl",
+    "sha256": "c71a826bebab630b9e54ed14a0c9db7004c4b1aa0241b5aa2fbde276b2e14f29"
+  },
+  "predecessor": {
+    "experiment_id": "cash-etf-c1-official-action-reconciliation-v2",
+    "path": "config/experiments/cash-etf-c1-official-action-reconciliation-v2.json",
+    "sha256": "14ec0d895e0870a7ef7632a5deee98e076759c862961ef3bb856cad02ae5d787"
+  },
+  "source_allowlist": [
+    {
+      "covered_years": [2009, 2010, 2011],
+      "source_id": "dbc_2011_form_10k",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000119312512084333/d262849d10k.htm"
+    },
+    {
+      "covered_years": [2012, 2013, 2014],
+      "source_id": "dbc_2014_form_10k",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000119312515070869/d840341d10k.htm"
+    },
+    {
+      "covered_years": [2015, 2016, 2017],
+      "source_id": "dbc_2017_form_10k",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000156459018003596/dbc-10k_20171231.htm"
+    },
+    {
+      "covered_years": [2018, 2019, 2020],
+      "source_id": "dbc_2020_form_10k",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000156459021009012/dbc-10k_20201231.htm"
+    },
+    {
+      "allowed_content": "2018_distribution_record_payable_and_amount_statement_only",
+      "source_id": "dbc_2018_form_10k_event_detail",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000156459019005072/dbc-10k_20181231.htm"
+    },
+    {
+      "allowed_content": "2019_distribution_record_payable_and_amount_statement_only",
+      "source_id": "dbc_2019_form_10k_event_detail",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000156459020007544/dbc-10k_20191231.htm"
+    },
+    {
+      "allowed_content": "2022_distribution_record_payable_and_amount_statement_only",
+      "source_id": "dbc_2022_form_10k_event_detail",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000156459023002358/dbc-10k_20221231.htm"
+    },
+    {
+      "covered_years": [2021, 2022, 2023],
+      "source_id": "dbc_2023_form_10k",
+      "url": "https://www.sec.gov/Archives/edgar/data/1328237/000095017024019059/dbc-20231231.htm"
+    },
+    {
+      "allowed_content": "historical_pre_t1_rule_7_4_e_only",
+      "source_id": "nyse_arca_rule_7_4_e_2024_filing",
+      "url": "https://www.nyse.com/publicdocs/nyse/markets/nyse-arca/rule-filings/filings/2024/SR-NYSEArca-2024-30.pdf"
+    },
+    {
+      "allowed_content": "trust_no_income_statement_only",
+      "source_id": "gld_issuer_filed_no_income_statement",
+      "url": "https://www.sec.gov/Archives/edgar/data/1222333/000119312517226293/d424167dfwp.htm"
+    },
+    {
+      "allowed_content": "distribution_rights_and_trust_structure_only",
+      "source_id": "gld_2023_form_10k",
+      "url": "https://www.sec.gov/Archives/edgar/data/1222333/000143774923032876/gld20230930_10k.htm"
+    },
+    {
+      "allowed_content": "document_index_scope_only",
+      "source_id": "state_street_spy_document_index",
+      "url": "https://www.ssga.com/us/en/individual/etfs/state-street-spdr-sp-500-etf-trust-spy"
+    },
+    {
+      "allowed_content": "document_index_scope_only",
+      "source_id": "ishares_efa_document_index",
+      "url": "https://www.ishares.com/us/products/239623/ishares-msci-eafe-etf"
+    },
+    {
+      "allowed_content": "document_index_scope_only",
+      "source_id": "ishares_ief_document_index",
+      "url": "https://www.ishares.com/us/products/239456/ishares-710-year-treasury-bond-etf"
+    },
+    {
+      "allowed_content": "document_index_scope_only",
+      "source_id": "ishares_tlt_document_index",
+      "url": "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf"
+    },
+    {
+      "allowed_content": "document_index_scope_only",
+      "source_id": "invesco_dbc_document_index",
+      "url": "https://www.invesco.com/us/en/accounts/tax-center/etf-tax-center.html"
+    },
+    {
+      "allowed_content": "document_index_scope_only",
+      "source_id": "spdr_gold_document_index",
+      "url": "https://www.spdrgoldshares.com/usa/financial-information/"
+    }
+  ],
+  "status": "frozen",
+  "whole_universe_gate": "all_seven_distribution_and_split_histories_must_pass_before_numeric_ledger_or_c2"
+}

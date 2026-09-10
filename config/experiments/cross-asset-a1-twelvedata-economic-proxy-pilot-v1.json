@@ -1,0 +1,300 @@
+{
+  "activated_at": "2026-08-29T18:51:23Z",
+  "boundaries": {
+    "earliest_history_cutoff_policy": "observed earliest date must be on or before each instrument's frozen threshold",
+    "expected_fx_sessions": [
+      "2025-02-03",
+      "2025-02-04",
+      "2025-02-05",
+      "2025-02-06",
+      "2025-02-07",
+      "2025-02-10",
+      "2025-02-11",
+      "2025-02-12",
+      "2025-02-13",
+      "2025-02-14",
+      "2025-02-17",
+      "2025-02-18",
+      "2025-02-19",
+      "2025-02-20",
+      "2025-02-21",
+      "2025-02-24",
+      "2025-02-25",
+      "2025-02-26",
+      "2025-02-27",
+      "2025-02-28"
+    ],
+    "expected_us_etf_sessions": [
+      "2025-02-03",
+      "2025-02-04",
+      "2025-02-05",
+      "2025-02-06",
+      "2025-02-07",
+      "2025-02-10",
+      "2025-02-11",
+      "2025-02-12",
+      "2025-02-13",
+      "2025-02-14",
+      "2025-02-18",
+      "2025-02-19",
+      "2025-02-20",
+      "2025-02-21",
+      "2025-02-24",
+      "2025-02-25",
+      "2025-02-26",
+      "2025-02-27",
+      "2025-02-28"
+    ],
+    "pilot_end_inclusive": "2025-02-28",
+    "pilot_start_inclusive": "2025-02-03",
+    "sealed_partitions_accessed": false
+  },
+  "decision_rule": {
+    "a1_stage_passed_by_pilot": false,
+    "candidate_acceptance_requires": [
+      "all nine exact identities match frozen symbol, asset type, currency and MIC or FX venue",
+      "all nine earliest-history responses meet their frozen thresholds",
+      "all daily responses have exact expected-session coverage and valid unadjusted OHLCV semantics",
+      "SPY split and dividend endpoints return strict, attributable schemas within the boundary",
+      "the token is absent from URLs, logs, persisted parameters and artifacts",
+      "all raw bytes and request metadata are checksummed and immutable",
+      "private internal source qualification is permitted while the subscription is active"
+    ],
+    "candidate_rejection_on_any_failed_gate": true,
+    "pilot_can_only": "accept_or_reject_twelvedata_for_a_separately_frozen_full_history_contract",
+    "technical_json_success_is_source_acceptance": false,
+    "unknown_or_undocumented_semantics": "reject_source"
+  },
+  "hypothesis": "Without computing returns, scores, forecasts or strategy signals, a bounded February 2025 Twelve Data pilot can determine whether one economic-proxy universe has exact identity, daily-session completeness, sufficient history, unadjusted price semantics, corporate-action support, causal availability and reproducible checksummed bytes to justify a separately frozen full-history acquisition.",
+  "instruments": [
+    {
+      "asset_role": "us_large_cap_equity_control",
+      "earliest_date_not_after": "1993-01-29",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-SPY-USD",
+      "symbol": "SPY"
+    },
+    {
+      "asset_role": "developed_equity_ex_us",
+      "earliest_date_not_after": "2001-08-27",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-EFA-USD",
+      "symbol": "EFA"
+    },
+    {
+      "asset_role": "emerging_market_equity",
+      "earliest_date_not_after": "2003-04-11",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-EEM-USD",
+      "symbol": "EEM"
+    },
+    {
+      "asset_role": "intermediate_us_treasury",
+      "earliest_date_not_after": "2002-07-26",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-IEF-USD",
+      "symbol": "IEF"
+    },
+    {
+      "asset_role": "long_us_treasury",
+      "earliest_date_not_after": "2002-07-26",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-TLT-USD",
+      "symbol": "TLT"
+    },
+    {
+      "asset_role": "physical_gold_proxy",
+      "earliest_date_not_after": "2004-11-18",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-GLD-USD",
+      "symbol": "GLD"
+    },
+    {
+      "asset_role": "broad_commodity_proxy",
+      "earliest_date_not_after": "2006-02-06",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-DBC-USD",
+      "symbol": "DBC"
+    },
+    {
+      "asset_role": "usd_cash_proxy",
+      "earliest_date_not_after": "2007-05-30",
+      "expected_currency": "USD",
+      "expected_exchange_values": [
+        "NYSE",
+        "NYSE Arca"
+      ],
+      "expected_mic_code": "ARCX",
+      "expected_type": "ETF",
+      "instrument_id": "US-ARCX-BIL-USD",
+      "symbol": "BIL"
+    },
+    {
+      "asset_role": "gbp_usd_conversion",
+      "earliest_date_not_after": "2008-01-01",
+      "expected_currency": "USD",
+      "expected_exchange_values": [],
+      "expected_fx_base_values": [
+        "GBP",
+        "British Pound"
+      ],
+      "expected_fx_quote_values": [
+        "USD",
+        "US Dollar"
+      ],
+      "expected_mic_code": null,
+      "expected_type": "Physical Currency",
+      "instrument_id": "FX-GBP-USD",
+      "symbol": "GBP/USD"
+    }
+  ],
+  "jurisdiction": {
+    "execution_access_approved": false,
+    "planning_path": "UK_retail",
+    "research_mapping_only": true,
+    "research_proxies_are_not_approved_execution_instruments": true
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1",
+    "overwrite_existing_artifacts": false
+  },
+  "pilot_id": "cross-asset-a1-twelvedata-economic-proxy-pilot-v1",
+  "prohibitions": {
+    "bulk_download_allowed": false,
+    "derivative_data_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "schema_version": "cross-asset-a1-twelvedata-source-pilot-contract-v1",
+  "source_access": {
+    "api_token_environment_variable": "TWELVEDATA_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "authorization_header_scheme": "apikey",
+    "broker_or_exchange_credentials_allowed": false,
+    "existing_paid_subscription_use_authorized": true,
+    "further_paid_upgrade_authorized": false,
+    "research_data_provider_api_token_allowed": true
+  },
+  "sources": {
+    "twelvedata_grow": {
+      "accepted_before_pilot": false,
+      "adjustment_mode": "none",
+      "api_base_url": "https://api.twelvedata.com",
+      "availability_rule": "a daily bar is ineligible before 05:00 UTC on the next calendar day and remains ineligible if the response is stale or incomplete",
+      "corporate_action_scope": {
+        "symbols": [
+          "SPY"
+        ],
+        "technical_endpoint_proof_only": true
+      },
+      "endpoint_credit_weights": {
+        "dividends": 20,
+        "earliest_timestamp": 1,
+        "splits": 20,
+        "time_series": 1
+      },
+      "endpoint_paths": {
+        "dividends": "/dividends",
+        "earliest_timestamp": "/earliest_timestamp",
+        "splits": "/splits",
+        "time_series": "/time_series"
+      },
+      "maximum_requests": 20,
+      "maximum_symbols": 9,
+      "maximum_weighted_credits": 58,
+      "minute_credit_ceiling": 55,
+      "plan_requirement": "paid_individual_at_least_grow_55",
+      "query_parameters": {
+        "adjust": "none",
+        "end_date": "2025-02-28",
+        "interval": "1day",
+        "order": "ASC",
+        "outputsize": "31",
+        "start_date": "2025-02-03",
+        "timezone": "UTC"
+      },
+      "rate_limit_schedule": [
+        {
+          "endpoints": [
+            "earliest_timestamp",
+            "time_series"
+          ],
+          "maximum_weighted_credits": 18,
+          "phase": 1
+        },
+        {
+          "endpoints": [
+            "dividends",
+            "splits"
+          ],
+          "maximum_weighted_credits": 40,
+          "minimum_seconds_after_phase_1_start": 61,
+          "phase": 2
+        }
+      ],
+      "research_reuse_terms": {
+        "archival_use_after_subscription_termination_resolved": false,
+        "observed_at": "2026-08-29T18:51:23Z",
+        "personal_internal_noncommercial_use_documented": true,
+        "service_agreement_url": "https://twelvedata.com/terms"
+      },
+      "role": "candidate_daily_unadjusted_ohlcv_history_identity_and_corporate_actions",
+      "source_id": "twelvedata-paid-individual-candidate"
+    }
+  },
+  "status": "frozen",
+  "strategy_evaluation_authorized": false,
+  "timestamp_convention": {
+    "daily_datetime_is_session_label_not_availability_timestamp": true,
+    "naive_intraday_or_availability_timestamps": "reject",
+    "timezone": "UTC"
+  }
+}

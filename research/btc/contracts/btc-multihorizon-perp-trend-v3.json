@@ -1,0 +1,48 @@
+{
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "credentials_network_orders_production_ob0_protected_services_allowed": false,
+    "year_2026_access_allowed": false
+  },
+  "base_contract": {
+    "inherit_without_parameter_or_gate_change": true,
+    "path": "research/btc/contracts/btc-multihorizon-perp-trend-v2.json",
+    "sha256": "a648590ee37521a2eb58b1388a22b050cb4a6fcb0e1d317d06e7b35851551837"
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V3_EXECUTION_BINDING.md",
+      "sha256": "a2163db742eb10e86f0329baca5a484b8eb33f1915923d15674f64f123d364da"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/source-manifest.json",
+      "sha256": "7640f3d7e3bb62bf64267498951a79672bde59f102e4f6f0254a2807f6990cb7"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v2/t1/evidence-manifest.json",
+      "sha256": "c37a57459579c6bba9e18162ed0d206cdb2ba8c2cee17df150ede6b7fd4aca89"
+    },
+    {
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    }
+  ],
+  "experiment_id": "btc-multihorizon-perp-trend-v3",
+  "historical_accounting_order": [
+    "existing_position_prior_close_to_current_open",
+    "pending_severe_gap_or_margin_exit",
+    "scheduled_funding_using_mark_open",
+    "scheduled_01_00_rebalance",
+    "resulting_position_open_to_close",
+    "margin_stress_using_mark_close"
+  ],
+  "mark_price_source": "official_Binance_USD_M_hourly_markPriceKlines_plus_single_exact_REST_recovery",
+  "output_root": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v3",
+  "partition_boundary": "ordinary_cost_flatten_at_development_final_close_then_independent_1000_USDT_evaluation_restart",
+  "replaces": {
+    "experiment_id": "btc-multihorizon-perp-trend-v2",
+    "reason": "pre_return_historical_mark_source_not_explicitly_bound"
+  },
+  "schema_version": "btc-multihorizon-perp-trend-contract-v3",
+  "status": "frozen_before_single_historical_run"
+}

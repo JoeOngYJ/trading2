@@ -1,0 +1,24 @@
+{
+  "boundary": {
+    "end_inclusive": "2025-12-31",
+    "start_inclusive": "2008-01-02"
+  },
+  "calendar_id": "cross-asset-a1-calendars-2008-2025-v2",
+  "fx_reference": {
+    "closure_rule": "weekends plus weekday January 1 and December 25; source gaps remain explicit",
+    "session_count": 4671,
+    "session_sha256": "f4a5f054b24f419821f261a904e17f83f7a5ebc95cd7db86276cbad90fc6d282"
+  },
+  "schema_version": "cross-asset-a1-independent-calendars-v2",
+  "us_exchange": {
+    "closure_rule": "NYSE/Nasdaq full-day holidays with corrected last-Monday Memorial Day and frozen special closures",
+    "session_count": 4529,
+    "session_sha256": "d4611d3a66758efa8ddd7052ac627332ca9915570e1a4327f235fc44c7b00d58",
+    "special_closures": [
+      "2012-10-29",
+      "2012-10-30",
+      "2018-12-05",
+      "2025-01-09"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "audit_id": "cross-asset-a1-uk-broker-access-review-v1",
+  "decision_rules": {
+    "broker_data_can_replace_research_source_only_if": [
+      "historical daily coverage reaches the frozen development start for every exact instrument",
+      "raw-price and corporate-action treatment are documented",
+      "observation and conservative availability semantics are supportable",
+      "private archival research use and deterministic checksummed acquisition are permitted"
+    ],
+    "lse_ucits_path_can_remain_candidate_only_if": [
+      "the exact cash instrument or an explicitly substituted instrument is publicly identifiable",
+      "the instrument is a UK-retail cash product rather than a CFD or leveraged workaround",
+      "the chosen product roles remain global equity, defensive bonds, gold and broad commodities"
+    ],
+    "public_listing_is_execution_approval": false,
+    "us_free_data_path_can_replace_lse_only_if": [
+      "direct cash purchase by a UK retail client is publicly established for every exact US-listed fund",
+      "the four economic roles remain represented without using CFDs, options exercise or professional reclassification",
+      "the executable instruments and research data are the same listings"
+    ],
+    "unknown_account_specific_access": "conditional_unapproved"
+  },
+  "frozen_at": "2026-08-29T18:17:14Z",
+  "hypothesis": "A public-documentation-only audit can determine whether UK-retail access through Trading 212 or Interactive Brokers makes a free US-only data path valid, or whether cash UCITS/ETC listings and a non-US data source remain necessary, without accessing prices, credentials or strategy results.",
+  "jurisdiction": {
+    "client_classification": "retail",
+    "planning_path": "UK_retail"
+  },
+  "prohibitions": {
+    "account_login_allowed": false,
+    "broker_credentials_allowed": false,
+    "broker_order_or_paper_order_allowed": false,
+    "economic_metrics_allowed": false,
+    "historical_price_download_allowed": false,
+    "live_or_delayed_quote_inspection_for_research_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "strategy_evaluation_allowed": false
+  },
+  "research_questions": [
+    "Does ordinary US-share access imply direct UK-retail cash access to US-domiciled ETFs?",
+    "Do Trading 212 and Interactive Brokers publicly support the required UCITS/ETC product families?",
+    "Are SWDA, VAGS, SGLN and COMM mandatory, or merely one candidate mapping of the four economic roles?",
+    "Can either broker's historical-data path replace an independently qualified research source?",
+    "Should a Twelve Data purchase occur before the execution universe is fixed?"
+  ],
+  "scope": {
+    "brokers": [
+      "Trading 212 UK Invest or Stocks ISA",
+      "Interactive Brokers UK retail cash account"
+    ],
+    "candidate_lse_listings": [
+      "SWDA",
+      "VAGS",
+      "SGLN",
+      "COMM"
+    ],
+    "economic_roles": [
+      "global_equity",
+      "defensive_bonds",
+      "gold",
+      "broad_commodities"
+    ],
+    "evidence": "current official FCA, broker, issuer and exchange documentation only"
+  },
+  "schema_version": "cross-asset-a1-uk-broker-access-review-contract-v1",
+  "status": "frozen"
+}

@@ -1,0 +1,26 @@
+{
+  "actionable_arm_id": "no_trade",
+  "decision": "accounting_reconciled_execution_audit_requires_correction_specification",
+  "files": [
+    {
+      "path": "research/btc/reports/btc-r2-v2-reconciliation-result.json",
+      "sha256": "37121e19a0f44e7acd75c5ee1664b1f36ace6ce33c448c827b31bc780e5ceb71"
+    },
+    {
+      "path": "research/btc/reports/btc-execution-a0-result.json",
+      "sha256": "40cdf0edae0c13784fcd09c5ecbc15238d818f7da503f8ea334659b78c5000b2"
+    },
+    {
+      "path": "research/btc/reports/BTC_ACCOUNTING_RECONCILED_EXECUTION_AUDIT_RESULT.md",
+      "sha256": "455f63598ecd7b9189bfccdb0d37b8d42a4dbdec127ac8fc3e48ca423ca9cb90"
+    },
+    {
+      "path": "research/btc/reports/BTC_EXECUTION_A0_REVIEW.md",
+      "sha256": "26af04dbe7a137ca942b2fa7d206c1a6b8150eb606ac659d2c9ae4db0d57a704"
+    },
+    {
+      "path": "research/btc/reports/btc-wide-replay-reviewed-bundle.json",
+      "sha256": "7c3aa0b421fa4a4594555e9cc8020f5cb0f5e92ed8120fbfc4f1f7103bed4214"
+    }
+  ]
+}

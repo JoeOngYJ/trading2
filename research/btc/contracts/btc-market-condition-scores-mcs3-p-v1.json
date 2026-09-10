@@ -1,0 +1,184 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "execution_or_cost_model_applicable": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "benchmark": {
+    "formula": "sum_of_the_same_42_completed_same_segment_4h_close_to_close_log_returns",
+    "id": "lagged_7d_log_return",
+    "interpretation": "simple_lagged_return_benchmark"
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-4h.jsonl.gz",
+      "sha256": "df23c3ecccf3945080f52e3103f1335cf0fea03f0b26c19ce50dbb5000f50707"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs2-v1.json",
+      "sha256": "4c3499da9621d6dcfc9ab615934b39c2934bba4fb3749df6cd41b421b1a6ca0a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs2-v1/evidence-manifest.json",
+      "sha256": "6f5f696e1ed426c135f65911d31cd43efe774d0d3357026eff1853c1eca7f6b6"
+    },
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    }
+  ],
+  "candidate": {
+    "axis": "persistence",
+    "formula": "sum_of_42_completed_same_segment_4h_close_to_close_log_returns_divided_by_sum_of_their_absolute_values",
+    "id": "signed_directional_efficiency_42x4h",
+    "interpretation": "signed_coherence_of_the_completed_seven_day_move_not_a_trade_signal",
+    "range": [
+      -1,
+      1
+    ],
+    "zero_denominator_behavior": "unknown"
+  },
+  "chronology": {
+    "decision_clock": "every completed contiguous same-segment 4h candle close",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T04:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "fit_schedule": "UTC calendar-month expanding refit",
+    "minimum_training_rows": 252,
+    "training_label_rule": "a row may train a horizon model only when its target_available_at is strictly before the UTC month fit cutoff",
+    "warmup_returns": 42
+  },
+  "disposition_rules": {
+    "accepted_for_future_offline_conditioning_research": "all_frozen_primary_and_data_gates_pass",
+    "promotion_or_live_evidence": false,
+    "rejected": "any_frozen_gate_fails",
+    "rerun_or_tuning_under_same_id": false
+  },
+  "experiment_id": "btc-market-condition-scores-mcs3-p-v1",
+  "forecast_models": {
+    "benchmark": "expanding_OLS_with_intercept_and_lagged_7d_log_return",
+    "candidate": "expanding_OLS_with_intercept_lagged_7d_log_return_and_signed_directional_efficiency",
+    "fit_independently_by_target_horizon": true,
+    "normalization": "none",
+    "parameter_or_feature_selection": "none"
+  },
+  "frozen_at": "2026-08-31T12:41:48Z",
+  "gates": {
+    "all_horizon_coverage_overall_minimum": 0.9,
+    "all_horizon_per_year_coverage_minimum": 0.75,
+    "all_input_and_causality_checks_pass": true,
+    "primary_7d_candidate_hac_incremental_coefficient_lower_95_strictly_above": 0,
+    "primary_7d_candidate_mse_strictly_below_benchmark": true,
+    "primary_7d_candidate_rank_ic_month_block_lower_95_strictly_above": 0,
+    "primary_7d_expanded_minus_benchmark_squared_error_improvement_month_block_lower_95_strictly_above": 0,
+    "primary_7d_leave_one_year_out_incremental_coefficients_all_strictly_positive": true,
+    "primary_7d_positive_incremental_coefficient_years_minimum": 5,
+    "primary_7d_quintile_means_non_decreasing": true,
+    "primary_7d_top_minus_bottom_forward_return_month_block_lower_95_strictly_above": 0,
+    "required_evaluation_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "valid_bootstrap_replications_minimum": 9500
+  },
+  "hypothesis": "After controlling for the magnitude of BTC's completed seven-day log return, a directionally coherent seven-day path has positive incremental information about the sign and magnitude of the next seven-day BTC return because persistent flows and gradual information diffusion produce smoother moves than transient price displacement.",
+  "input_contract": {
+    "expected_interval": "4h",
+    "expected_rows": 18282,
+    "instrument": "BTC/USDT",
+    "required_fields": [
+      "available_at",
+      "close",
+      "close_at",
+      "instrument",
+      "interval",
+      "observed_at",
+      "open_at",
+      "segment"
+    ],
+    "rules": [
+      "canonical_UTC_Z_timestamps_only",
+      "observed_at_equals_available_at_equals_close_at",
+      "strictly_increasing_close_at",
+      "positive_finite_close",
+      "exact_4h_spacing_inside_each_segment",
+      "closed_segments_may_not_reappear",
+      "feature_and_target_windows_may_not_cross_segments",
+      "input_checksum_and_row_count_must_match",
+      "no_2026_or_holdout_path"
+    ]
+  },
+  "outputs": {
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/evidence-manifest.json",
+    "forecast_ledger": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/forecasts.jsonl.gz",
+    "report": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/report.json",
+    "result_document": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_P_RESULT.md"
+  },
+  "prohibited": [
+    "strategy_entry_exit_or_position_logic",
+    "return_or_PnL_backtest",
+    "cost_or_leverage_optimization",
+    "threshold_selection_from_results",
+    "adding_or_dropping_features_after_results",
+    "reopening_breakout_SMA_BOCPD_HMM_or_other_rejected_families",
+    "universal_bull_bear_sideways_or_composite_regime_label",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-market-condition-scores-mcs3-p-contract-v1",
+  "stage_id": "MCS3-P",
+  "statistics": {
+    "bucket_count": 5,
+    "bucket_thresholds": "candidate_score_quintiles_computed_only_from_each_month_models_eligible_training_rows",
+    "hac": "OLS_Bartlett_Newey_West_two_sided_95pct_interval_with_lag_equal_to_target_bars",
+    "month_block_bootstrap_replications": 10000,
+    "month_block_bootstrap_seed": 20260831,
+    "month_block_unit": "UTC_target_available_calendar_month",
+    "rank_information": "Spearman_rank_correlation_of_candidate_score_and_forward_return",
+    "walk_forward_loss": "mean_squared_forward_log_return_error",
+    "year_assignment": "target_available_at_UTC_calendar_year"
+  },
+  "status": "frozen_before_any_BTC_value_read",
+  "target_definition": {
+    "formula": "log_of_close_at_t_plus_h_divided_by_close_at_t",
+    "observed_at": "completed_feature_window_end_close_at_t",
+    "target_available_at": "close_at_t_plus_h",
+    "target_is_not_available_to_the_forecast_at_observed_at": true
+  },
+  "targets": [
+    {
+      "bars": 1,
+      "horizon": "4h",
+      "role": "secondary_diagnostic"
+    },
+    {
+      "bars": 6,
+      "horizon": "1d",
+      "role": "secondary_diagnostic"
+    },
+    {
+      "bars": 42,
+      "horizon": "7d",
+      "role": "primary"
+    }
+  ]
+}

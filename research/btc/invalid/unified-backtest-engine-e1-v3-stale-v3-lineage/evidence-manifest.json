@@ -1,0 +1,62 @@
+{
+  "actionable_arm_id": "no_trade",
+  "artifacts": [
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "role": "base_contract",
+      "sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "role": "accounting_clarification_contract",
+      "sha256": "201bbaad8f1fb6e00efdc2b3c25d632d0d3da94d8b8521c2f92b37da29cde887"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "role": "pair_close_clarification_contract",
+      "sha256": "b0cea8cb6b35df31d51c7745a6b2ec1b3a4a3c6ac99f67c4d5db12a021057df1"
+    },
+    {
+      "path": "src/trading_platform/btc_decimal_ledger_e1.py",
+      "role": "clean_room_synthetic_kernel",
+      "sha256": "d70cca4f0a51e3873b92023a7fadd3f1d3d7440a541e7d5a0121b26e9e8c89f5"
+    },
+    {
+      "path": "research/btc/tests/test_btc_decimal_ledger_e1.py",
+      "role": "synthetic_and_adversarial_tests",
+      "sha256": "ba56c8011312279f2ade79d9e54a1a017e02051798748a142b8c8c092f7662b0"
+    },
+    {
+      "path": "research/btc/reports/BTC_DECIMAL_LEDGER_E1_RESULT.md",
+      "role": "human_result",
+      "sha256": "b6e09255b22275a6267bc02b00b8128bd3a6916b055a413dedc8d255d6f5de72"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V2_REVIEW.md",
+      "role": "v2_independent_review",
+      "sha256": "cae662d7ecef09f2b75183cf9d277e4a80a19421fabc194df1dcc8f0775a0639"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V3_PAIR_CLOSE_REVIEW.md",
+      "role": "v3_independent_review",
+      "sha256": "fcac383d0f09f481abb1c5876728169c7f69f3f5b70ef17dbf6176b34bb504a9"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v1-ambiguous-draft/README.md",
+      "role": "preserved_ambiguous_draft_failure",
+      "sha256": "78dead38d1ffad3fc8ff9e85cc677916ea8df6e4a9f4e670b9c26ad171565831"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v2-clean-room-violation/README.md",
+      "role": "preserved_clean_room_failure",
+      "sha256": "818c14c6b9b5588ff40a961d88071920a5908caed466f1183b43e407ef40cb68"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/unified-backtest-engine-e1-v3/qualification-report.json",
+      "role": "qualification_report",
+      "sha256": "20bcc600c4f600ed7a063282e0020c1dd797cf102af6f19e2910affa30428ec9"
+    }
+  ],
+  "decision": "E1_synthetic_Decimal_kernel_passed_E2_independent_oracle_only_permitted",
+  "qualification_id": "btc-unified-backtest-engine-e1-v3"
+}

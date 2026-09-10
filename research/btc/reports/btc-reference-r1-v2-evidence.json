@@ -1,0 +1,26 @@
+{
+  "decision": "passed_synthetic_only",
+  "files": [
+    {
+      "path": "research/btc/reference_r1.py",
+      "sha256": "b86d6d3be65f2d6b4b5e5c3e0e797b811ef4a33f04effa0a6341358f68d438ad"
+    },
+    {
+      "path": "research/btc/tests/test_reference_r1.py",
+      "sha256": "bf4d4ce930aa4ffabd56e3ee0bf952d91e2426f7c08ab10e102d115ba51bedd7"
+    },
+    {
+      "path": "research/btc/contracts/btc-reference-r1-v2-input-manifest.json",
+      "sha256": "08e6e5426cb5fbc7f6d2fd5dd13f81d18990afe11d61a5b5b47d163b05875821"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_R1_REVIEW.md",
+      "sha256": "040ba695ef2dccfc1ce8fbf8ec078da527026158875b3aef2a51b51400bf9236"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_R1_RESULT.md",
+      "sha256": "9a89732862264bd941da049ad69851e9747d7b6c6dd8c15a3bbafec0af0a4296"
+    }
+  ],
+  "identity": "btc-reference-fill-accounting-r1-v2"
+}

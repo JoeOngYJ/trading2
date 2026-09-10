@@ -1,0 +1,208 @@
+{
+  "a1_contract_path": "config/experiments/cross-asset-a1-lse-futures-expansion-v1.json",
+  "a1_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a1-lse-futures-expansion-v1/lse-history/failure-evidence-manifest.json",
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "context_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-futures-expansion-v1/evidence-manifest.json",
+      "sha256": "26fc8126cdd012b4edff6ecb9680100244d128e313e8bce28a77d13223097c31"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-futures-expansion-v1/lse-history/failure-evidence-manifest.json",
+      "sha256": "fcf272d3114fd2ae0a73e9d66e4490e58f28d240c06fe330bdc9d72edcd16746"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-lse-futures-expansion-v1.json",
+      "sha256": "ca8464a216563162b604753338d6cbfab1f16794b041e8d8164a9296d59603ea"
+    },
+    {
+      "path": "config/research/cross-asset-decisions-v1.jsonl",
+      "sha256": "288b2e70cb93a4737c1976b238ef3833bce7cdb3a2ac5f2b878d7646a689f3b1"
+    },
+    {
+      "path": "config/research/cross-asset-futures-source-comparison-v1.json",
+      "sha256": "205707f5a5dc79f099b49ffba33607ec037b5b910d545448eb4a3459ac573924"
+    },
+    {
+      "path": "config/research/cross-asset-futures-specs-v1.json",
+      "sha256": "ee83c522aa66c264532aa3858fdbe4d987f439fa2b945c3b98f687e175f642c1"
+    },
+    {
+      "path": "config/research/xlon-calendar-2009-2025-v2.json",
+      "sha256": "73440fb80de73fd22f04b482910dc2017b590be837debc16dbd567f4230a900a"
+    },
+    {
+      "path": "config/research/xlon-calendar-evidence-v1.json",
+      "sha256": "02f46f60f353ccb07b11d13a7225376de1e00517d84427ace19373c738c94e76"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_LSE_FUTURES_EXPANSION_RESULT.md",
+      "sha256": "7346b9eff80652a04c2c57c96039f013de7cb7f2299e3ae466232e3fb4bc4363"
+    },
+    {
+      "path": "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+      "sha256": "6c99fe515e7616d4b0dd20a84286533fc72db5d67ffc2f9a30a29a83c442ec2b"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+      "sha256": "f64556b438f4766cc266b9b6b5d7ec608a06271aa3f292156fd9b5e55e34bb80"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+      "sha256": "aa0bc1745bd6c0cea6f7721123f2ffa576c33540a58c7f555ad655a8f9d6c74a"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "49758e0044d8c96c4e263c71a73df528c0da54491b71bf85894c8606b07e6d43"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "scripts/audit_cross_asset_a1_lse_full_history.py",
+      "sha256": "aa90dd91b70c445dfa50440f68a5f742915ecc1d2ff1eb50451e76d237ef3e16"
+    },
+    {
+      "path": "scripts/download_cross_asset_a1_lse_full_history.py",
+      "sha256": "f64036734fdf506141f42534e9c4dc1428a808da3fe7dd417921fc9242144787"
+    },
+    {
+      "path": "scripts/generate_cross_asset_xlon_calendar.py",
+      "sha256": "975f3b0f2b5d86c284d35b02fab72dc22653dc55b1c590903907d286e5863165"
+    },
+    {
+      "path": "scripts/generate_cross_asset_xlon_calendar_v2.py",
+      "sha256": "f8b5e4054261580f00d8d6967878dde84e5f4d62a6f25eeabb35f548d8aa3c31"
+    },
+    {
+      "path": "scripts/report_cross_asset_a1_lse_failure.py",
+      "sha256": "c5c88e314f9048c427d5fa6c0830a5a24ab9d3479fe5740ff7cbca3b97773ab2"
+    },
+    {
+      "path": "scripts/validate_cross_asset_research_context.py",
+      "sha256": "43dcc2d8aabb40a9ad2627d70f4eb29ecdeaf5c66808eeddab417ca02615fabc"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_a1_expansion.py",
+      "sha256": "cdd0b0c5134e94dab3abacc43f6595e52f5d69a4b30f9f36eb7e885420f8e9b1"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_lse_history.py",
+      "sha256": "c43d371acdbabc2d5343219e65cac4ecbe7b1466a392c132b79aadef68c6170e"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_program.py",
+      "sha256": "64ec0a4b221a86fbe137d82de1e23a5478d2691cef6c2191efb9ab8c473b37f4"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_xlon_calendar.py",
+      "sha256": "e1f9d7ff431197c73808ea035c01246dd7b6cde94bee23f83d1e3a3988096319"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_xlon_calendar_v2.py",
+      "sha256": "cd8dc3b9d4d89ac0071df178e8257edcd338835ed10a131f4d337c3e55cbb450"
+    },
+    {
+      "path": "tests/test_cross_asset_a1_expansion.py",
+      "sha256": "3a359b082ff6cf43b23daaed88d31876ff412b6c457b93b01f0b45b620939b13"
+    },
+    {
+      "path": "tests/test_cross_asset_lse_history.py",
+      "sha256": "5870f6fa48eca9a513811118cd2d3461bc8d8d1a311aedb7d14e72e2b4bf1193"
+    },
+    {
+      "path": "tests/test_cross_asset_program.py",
+      "sha256": "bed7c241341b2aa6ef67e5f44da24b4a538792cc008afc1b7d4db3b5ebc2b9b8"
+    },
+    {
+      "path": "tests/test_cross_asset_xlon_calendar.py",
+      "sha256": "4ceb7b592290886807e504e5dbc06dd684da554bcff59707603557a8559d1932"
+    },
+    {
+      "path": "tests/test_cross_asset_xlon_calendar_v2_successor.py",
+      "sha256": "90ba91d344acfb4c666ca6508855a45a2c59168e4d353dad9c82beaaf4840622"
+    }
+  ],
+  "current_stage": "A1",
+  "current_state": "blocked",
+  "decision_log_path": "config/research/cross-asset-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "scripts/audit_cross_asset_a1_lse_full_history.py",
+    "scripts/download_cross_asset_a1_lse_full_history.py",
+    "scripts/generate_cross_asset_xlon_calendar.py",
+    "scripts/generate_cross_asset_xlon_calendar_v2.py",
+    "scripts/report_cross_asset_a1_lse_failure.py",
+    "scripts/validate_cross_asset_research_context.py",
+    "src/trading_platform/cross_asset_a1_expansion.py",
+    "src/trading_platform/cross_asset_lse_history.py",
+    "src/trading_platform/cross_asset_program.py",
+    "src/trading_platform/cross_asset_xlon_calendar.py",
+    "src/trading_platform/cross_asset_xlon_calendar_v2.py"
+  ],
+  "latest_decision_digest": "793297b84d72176e35b86eacbfe4112db96fda987a1071cfe5e1f4a9c3cdc7ca",
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "schema_version": "cross-asset-program-status-v2",
+  "stages": [
+    {
+      "artifact_paths": [
+        "config/research/cross-asset-program-v1.json",
+        "config/research/cross-asset-status-v1.json"
+      ],
+      "completed_at": "2026-08-29T12:18:35Z",
+      "decision_record_digest": "a71a53d35c69b0f92ed2b8fd7141ce967a1242bb1257f4ad4f4fd87bf3831abf",
+      "stage_id": "A0",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a1-lse-futures-expansion-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-lse-futures-expansion-v1/lse-history/failure-evidence-manifest.json",
+        "config/experiments/cross-asset-a1-lse-futures-expansion-v1.json",
+        "config/research/cross-asset-futures-source-comparison-v1.json",
+        "config/research/cross-asset-futures-specs-v1.json",
+        "config/research/xlon-calendar-2009-2025-v2.json",
+        "docs/CROSS_ASSET_A1_LSE_FUTURES_EXPANSION_RESULT.md"
+      ],
+      "blocked_at": "2026-08-30T03:00:00Z",
+      "decision_record_digest": "793297b84d72176e35b86eacbfe4112db96fda987a1071cfe5e1f4a9c3cdc7ca",
+      "stage_id": "A1",
+      "state": "blocked"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A2",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A3",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A4",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A5",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A6",
+      "state": "planned"
+    }
+  ]
+}

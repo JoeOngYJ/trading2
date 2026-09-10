@@ -1,0 +1,584 @@
+{
+  "accounting_contract": {
+    "average_entry": {
+      "increase_same_direction": "quantity_weighted_by_accounting_fill_price",
+      "reduction": "unchanged_for_remaining_quantity",
+      "reversal": "close_to_zero_then_open_opposite_as_two_fills",
+      "zero_position": "null"
+    },
+    "cost_treatment": {
+      "candle_proxy_implicit_cost": "separate_quote_cash_debit_not_embedded_in_accounting_fill_price",
+      "diagnostic_non_cash_items": "opportunity_cost_missed_quantity_unfilled_quantity_unused_rounded_notional_and_counterfactual_shortfall_are_reported_only_and_never_enter_NAV_or_return",
+      "equity_affecting_costs": "commission_tax_and_any_spread_shortfall_slippage_or_impact_explicitly_realized_as_the_single_bound_cash_debit_or_execution_price_effect",
+      "explicit_fee": "absolute_filled_quantity_times_accounting_fill_price_times_effective_fee_rate_plus_effective_tax",
+      "fee_asset_conversion": "retain_native_amount_and_convert_at_point_in_time_available_mark_missing_conversion_fails_closed",
+      "no_double_count": "each_equity_effect_appears_exactly_once_as_either_execution_price_effect_or_cash_debit_never_both_and_diagnostic_costs_never_reduce_equity",
+      "required_scenarios": [
+        "candle-primary-30bps-rt-v1",
+        "candle-stress-40bps-rt-v1",
+        "candle-severe-80bps-rt-v1"
+      ]
+    },
+    "decimal_policy": {
+      "arithmetic": "base_10_Decimal_only_for_economic_state",
+      "canonical_decimal_string": "finite_base_10_plain_notation_no_plus_sign_no_exponent_no_trailing_fractional_zeros_no_decimal_point_for_integer_and_every_signed_zero_normalized_to_0",
+      "comparison": "exact_after_instrument_rule_quantization",
+      "float_conversion": "forbidden_inside_accounting_kernel",
+      "rounding": "ROUND_DOWN_for_absolute_order_quantity_then_restore_sign",
+      "universal_reconciliation_quantum_quote": "0.00000001"
+    },
+    "external_cashflow_after_initialization": "zero",
+    "funding_cashflow_formula": "negative_signed_perpetual_BTC_quantity_times_funding_mark_price_times_funding_rate",
+    "funding_sign_examples": {
+      "negative_rate_long": "receives",
+      "negative_rate_short": "pays",
+      "positive_rate_long": "pays",
+      "positive_rate_short": "receives"
+    },
+    "identities": {
+      "event_reconciliation": "ending_NAV_minus_starting_NAV_equals_spot_price_PnL_plus_perpetual_price_PnL_plus_funding_cashflow_minus_explicit_costs_minus_implicit_costs_plus_external_cashflow",
+      "fill_invariance": "a_fill_changes_cash_inventory_collateral_realized_and_unrealized_classification_but_pre_cost_NAV_is_unchanged",
+      "nav": "quote_cash_plus_spot_BTC_quantity_times_spot_mark_plus_sum_each_third_fee_asset_balance_times_its_point_in_time_quote_mark_plus_isolated_collateral_plus_perpetual_unrealized_PnL_minus_liabilities",
+      "run_reconciliation": "ending_NAV_equals_starting_NAV_plus_sum_all_price_PnL_plus_sum_funding_minus_sum_explicit_costs_minus_sum_implicit_costs"
+    },
+    "initial_state": {
+      "average_perpetual_entry": null,
+      "external_cashflow_after_initialization": "0",
+      "fee_asset_balances": {},
+      "fee_asset_initialization": "any_nonzero_third_asset_balance_must_be_predeclared_with_a_point_in_time_quote_mark_and_quote_cash_reduced_so_total_starting_NAV_is_unchanged",
+      "isolated_collateral": "0",
+      "liabilities": "0",
+      "perpetual_quantity_BTC": "0",
+      "quote_cash": "run_contract_initial_NAV",
+      "realized_PnL": "0",
+      "spot_quantity_BTC": "0",
+      "unrealized_PnL": "0"
+    },
+    "inventory_rules": {
+      "perpetual_quantity": "signed_BTC_positive_long_negative_short",
+      "spot_quantity": "BTC_inventory_greater_than_or_equal_to_zero_no_borrowing",
+      "two_leg_mismatch": "absolute_delta_notional_divided_by_larger_leg_notional"
+    },
+    "ledger_transitions": {
+      "collateral_increase": "before_a_perpetual_increase_transfer_from_quote_cash_to_isolated_collateral_the_incremental_initial_margin_frozen_by_run_leverage_if_cash_is_insufficient_reject_atomically_exit_cost_reserve_is_memo_only_not_an_extra_debit",
+      "collateral_partial_release": "after_a_reduction_decrease_allocated_initial_margin_memo_by_old_allocated_initial_margin_times_closed_absolute_quantity_divided_by_incoming_absolute_quantity_then_transfer_the_lesser_of_that_decrease_and_nonnegative_post_settlement_isolated_collateral_to_quote_cash",
+      "collateral_release_on_flat": "after_realized_PnL_and_all_costs_release_the_entire_nonnegative_residual_isolated_collateral_to_quote_cash_set_isolated_collateral_and_margin_memos_to_zero_and_retain_any_deficit_as_liability",
+      "funding_settlement": "funding_cashflow_mutates_isolated_collateral_once_when_position_remains_open_after_phase_3_or_quote_cash_once_when_an_ordinary_same_timestamp_exit_already_released_collateral_any_negative_balance_becomes_liability_and_cumulative_funding_is_attribution_memo_only",
+      "perpetual_increase": "no_notional_cash_exchange_after_collateral_transfer_update_signed_quantity_and_quantity_weighted_average_entry_then_debit_fill_costs_from_isolated_collateral",
+      "perpetual_reduce": "credit_isolated_collateral_by_closed_absolute_quantity_times_sign_of_incoming_position_times_parenthesized_fill_price_minus_average_entry_preserve_average_entry_for_any_remainder_then_debit_fill_costs_then_apply_frozen_collateral_release",
+      "perpetual_unrealized": "signed_perpetual_BTC_quantity_times_mark_price_minus_average_entry",
+      "spot_buy": "decrease_quote_cash_by_gross_quantity_times_accounting_fill_price_increase_spot_BTC_by_gross_quantity_then_apply_fee_asset_mutation",
+      "spot_sell": "decrease_spot_BTC_by_gross_quantity_increase_quote_cash_by_gross_quantity_times_accounting_fill_price_then_apply_fee_asset_mutation"
+    },
+    "memo_vs_balance": "realized_PnL_cumulative_funding_explicit_costs_implicit_costs_allocated_initial_margin_and_exit_cost_reserve_are_memo_fields_not_additive_NAV_balances_quote_cash_spot_inventory_fee_asset_balances_isolated_collateral_and_liabilities_are_balance_fields",
+    "perpetual_realized_PnL_examples": {
+      "long_reduce": "incoming_position_plus_2_reduce_0_5_entry_100_exit_110_realized_plus_5",
+      "short_reduce": "incoming_position_minus_2_reduce_0_5_entry_100_exit_90_realized_plus_5"
+    },
+    "perpetual_realized_PnL_formula": "closed_absolute_BTC_quantity_times_sign_of_incoming_pre_close_position_times_parenthesized_exit_price_minus_average_entry_price",
+    "price_pnl_formula": "incoming_signed_quantity_times_current_mark_minus_previous_mark",
+    "state_components": [
+      "quote_cash",
+      "spot_quantity_BTC",
+      "isolated_collateral",
+      "signed_perpetual_quantity_BTC",
+      "average_perpetual_entry",
+      "realized_PnL",
+      "unrealized_PnL",
+      "accrued_funding",
+      "allocated_initial_margin_memo",
+      "explicit_costs",
+      "exit_cost_reserve_memo",
+      "fee_asset_balances",
+      "implicit_costs",
+      "liabilities"
+    ]
+  },
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "credentials_accounts_exchange_orders_or_transfers_allowed": false,
+    "historical_strategy_return_access_allowed_in_E0_E1_E2": false,
+    "live_or_exchange_paper_capital": "0",
+    "production_SignalPayload_OrderIntent_position_or_route_allowed": false,
+    "regime_model_or_strategy_parameter_allowed": false
+  },
+  "applicable_mandates": {
+    "delta_neutral_pair": "retail-btc-delta-neutral-research-v1",
+    "directional_perpetual": "retail-btc-directional-perpetual-research-v1",
+    "rule": "engine_capability_never_overrides_the_selected_run_mandate",
+    "spot_long_flat": "retail-btc-spot-v2"
+  },
+  "bound_authorities": [
+    {
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+      "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+    },
+    {
+      "path": "config/mandates/retail-btc-directional-perpetual-research-v1.json",
+      "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d"
+    },
+    {
+      "path": "config/retail_mandate.json",
+      "sha256": "7e34cfb0928b4373bbf52b5c5505f63a2b19e674124059191c1b6c62ec129041"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/BTC_DIRECTIONAL_PERPETUAL_RESEARCH_MANDATE.md",
+      "sha256": "3f45479d9e6461b725f7a21eaaeeea025d531fd30ba331930aea4cbde02a076d"
+    },
+    {
+      "path": "docs/BTC_DERIVATIVES_RESEARCH_MANDATE.md",
+      "sha256": "f8421e63e5e492dca81f663c19487889f9ac92fbbc892eb032b9af9105d27782"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "research/btc/BTC_EVIDENCE_CATALOG.json",
+      "sha256": "3548ae3f8f8f2f039e06f0f398a43566e83f7bdabb7ac3e3af2af8088cb085a9"
+    },
+    {
+      "path": "research/btc/contracts/btc-only-program-v1.json",
+      "sha256": "8b3a4dd4a720202afe73551e14140166f4829169070d2b84fdb0ee390bce9a9f"
+    }
+  ],
+  "data_contract": {
+    "availability": "every_value_rule_and_conversion_must_have_available_at_less_than_or_equal_to_consuming_event_timestamp",
+    "bar_interval": "half_open_open_time_inclusive_close_time_exclusive",
+    "duplicate_policy": "duplicate_logical_event_or_conflicting_revision_fails_closed",
+    "effective_dated_rules": "required_for_rounding_notional_fees_and_promotion_grade_margin_historical_rules_may_not_be_backfilled_from_current_snapshots",
+    "funding": "exact_economic_payment_timestamp_rate_publication_or_availability_timestamp_mark_or_index_basis_and_source_lineage_required_for_each_scheduled_event_while_perpetual_exposed_accounting_posts_the_realized_payment_at_economic_at_but_a_strategy_feature_may_not_consume_the_rate_before_available_at",
+    "interpolation": "forbidden_for_price_funding_rules_and_availability",
+    "lineage": "source_path_source_sha256_segment_id_observed_at_available_at_and_rule_snapshot_digest_required",
+    "mark_sources": {
+      "execution": "first_valid_price_at_or_after_arrival_according_to_the_bound_execution_adapter",
+      "margin_and_funding": "official_perpetual_mark_price",
+      "portfolio_NAV": "point_in_time_spot_mark_and_official_perpetual_mark",
+      "signal": "outside_engine_and_must_be_completed_and_available"
+    },
+    "market_scope": [
+      "BTC_USDT_spot",
+      "BTCUSDT_USD_M_linear_perpetual"
+    ],
+    "timestamp": "timezone_aware_UTC_only",
+    "validation": [
+      "strictly_increasing_within_source_and_segment",
+      "finite_positive_required_prices",
+      "finite_rates_and_costs",
+      "declared_expected_cadence",
+      "no_unannounced_segment_crossing",
+      "no_future_or_sealed_partition_access"
+    ]
+  },
+  "event_order": {
+    "canonical_candle_entry": "eligible_decision_fills_only_at_the_exact_next_hourly_open_missing_or_invalid_boundary_rejects_the_entry_without_searching_forward",
+    "funding_membership": "snapshot_signed_perpetual_quantity_at_t_minus_before_any_execution_stamped_t_a_same_timestamp_ordinary_exit_does_not_evade_and_an_entry_does_not_acquire_funding_exception_liquidation_proven_at_an_observed_open_before_funding_removes_membership_at_and_after_that_timestamp",
+    "intrabar_ambiguity": "evaluate_the_adverse_extreme_before_the_favourable_extreme_and_never_infer_a_better_path_from_OHLC",
+    "phases": [
+      {
+        "name": "validate_timestamp_inputs_and_snapshot_incoming_state",
+        "phase": 1
+      },
+      {
+        "name": "mark_incoming_spot_and_perpetual_positions_from_previous_valid_mark_to_current_open_then_immediately_evaluate_observed_liquidation_at_that_open_before_any_other_event",
+        "phase": 2
+      },
+      {
+        "name": "execute_previously_caused_protective_or_gap_exit_at_first_valid_open_under_its_bound_cost_scenario",
+        "phase": 3
+      },
+      {
+        "name": "apply_all_funding_due_at_t_using_t_minus_membership_and_exact_funding_mark_then_immediately_evaluate_funding_caused_observed_liquidation_at_current_mark",
+        "phase": 4
+      },
+      {
+        "name": "apply_daily_loss_drawdown_margin_and_mandate_entry_permissions_without_blocking_protective_exits",
+        "phase": 5
+      },
+      {
+        "name": "validate_round_and_simulate_eligible_strategy_or_control_orders_then_apply_fills_costs_and_neutralization",
+        "phase": 6
+      },
+      {
+        "name": "evaluate_post_fill_margin_and_schedule_or_execute_required_protective_action",
+        "phase": 7
+      },
+      {
+        "name": "mark_open_positions_from_open_to_adverse_intrabar_extreme_test_margin_then_mark_to_close",
+        "phase": 8
+      },
+      {
+        "name": "reconcile_accounting_identities_emit_ledgers_and_advance_high_water_daily_and_segment_state",
+        "phase": 9
+      }
+    ],
+    "same_timestamp_priority": "observed_open_liquidation_then_previously_caused_protective_exit_then_funding_cash_application_then_new_or_rebalance_orders_with_ordinary_funding_membership_fixed_at_t_minus"
+  },
+  "execution_adapter_capabilities": {
+    "candle_OHLC": "all_or_none_fill_only_after_rules_exact_next_open_and_price_cap_validation_no_partial_fill_queue_depth_maker_or_intrabar_arrival_claim",
+    "partial_fill": "allowed_in_synthetic_fixtures_or_a_separately_qualified_quote_or_L2_adapter_only",
+    "qualified_quote_or_L2": "may_emit_partial_and_unfilled_quantity_only_when_point_in_time_depth_latency_and_price_bound_are available_and_bound",
+    "unsupported_capability": "reject_run_before_state_mutation"
+  },
+  "failure_policy": {
+    "atomic_pair_leg_failure": "record_failure_and_immediately_neutralize_any_fill_at_first_valid_price_under_severe_costs_if_immediate_price_missing_mark_state_unknown_and_invalidate_evaluation",
+    "cross_segment_state": "normal_position_carry_is_forbidden_the_only_allowed_cross_segment_action_is_one_forced_neutralization_at_the_first_valid_new_segment_open_after_which_position_and_rolling_state_reset",
+    "invalid_or_missing_rule": "reject_new_order_without_state_mutation_existing_exposure_requires_protective_resolution_and_cannot_be_promotion_evidence",
+    "missing_bar_while_exposed": "mark_unknown_then_permit_exactly_one_forced_neutralization_at_first_subsequent_valid_executable_price_under_severe_costs_capture_full_observed_gap_move_reset_segment_and_mark_the_affected_evaluation_invalid_for_performance_and_promotion_because_the_intragap_liquidation_path_is_unknown",
+    "missing_bar_while_flat": "no_entry_reset_segment_and_all_rolling_state",
+    "missing_funding_while_exposed": "invalidate_affected_evaluation_no_zero_fill_interpolation_or_later_exit_can_repair_unknown_cashflow",
+    "non_finite_or_non_positive_price": "fail_closed",
+    "protective_exit_priority": "never_blocked_by_entry_cap_stale_signal_daily_loss_drawdown_or_strategy_kill_state",
+    "unknown_state": "no_new_exposure"
+  },
+  "fee_asset_contract": {
+    "base_asset_fee": "debit_spot_BTC_inventory_for_any_base_fee_on_buy_or_sell_a_buy_therefore_receives_gross_quantity_minus_fee_and_a_sell_requires_gross_quantity_plus_base_fee_available_before_mutation",
+    "insufficient_fee_asset": "reject_order_atomically_before_any_fill_state_mutation",
+    "quote_asset_fee": "debit_quote_cash_for_spot_and_debit_isolated_collateral_for_perpetual",
+    "third_asset_fee": "debit_explicit_modelled_third_asset_balance_and_value_at_point_in_time_available_quote_mark_for_NAV_and_attribution_missing_balance_or_mark_fails_closed",
+    "unsupported_fee_currency": "reject_before_mutation_and_record_reason",
+    "valuation": "native_fee_amount_and_quote_equivalent_are_both_recorded_the_quote_equivalent_is_attribution_only_and_is_not_debited_again"
+  },
+  "margin_contract": {
+    "breach_types": {
+      "observed_liquidation": "isolated_margin_equity_less_than_or_equal_to_effective_maintenance_requirement_at_observed_open_adverse_extreme_or_close",
+      "planning_buffer": "margin_is_above_liquidation_but_below_run_contract_minimum_buffer"
+    },
+    "checkpoints": [
+      "after_open_gap_mark",
+      "after_funding",
+      "after_each_fill_or_neutralization",
+      "adverse_intrabar_extreme",
+      "interval_close"
+    ],
+    "isolated_margin_equity": "isolated_collateral_plus_perpetual_unrealized_PnL_plus_unsettled_funding_cashflow_minus_exit_cost_reserve_memo",
+    "liquidation_fee": "absolute_pre_liquidation_perpetual_quantity_times_observed_adverse_mark_times_effective_liquidation_fee_rate",
+    "liquidation_treatment": "observed_liquidation_is_terminal_evaluation_invalidation_close_at_the_observed_adverse_mark_debit_the_effective_liquidation_fee_release_nonnegative_residual_and_record_any_negative_settlement_as_liability_without_an_equity_floor",
+    "maintenance_requirement": "effective_dated_tier_function_of_absolute_mark_notional_plus_any_bound_add_on",
+    "post_liquidation_funding": "no_funding_at_or_after_the_observed_liquidation_timestamp_preceding_scheduled_funding_inside_an_unobserved_gap_remains_missing_and_independently_invalidates_evaluation",
+    "promotion_boundary": "planning_maintenance_or_current_rules_projected_backward_are_development_diagnostics_only",
+    "response": "observed_liquidation_closes_immediately_and_invalidates_planning_buffer_breach_only_schedules_next_valid_open_severe_cost_protective_exit",
+    "stress": "each_run_contract_must_bind_adverse_mark_shock_direction_magnitude_maintenance_assumption_and_minimum_buffer"
+  },
+  "market_and_position_models": {
+    "atomic_pair": {
+      "allowed_only_under": "retail-btc-delta-neutral-research-v1",
+      "failure_semantics": "filled_leg_neutralized_under_severe_cost_scenario",
+      "fill_batch_order": "spot_leg_first_then_perpetual_leg_at_the_same_declared_arrival_timestamp_each_with_its_own_point_in_time_executable_price_and_rules",
+      "intended_leg_timestamps": "both_intended_legs_share_one_arrival_timestamp_deferred_or_asynchronous_intended_second_leg_is_forbidden",
+      "legs": [
+        "long_spot",
+        "short_USD_M_perpetual"
+      ],
+      "maximum_post_rounding_notional_mismatch_fraction": "0.01",
+      "partial_first_leg": "the_spot_filled_quantity_is_committed_and_recorded_before_perpetual_simulation_if_the_second_leg_is_zero_close_spot_if_the_second_leg_partially_fills_or_mismatch_exceeds_limit_first_close_filled_perpetual_quantity_then_sell_net_spot_quantity_each_at_same_timestamp_when_valid_otherwise_first_subsequent_valid_price_and_always_under_severe_costs"
+    },
+    "directional_perpetual": {
+      "allowed_only_under": "retail-btc-directional-perpetual-research-v1",
+      "directions": [
+        "long",
+        "flat",
+        "short"
+      ],
+      "maximum_absolute_notional_fraction_of_current_equity": "0.25"
+    },
+    "spot": {
+      "allowed_only_under": "retail-btc-spot-v2",
+      "directions": [
+        "long",
+        "flat"
+      ],
+      "maximum_allocation_fraction_of_current_equity": "0.25"
+    }
+  },
+  "output_contract": {
+    "canonicalization": "UTF_8_JSON_lines_sorted_object_keys_compact_separators_LF_newline_no_NaN_or_Infinity",
+    "closed_episode_ledger": [
+      "episode_id",
+      "opened_at",
+      "closed_at",
+      "direction",
+      "entry_costs",
+      "exit_costs",
+      "price_PnL",
+      "funding_PnL",
+      "net_dollar_PnL",
+      "maximum_adverse_excursion",
+      "maximum_favourable_excursion",
+      "close_reason",
+      "entry_fill_digests",
+      "exit_fill_digests",
+      "source_digests",
+      "rules_digests",
+      "invalidation_reason",
+      "row_digest"
+    ],
+    "common_economic_row_fields": [
+      "event_sequence",
+      "before_state_digest",
+      "after_state_digest",
+      "event_accounting_residual",
+      "source_digest_or_explicit_not_applicable",
+      "rules_digest_or_explicit_not_applicable",
+      "invalidation_reason_or_null",
+      "row_digest"
+    ],
+    "decision_ledger": [
+      "decision_id",
+      "decision_at",
+      "available_information_cutoff",
+      "requested_target",
+      "permission_or_abstention",
+      "reason",
+      "source_digest",
+      "rules_digest",
+      "lineage_digest",
+      "event_sequence",
+      "before_state_digest",
+      "after_state_digest",
+      "event_accounting_residual",
+      "invalidation_reason",
+      "row_digest"
+    ],
+    "fill_ledger": [
+      "fill_id",
+      "order_id",
+      "fill_at",
+      "instrument",
+      "signed_quantity",
+      "accounting_fill_price",
+      "explicit_fee_native",
+      "explicit_fee_asset",
+      "explicit_fee_quote_equivalent",
+      "implicit_cost_quote",
+      "post_fill_position",
+      "rules_digest",
+      "source_digest",
+      "event_sequence",
+      "before_state_digest",
+      "after_state_digest",
+      "event_accounting_residual",
+      "invalidation_reason",
+      "row_digest"
+    ],
+    "funding_ledger": [
+      "funding_at",
+      "t_minus_signed_quantity",
+      "funding_rate",
+      "funding_mark",
+      "cashflow_quote",
+      "economic_at",
+      "available_at",
+      "mark_source_digest",
+      "index_source_digest",
+      "rules_digest",
+      "source_digest",
+      "event_sequence",
+      "before_state_digest",
+      "after_state_digest",
+      "event_accounting_residual",
+      "invalidation_reason",
+      "row_digest"
+    ],
+    "hourly_account_ledger": [
+      "timestamp",
+      "segment_id",
+      "quote_cash",
+      "spot_quantity",
+      "perpetual_quantity",
+      "isolated_collateral",
+      "allocated_initial_margin_memo",
+      "exit_cost_reserve_memo",
+      "fee_asset_balances",
+      "liabilities",
+      "realized_PnL",
+      "unrealized_PnL",
+      "funding",
+      "explicit_costs",
+      "implicit_costs",
+      "NAV",
+      "gross_exposure",
+      "net_exposure",
+      "margin_equity",
+      "maintenance_requirement",
+      "state",
+      "source_digest",
+      "rules_digest",
+      "mark_source_digest",
+      "index_source_digest",
+      "event_sequence",
+      "before_state_digest",
+      "after_state_digest",
+      "event_accounting_residual",
+      "invalidation_reason",
+      "row_digest"
+    ],
+    "order_ledger": [
+      "order_id",
+      "decision_id",
+      "created_at",
+      "arrival_at",
+      "instrument",
+      "requested_quantity",
+      "rounded_quantity",
+      "filled_quantity",
+      "unfilled_quantity",
+      "status",
+      "reason",
+      "price_bound",
+      "scenario_id",
+      "source_digest",
+      "rules_digest",
+      "event_sequence",
+      "before_state_digest",
+      "after_state_digest",
+      "event_accounting_residual",
+      "invalidation_reason",
+      "row_digest"
+    ],
+    "required_artifacts": [
+      "decision_ledger.jsonl",
+      "order_ledger.jsonl",
+      "fill_ledger.jsonl",
+      "funding_ledger.jsonl",
+      "account_ledger.jsonl",
+      "closed_episode_ledger.jsonl",
+      "report.json",
+      "evidence_manifest.json"
+    ],
+    "run_lineage_on_every_row": [
+      "experiment_id",
+      "run_id",
+      "scenario_id",
+      "implementation_digest",
+      "contract_digest",
+      "execution_config_digest",
+      "mandate_digest"
+    ],
+    "run_summary": [
+      "starting_NAV",
+      "ending_NAV",
+      "spot_price_PnL",
+      "perpetual_price_PnL",
+      "funding_PnL",
+      "explicit_costs",
+      "implicit_costs",
+      "neutralization_costs",
+      "diagnostic_opportunity_cost",
+      "diagnostic_missed_unfilled_and_unused_rounded_notional",
+      "accounting_residual",
+      "rejected_expired_partial_and_unfilled_counts",
+      "unknown_or_invalid_intervals",
+      "artifact_digests",
+      "run_invalidation_reason",
+      "actionable_arm_id"
+    ]
+  },
+  "partition_contract": {
+    "buy_and_hold_start": "first_tradable_observation_of_each_partition_not_candidate_feature_warmup",
+    "end": "before_the_terminal_interval_begins_terminal_execution_must_be_predeclared_as_either_a_market_on_close_simulation_at_that_terminal_close_or_the_first_next_eligible_open_if_that_open_is_inside_the_evaluation_boundary_cancel_unfilled_orders_and_never_choose_after_observing_terminal_close_or_mark_through_a_terminal_close_then_retroactively_execute_at_its_open",
+    "feature_warmup": "may_use_prior_partition_only_when_explicitly_permitted_and_may_not_create_control_or_candidate_PnL_before_partition_start",
+    "sealed_2026_access_allowed": false,
+    "start": "fresh_cash_flat_positions_zero_accruals_and_partition_specific_high_water_and_daily_state_unless_run_contract_explicitly_declares_continuation",
+    "state_leakage": "forbidden_across_evaluation_partitions_except_explicit_point_in_time_training_artifacts"
+  },
+  "prohibited": [
+    "historical_strategy_or_control_return_calculation_during_E0_E1_E2",
+    "new_alpha_or_regime_hypothesis",
+    "strategy_parameter_selection_or_tuning",
+    "access_to_2026_sealed_or_partial_OB0_data",
+    "network_database_NATS_Freqtrade_exchange_or_active_soak_access",
+    "credentials_accounts_orders_transfers_or_live_capital",
+    "production_import_or_integration",
+    "interpolation_or_cross_venue_stitching",
+    "rewriting_prior_results_or_decisions"
+  ],
+  "qualification_gates": {
+    "bound_authority_paths_and_sha256_verify": true,
+    "canonical_serialization_and_digest_deterministic": true,
+    "event_order_accounting_rounding_failure_margin_and_output_semantics_complete": true,
+    "independent_reviewer_can_construct_long_short_funding_reversal_partial_fill_gap_and_margin_fixtures_without_new_assumptions": true,
+    "no_engine_strategy_metric_historical_result_or_market_row_created_or_opened": true,
+    "no_open_questions_or_implementation_defined_economic_semantics": true,
+    "only_no_trade_actionable": true
+  },
+  "qualification_id": "btc-unified-backtest-engine-e0-v1",
+  "reference_controls": {
+    "direction_neutral_control": "separately_named_seeded_or_fixed_direction_rule_that_may_replace_direction_but_must_not_be_called_same_exposure_candidate_direction_control",
+    "flat": "zero_exposure_zero_trading_cost_and_cash_return_frozen_at_zero_unless_a_run_contract_separately_binds_cash_yield",
+    "materially_simpler": "defined_and_frozen_by_each_strategy_contract_before_outcomes",
+    "same_timestamp_same_exposure": "preserve_candidate_eligibility_timestamps_absolute_notional_path_holding_duration_rebalance_schedule_execution_adapter_and_costs_replace_only_the_information_gate_while_preserving_candidate_signed_direction_unless_the_control_is_explicitly_named_direction_neutral",
+    "true_buy_and_hold": "enter_at_first_tradable_partition_observation_hold_through_partition_and_exit_under_the_same_cost_and_terminal_convention"
+  },
+  "risk_state_contract": {
+    "UTC_daily_loss": "current_NAV_divided_by_UTC_day_start_equity_minus_one",
+    "UTC_day_start_equity": "last_reconciled_NAV_strictly_before_00_00_UTC_or_partition_start_NAV_when_partition_begins_that_day",
+    "drawdown": "current_NAV_divided_by_high_water_NAV_minus_one_high_water_updates_only_after_event_reconciliation",
+    "entry_disable": "daily_loss_drawdown_margin_unknown_or_mandate_breach_blocks_new_and_increasing_exposure_but_not_reductions_or_protective_exits",
+    "high_water_initialization": "partition_start_NAV"
+  },
+  "schema_version": "btc-unified-backtest-engine-contract-e0-v1",
+  "serialization_and_digest_contract": {
+    "artifact_file_sha256": "lowercase_hex_SHA256_of_exact_file_bytes",
+    "canonical_JSON": "UTF_8_without_BOM_sorted_object_keys_by_Unicode_code_point_compact_separators_no_whitespace_no_NaN_no_Infinity_and_arrays_preserve_schema_declared_order",
+    "decimal_encoding": "economic_Decimals_are_strings_normalized_by_accounting_contract_decimal_policy",
+    "digest_domain": "SHA256_of_canonical_JSON_UTF_8_bytes",
+    "duplicate_object_keys": "reject_during_parse_before_canonicalization",
+    "manifest_entry": "path_exact_file_byte_sha256_size_bytes_and_semantic_role",
+    "result_digest": "canonical_result_object_excluding_only_its_own_result_digest_field",
+    "row_digest": "canonical_complete_row_excluding_only_its_own_row_digest_field",
+    "timestamp_encoding": "UTC_RFC3339_with_Z_and_exactly_six_fractional_digits",
+    "transitive_lineage": "contract_file_implementation_file_execution_config_mandate_source_rule_and_upstream_manifest_exact_file_byte_SHA256_values_bound_in_run_header_and_repeated_or_referenced_by_digest_on_every_row"
+  },
+  "status": "frozen_before_E1_implementation",
+  "subsequent_phase_boundary": {
+    "E0_pass_permits": "E1_synthetic_Decimal_accounting_kernel_only",
+    "E1_may_use": "synthetic_fixtures_only",
+    "E2_independence": "reference_oracle_consumes_only_canonical_fixture_and_emitted_event_JSON_and_must_not_import_call_copy_or_share_kernel_PortfolioLedger_execution_accounting_helpers_kernel_dataclasses_or_shared_metrics_enforced_by_AST_and_transitive_import_scan_then_reconciles_every_event_row_before_and_after_state_digest_and_residual_not_only_terminal_NAV",
+    "historical_reconciliation_requires": "E0_E1_E2_E3_passed",
+    "paper_observer_requires": "E0_through_E4_passed",
+    "strategy_evaluation_requires": "separately_frozen_hypothesis_after_engine_validation"
+  },
+  "synthetic_fixture_requirements_for_E1_E2": [
+    "spot_long_entry_hold_partial_exit_full_exit",
+    "perpetual_long_and_short_price_PnL",
+    "positive_and_negative_funding_for_long_and_short",
+    "same_timestamp_funding_and_entry_membership",
+    "same_timestamp_funding_and_exit_membership",
+    "funding_caused_margin_breach",
+    "same_direction_resize_reduction_and_two_fill_reversal",
+    "fee_in_quote_base_and_third_asset_with_point_in_time_conversion",
+    "tick_step_minimum_notional_rounding_rejection",
+    "partial_fill_expiry_and_atomic_pair_neutralization",
+    "missing_bar_flat_and_exposed_gap_behaviour",
+    "gap_through_observed_liquidation_with_fee_and_deficit",
+    "missing_funding_while_exposed_invalidates_evaluation",
+    "daily_loss_drawdown_and_protective_exit_priority",
+    "long_down_shock_and_short_up_shock_margin_breach",
+    "intrabar_adverse_first_margin_path",
+    "partition_start_terminal_flatten_and_true_buy_and_hold",
+    "partition_end_open_episode_entry_and_exit_cost_attribution",
+    "entry_costs_in_episode_profit",
+    "event_and_run_accounting_identity_exact_to_quote_quantum",
+    "zero_position_price_and_funding_invariance",
+    "unchanged_price_round_trip_loses_exactly_equity_affecting_costs",
+    "linear_position_and_PnL_scaling_before_rounding",
+    "mirrored_long_and_short_price_paths",
+    "duplicate_and_permuted_same_sequence_events_reject",
+    "unsupported_or_unavailable_fee_currency_rejects",
+    "candle_adapter_cannot_emit_partial_fill"
+  ]
+}

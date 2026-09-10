@@ -1,0 +1,158 @@
+{
+  "audit_id": "btc-order-book-cryptohftdata-hour-day-audit-v1",
+  "boundaries": {
+    "day_extension_requires_hour_pass": true,
+    "development_only": true,
+    "exact_partition_date": "2025-08-01",
+    "full_day_hours_utc": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "pilot_hour_utc": 20,
+    "sealed_2026_access_allowed": false
+  },
+  "decision_rule": {
+    "day_acceptance_requires": [
+      "hour_gate_passes_for_all_24_hours",
+      "all_48_declared_objects_are_present_and_checksummed",
+      "no_unsegmented_update_id_gap_within_or_across_hours",
+      "snapshot_or_explicit_segment_boundary_initializes_each_discontinuity",
+      "accepted_replay_is_positive_uncrossed_and_deterministic",
+      "received_time_coverage_has_no_unexplained_interval_over_one_second",
+      "trade_and_orderbook_received_time_ranges_overlap_each_hour"
+    ],
+    "fail_closed": true,
+    "hour_acceptance_requires": [
+      "both_declared_objects_are_present_and_checksummed",
+      "zstd_streams_decompress_to_valid_parquet",
+      "documented_required_columns_are_present",
+      "role_required_values_are_non_null_and_finite",
+      "timestamps_are_utc_hour_bounded_and_non_decreasing",
+      "received_time_is_not_earlier_than_exchange_event_time",
+      "prices_are_positive_and_quantities_are_non_negative",
+      "native_first_and_final_update_ids_are_present_and_valid",
+      "update_groups_are_contiguous_or_explicitly_segmented",
+      "a_snapshot_or_equivalent_last_update_id_initializes_replay",
+      "reconstructed_book_is_positive_and_uncrossed",
+      "trade_ids_are_strictly_increasing",
+      "provider_terms_allow_internal_research_and_retention"
+    ],
+    "normalized_source_can_satisfy_exchange_native_raw_contract": false,
+    "provider_audit_is_not_ob0_ob1_or_strategy_evidence": true
+  },
+  "frozen_at": "2026-08-29T01:10:00Z",
+  "hypothesis": "The free CryptoHFTData Binance spot BTCUSDT hourly order-book and trade files preserve enough point-in-time sequence, snapshot, receipt-time, and trade identity information for deterministic replay fixtures. Reject the source if the frozen example hour cannot reconstruct without an unlocated gap; inspect the remaining hours of the exact day only if that hour passes, and do not treat normalized provider data as exchange-native raw evidence.",
+  "inputs": {
+    "allowed_download_api_host": "api.cryptohftdata.com",
+    "allowed_download_api_path": "/v1/download",
+    "allowed_redirect_host_suffix": ".r2.cloudflarestorage.com",
+    "data_types": [
+      "orderbook",
+      "trades"
+    ],
+    "exchange": "binance_spot",
+    "file_template": "binance_spot/{date}/{hour:02d}/BTCUSDT_{data_type}.parquet",
+    "nullable_when_not_applicable": {
+      "orderbook": [
+        "transaction_time",
+        "first_update_id",
+        "final_update_id",
+        "prev_final_update_id",
+        "last_update_id",
+        "order_count"
+      ],
+      "trades": [
+        "order_type"
+      ]
+    },
+    "provider_dataset_documentation": "https://www.cryptohftdata.com/datasets/binance-orderbook-data",
+    "provider_developer_documentation": "https://www.cryptohftdata.com/developers",
+    "provider_orderbook_documentation": "https://www.cryptohftdata.com/docs/rest-orderbook",
+    "provider_terms": "https://www.cryptohftdata.com/terms",
+    "required_columns": {
+      "orderbook": [
+        "received_time",
+        "event_time",
+        "transaction_time",
+        "symbol",
+        "event_type",
+        "first_update_id",
+        "final_update_id",
+        "prev_final_update_id",
+        "last_update_id",
+        "side",
+        "price",
+        "quantity",
+        "order_count"
+      ],
+      "trades": [
+        "received_time",
+        "event_time",
+        "symbol",
+        "trade_id",
+        "price",
+        "quantity",
+        "trade_time",
+        "is_buyer_maker",
+        "order_type"
+      ]
+    },
+    "symbol": "BTCUSDT",
+    "transport_encoding": "zstd_wrapped_parquet"
+  },
+  "isolation": {
+    "active_ob0_access_allowed": false,
+    "database_access_allowed": false,
+    "economic_or_predictive_analysis_allowed": false,
+    "exchange_api_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "production_signal_or_order_access_allowed": false,
+    "provider_public_api_access_allowed": true,
+    "running_service_or_container_access_allowed": false
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/btc-order-book/provider-audits/cryptohftdata-hour-day-v1",
+    "economic_metrics_allowed": false,
+    "feature_generation_allowed": false,
+    "forecast_generation_allowed": false,
+    "raw_partitions_are_write_once": true,
+    "strategy_stage_transition_allowed": false
+  },
+  "prohibited_actions": [
+    "download_day_before_frozen_hour_gate_passes",
+    "download_any_undeclared_date_symbol_exchange_or_data_type",
+    "download_any_2026_object",
+    "bulk_scrape_provider_data",
+    "bypass_authentication_paywall_captcha_or_rate_limit",
+    "redistribute_provider_data",
+    "inspect_active_or_partial_ob0",
+    "compute_features_labels_forecasts_or_pnl",
+    "connect_to_database_nats_freqtrade_or_exchange",
+    "treat_provider_audit_as_ob0_ob1_or_strategy_evidence"
+  ],
+  "schema_version": "btc-order-book-cryptohftdata-hour-day-audit-contract-v1",
+  "status": "frozen"
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schema.freqtrade.io/schema.json",
+  "bot_name": "freqtrade-primary",
+  "dry_run": true,
+  "dry_run_wallet": 1000,
+  "trading_mode": "spot",
+  "margin_mode": "",
+  "stake_currency": "USDT",
+  "stake_amount": 20,
+  "tradable_balance_ratio": 0.90,
+  "max_open_trades": 2,
+  "fiat_display_currency": "USD",
+  "timeframe": "5m",
+  "exchange": {
+    "name": "binance",
+    "key": "",
+    "secret": "",
+    "ccxt_config": {"enableRateLimit": true},
+    "pair_whitelist": ["BTC/USDT", "ETH/USDT"],
+    "pair_blacklist": []
+  },
+  "pairlists": [{"method": "StaticPairList"}],
+  "entry_pricing": {"price_side": "same", "use_order_book": true, "order_book_top": 1},
+  "exit_pricing": {"price_side": "same", "use_order_book": true, "order_book_top": 1},
+  "api_server": {
+    "enabled": true,
+    "listen_ip_address": "0.0.0.0",
+    "listen_port": 8080,
+    "verbosity": "error",
+    "enable_openapi": false,
+    "CORS_origins": []
+  },
+  "webhook": {
+    "enabled": true,
+    "format": "json",
+    "timeout": 1,
+    "retries": 2,
+    "retry_delay": 0.2,
+    "entry": {"event_type": "submitted", "trade_id": "{trade_id}", "exchange": "{exchange}", "pair": "{pair}", "payload": {"enter_tag": "{enter_tag}", "direction": "{direction}"}},
+    "entry_fill": {"event_type": "filled", "trade_id": "{trade_id}", "exchange": "{exchange}", "pair": "{pair}", "payload": {"enter_tag": "{enter_tag}", "direction": "{direction}"}},
+    "entry_cancel": {"event_type": "cancelled", "trade_id": "{trade_id}", "exchange": "{exchange}", "pair": "{pair}", "payload": {"enter_tag": "{enter_tag}", "direction": "{direction}"}},
+    "exit": {"event_type": "submitted", "trade_id": "{trade_id}", "exchange": "{exchange}", "pair": "{pair}", "payload": {"exit_reason": "{exit_reason}", "is_final_exit": "{is_final_exit}"}},
+    "exit_fill": {"event_type": "closed", "trade_id": "{trade_id}", "exchange": "{exchange}", "pair": "{pair}", "payload": {"exit_reason": "{exit_reason}", "is_final_exit": "{is_final_exit}"}},
+    "exit_cancel": {"event_type": "cancelled", "trade_id": "{trade_id}", "exchange": "{exchange}", "pair": "{pair}", "payload": {"exit_reason": "{exit_reason}"}},
+    "status": {"event_type": "status", "payload": {"status": "{status}"}}
+  },
+  "internals": {"process_throttle_secs": 5}
+}

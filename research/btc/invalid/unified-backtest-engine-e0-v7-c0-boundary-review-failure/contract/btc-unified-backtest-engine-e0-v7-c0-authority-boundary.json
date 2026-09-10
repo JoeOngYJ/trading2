@@ -1,0 +1,98 @@
+{
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "may_create_order_intent_or_signal_payload": false,
+    "may_route_or_trade": false
+  },
+  "bound_authorities": [
+    {"path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json", "role": "inherited_e0_v1_contract", "sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e", "size_bytes": 30986},
+    {"path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json", "role": "inherited_e0_v2_contract", "sha256": "201bbaad8f1fb6e00efdc2b3c25d632d0d3da94d8b8521c2f92b37da29cde887", "size_bytes": 7121},
+    {"path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json", "role": "inherited_e0_v3_contract", "sha256": "b0cea8cb6b35df31d51c7745a6b2ec1b3a4a3c6ac99f67c4d5db12a021057df1", "size_bytes": 17493},
+    {"path": "research/btc/contracts/btc-unified-backtest-engine-e0-v4-lineage-recovery.json", "role": "inherited_e0_v4_lineage_record", "sha256": "d8b2852e6ef1e1c5b32bbf585f64683751d95480f9c87f890408708b58b5407c", "size_bytes": 10243},
+    {"path": "config/execution_scenarios.json", "role": "execution_scenarios_authority", "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36", "size_bytes": 2922},
+    {"path": "config/retail_mandate.json", "role": "spot_mandate_authority", "sha256": "7e34cfb0928b4373bbf52b5c5505f63a2b19e674124059191c1b6c62ec129041", "size_bytes": 2960},
+    {"path": "config/mandates/retail-btc-directional-perpetual-research-v1.json", "role": "directional_perpetual_mandate_authority", "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d", "size_bytes": 1619},
+    {"path": "config/mandates/retail-btc-delta-neutral-research-v1.json", "role": "delta_neutral_mandate_authority", "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba", "size_bytes": 2268}
+  ],
+  "c0_claim": {
+    "input": "run_spec_id_only",
+    "output": "immutable_identity_and_lineage_only_RunContext",
+    "security_model": "supported_public_API_under_ordinary_offline_Python_execution_not_hostile_code_security"
+  },
+  "design_bindings": [
+    {"path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V7_C0_AUTHORITY_PLAN.md", "role": "c0_plan", "sha256": "aca9c9fee09fe4b73c77d4895d307f48c1e971279f785b93ddceb1ca6d1235fc"},
+    {"path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V7_C0_FAILURE_MATRIX.md", "role": "c0_failure_matrix", "sha256": "e1d198c551f7721b005af6d5a7371dddd58118467bda3953a78c9126656a0294"},
+    {"path": "research/btc/specs/btc-backtest-c0-authority-interface-e0-v7.json", "role": "c0_interface_spec", "sha256": "3af66faafbb24ddb9f36f743b49f816408050ca2c8c12ca1d6fe537015b3c357"},
+    {"path": "research/btc/specs/btc-backtest-c0-inherited-obligations-e0-v7.json", "role": "c0_obligation_registry", "sha256": "10973fed02ac6796a925844d5c16e57fd03d111ca336187c5709bd5f14aabfcf"}
+  ],
+  "experiment_id": "btc-unified-backtest-engine-e0-v7-c0-authority-boundary",
+  "failure_findings": [
+    {"finding_id": "C0F01", "owner": "C0", "probe_id": "P01"},
+    {"finding_id": "C0F02", "owner": "C0", "probe_id": "P02"},
+    {"finding_id": "C0F03", "owner": "C0", "probe_id": "P03"},
+    {"finding_id": "C0F04", "owner": "C0", "probe_id": "P04"},
+    {"finding_id": "C0F05", "owner": "C0", "probe_id": "P05"},
+    {"finding_id": "C0F06", "owner": "C0", "probe_id": "P06"},
+    {"finding_id": "C0F07", "owner": "C0", "probe_id": "P07"},
+    {"finding_id": "C0F08", "owner": "C0", "probe_id": "P08"},
+    {"finding_id": "C0F09", "owner": "C0", "probe_id": "P09"},
+    {"finding_id": "C0F10", "owner": "C0", "probe_id": "P10"},
+    {"finding_id": "C0F11", "owner": "C0", "probe_id": "P11"},
+    {"finding_id": "C0F12", "owner": "C0", "probe_id": "P12"},
+    {"finding_id": "C0F13", "owner": "C0", "probe_id": "P13"},
+    {"finding_id": "C0F14", "owner": "C0", "probe_id": "P14"}
+  ],
+  "future_component_boundary": {
+    "C0": "authority_manifest_and_RunContext_only",
+    "C1": "deferred_unresolved_accounting_ledger",
+    "C2": "deferred_unresolved_candle_execution",
+    "C3": "deferred_unresolved_L2_execution",
+    "C4": "deferred_unresolved_atomic_pair_execution",
+    "C5": "deferred_unresolved_controls",
+    "C6": "deferred_unresolved_integration_and_reporting"
+  },
+  "prohibited": [
+    "E1_v15_or_any_C1_C6_implementation_contract_test_candidate_or_oracle",
+    "historical_market_data_or_strategy_evaluation",
+    "sealed_2026_or_partial_OB0_data",
+    "credentials_network_exchange_database_NATS_Freqtrade_or_protected_soak_access",
+    "paper_or_live_trading",
+    "any_actionable_arm_other_than_no_trade"
+  ],
+  "qualification_gates": [
+    "canonical_JSON_rejects_duplicate_keys_and_nonfinite_numbers",
+    "all_bound_authority_path_size_and_sha256_values_verify",
+    "exact_interface_schema_and_all_nested_types_verify",
+    "every_record_field_has_exact_type_nullability_producer_and_nonempty_consumers",
+    "exact_C0_obligation_pointer_value_owner_and_probe_mapping_verifies",
+    "failure_findings_have_unique_single_owner_and_unique_probe",
+    "complete_design_bundle_path_role_size_and_digest_verifies",
+    "mutation_tests_cover_schema_obligation_gate_role_and_future_boundary_drift",
+    "hyphenated_and_underscored_premature_C1_C6_paths_fail",
+    "two_independent_reviewers_pass_every_required_finding",
+    "no_implementation_or_economic_evidence_was_created_or_opened",
+    "only_no_trade_is_actionable"
+  ],
+  "required_bundle_roles": [
+    "c0_plan", "c0_failure_matrix", "c0_interface_spec", "c0_obligation_registry",
+    "c0_contract", "c0_validator", "c0_tests"
+  ],
+  "required_review_findings": [
+    "scope_is_C0_only_and_downstream_is_unresolved",
+    "public_API_accepts_only_run_spec_id",
+    "interface_types_are_fully_expanded_and_owned",
+    "C0_obligation_subset_is_exact_and_does_not_claim_downstream_closure",
+    "finding_owner_probe_mapping_is_exact",
+    "bundle_binding_and_mutation_validation_are_complete",
+    "premature_future_components_fail_closed",
+    "no_prohibited_data_service_or_action_was_used"
+  ],
+  "schema_version": "btc-unified-backtest-engine-e0-v7-c0-authority-boundary",
+  "scope": "offline_synthetic_design_qualification_only",
+  "status": "frozen_pending_independent_review",
+  "subsequent_phase_boundary": {
+    "on_fail": "archive_exact_E0_v7_bundle_and_use_new_experiment_ID",
+    "on_pass": "freeze_a_separate_btc-backtest-authorities-c0-v1_synthetic_implementation_contract_only",
+    "still_prohibited": "C1_C6_E1_v15_E2_historical_strategy_2026_partial_OB0_network_credentials_protected_services_paper_live"
+  }
+}

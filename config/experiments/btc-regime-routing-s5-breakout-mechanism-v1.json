@@ -1,0 +1,115 @@
+{
+  "arm_disposition_boundary": {
+    "acceptance_allowed": false,
+    "reason": "2017-2025 is consumed development evidence and 2026 is sealed-ineligible; this audit may support or falsify the mechanism but cannot accept or promote the arm.",
+    "result_values": [
+      "development_mechanism_supported",
+      "development_mechanism_rejected"
+    ]
+  },
+  "controls": {
+    "random_control_replications": 5000,
+    "random_control_sampling": "For each UTC year, sample without replacement the same number of eligible seven-day entry timestamps as filled primary breakout entries in that year; compare equal-weight gross seven-day log returns. Samples are diagnostic and do not simulate shared capital.",
+    "random_control_seed": 20260829,
+    "required": [
+      "flat_no_trade",
+      "segmented_btc_buy_hold",
+      "fixed_breakout_30_40_80bps",
+      "same_entry_fixed_7d_continuation",
+      "seeded_year_count_matched_random_7d_entries"
+    ]
+  },
+  "data": {
+    "artifacts": {
+      "breakout-reproduction-report.json": {
+        "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-reproduction-report.json",
+        "sha256": "e4d631998153f2841e54f2d36ee7008a9c5874201f65ad3b8e19bb9bca2a9b61"
+      },
+      "breakout-trades.jsonl.gz": {
+        "expected_rows": 201,
+        "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-trades.jsonl.gz",
+        "sha256": "22d68c6174edc18b055041ba3a32c03c1f8945d9e532b7169bcb370507629809"
+      },
+      "candles-4h.jsonl.gz": {
+        "expected_rows": 18282,
+        "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-4h.jsonl.gz",
+        "sha256": "df23c3ecccf3945080f52e3103f1335cf0fea03f0b26c19ce50dbb5000f50707"
+      },
+      "candles-5m.jsonl.gz": {
+        "expected_rows": 878985,
+        "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+        "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+      },
+      "manifest.json": {
+        "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+        "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+      }
+    },
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2019-01-01T00:00:00Z",
+    "sealed_2026_path_allowed": false
+  },
+  "experiment_id": "btc-regime-routing-s5-breakout-mechanism-v1",
+  "frozen_at": "2026-08-28T23:47:08Z",
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "holdout_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false
+  },
+  "mechanism_card": {
+    "causal_driver": "Persistent directional demand can carry price beyond a prior 20-day high and continue after entry; the 10-day low exit and 4% protective stop terminate exposure when persistence breaks.",
+    "decision_observable": "A completed four-hour close strictly above the maximum high of the prior 120 completed same-segment four-hour bars.",
+    "expected_payoff_shape": "Many small false-breakout losses and fewer larger continuation gains; positive skew and profit concentration are expected but must remain within frozen limits.",
+    "falsifier": "Reject mechanism support if breakout entries do not beat year-count-matched random seven-day entries, if higher causal directional efficiency does not improve net expectancy, or if results depend excessively on a few trades or months.",
+    "favorable_background": "Sustained directional repricing with efficient one-way movement and enough continuation to exceed round-trip costs.",
+    "strategy_family": "directional_trend_breakout",
+    "unfavorable_background": "Range-bound or rapidly reversing markets where new highs are liquidity sweeps or short-lived shocks rather than persistent repricing.",
+    "why_costs_matter": "False breakouts create repeated spread, fee, and slippage losses; persistence must be strong enough that the right tail pays for whipsaws."
+  },
+  "mechanism_feature": {
+    "classification": "At each entry, compare efficiency with the lower and upper terciles of the preceding 720 valid four-hour efficiency observations from the same source segment; the current observation is excluded from its cutoffs.",
+    "feature_id": "directional_efficiency_20d_4h",
+    "formula": "absolute log close change over the latest 120 completed four-hour intervals divided by the sum of absolute four-hour log close changes over those intervals",
+    "minimum_cutoff_history": 720,
+    "terciles": [
+      0.3333333333333333,
+      0.6666666666666666
+    ]
+  },
+  "output": {
+    "allow_overwrite_nonempty": false,
+    "root": "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1"
+  },
+  "rejection_gates": {
+    "best_three_profitable_months_share_maximum": 0.6,
+    "high_efficiency_minus_low_efficiency_30bps_month_block_ci95_lower_bound": "strictly_positive",
+    "high_efficiency_net_expectancy_positive_at_bps": [
+      30,
+      80
+    ],
+    "minimum_filled_breakout_entries": 60,
+    "minimum_positive_calendar_years_at_30bps": 4,
+    "random_7d_percentile_minimum": 0.95,
+    "top_three_profitable_trades_share_maximum": 0.5
+  },
+  "schema_version": "regime-routing-s5-breakout-mechanism-contract-v1",
+  "stage_id": "S5",
+  "statistics": {
+    "month_block_bootstrap_replications": 10000,
+    "month_block_bootstrap_seed": 20260830,
+    "report_calendar_year_attribution": true,
+    "report_cost_attribution": true,
+    "report_exit_reason_attribution": true,
+    "report_market_beta_warning": true,
+    "report_trade_and_month_concentration": true
+  },
+  "status": "frozen"
+}

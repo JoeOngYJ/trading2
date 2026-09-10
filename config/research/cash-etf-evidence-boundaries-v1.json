@@ -1,0 +1,39 @@
+{
+  "created_before_economic_inspection": true,
+  "partitions": [
+    {
+      "end_exclusive": "2019-01-01T00:00:00Z",
+      "partition_id": "development",
+      "permitted_access": "source_validation_ledger_and_development_economics_after_C1_pass",
+      "start_inclusive": "2009-01-02T00:00:00Z",
+      "state": "open"
+    },
+    {
+      "end_exclusive": "2024-01-01T00:00:00Z",
+      "partition_id": "validation",
+      "permitted_access": "timestamp_only_prepartition_until_separate_unlock",
+      "start_inclusive": "2019-01-01T00:00:00Z",
+      "state": "locked"
+    },
+    {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "partition_id": "historical_confirmation",
+      "permitted_access": "timestamp_only_prepartition_until_both_earlier_partitions_pass",
+      "start_inclusive": "2024-01-01T00:00:00Z",
+      "state": "locked"
+    },
+    {
+      "end_exclusive": "2027-01-01T00:00:00Z",
+      "partition_id": "excluded_2026",
+      "permitted_access": "none",
+      "start_inclusive": "2026-01-01T00:00:00Z",
+      "state": "excluded"
+    }
+  ],
+  "registry_id": "cash-etf-evidence-boundaries-v1",
+  "schema_version": "cash-etf-evidence-boundaries-v1",
+  "strategy_families_frozen_before_economics": [
+    "cash_etf_slow_trend",
+    "cash_etf_turn_of_month"
+  ]
+}

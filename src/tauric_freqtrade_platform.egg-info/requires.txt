@@ -1,0 +1,13 @@
+ccxt<5,>=4.5
+fastapi<1,>=0.115
+httpx<1,>=0.27
+nats-py<3,>=2.9
+prometheus-client<1,>=0.21
+psycopg[binary,pool]<4,>=3.2
+pydantic<3,>=2.10
+pydantic-settings<3,>=2.7
+uvicorn<1,>=0.34
+
+[dev]
+pytest<9,>=8
+pytest-asyncio<1,>=0.25

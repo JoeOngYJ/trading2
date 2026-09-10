@@ -1,0 +1,40 @@
+{
+  "actionable_arm_id": "no_trade",
+  "arms": [
+    "cash-etf-slow-trend-proxy-v1",
+    "cash-etf-turn-of-month-proxy-v1"
+  ],
+  "controls": [
+    "zero_yield_gbp_cash",
+    "static_equal_weight_risky_proxies",
+    "per_asset_buy_and_hold",
+    "exposure_and_timestamp_matched_random_controls",
+    "sign_inversion_diagnostic"
+  ],
+  "cost_scenarios_round_trip_bps": [10, 25, 50],
+  "data_boundary": {
+    "development_end_inclusive": "2018-12-31",
+    "development_start_inclusive": "2009-01-02",
+    "locked_after": "2019-01-01",
+    "ledger_evidence": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4/evidence-manifest.json",
+    "ledger_evidence_sha256": "4294a993b2133fc38b61a4938c64038258b2c58f0c10a74d4c721ea49ad1be02"
+  },
+  "economic_results_read_before_freeze": false,
+  "execution_convention": "decision_after_completed_close_then_next_eligible_open",
+  "experiment_id": "cash-etf-c2-proxy-evaluation-v1",
+  "gates": {
+    "best_three_month_positive_pnl_max_fraction": "0.50",
+    "development_and_validation_net_return_positive": true,
+    "maximum_drawdown_fraction": "0.20",
+    "minimum_positive_calendar_year_fraction": "0.60",
+    "paired_month_block_excess_confidence_lower_bound_positive": true,
+    "stress_cost_net_return_positive": true,
+    "validation_minimum_calmar": "0.50",
+    "validation_minimum_sharpe": "0.50"
+  },
+  "no_strategy_or_execution_approval": true,
+  "primary_cost_round_trip_bps": 25,
+  "status": "frozen",
+  "schema_version": "cash-etf-c2-proxy-evaluation-contract-v1",
+  "sealed_partitions_accessed": false
+}

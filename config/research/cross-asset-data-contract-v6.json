@@ -1,0 +1,83 @@
+{
+  "a2_result_policy": {
+    "final_partition_clean_for_a2": false,
+    "result": "rejected_do_not_tune_or_rerun"
+  },
+  "a3_result_policy": {
+    "accepted_strategy_arms": [],
+    "evidence_path": "artifacts/agent-level-experiment/cross-asset/a3-overnight-gap-reversion-v2/evidence-manifest.json",
+    "prospective_partition_accessed": false,
+    "result": "rejected_do_not_tune_or_rerun"
+  },
+  "accepted_sources": [
+    {
+      "evidence_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2/evidence-manifest.json",
+      "qualification": "daily_bid_ask_context_only",
+      "source_id": "oanda_v20_broker_history_daily"
+    },
+    {
+      "evidence_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+      "qualification": "hourly_bid_ask_intraday_research_with_no_trade_masks",
+      "source_id": "oanda_v20_broker_history_hourly"
+    },
+    {
+      "evidence_path": "artifacts/agent-level-experiment/cross-asset/a2-gbp-conversion-source-v1/evidence-manifest.json",
+      "qualification": "gbp_conversion_only_never_a_strategy_instrument",
+      "source_id": "oanda_v20_gbp_usd_conversion_hourly"
+    },
+    {
+      "evidence_path": "artifacts/agent-level-experiment/cross-asset/a3-timestamp-prepartition-v1/evidence-manifest.json",
+      "qualification": "timestamp_only_development_and_validation_prepartitions",
+      "source_id": "a3_opaque_prepartitions"
+    }
+  ],
+  "bulk_download_authorized": false,
+  "candidate_asset_classes": [
+    "spot_fx",
+    "spot_metal",
+    "index_cfd"
+  ],
+  "contract_id": "cross-asset-data-qualification-a3-v6",
+  "cost_and_cashflow_policy": {
+    "exact_account_commission_is_a_promotion_blocker": true,
+    "historical_bid_ask_is_required": true,
+    "historical_financing_may_not_be_invented": true,
+    "round_trip_additional_slippage_bps": [
+      0,
+      5,
+      15
+    ]
+  },
+  "evidence_boundary": {
+    "a3_development": "2010-01-01T00:00:00Z/2022-01-01T00:00:00Z",
+    "a3_validation": "2022-01-01T00:00:00Z/2026-01-01T00:00:00Z",
+    "genuinely_prospective_collection_not_started": true,
+    "genuinely_prospective_start": "2026-08-31T00:00:00Z",
+    "prospective_prices_available": false
+  },
+  "gap_policy": {
+    "cross_gap_features": "reject",
+    "forward_fill_prices": "reject",
+    "incomplete_session_window": "no_trade",
+    "silent_repair": "reject"
+  },
+  "next_family_policy": {
+    "a4_or_a5_activation_allowed": false,
+    "materially_new_hypothesis_and_experiment_id_required": true,
+    "program_amendment_and_user_authorization_required": true,
+    "rejected_family_regime_rescue_allowed": false
+  },
+  "schema_version": "cross-asset-data-contract-v6",
+  "strategy_evaluation_authorized": false,
+  "supersedes": {
+    "path": "config/research/cross-asset-data-contract-v5.json",
+    "sha256": "3fe0d3b483ba10129348cb3b0b04ffae2302b998253be8437b968e375fcbe0dd"
+  },
+  "timestamp_policy": {
+    "availability_after_observation": true,
+    "future_dependent_rows": "reject",
+    "naive_timestamps": "reject",
+    "reversed_timestamps": "reject",
+    "timezone": "UTC"
+  }
+}

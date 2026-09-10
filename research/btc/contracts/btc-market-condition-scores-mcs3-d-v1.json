@@ -1,0 +1,212 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "risk_cap_mapping_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "benchmark": {
+    "negative_semivariance": "horizon_days_times_arithmetic_mean_of_preceding_22_complete_same_segment_daily_negative_semivariances",
+    "tail_history_observations": 500,
+    "tail_history_rule": "most_recent_500_individually_complete_same_segment_horizon_losses_with_target_available_at_at_or_before_decision_time_may_span_prior_source_segments",
+    "tail_var_es": "unscaled_empirical_historical_simulation"
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs2-v1.json",
+      "sha256": "4c3499da9621d6dcfc9ab615934b39c2934bba4fb3749df6cd41b421b1a6ca0a"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-r-v1.json",
+      "sha256": "76b8d2353ac3f25da9c2be52b3e979c7fc84c9b84e904662a945b5e1f5137f1c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/evidence-manifest.json",
+      "sha256": "b457a5e413045417b24b23a0420f72d45f94886b0387baee7aeab0035b95f1e0"
+    },
+    {
+      "path": "research/btc/contracts/btc-multidimensional-risk-foundation-v1.json",
+      "sha256": "6b5514f8d53420c99084430e9c85dee964313cfbf22c48fae1d0526346e63212"
+    },
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    }
+  ],
+  "candidate": {
+    "model": "monthly_expanding_log_HAR_negative_semivariance",
+    "predictors": [
+      "latest_completed_1d_negative_semivariance",
+      "arithmetic_mean_completed_5d_negative_semivariance",
+      "arithmetic_mean_completed_22d_negative_semivariance"
+    ],
+    "tail_scaling": "benchmark_VaR_and_ES_times_square_root_of_candidate_NSV_forecast_divided_by_benchmark_NSV_forecast"
+  },
+  "chronology": {
+    "daily_decision_clock": "UTC_midnight_after_a_complete_same_segment_UTC_day",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T00:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "fit_schedule": "UTC_calendar_month_expanding_refit",
+    "training_label_rule": "target_available_at_must_be_strictly_before_month_fit_cutoff",
+    "warmup_days": 22
+  },
+  "daily_target_construction": {
+    "complete_day": "exactly_288_contiguous_5m_candles_in_one_source_segment_plus_the_contiguous_prior_close",
+    "daily_log_return": "sum_of_288_close_to_close_5m_log_returns",
+    "daily_negative_semivariance": "sum_of_squared_5m_log_returns_strictly_below_zero",
+    "daily_tail_loss": "negative_daily_log_return",
+    "future_horizon_negative_semivariance": "sum_of_complete_future_daily_negative_semivariances",
+    "future_horizon_tail_loss": "negative_sum_of_complete_future_daily_log_returns",
+    "zero_negative_semivariance_allowed": true
+  },
+  "disposition_rules": {
+    "accepted_for_future_offline_risk_research": "all_frozen_primary_and_data_gates_pass",
+    "cap_or_strategy_use_requires_separate_contract": true,
+    "promotion_or_live_evidence": false,
+    "rejected": "any_frozen_primary_or_data_gate_fails",
+    "rerun_or_tuning_under_same_id": false
+  },
+  "experiment_id": "btc-market-condition-scores-mcs3-d-v1",
+  "frozen_at": "2026-08-31T13:45:00Z",
+  "gates": {
+    "all_input_causality_common_row_score_domain_and_replay_checks_pass": true,
+    "primary_1d_candidate_fz0_strictly_below_benchmark": true,
+    "primary_1d_candidate_mse_ratio_to_benchmark_maximum": 1.05,
+    "primary_1d_candidate_nsv_qlike_strictly_below_benchmark": true,
+    "primary_1d_candidate_pinball_strictly_below_benchmark": true,
+    "primary_1d_es_calibration_month_block_interval_contains_zero": true,
+    "primary_1d_excluding_best_three_months_fz0_and_qlike_improvements_positive": true,
+    "primary_1d_forecast_count_minimum": 1800,
+    "primary_1d_fz0_improvement_month_block_lower_95_strictly_above": 0,
+    "primary_1d_leave_one_year_out_fz0_and_qlike_positive_years_minimum": 6,
+    "primary_1d_monthly_refits_minimum": 80,
+    "primary_1d_nsv_qlike_improvement_month_block_lower_95_strictly_above": 0,
+    "primary_1d_overall_coverage_minimum": 0.7,
+    "primary_1d_per_year_coverage_minimum": 0.5,
+    "primary_1d_positive_annual_fz0_and_qlike_improvement_years_minimum": 5,
+    "primary_1d_risk_quartile_realized_nsv_means_non_decreasing": true,
+    "primary_1d_var_exceedance_fraction_maximum": 0.065,
+    "primary_1d_var_exceedance_fraction_minimum": 0.035,
+    "primary_1d_var_exceedance_wilson_interval_contains_expected": true,
+    "required_evaluation_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "valid_bootstrap_replications_minimum": 9500
+  },
+  "historical_quantile": {
+    "confidence": 0.95,
+    "es_tie_rule": "arithmetic_mean_of_losses_greater_than_or_equal_to_VaR",
+    "exceedance_rule": "loss_greater_than_or_equal_to_VaR",
+    "linear_interpolation": "ordered_position_equals_n_minus_1_times_probability",
+    "tail_probability": 0.05
+  },
+  "hypothesis": "A causal monthly expanding log-HAR model of realized negative semivariance improves next-day downside-risk forecasts over a preceding-22-day mean, and using its risk ratio to scale past-only historical VaR and ES improves joint tail loss while remaining calibrated.",
+  "input_contract": {
+    "expected_interval": "5m",
+    "expected_rows": 878985,
+    "instrument": "BTC/USDT",
+    "rules": [
+      "canonical_UTC_Z_timestamps_only",
+      "observed_at_equals_available_at_equals_close_at",
+      "strictly_increasing_open_and_close_times",
+      "positive_finite_close",
+      "exact_5m_spacing_inside_each_segment",
+      "closed_segments_may_not_reappear",
+      "daily_feature_and_target_windows_may_not_cross_segments_or_gaps",
+      "input_checksum_and_row_count_must_match",
+      "no_2026_or_holdout_path"
+    ]
+  },
+  "model_parameters": {
+    "forecast_ceiling_training_quantile": 0.99,
+    "forecast_floor_training_quantile": 0.01,
+    "log_floor": 1e-12,
+    "minimum_training_labels": 250,
+    "ridge_penalty": 1e-06,
+    "smearing": "past_only_Duan_mean_exponential_residual",
+    "standardization": "training_only_mean_and_population_standard_deviation"
+  },
+  "outputs": {
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/evidence-manifest.json",
+    "forecast_ledger": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/forecasts.jsonl.gz",
+    "model_ledger": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/models.jsonl.gz",
+    "report": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-d-v1/report.json",
+    "result_document": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_D_RESULT.md"
+  },
+  "prohibited": [
+    "using_MCS3_R_downside_subset_as_a_feature",
+    "adding_positive_semivariance_signed_jump_or_other_features",
+    "strategy_entry_exit_position_order_or_PnL_logic",
+    "mapping_forecast_to_RiskCap_or_allocation",
+    "threshold_model_or_horizon_selection_from_results",
+    "reopening_or_rescuing_rejected_strategy_or_score_families",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-market-condition-scores-mcs3-d-contract-v1",
+  "score_contract": {
+    "axis": "downside_tail",
+    "candidate_and_benchmark_forecasts_must_use_identical_rows": true,
+    "candidate_es_must_be_greater_than_or_equal_to_var_and_both_positive": true,
+    "evidence_status_during_experiment": "development",
+    "separate_score_ids": [
+      "negative_semivariance",
+      "value_at_risk_95",
+      "expected_shortfall_95"
+    ]
+  },
+  "scoring": {
+    "es_calibration_moment": "indicator_loss_greater_than_or_equal_to_VaR_times_loss_minus_VaR_minus_0.05_times_ES_minus_VaR",
+    "joint_fz0_loss": "log_ES_plus_VaR_divided_by_ES_plus_indicator_loss_greater_than_or_equal_to_VaR_times_loss_minus_VaR_divided_by_0.05_times_ES_minus_1",
+    "negative_semivariance_mse": "squared_forecast_minus_target",
+    "negative_semivariance_qlike": "log_forecast_plus_target_divided_by_forecast",
+    "quantile_pinball": "0.95_minus_indicator_loss_less_than_VaR_times_loss_minus_VaR"
+  },
+  "stage_id": "MCS3-D",
+  "statistics": {
+    "confidence_interval": 0.95,
+    "month_block_bootstrap_replications": 10000,
+    "month_block_bootstrap_seed": 20260831,
+    "month_block_unit": "UTC_target_available_calendar_month",
+    "same_exact_seed_for_every_bootstrap": true,
+    "wilson_z": 1.959963984540054,
+    "year_assignment": "target_available_at_UTC_calendar_year"
+  },
+  "status": "frozen_before_any_downside_or_tail_outcome_read",
+  "targets": [
+    {
+      "days": 1,
+      "horizon": "1d",
+      "role": "primary"
+    },
+    {
+      "days": 7,
+      "horizon": "7d",
+      "role": "secondary_diagnostic_cannot_rescue_primary"
+    }
+  ]
+}

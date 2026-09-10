@@ -1,0 +1,305 @@
+{
+  "actionable_arm_id": "no_trade",
+  "fixture_policy": {
+    "implementation_candidate_must_be_frozen_before_oracle_values_exist": true,
+    "implementer_tests_may_contain_hidden_oracle_terminal_values": false,
+    "independent_oracle_imports_implementation": false,
+    "market_or_strategy_data_allowed": false,
+    "numerical_terminal_oracle_values_present_in_E0_v6": false
+  },
+  "mutation_cases": [
+    {
+      "expected_rejection": "residual_above_inherited_tolerance",
+      "id": "X01_double_fee"
+    },
+    {
+      "expected_rejection": "missing_owned_funding_event",
+      "id": "X02_missed_funding"
+    },
+    {
+      "expected_rejection": "wrong_side_or_protected_bound",
+      "id": "X03_wrong_side_execution"
+    },
+    {
+      "expected_rejection": "adapter_source_or_mode_changed",
+      "id": "X04_candle_L2_substitution"
+    },
+    {
+      "expected_rejection": "sticky_invalid_unknown_and_no_performance_eligibility",
+      "id": "X05_post_commit_pair_exception"
+    },
+    {
+      "expected_rejection": "lineage_failure_before_mutation",
+      "id": "X06_broken_manifest_or_RunSpec_digest"
+    },
+    {
+      "expected_rejection": "actual_fee_asset_balance_or_tax_mismatch",
+      "id": "X07_omitted_or_wrong_asset_fee_tax"
+    },
+    {
+      "expected_rejection": "L2_path_did_not_use_bound_depth_and_latency",
+      "id": "X08_L2_safety_path_candle_or_zero_latency"
+    },
+    {
+      "expected_rejection": "final_fill_not_rolled_back_and_run_invalid_unknown",
+      "id": "X09_pair_stranded_mutation"
+    },
+    {
+      "expected_rejection": "execution_identity_changed_by_cost_overlay",
+      "id": "X10_scenario_relabel"
+    },
+    {
+      "expected_rejection": "funding_causality_tuple_incomplete_or_ambiguous",
+      "id": "X11_funding_timestamp_ambiguity"
+    },
+    {
+      "expected_rejection": "sell_price_below_floor",
+      "id": "X12_sell_bound_inversion"
+    }
+  ],
+  "probe_definitions": [
+    {
+      "component": "C0",
+      "id": "M01_contract_coverage",
+      "mutation_id": null,
+      "observable": "every inherited obligation has one requirement and owner",
+      "reject_if": "an obligation is missing or multiply owned"
+    },
+    {
+      "component": "Q0",
+      "id": "M02_oracle_absence_before_snapshot",
+      "mutation_id": null,
+      "observable": "whitelisted E0 files and candidate snapshot creation time",
+      "reject_if": "an oracle answer exists before candidate freeze"
+    },
+    {
+      "component": "C1",
+      "id": "M03_transition_mutations",
+      "mutation_id": "X01_double_fee",
+      "observable": "canonical before and after state plus economic row",
+      "reject_if": "a mutated transition remains valid"
+    },
+    {
+      "component": "C0",
+      "id": "M04_probe_bijection",
+      "mutation_id": null,
+      "observable": "finding requirement owner and probe identifiers",
+      "reject_if": "a mapping is missing duplicated or ambiguous"
+    },
+    {
+      "component": "Q0",
+      "id": "M05_external_oracle",
+      "mutation_id": null,
+      "observable": "canonical emitted JSON reconciled by closed form",
+      "reject_if": "oracle imports implementation or derives truth from candidate output fields"
+    },
+    {
+      "component": "C4",
+      "id": "M06_pair_preflight",
+      "mutation_id": "X09_pair_stranded_mutation",
+      "observable": "preflight outcome ledger before first fill",
+      "reject_if": "a bound infeasible outcome permits leg one"
+    },
+    {
+      "component": "C1",
+      "id": "M07_phase_ownership",
+      "mutation_id": null,
+      "observable": "ordered public event rows",
+      "reject_if": "another component changes phase order or priority"
+    },
+    {
+      "component": "C0",
+      "id": "M08_probe_observability",
+      "mutation_id": null,
+      "observable": "each probe input observable and rejection rule",
+      "reject_if": "a probe is opaque or only asserts an internal boolean"
+    },
+    {
+      "component": "C0",
+      "id": "M09_public_API_only",
+      "mutation_id": null,
+      "observable": "documented caller inputs and emitted outputs",
+      "reject_if": "ordinary public input can inject an authority-derived economic fact"
+    },
+    {
+      "component": "C2",
+      "id": "M10_adapter_capability_separation",
+      "mutation_id": "X04_candle_L2_substitution",
+      "observable": "candle and L2 ExecutionFact capabilities",
+      "reject_if": "candle produces a partial fill or L2 is relabelled candle"
+    },
+    {
+      "component": "C5",
+      "id": "M11_control_economics",
+      "mutation_id": null,
+      "observable": "independent control intentions orders fills and accounts",
+      "reject_if": "control economics are inferred from candidate rows or are placeholders"
+    },
+    {
+      "component": "C0",
+      "id": "M12_runspec_lineage",
+      "mutation_id": "X06_broken_manifest_or_RunSpec_digest",
+      "observable": "RunContext and complete manifest digests",
+      "reject_if": "a stale changed incomplete or mismatched identity is accepted"
+    },
+    {
+      "component": "C0",
+      "id": "M13_scenario_compatibility",
+      "mutation_id": null,
+      "observable": "RunSpec adapter scenario and mandate tuple",
+      "reject_if": "the tuple is incompatible or mandate authority is borrowed"
+    },
+    {
+      "component": "C1",
+      "id": "M14_residual_gate",
+      "mutation_id": "X01_double_fee",
+      "observable": "unrounded exact event residual",
+      "reject_if": "closed-form fixture is nonzero or runtime absolute residual exceeds 0.00000001 USDT"
+    },
+    {
+      "component": "C0",
+      "id": "M15_complete_lineage",
+      "mutation_id": "X06_broken_manifest_or_RunSpec_digest",
+      "observable": "run context implementation and event-specific digests",
+      "reject_if": "required lineage is missing stale or replaced by a placeholder"
+    },
+    {
+      "component": "C5",
+      "id": "M16_cost_grid_completeness",
+      "mutation_id": null,
+      "observable": "named 30 40 and 80 bps reports",
+      "reject_if": "a required scenario is absent or computed from different underlying intentions"
+    },
+    {
+      "component": "C5",
+      "id": "M17_no_adapter_substitution",
+      "mutation_id": "X04_candle_L2_substitution",
+      "observable": "adapter source mode latency price and quantity lineage",
+      "reject_if": "a control or overlay changes the bound adapter facts"
+    },
+    {
+      "component": "C3",
+      "id": "M18_exceptional_L2_paths",
+      "mutation_id": "X08_L2_safety_path_candle_or_zero_latency",
+      "observable": "protective liquidation recovery and terminal ExecutionFacts",
+      "reject_if": "any L2 fill bypasses qualified depth or bound latency"
+    },
+    {
+      "component": "C1",
+      "id": "M19_fee_asset_balance",
+      "mutation_id": "X07_omitted_or_wrong_asset_fee_tax",
+      "observable": "quote base third-asset and tax balances plus NAV",
+      "reject_if": "a charged economic item lacks its actual balance and NAV effect"
+    },
+    {
+      "component": "C4",
+      "id": "M20_pair_episode_identity",
+      "mutation_id": null,
+      "observable": "closed pair episode",
+      "reject_if": "direction is not delta_neutral_pair"
+    },
+    {
+      "component": "C5",
+      "id": "M21_scenario_label_integrity",
+      "mutation_id": "X10_scenario_relabel",
+      "observable": "separate execution and economic-budget identities",
+      "reject_if": "a reporting comparison relabels execution mode source or scenario"
+    },
+    {
+      "component": "C1",
+      "id": "M22_funding_causality",
+      "mutation_id": "X11_funding_timestamp_ambiguity",
+      "observable": "economic_at available_at membership and mark-index lineage",
+      "reject_if": "funding ownership uses an unavailable or ambiguous fact"
+    },
+    {
+      "component": "C3",
+      "id": "M23_side_aware_bounds",
+      "mutation_id": "X12_sell_bound_inversion",
+      "observable": "buy cap sell floor and consumed depth prices",
+      "reject_if": "buy exceeds cap or sell falls below floor"
+    },
+    {
+      "component": "C6",
+      "id": "M24_integration_probe_ownership",
+      "mutation_id": null,
+      "observable": "component and integration probe registry",
+      "reject_if": "integration duplicates or replaces a semantic probe"
+    },
+    {
+      "component": "C0",
+      "id": "M25_no_hostile_Python_claim",
+      "mutation_id": null,
+      "observable": "trust-model and public-API contract",
+      "reject_if": "qualification promises resistance to reflection monkey-patching or arbitrary in-process mutation"
+    },
+    {
+      "component": "C4",
+      "id": "M26_pair_recovery_preflight",
+      "mutation_id": "X05_post_commit_pair_exception",
+      "observable": "final fills compensating events invalid state and pending safety intention",
+      "reject_if": "a fill is rolled back or an unforeseen failure remains performance-eligible or apparently valid"
+    },
+    {
+      "component": "C1",
+      "id": "M27_target_to_order_edge",
+      "mutation_id": null,
+      "observable": "authorized target OrderIntention adapter fact and transition digests",
+      "reject_if": "target reaches an adapter without a C1-produced bound intention"
+    },
+    {
+      "component": "C0",
+      "id": "M28_row_kind_lineage",
+      "mutation_id": null,
+      "observable": "row-kind required and forbidden timestamp fields",
+      "reject_if": "a row omits an applicable time or inserts a placeholder inapplicable time"
+    },
+    {
+      "component": "C0",
+      "id": "M29_exact_type_schemas",
+      "mutation_id": null,
+      "observable": "field type nullability producer and consumer schemas",
+      "reject_if": "a public or intercomponent field is implicit or untyped"
+    },
+    {
+      "component": "C0",
+      "id": "M30_inherited_obligation_registry",
+      "mutation_id": null,
+      "observable": "exact inherited contract JSON pointers owners and probes",
+      "reject_if": "an inherited obligation is absent multiply owned or not exactly bound"
+    },
+    {
+      "component": "C6",
+      "id": "M31_complete_integration_dependencies",
+      "mutation_id": null,
+      "observable": "named accepted base L2-control and pair-control manifests",
+      "reject_if": "C6 can qualify without every required extension"
+    },
+    {
+      "component": "Q0",
+      "id": "M32_complete_review_bundle",
+      "mutation_id": null,
+      "observable": "pre-review bundle manifest and independently bound digest",
+      "reject_if": "review does not bind contract plan matrix specs validator and tests"
+    }
+  ],
+  "required_synthetic_cases": [
+    "spot_long_entry_exit_unchanged_price",
+    "perpetual_long_and_short_mirrored_path",
+    "same_timestamp_funding_entry_and_exit_ownership",
+    "funding_caused_margin_breach",
+    "gap_through_liquidation_and_terminal",
+    "base_quote_third_asset_and_tax_fee_balance_effects",
+    "candle_all_or_none_and_L2_partial_capability",
+    "L2_buy_and_sell_side_bounds",
+    "L2_protective_liquidation_recovery_and_terminal_depth",
+    "pair_full_full_reject_expire_partial_and_fee_asset_outcomes",
+    "pair_severe_recovery_success_and_failure_without_rollback",
+    "flat_buy_hold_and_matched_exposure_independent_control_intentions",
+    "candle_separate_30_40_80_economic_runs",
+    "same_L2_fills_under_30_40_80_reporting_costs",
+    "duplicate_permuted_stale_gapped_and_cross_segment_rejection"
+  ],
+  "schema_version": "btc-backtest-component-fixtures-e0-v6",
+  "stage": "fixture_specification_without_oracle_answers"
+}

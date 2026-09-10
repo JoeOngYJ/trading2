@@ -1,0 +1,150 @@
+{
+  "acceptance_gates": {
+    "all_official_distribution_events_present_in_provider": true,
+    "all_provider_distribution_events_present_in_official": true,
+    "amount_comparison": "absolute_difference_lte_half_unit_of_provider_last_decimal_place",
+    "distribution_ex_dates_exact": true,
+    "duplicate_official_events_allowed": false,
+    "issuer_identity_exact": true,
+    "split_effective_dates_exact": true,
+    "split_factors_exact": true,
+    "zero_action_history_requires_affirmative_official_evidence": true
+  },
+  "activated_at": "2026-08-30T18:05:00Z",
+  "artifact_policy": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v1",
+    "overwrite_existing_artifacts": false,
+    "preserve_action_only_extracts": true,
+    "preserve_full_product_pages": false,
+    "record_response_sha256": true
+  },
+  "boundary": {
+    "end_inclusive": "2023-12-31",
+    "start_inclusive": "2009-01-02"
+  },
+  "experiment_id": "cash-etf-c1-official-action-reconciliation-v1",
+  "fail_closed_rules": [
+    "an_incomplete_or_unavailable_official_history_blocks_the_affected_instrument",
+    "any_missing_or_extra_distribution_blocks_the_affected_instrument",
+    "any_unresolved_split_history_blocks_the_affected_instrument",
+    "a_source_response_outside_the_allowlist_is_rejected",
+    "a_source_response_containing_only_current_or_estimated_distributions_is_ineligible",
+    "no_action_value_may_be_imputed_from_price_adjustments"
+  ],
+  "forbidden_data": [
+    "adjusted_prices",
+    "broker_private_state",
+    "features",
+    "market_prices",
+    "nav",
+    "pnl",
+    "returns",
+    "signals",
+    "strategy_metrics",
+    "trades"
+  ],
+  "inputs": [
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/spy-dividends.jsonl",
+      "dividends_sha256": "9c9f91742b941ba146a7309bc32a49124759b39030bbb3032e36a93f2443c586",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/spy-splits.jsonl",
+      "splits_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "SPY"
+    },
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/efa-dividends.jsonl",
+      "dividends_sha256": "491acf7e551d5ffea7576444c4e39c4ec1845a5b4e6b662e0a6e69bfd1e21373",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/efa-splits.jsonl",
+      "splits_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "EFA"
+    },
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/ief-dividends.jsonl",
+      "dividends_sha256": "f6256a326d1b4b566732a76a2e143dd773ab7a0f24309eea29525d548189dd0d",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/ief-splits.jsonl",
+      "splits_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "IEF"
+    },
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/tlt-dividends.jsonl",
+      "dividends_sha256": "8f7ffe5d307644285acbc49e0537330e9957e024123109b6fa2ce36337089bb4",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/tlt-splits.jsonl",
+      "splits_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "TLT"
+    },
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gld-dividends.jsonl",
+      "dividends_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gld-splits.jsonl",
+      "splits_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "GLD"
+    },
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/dbc-dividends.jsonl",
+      "dividends_sha256": "c71a826bebab630b9e54ed14a0c9db7004c4b1aa0241b5aa2fbde276b2e14f29",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/dbc-splits.jsonl",
+      "splits_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "DBC"
+    },
+    {
+      "dividends_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/bil-dividends.jsonl",
+      "dividends_sha256": "c04c36a74e6115d06c9e6eed484dc04329314926d5d61792f12dc66a5141710e",
+      "splits_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/bil-splits.jsonl",
+      "splits_sha256": "3e3da093a81a1aeb5e77f935f7c66775e13616cd1fd24a910cef7113345744ab",
+      "symbol": "BIL"
+    }
+  ],
+  "operational_limits": {
+    "allowed_http_method": "GET",
+    "maximum_response_bytes": 50000000,
+    "maximum_responses": 40,
+    "network_access_scope": "official_public_issuer_and_issuer_filed_regulatory_sources_only"
+  },
+  "schema_version": "cash-etf-c1-official-action-reconciliation-contract-v1",
+  "source_allowlist": [
+    {
+      "allowed_content": "historical_distributions_workbook_only",
+      "host": "www.ssga.com",
+      "source_id": "state_street_historical_distributions",
+      "url": "https://www.ssga.com/library-content/products/fund-data/etfs/us/spdr-etf-historical-distributions.xlsx"
+    },
+    {
+      "allowed_content": "DistributionV3_component_only",
+      "host": "www.ishares.com",
+      "source_id": "ishares_efa_distribution_component",
+      "url": "https://www.ishares.com/us/products/239623/ishares-msci-eafe-etf"
+    },
+    {
+      "allowed_content": "DistributionV3_component_only",
+      "host": "www.ishares.com",
+      "source_id": "ishares_ief_distribution_component",
+      "url": "https://www.ishares.com/us/products/239456/ishares-710-year-treasury-bond-etf"
+    },
+    {
+      "allowed_content": "DistributionV3_component_only",
+      "host": "www.ishares.com",
+      "source_id": "ishares_tlt_distribution_component",
+      "url": "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf"
+    },
+    {
+      "allowed_content": "historical_distribution_and_corporate_action_documents_only",
+      "host": "www.invesco.com",
+      "source_id": "invesco_dbc_official_documents",
+      "url": "https://www.invesco.com/us/en/accounts/tax-center/etf-tax-center.html"
+    },
+    {
+      "allowed_content": "trust_distribution_and_share_action_statements_only",
+      "host": "www.spdrgoldshares.com",
+      "source_id": "spdr_gold_official_documents",
+      "url": "https://www.spdrgoldshares.com/usa/financial-information/"
+    },
+    {
+      "allowed_content": "issuer_filed_corporate_action_record_only",
+      "host": "www.sec.gov",
+      "source_id": "bil_issuer_filed_split_notice",
+      "url": "https://www.sec.gov/Archives/edgar/data/1064642/000119312517353499/d481888d497.htm"
+    }
+  ],
+  "status": "frozen",
+  "whole_universe_gate": "all_seven_instruments_must_pass_before_c1_numeric_ledger"
+}

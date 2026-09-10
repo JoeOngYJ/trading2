@@ -1,0 +1,108 @@
+{
+  "allowed_host": "fapi.binance.com",
+  "audit_id": "btc-carry-gap-recovery-v1",
+  "bound_inputs": [
+    {
+      "path": "research/btc/contracts/btc-carry-data-qualification-v1.json",
+      "sha256": "30c739abe621121e9de18e6c6dec8d872fcb0d187b5fa2ee8d7f9aaaa666503e"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/audit-report.json",
+      "sha256": "64ac19463c5c3d934adc1ea99c90fe80d142acb6b7d7268f2cb0145b5395a722"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+      "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+    }
+  ],
+  "data_boundary": {
+    "end_inclusive": "2025-12-31T23:00:00Z",
+    "expected_complete_hour_count": 52608,
+    "start_inclusive": "2020-01-01T00:00:00Z",
+    "symbol_or_pair": "BTCUSDT"
+  },
+  "endpoint_contract": {
+    "indexPriceKlines": {
+      "identifier_parameter": "pair",
+      "path": "/fapi/v1/indexPriceKlines"
+    },
+    "markPriceKlines": {
+      "identifier_parameter": "symbol",
+      "path": "/fapi/v1/markPriceKlines"
+    },
+    "premiumIndexKlines": {
+      "identifier_parameter": "symbol",
+      "path": "/fapi/v1/premiumIndexKlines"
+    }
+  },
+  "frozen_requests": [
+    {"end_open_at":"2021-07-01T23:00:00Z","expected_rows":24,"request_id":"mark-20210701","series":"markPriceKlines","start_open_at":"2021-07-01T00:00:00Z"},
+    {"end_open_at":"2021-07-27T23:00:00Z","expected_rows":96,"request_id":"mark-20210724-27","series":"markPriceKlines","start_open_at":"2021-07-24T00:00:00Z"},
+    {"end_open_at":"2022-07-31T23:00:00Z","expected_rows":24,"request_id":"mark-20220731","series":"markPriceKlines","start_open_at":"2022-07-31T00:00:00Z"},
+    {"end_open_at":"2022-10-02T23:00:00Z","expected_rows":24,"request_id":"mark-20221002","series":"markPriceKlines","start_open_at":"2022-10-02T00:00:00Z"},
+    {"end_open_at":"2023-02-24T23:00:00Z","expected_rows":24,"request_id":"mark-20230224","series":"markPriceKlines","start_open_at":"2023-02-24T00:00:00Z"},
+    {"end_open_at":"2022-04-27T23:00:00Z","expected_rows":24,"request_id":"index-20220427","series":"indexPriceKlines","start_open_at":"2022-04-27T00:00:00Z"},
+    {"end_open_at":"2022-07-25T23:00:00Z","expected_rows":48,"request_id":"index-20220724-25","series":"indexPriceKlines","start_open_at":"2022-07-24T00:00:00Z"},
+    {"end_open_at":"2022-07-28T23:00:00Z","expected_rows":48,"request_id":"index-20220727-28","series":"indexPriceKlines","start_open_at":"2022-07-27T00:00:00Z"},
+    {"end_open_at":"2022-07-31T23:00:00Z","expected_rows":48,"request_id":"index-20220730-31","series":"indexPriceKlines","start_open_at":"2022-07-30T00:00:00Z"},
+    {"end_open_at":"2022-10-02T23:00:00Z","expected_rows":24,"request_id":"index-20221002","series":"indexPriceKlines","start_open_at":"2022-10-02T00:00:00Z"},
+    {"end_open_at":"2023-02-13T23:00:00Z","expected_rows":24,"request_id":"index-20230213","series":"indexPriceKlines","start_open_at":"2023-02-13T00:00:00Z"},
+    {"end_open_at":"2023-02-24T23:00:00Z","expected_rows":24,"request_id":"index-20230224","series":"indexPriceKlines","start_open_at":"2023-02-24T00:00:00Z"},
+    {"end_open_at":"2023-04-08T23:00:00Z","expected_rows":48,"request_id":"index-20230407-08","series":"indexPriceKlines","start_open_at":"2023-04-07T00:00:00Z"},
+    {"end_open_at":"2020-12-01T23:00:00Z","expected_rows":1,"request_id":"premium-20201201-23","series":"premiumIndexKlines","start_open_at":"2020-12-01T23:00:00Z"},
+    {"end_open_at":"2021-07-01T23:00:00Z","expected_rows":24,"request_id":"premium-20210701","series":"premiumIndexKlines","start_open_at":"2021-07-01T00:00:00Z"},
+    {"end_open_at":"2021-07-27T23:00:00Z","expected_rows":96,"request_id":"premium-20210724-27","series":"premiumIndexKlines","start_open_at":"2021-07-24T00:00:00Z"},
+    {"end_open_at":"2022-10-02T23:00:00Z","expected_rows":24,"request_id":"premium-20221002","series":"premiumIndexKlines","start_open_at":"2022-10-02T00:00:00Z"},
+    {"end_open_at":"2023-02-24T23:00:00Z","expected_rows":24,"request_id":"premium-20230224","series":"premiumIndexKlines","start_open_at":"2023-02-24T00:00:00Z"}
+  ],
+  "gates": {
+    "combined_duplicate_open_times": 0,
+    "combined_hourly_calendar_gaps": 0,
+    "combined_invalid_rows": 0,
+    "combined_row_count_per_series": 52608,
+    "exact_frozen_timestamp_set_per_response": true,
+    "http_status_required": 200,
+    "no_interpolation_or_substitution": true,
+    "response_rows_outside_frozen_request": 0,
+    "source_response_sha256_required": true
+  },
+  "http": {
+    "credentials": "forbidden",
+    "interval": "1h",
+    "limit": "exact_expected_rows",
+    "method": "GET",
+    "scheme": "https",
+    "timeout_seconds": 30
+  },
+  "official_documentation": [
+    "https://developers.binance.com/en/docs/catalog/core-trading-derivatives-trading-usd-s-m-futures/api/rest-api/market-data",
+    "https://developers.binance.com/docs/derivatives/change-log"
+  ],
+  "output_root": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1",
+  "prohibited": [
+    "authenticated_endpoint",
+    "credentials",
+    "strategy_signal",
+    "parameter_selection",
+    "return_or_PnL_calculation",
+    "position_or_order_simulation",
+    "regime_model",
+    "interpolation",
+    "alternate_venue_substitution",
+    "2026_historical_market_data",
+    "partial_OB0_access",
+    "protected_service_access"
+  ],
+  "schema_version": "btc-carry-gap-recovery-contract-v1",
+  "status": "frozen_before_any_recovery_request",
+  "successor_semantics": {
+    "b2_negative_result_is_preserved": true,
+    "data_series_gate_may_pass_only_in_this_successor": true,
+    "strategy_readiness_gate_remains_separate": true,
+    "strategy_research_authorized": false
+  }
+}

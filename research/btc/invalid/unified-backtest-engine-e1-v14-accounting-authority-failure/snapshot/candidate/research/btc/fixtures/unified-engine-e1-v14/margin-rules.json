@@ -1,0 +1,1 @@
+{"ADL_assumed":false,"cross_margin":false,"effective_at":"2025-01-01T00:00:00.000000Z","exit_cost_reserve_rate":"0.002","liquidation_fee_rate":"0.005","maintenance_fraction":"0.01","market":"BTCUSDT_USD_M_perpetual","mode":"isolated","portfolio_margin":false,"schema_version":"btc-unified-engine-e1-v13-margin-rules-v1"}

@@ -1,0 +1,47 @@
+{
+  "actionable_arm_id": "no_trade",
+  "artifacts": [
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v6-exact-component-contracts.json",
+      "role": "contract",
+      "sha256": "a9dde626861f434772f85ce11c6470ed8bb59b6e56d54c328308be176c3f9ae8"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V6_COMPONENT_CONTRACT_PLAN.md",
+      "role": "plan",
+      "sha256": "e50a5f6884a319781364553c85fbe4945205bb27329b824fb884564fd4e93d24"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V6_FAILURE_MATRIX.md",
+      "role": "failure_matrix",
+      "sha256": "faf91124559eb9fd54a145ea063a6193e2c4d93f2f4e7952fe9ce571bd6e8b81"
+    },
+    {
+      "path": "research/btc/specs/btc-backtest-component-interfaces-e0-v6.json",
+      "role": "interface_schemas",
+      "sha256": "9b59a7a7b3f2332bfe5d2c0cba9edf15d53029740c10c0ff462b4f5df8fc67aa"
+    },
+    {
+      "path": "research/btc/specs/btc-backtest-component-fixtures-e0-v6.json",
+      "role": "fixture_probe_specification",
+      "sha256": "fa7fd8f11bd4186439d44cbbfada38347a1b62fb351788bedfce2ebd34174d65"
+    },
+    {
+      "path": "research/btc/specs/btc-backtest-inherited-obligations-e0-v6.json",
+      "role": "inherited_obligation_registry",
+      "sha256": "a9deeed66238b76b3cda6e8094a81631cd6191351e0970a210e65ee72ced69f3"
+    },
+    {
+      "path": "scripts/validate_btc_unified_engine_e0_v6.py",
+      "role": "validator",
+      "sha256": "b9a8f5af7ed0697faf3fd84a9104bdf853dd2ba163c42c03d7b457ba87fc8943"
+    },
+    {
+      "path": "research/btc/tests/test_unified_engine_e0_v6.py",
+      "role": "validator_tests",
+      "sha256": "e142932622e67c2bc991f9dc78635ca6c197565377bd0479256ba158fb33bb8f"
+    }
+  ],
+  "experiment_id": "btc-unified-backtest-engine-e0-v6-exact-component-contracts",
+  "status": "frozen_before_independent_review"
+}

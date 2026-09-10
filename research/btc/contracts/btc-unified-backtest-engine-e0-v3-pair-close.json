@@ -1,0 +1,263 @@
+{
+  "action_boundary": {
+    "E1_implementation_allowed_before_independent_v3_pass": false,
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "historical_market_rows_results_metrics_strategy_or_oracle_allowed": false,
+    "live_or_exchange_paper_capital": "0",
+    "production_credentials_network_orders_or_integrations_allowed": false
+  },
+  "adapter_capabilities": {
+    "candle_OHLC": {
+      "intended_leg_timestamp": "both_legs_at_the_same_exact_next_open",
+      "per_leg_fill": "all_or_none",
+      "prohibited": "partial_fill_depth_queue_maker_or_intrabar_claim"
+    },
+    "qualified_quote_or_L2": {
+      "partial_fill_allowed": true,
+      "requirements": "separately_qualified_point_in_time_depth_latency_price_bound_rules_and_source_lineage"
+    }
+  },
+  "atomic_pair_close": {
+    "economic_intention": "reduce_existing_matched_long_spot_short_linear_perpetual_pair_only",
+    "failure_state": {
+      "new_exposure": "disabled",
+      "performance_valid": false,
+      "state": "invalid_unknown_pending_forced_buy_to_close",
+      "trigger": "no_valid_same_or_subsequent_price_for_required_severe_residual_neutralization"
+    },
+    "fees": {
+      "base_spot_fee_feasibility": "gross_spot_sale_plus_base_fee_must_not_exceed_actual_pre_fill_spot_inventory",
+      "fee_mutations": "committed_with_each_fill_and_never_rolled_back",
+      "perpetual_quote_fee_feasibility": "ordinary_close_and_severe_residual_buy_to_close_fees_debit_and_must_be_funded_by_isolated_collateral_only_quote_cash_is_never_an_alternative",
+      "preflight_failure": "reject_entire_pair_close_before_first_leg_without_state_mutation",
+      "severe_fee_funding": "prove_worst_permitted_severe_residual_neutralization_fee_is_payable_before_spot_fill"
+    },
+    "intended_perpetual_close": {
+      "direction": "buy_to_close_short_only",
+      "quantity": "actual_absolute_spot_inventory_reduction_including_base_fee_then_quantized_once_under_perpetual_rules",
+      "upper_bound": "cannot_exceed_absolute_incoming_short_perpetual_quantity",
+      "zero_crossing": "forbidden"
+    },
+    "leg_market_inputs": {
+      "perpetual": "independent_point_in_time_perpetual_price_rules_costs_and_source_digest",
+      "spot": "independent_point_in_time_spot_price_rules_costs_and_source_digest",
+      "substitution": "forbidden_between_legs"
+    },
+    "remaining_pair": {
+      "BTC_quantity_mismatch": "abs(abs(remaining_spot_BTC)-abs(remaining_short_perpetual_BTC))/max(abs(remaining_spot_BTC),abs(remaining_short_perpetual_BTC))",
+      "both_gates_required": true,
+      "flat_case": "both_legs_zero_is_valid",
+      "gate_failure": "make_one_non_recursive_attempt_to_severely_close_entire_remaining_pair_under_same_spot_first_sequence_if_any_fill_rejects_partials_or_leaves_dust_or_mismatch_invalidate_unknown_and_retain_only_pending_safety_intentions",
+      "persistence": "allowed_only_after_intended_and_any_severe_residual_fills_commit_and_both_mismatches_are_within_bound",
+      "point_in_time_notional_mismatch": "abs(abs(remaining_spot_BTC*post_completion_spot_mark)-abs(remaining_short_perpetual_BTC*post_completion_perpetual_mark))/max(abs(remaining_spot_BTC*post_completion_spot_mark),abs(remaining_short_perpetual_BTC*post_completion_perpetual_mark))",
+      "valuation": "first_common_valid_point_in_time_spot_and_official_perpetual_marks_after_final_same_timestamp_or_delayed_neutralization_fill_each_with_observed_at_available_at_source_digest_and_shared_valuation_timestamp",
+      "valuation_failure": "no_remaining_pair_may_persist_mark_invalid_unknown_and_retain_only_protective_actions",
+      "zero_denominator": "mismatch_is_0_only_when_both_corresponding_values_are_0_if_exactly_one_is_0_mismatch_is_1"
+    },
+    "residual_naked_short": {
+      "created_quantity": "actual_spot_inventory_reduction_minus_actual_perpetual_buy_to_close_filled_quantity",
+      "direction": "buy_to_close_only",
+      "first_price": "same_timestamp_first_valid_severe_executable_perpetual_price",
+      "missing_same_timestamp_price": "carry_only_the_forced_safety_intention_to_first_subsequent_valid_price_strictly_inside_frozen_terminal_and_partition_boundary_mark_state_unknown_and_new_exposure_disabled",
+      "purpose": "remove_only_excess_short_created_by_committed_spot_reduction",
+      "second_price": "first_subsequent_valid_severe_executable_perpetual_price",
+      "segment_crossing": "mark_invalid_unknown_before_crossing_permit_only_pending_forced_severe_buy_to_close_at_first_valid_new_segment_price_strictly_inside_frozen_terminal_and_partition_boundary_reset_all_ordinary_pair_and_feature_state_after_fill",
+      "terminal_or_partition_boundary": "never_read_search_or_execute_beyond_boundary_if_no_valid_price_exists_inside_it_remain_invalid_unknown_pending_safety",
+      "unavailable": "invalidate_evaluation_and_never_describe_state_as_delta_neutral"
+    },
+    "sequence": [
+      "preflight_both_intended_legs_and_severe_residual_path",
+      "commit_spot_close_fill_and_fee_first",
+      "derive_actual_spot_inventory_reduction_from_before_after_state",
+      "submit_perpetual_buy_to_close_for_that_reduction",
+      "commit_any_perpetual_fill_without_rollback",
+      "derive_and_severely_buy_to_close_any_created_residual_naked_short",
+      "validate_remaining_pair_quantity_and_notional_mismatch",
+      "emit_all_orders_fills_failures_residuals_and_state_digests"
+    ],
+    "spot_close": {
+      "actual_inventory_reduction": "absolute_pre_fill_spot_BTC_minus_post_fill_spot_BTC_after_all_base_fee_mutations",
+      "direction": "sell_long_inventory_only",
+      "first_leg": true,
+      "full_close_base_fee_solver": "choose_largest_rule_valid_gross_sale_q_such_that_q_plus_effective_base_fee(q)_is_less_than_or_equal_to_pre_fill_inventory",
+      "full_close_dust": "pre_fill_inventory_minus_selected_gross_sale_minus_effective_base_fee(selected_gross_sale)",
+      "full_close_dust_disposition": "voluntary_preflight_requires_exactly_0_dust_otherwise_reject_before_first_fill_unexpected_delayed_safety_dust_is_recorded_and_makes_state_invalid_unknown_with_only_protective_cleanup_allowed",
+      "net_spot_reference": "actual_state_not_requested_quantity_not_gross_fill",
+      "over_sell_or_short_spot": "forbidden"
+    },
+    "timing": {
+      "arrival": "one_declared_timestamp_for_both_intended_legs",
+      "leg_order_not_timestamp_order": "spot_fill_commits_before_perpetual_simulation_at_same_timestamp",
+      "margin_checkpoints": "immediately_after_each_committed_spot_fill_intended_perpetual_fill_and_severe_residual_fill_observed_liquidation_is_terminal_and_stops_all_later_pair_steps",
+      "planned_close_phase": "phase_6_after_phase_4_funding_owned_by_incoming_t_minus_short_and_immediate_post_funding_margin_check",
+      "prices_and_rules": "independent_per_instrument_despite_shared_timestamp",
+      "protective_phase_scope": "preexisting_phase_3_protective_exits_remain_governed_by_E0_v1_and_are_not_reclassified_by_v3"
+    },
+    "transactionality": {
+      "fill_commit": "every_fill_and_fee_mutation_is_final_when_applied",
+      "rollback": "forbidden_after_any_fill",
+      "second_leg_failure": "does_not_delete_reverse_or_reprice_first_leg"
+    }
+  },
+  "authority_bindings": {
+    "execution_config": {
+      "digest_role": "exact_file_bytes_not_semantic_run_settings",
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    },
+    "selected_mandate": {
+      "allowed_exact_triples": [
+        {
+          "mandate_id": "retail-btc-spot-v2",
+          "path": "config/retail_mandate.json",
+          "sha256": "7e34cfb0928b4373bbf52b5c5505f63a2b19e674124059191c1b6c62ec129041"
+        },
+        {
+          "mandate_id": "retail-btc-directional-perpetual-research-v1",
+          "path": "config/mandates/retail-btc-directional-perpetual-research-v1.json",
+          "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d"
+        },
+        {
+          "mandate_id": "retail-btc-delta-neutral-research-v1",
+          "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+          "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+        }
+      ],
+      "pair_close_required_mandate_id": "retail-btc-delta-neutral-research-v1",
+      "preflight": "selected_path_mandate_id_and_exact_file_SHA256_must_equal_one_allowed_triple_and_pair_close_must_select_delta_neutral_triple"
+    },
+    "semantic_run_settings_digest": {
+      "definition": "lowercase_SHA256_of_E0_v1_canonical_JSON_object_over_required_fields_excluding_only_semantic_run_settings_digest",
+      "required": true,
+      "required_fields": [
+        "adapter_id",
+        "scenario_id",
+        "selected_mandate_path",
+        "selected_mandate_id",
+        "selected_mandate_exact_file_sha256",
+        "execution_config_exact_file_sha256",
+        "spot_rules_digest",
+        "perpetual_rules_digest",
+        "spot_fee_policy_digest",
+        "perpetual_fee_policy_digest",
+        "severe_price_and_cost_bound_digest",
+        "mismatch_limit",
+        "arrival_timestamp",
+        "source_digests"
+      ],
+      "separate_from": [
+        "execution_config_exact_file_digest",
+        "selected_mandate_exact_file_digest"
+      ]
+    }
+  },
+  "bound_mismatch_limit": {
+    "fraction": "0.01",
+    "source": "retail-btc-delta-neutral-research-v1_and_E0_v1_atomic_pair"
+  },
+  "enumerated_outcomes": {
+    "candle_spot_full_perpetual_full": "commit_both_then_test_margin_and_remaining_pair_gates",
+    "candle_spot_full_perpetual_zero_or_rejected": "commit_spot_record_perpetual_failure_then_severely_buy_to_close_full_created_residual",
+    "candle_spot_zero_or_rejected": "record_spot_order_status_do_not_submit_perpetual_pair_remains_unchanged",
+    "intended_perpetual_quantizes_to_zero": "record_rejected_intended_leg_and_treat_entire_actual_spot_reduction_as_severe_residual",
+    "qualified_quote_L2_perpetual_partial": "commit_partial_fill_then_severely_buy_to_close_actual_spot_reduction_minus_actual_perpetual_fill",
+    "qualified_quote_L2_spot_partial": "commit_actual_partial_spot_and_fee_mutations_then_size_perpetual_close_from_actual_inventory_reduction",
+    "residual_below_perpetual_minimum_or_step": "voluntary_preflight_rejects_before_spot_fill_if_unforeseen_after_commit_mark_invalid_unknown_and_retain_one_pending_forced_safety_close_without_recursive_retry",
+    "spot_quantizes_to_zero_or_fails_minimum": "reject_whole_close_before_mutation_and_record_requested_quantized_zero_rejected_and_unfilled_quantities",
+    "whole_pair_forced_close": "one_attempt_only_no_recursive_pair_close_if_not_flat_and_valid_after_attempt_invalidate_unknown_and_retain_pending_safety_actions"
+  },
+  "inheritance": {
+    "E0_v1": {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e"
+    },
+    "E0_v2": {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "sha256": "201bbaad8f1fb6e00efdc2b3c25d632d0d3da94d8b8521c2f92b37da29cde887"
+    },
+    "rule": "all_v1_and_v2_requirements_remain_binding_v3_only_replaces_or_clarifies_atomic_pair_close_wording"
+  },
+  "output_requirements": {
+    "record_each": [
+      "intended_spot_order_requested_quantized_filled_and_unfilled_quantity",
+      "intended_spot_fill_or_rejection_and_native_fee",
+      "actual_spot_inventory_reduction",
+      "intended_perpetual_order_requested_quantized_filled_and_unfilled_quantity",
+      "intended_perpetual_fill_rejection_or_expiry",
+      "created_residual_naked_short_quantity",
+      "severe_residual_order_fill_rejection_expiry_and_cost",
+      "remaining_pair_quantity_and_notional_mismatch",
+      "before_and_after_state_digests_event_residual_sources_rules_and_invalidation_reason"
+    ],
+    "rejected_unfilled_and_residual": "never_omitted_netted_away_or_rewritten",
+    "row_digest": "required_under_E0_v1_canonical_lineage_contract"
+  },
+  "paused_unqualified_E1_evidence": {
+    "disposition": "paused_non_importable_non_qualified_draft_pending_successor_work_not_an_active_or_passed_kernel",
+    "module": {
+      "path": "src/trading_platform/btc_decimal_ledger_e1.py",
+      "sha256": "1b482ca6f46ec4016e6e155401dd57281d8796dacbb627314d5bb8ce071558de"
+    },
+    "test": {
+      "path": "research/btc/tests/test_btc_decimal_ledger_e1.py",
+      "sha256": "4cbe50831593fcdd7b51e6eea4ea31f176253763a3090b01e2871e734f476764"
+    },
+    "use_before_successor_authorization": "forbidden_do_not_import_execute_patch_or_treat_as_E1_evidence"
+  },
+  "preflight": {
+    "arithmetic": {
+      "actual_spot_reduction_R": "for_each_enumerated_spot_outcome_rule_valid_gross_spot_fill_plus_its_actual_base_fee_or_gross_fill_when_fee_is_not_base_bounded_by_pre_fill_inventory_and_incoming_absolute_short_quantity",
+      "adapter_perpetual_fill_set_q_given_R": "for_each_R_candle_set_is_{0,rule_quantized_target(R)}_qualified_quote_L2_set_is_every_realizable_rule_and_point_in_time_depth_fill_outcome_from_0_through_rule_quantized_target(R)_inclusive_with_each_q_specific_execution_price_or_VWAP_and_cost",
+      "adapter_spot_reduction_set_R": "candle_set_is_{0,full_actual_inventory_reduction_after_fee}_qualified_quote_L2_set_is_every_realizable_rule_and_point_in_time_depth_fill_outcome_from_0_through_max_requested_including_each_outcomes_base_fee_mutation_and_own_execution_price_or_VWAP_and_cost",
+      "cartesian_gate": "evaluate_every_ordered_pair_(R,q)_where_R_is_in_adapter_spot_reduction_set_and_q_is_in_adapter_perpetual_fill_set_given_R_reject_before_spot_fill_unless_every_path_is_fee_funded_and_residual_rule_valid",
+      "initial_values": "Q0_is_absolute_incoming_short_quantity_C0_is_preclose_isolated_collateral_IM0_is_preclose_allocated_initial_margin_E_is_average_short_entry",
+      "ordinary_after_cost_before_release_Cpre_R_q": "for_each_(R,q)_C0+q*(E-ordinary_perpetual_execution_price_or_VWAP(R,q))-ordinary_quote_fee(R,q)-ordinary_implicit_cash_debit(R,q)",
+      "ordinary_cash_release_R_q": "for_each_(R,q)_min(IM0*q/Q0,max(Cpre_R_q,0))",
+      "ordinary_fee_funded_gate": "for_every_(R,q)_C0+q*(E-ordinary_perpetual_execution_price_or_VWAP(R,q))_must_be_greater_than_or_equal_to_ordinary_quote_fee(R,q)+ordinary_implicit_cash_debit(R,q)",
+      "ordinary_post_release_C1_R_q": "for_each_(R,q)_Cpre_R_q-ordinary_cash_release_R_q",
+      "residual_r_R_q": "for_each_(R,q)_r_R_q=R-q_required_nonnegative_and_not_greater_than_Q0-q_if_r_R_q_is_0_no_severe_order_is_submitted_and_residual_valid_gate_passes_if_r_R_q_is_greater_than_0_it_must_pass_step_quantity_min_notional_upper_bound_price_and_fee_conditions_or_preflight_rejects",
+      "rule": "evaluate_in_declared_order_with_exact_Decimal_and_v2_pre_reduction_denominator_no_quote_cash_substitution",
+      "severe_before_release_Cpre2_q": "for_each_(R,q)_C1_R_q+r_R_q*(E-worst_permitted_severe_perpetual_price(R,q))-severe_quote_fee(R,q,r_R_q)-severe_implicit_cash_debit(R,q,r_R_q)",
+      "severe_fee_funded_gate": "for_every_(R,q)_C1_R_q+r_R_q*(E-worst_permitted_severe_perpetual_price(R,q))_must_be_greater_than_or_equal_to_severe_quote_fee(R,q,r_R_q)+severe_implicit_cash_debit(R,q,r_R_q)"
+    },
+    "before_first_leg": true,
+    "must_prove": [
+      "spot_and_perpetual_effective_rules_available_at_shared_arrival_timestamp",
+      "each_leg_uses_its_own_valid_price_and_source_lineage",
+      "spot_gross_quantity_plus_base_fee_cannot_exceed_inventory",
+      "ordinary_perpetual_close_fee_is_funded",
+      "worst_permitted_severe_residual_buy_to_close_fee_is_funded",
+      "severe_residual_order_can_be_quantized_without_crossing_perpetual_zero",
+      "planned_full_or_partial_close_cannot_create_naked_long_or_short_by_intent"
+    ],
+    "on_failure": "reject_entire_intention_without_any_state_mutation"
+  },
+  "prohibited": [
+    "naked_exposure_as_intended_or_valid_terminal_state",
+    "perpetual_or_spot_leg_price_substitution",
+    "fill_rollback",
+    "candle_partial_fill",
+    "selling_requested_instead_of_actual_available_spot_inventory",
+    "perpetual_close_larger_than_actual_spot_reduction_or_incoming_short",
+    "omitting_failed_partial_unfilled_or_residual_records",
+    "historical_strategy_metric_or_market_access",
+    "credentials_network_orders_live_or_production_integration"
+  ],
+  "qualification_gates": {
+    "authority_and_paused_draft_exact_file_hashes_verify": true,
+    "canonical_deterministic_contract_and_bound_hashes": true,
+    "full_spot_partial_perpetual_partial_perpetual_rejected_base_fee_quote_fee_same_timestamp_and_delayed_neutralization_fixtures_unambiguous": true,
+    "no_v3_kernel_test_or_market_data_created_or_run_and_paused_draft_remains_unqualified": true,
+    "only_no_trade_actionable": true,
+    "spot_first_commit_and_residual_close_semantics_independently_accepted": true
+  },
+  "qualification_id": "btc-unified-backtest-engine-e0-v3-pair-close",
+  "schema_version": "btc-unified-backtest-engine-pair-close-clarification-e0-v3",
+  "status": "frozen_before_any_successor_E1_pending_independent_review",
+  "subsequent_phase_boundary": {
+    "on_fail": "replace_under_new_E0_ID_without_kernel_work",
+    "on_pass": "a_separately_authorized_fresh_E1_may_implement_combined_v1_v2_v3_synthetic_semantics",
+    "still_prohibited": "historical_data_strategy_metrics_oracle_paper_live_and_production_work"
+  }
+}

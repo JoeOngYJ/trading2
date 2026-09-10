@@ -1,0 +1,105 @@
+{
+  "program_id": "btc-regime-strategy-routing-v1",
+  "required_session_start_paths": [
+    "AGENTS.md",
+    "artifacts/agent-level-experiment/btc-online-regime-breakout/development-v1/manifest.json",
+    "config/experiments/btc-regime-routing-s0-v1.json",
+    "config/research/btc-regime-routing-program-v1.json",
+    "config/research/btc-regime-routing-status-v1.json",
+    "docs/BTC_REGIME_STRATEGY_ROUTING_HANDOFF.md",
+    "docs/BTC_REGIME_STRATEGY_ROUTING_PROGRAM.md",
+    "docs/EXECUTION_COST_MODEL.md",
+    "docs/RESEARCH_TRACKER.md",
+    "docs/RETAIL_TRADING_MANDATE.md",
+    "docs/STRATEGY_RESEARCH_STANDARD.md"
+  ],
+  "safety_boundaries": {
+    "actionable_arm_id": "no_trade",
+    "allowed_inputs": [
+      "synthetic_fixtures",
+      "repository_metadata"
+    ],
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "running_soak_access_allowed": false
+  },
+  "schema_version": "regime-routing-program-v1",
+  "stages": [
+    {
+      "dependencies": [],
+      "next_action": "Freeze S0 as passed and wait for a separate S1 implementation request.",
+      "objective": "Create durable context, immutable offline interfaces, a counterfactual arm registry, and fail-closed validation without market-model evaluation.",
+      "pass_gate": "Canonical serialization and checksums are stable; stale or invalid context fails; synthetic counterfactual ranking works; every actionable decision is no_trade; isolated modules have no runtime or external-service imports.",
+      "stage_id": "S0"
+    },
+    {
+      "dependencies": [
+        "S0"
+      ],
+      "next_action": "Freeze S1 evidence and request approval before beginning S2.",
+      "objective": "Build the shared causal segment-aware research ledger and adapt the unchanged fixed breakout control.",
+      "pass_gate": "Exact 5-minute, 4-hour, and daily aggregation, point-in-time observations, breakout reproduction and BTC evidence boundaries pass without model fitting or holdout access.",
+      "stage_id": "S1"
+    },
+    {
+      "dependencies": [
+        "S1"
+      ],
+      "next_action": "Freeze the EWMA control regardless of outcome before any latent-state work.",
+      "objective": "Evaluate a causal continuous EWMA volatility overlay that can only scale the breakout allocation downward from 10 percent.",
+      "pass_gate": "Fixed and scaled allocations are compared at 30, 40, and 80 bps with unchanged direction and entry timestamps.",
+      "stage_id": "S2"
+    },
+    {
+      "dependencies": [
+        "S2"
+      ],
+      "next_action": "Apply the frozen conditional branch rule to S4; do not search alternative latent models.",
+      "objective": "Chronologically evaluate the frozen two-state Student-t HMM as a risk-only continuous exposure overlay.",
+      "pass_gate": "All predeclared occupancy, transition, dwell, forward-risk separation, label-stability, cost, return-retention, Calmar, tail-loss and concentration gates are reported and enforced.",
+      "stage_id": "S3"
+    },
+    {
+      "dependencies": [
+        "S3"
+      ],
+      "next_action": "Continue to S5 after recording pass, rejection, or predeclared skip.",
+      "objective": "Conditionally evaluate one statistical jump model only if the HMM separates forward risk but fails transition or dwell stability.",
+      "pass_gate": "The branch is skipped when HMM passes, stopped when HMM lacks separation, or the jump model beats both EWMA and HMM under identical frozen gates.",
+      "stage_id": "S4"
+    },
+    {
+      "dependencies": [
+        "S3"
+      ],
+      "next_action": "Pause unless two economically distinct strategy families are independently accepted.",
+      "objective": "Establish independent acceptance evidence for at least two economically distinct strategy arms.",
+      "pass_gate": "At least two arms from distinct families pass separate causal research programs; breakout speed variants count as one trend family.",
+      "stage_id": "S5"
+    },
+    {
+      "dependencies": [
+        "S5"
+      ],
+      "next_action": "Lock the complete pipeline before any final-partition decision.",
+      "objective": "Evaluate counterfactual routing against single-arm, static-blend, flat and exposure-matched controls.",
+      "pass_gate": "Chronological shared-capital results show stable incremental net performance, transition attribution and acceptable turnover under all frozen costs while actionable output remains no_trade.",
+      "stage_id": "S6"
+    },
+    {
+      "dependencies": [
+        "S6"
+      ],
+      "next_action": "Require a separate mandate and explicit approval for any runtime integration or live-capital proposal.",
+      "objective": "Perform one locked evaluation when eligible and collect adequate prospective paper-observer evidence.",
+      "pass_gate": "At least 12 months, 30 filled routed trades and four risk-state transitions are observed with availability, costs, fills and decay recorded.",
+      "stage_id": "S7"
+    }
+  ]
+}

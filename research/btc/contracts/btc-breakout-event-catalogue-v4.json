@@ -1,0 +1,184 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "cost_or_pnl_calculation_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/BTCUSDT-5m-taker-trade-flow-development-2017-2025-316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8.csv.gz",
+      "sha256": "316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+      "sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "research/btc/reports/BTC_UPSIDE_BREAKOUT_RESEARCH_PLAN_V2.md",
+      "sha256": "52874e4b877143b92fe7bb1d542627ce2d620f65ca24a34bf33d0788f17e94fb"
+    },
+    {
+      "path": "src/trading_platform/btc_breakout_events.py",
+      "sha256": "92123e614bb32d50598cfbffff5b937aa3ad48233513f4e9fd1115f169ce8ffb"
+    },
+    {
+      "path": "scripts/run_btc_breakout_event_catalogue.py",
+      "sha256": "5c8a52ea8a0a8c59c2fab80572243b019a0af9071823d35a49f20bf025f20c67"
+    },
+    {
+      "path": "tests/test_btc_breakout_events.py",
+      "sha256": "90ac2b8f566a08c342fb03c782154a77bc425b8d48d8389a199374fbef223724"
+    }
+  ],
+  "catalogue_rules": {
+    "activation": "third_consecutive_eligible_4h_width_at_or_below_its_own_past_only_q20_after_any_suppression_reset",
+    "activation_expiry_hours": 168,
+    "compression_duration_model_field": "compression_duration_bars_counted_after_suppression_reset_hours_is_descriptive_bars_times_4",
+    "compression_percentile": "midrank_equal_to_count_prior_width_less_than_current_plus_half_count_equal_divided_by_540",
+    "compression_quantile": 0.2,
+    "compression_quantile_method": "linear",
+    "compression_reference_widths": 540,
+    "compression_required_consecutive_bars": 3,
+    "confirmation": "first_later_complete_same_segment_1h_close_strictly_above_frozen_range_high",
+    "confirmation_at_exact_168h_deadline": "included_and_takes_precedence_over_expiry_then_receives_a_fresh_full_168h_path",
+    "confirmation_bar": "exactly_12_contiguous_same_segment_5m_rows_with_open_at_or_after_activation",
+    "decision_and_availability": "confirmation_1h_close",
+    "downside_setup_invalidation": "first_later_complete_same_segment_1h_close_strictly_below_frozen_range_low_equality_does_not_invalidate",
+    "eligible_fill": "same_segment_5m_open_exactly_equal_to_confirmation_close",
+    "fill_below_or_equal_frozen_high": "episode_retained_but_model_ready_false_with_fill_not_above_frozen_upper",
+    "overlap_suppression": "reset_compression_run_to_zero_during_suppression_and_suppress_through_confirmation_plus_168h_or_segment_end_for_confirmed_episode_otherwise_through_setup_termination",
+    "range_bars": 42,
+    "range_definition": "log_max_high_over_min_low_of_exactly_42_completed_same_segment_4h_bars_strictly_before_activation",
+    "range_high_and_low": "max_high_and_min_low_from_the_same_42_pre_activation_bars",
+    "width_reference_excludes_current": true
+  },
+  "chronology": {
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_is_promotion_holdout": false,
+    "development_start_inclusive": "2017-08-17T04:00:00Z",
+    "market_timezone": "UTC",
+    "segment_crossing": "forbidden_and_fail_closed",
+    "year_2026_access": "forbidden"
+  },
+  "disposition_rules": {
+    "catalogue_passed_engineering_only": "all_causality_continuity_determinism_context_and_output_checks_pass",
+    "model_count_preflight": "reported_separately_and_does_not_change_BEX1_engineering_disposition",
+    "promotion_or_live_evidence": false,
+    "rejected": "any_required_causality_continuity_context_or_output_check_fails",
+    "strategy_arm_acceptance_possible": false
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex1-v4",
+  "feature_rules": {
+    "activity_diagnostic_only": true,
+    "confirmation_hour_fraction_above_range": "fraction_of_12_confirmation_hour_5m_closes_strictly_above_frozen_range_high",
+    "hour_of_week": "UTC_Monday_zero_weekday_times_24_plus_confirmation_close_hour",
+    "lagged_activity_reference": "arithmetic_mean_of_immediately_preceding_20_nonoverlapping_24h_totals_same_segment",
+    "lagged_activity_surprise": "log_24h_total_ending_at_confirmation_hour_open_divided_by_reference",
+    "lagged_activity_warmup_hours": 504,
+    "missing_activity_behavior": "null_with_explicit_reason_never_imputed",
+    "normalized_penetration": "log_confirmation_close_over_frozen_range_high_divided_by_sigma24",
+    "primary_price_only_features": [
+      "compression_percentile",
+      "compression_duration_bars",
+      "range_width_log",
+      "range_width_over_sigma7d",
+      "sigma24_over_sigma7d",
+      "confirmation_log_penetration_over_sigma24",
+      "confirmation_hour_fraction_5m_closes_above_upper",
+      "hour_of_week_sine",
+      "hour_of_week_cosine"
+    ],
+    "trigger_hour_return_range_volume_trade_count_taker_or_jump_features": "forbidden"
+  },
+  "frozen_at": "2026-09-01T00:42:55Z",
+  "input_contract": {
+    "expected_rows": 878985,
+    "instrument": "BTCUSDT",
+    "interval": "5m",
+    "raw_fields_exact": [
+      "segment_id",
+      "open_time_ms",
+      "close_time_ms",
+      "open",
+      "high",
+      "low",
+      "close",
+      "base_volume",
+      "quote_volume",
+      "trade_count"
+    ],
+    "rules": [
+      "open_time_ms_aligned_to_300000ms",
+      "raw_close_time_ms_equals_open_time_ms_plus_299999ms",
+      "available_and_derived_close_time_equals_open_time_ms_plus_300000ms",
+      "strictly_increasing_rows",
+      "positive_finite_OHLC",
+      "nonnegative_finite_activity",
+      "exact_5m_spacing_inside_each_segment",
+      "closed_segments_may_not_reappear",
+      "derived_1h_requires_12_and_4h_requires_48_complete_rows",
+      "no_feature_or_label_window_crosses_segments",
+      "source_checksum_and_row_count_must_match",
+      "last_derived_close_strictly_before_2026"
+    ]
+  },
+  "label_rules": {
+    "administrative_horizon_hours": 168,
+    "continuation": "first_completed_same_segment_1h_close_strictly_after_confirmation_with_log_close_over_fill_at_least_sigma24",
+    "event_names": [
+      "continuation",
+      "range_reentry"
+    ],
+    "event_tie_precedence": "range_reentry",
+    "expiry": "administrative_right_censoring_not_an_event_class",
+    "path_start": "first_completed_1h_bar_strictly_after_confirmation",
+    "range_reentry": "first_completed_same_segment_1h_close_strictly_after_confirmation_at_or_below_frozen_range_high",
+    "segment_end": "right_censoring",
+    "sigma24": "sqrt_sum_squared_exactly_6_strictly_pre_confirmation_completed_same_segment_4h_close_to_close_log_returns",
+    "sigma7d": "sqrt_sum_squared_exactly_42_strictly_pre_confirmation_completed_same_segment_4h_close_to_close_log_returns",
+    "zero_or_nonfinite_sigma": "model_ready_false_with_reason"
+  },
+  "model_sample_preflight": {
+    "confirmed_episodes_minimum": 200,
+    "continuation_events_minimum": 60,
+    "range_reentry_events_minimum": 60,
+    "rule": "failure_blocks_BEX2_without_relaxation_but_does_not_invalidate_BEX1_catalogue"
+  },
+  "outputs": {
+    "catalogue": "artifacts/agent-level-experiment/btc-focused/upside-compression-breakout-v1/bex1-v4/events.jsonl.gz",
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/upside-compression-breakout-v1/bex1-v4/evidence-manifest.json",
+    "path_scope": "24h_72h_168h_snapshots_with_raw_and_timestamped_MFE_MAE_displacement_outside_fraction_and_efficiency_not_a_full_5m_path_artifact",
+    "preflight_report": "artifacts/agent-level-experiment/btc-focused/upside-compression-breakout-v1/bex1-v4/event-preflight-report.json"
+  },
+  "prohibited": [
+    "strategy_return_or_PnL",
+    "entry_exit_position_size_cost_or_leverage_simulation",
+    "parameter_or_threshold_tuning_after_outcomes",
+    "rejected_regime_or_market_condition_scores",
+    "BOCPD_HMM_efficiency_reversion_or_tail_features",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-breakout-event-catalogue-contract-v4",
+  "status": "frozen_before_historical_event_outcomes"
+}

@@ -1,0 +1,230 @@
+name: tauric-freqtrade
+
+x-platform-environment: &platform-environment
+  PLATFORM_ENVIRONMENT: ${PLATFORM_ENVIRONMENT:-production}
+  PLATFORM_DATABASE_URL: postgresql://platform:${POSTGRES_PASSWORD}@postgres:5432/platform
+  PLATFORM_HMAC_SECRET: ${PLATFORM_HMAC_SECRET}
+  PLATFORM_PAIR_MAP_PATH: /app/config/pair_map.json
+  PLATFORM_SNAPSHOT_DIR: /signals
+  PLATFORM_ARTIFACT_DIR: /artifacts
+  PLATFORM_BOT_ID: ${PLATFORM_BOT_ID:-freqtrade-primary}
+  PLATFORM_EXCHANGE: ${PLATFORM_EXCHANGE:-binance}
+  PLATFORM_TIMEFRAME: ${PLATFORM_TIMEFRAME:-5m}
+  PLATFORM_AUDIT_TOKEN: ${PLATFORM_AUDIT_TOKEN}
+
+x-platform-service: &platform-service
+  build:
+    context: .
+    target: platform
+  restart: unless-stopped
+  init: true
+  networks: [control]
+  depends_on:
+    postgres:
+      condition: service_healthy
+  environment: *platform-environment
+  security_opt: [no-new-privileges:true]
+  cap_drop: [ALL]
+
+services:
+  postgres:
+    image: postgres:17.4-bookworm
+    restart: unless-stopped
+    networks: [control]
+    environment:
+      POSTGRES_DB: platform
+      POSTGRES_USER: platform
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U platform -d platform"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    security_opt: [no-new-privileges:true]
+    shm_size: 256mb
+
+  nats:
+    image: nats:2.11.1-alpine
+    restart: unless-stopped
+    networks: [control]
+    command: ["--config", "/etc/nats/nats-server.conf"]
+    environment:
+      NATS_SIGNAL_PUBLISHER_PASSWORD: ${NATS_SIGNAL_PUBLISHER_PASSWORD}
+      NATS_FREQTRADE_BRIDGE_PASSWORD: ${NATS_FREQTRADE_BRIDGE_PASSWORD}
+    volumes:
+      - ./config/nats-server.conf:/etc/nats/nats-server.conf:ro
+      - nats_data:/data/jetstream
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1:8222/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    security_opt: [no-new-privileges:true]
+
+  scheduler:
+    <<: *platform-service
+    command: ["platform-scheduler"]
+    environment:
+      <<: *platform-environment
+      PLATFORM_ANALYSIS_SCHEDULE_SECONDS: ${PLATFORM_ANALYSIS_SCHEDULE_SECONDS:-900}
+
+  market-collector:
+    <<: *platform-service
+    networks: [control, exchange]
+    command: ["platform-market-collector"]
+    environment:
+      <<: *platform-environment
+      PLATFORM_MARKET_DATA_MODE: ${PLATFORM_MARKET_DATA_MODE:-synthetic}
+      PLATFORM_MARKET_COLLECTION_SECONDS: ${PLATFORM_MARKET_COLLECTION_SECONDS:-60}
+      PLATFORM_MAX_CLOCK_OFFSET_MS: ${PLATFORM_MAX_CLOCK_OFFSET_MS:-2000}
+    volumes:
+      - source_artifacts:/artifacts
+
+  worker:
+    <<: *platform-service
+    networks: [control, exchange]
+    build:
+      context: .
+      target: ${WORKER_TARGET:-platform}
+      args:
+        TRADINGAGENTS_REF: ${TRADINGAGENTS_REF:-01477f9afb7a47b849ed4c9259d3a9a4738d9fda}
+    command: ["platform-worker"]
+    environment:
+      <<: *platform-environment
+      PLATFORM_RESEARCH_MODE: ${PLATFORM_RESEARCH_MODE:-synthetic}
+      PLATFORM_ANALYSIS_LEASE_SECONDS: ${PLATFORM_ANALYSIS_LEASE_SECONDS:-900}
+      PLATFORM_ANALYSIS_LEASE_RENEW_SECONDS: ${PLATFORM_ANALYSIS_LEASE_RENEW_SECONDS:-60}
+      PLATFORM_PRODUCER_VERSION: ${TRADINGAGENTS_REF:-01477f9afb7a47b849ed4c9259d3a9a4738d9fda}
+      PLATFORM_CODE_REVISION: ${PLATFORM_CODE_REVISION:-unknown}
+      PLATFORM_LLM_PROVIDER: ${PLATFORM_LLM_PROVIDER:-openai}
+      PLATFORM_DEEP_MODEL: ${PLATFORM_DEEP_MODEL:-configured-by-tradingagents}
+      PLATFORM_QUICK_MODEL: ${PLATFORM_QUICK_MODEL:-configured-by-tradingagents}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      TRADINGAGENTS_CACHE_DIR: /home/platform/.tradingagents/cache
+      TRADINGAGENTS_MEMORY_LOG_PATH: /home/platform/.tradingagents/memory/trading_memory.md
+    volumes:
+      - tradingagents_data:/home/platform/.tradingagents
+      - source_artifacts:/artifacts:ro
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: "2.0"
+
+  outbox:
+    <<: *platform-service
+    command: ["platform-outbox"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      nats: {condition: service_healthy}
+    environment:
+      <<: *platform-environment
+      PLATFORM_NATS_URL: nats://signal_publisher:${NATS_SIGNAL_PUBLISHER_PASSWORD}@nats:4222
+      PLATFORM_OUTBOX_BATCH_SIZE: ${PLATFORM_OUTBOX_BATCH_SIZE:-100}
+      PLATFORM_OUTBOX_CLAIM_SECONDS: ${PLATFORM_OUTBOX_CLAIM_SECONDS:-600}
+
+  bridge:
+    <<: *platform-service
+    command: ["platform-bridge"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      nats: {condition: service_healthy}
+    environment:
+      <<: *platform-environment
+      PLATFORM_NATS_CONSUMER_URL: nats://freqtrade_bridge:${NATS_FREQTRADE_BRIDGE_PASSWORD}@nats:4222
+    volumes:
+      - signal_snapshots:/signals
+
+  audit-api:
+    <<: *platform-service
+    command: ["platform-audit"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/healthz')"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  freqtrade:
+    image: freqtradeorg/freqtrade:stable
+    restart: unless-stopped
+    init: true
+    networks: [control, exchange]
+    depends_on:
+      bridge: {condition: service_started}
+      audit-api: {condition: service_healthy}
+    command:
+      - trade
+      - --config
+      - /freqtrade/user_data/config.json
+      - --strategy
+      - ReliableSignalStrategy
+      - --logfile
+      - /freqtrade/user_data/logs/freqtrade.log
+    environment:
+      PLATFORM_ENVIRONMENT: ${PLATFORM_ENVIRONMENT:-production}
+      PLATFORM_HMAC_SECRET: ${PLATFORM_HMAC_SECRET}
+      PLATFORM_SNAPSHOT_DIR: /signals
+      PLATFORM_BOT_ID: ${PLATFORM_BOT_ID:-freqtrade-primary}
+      PLATFORM_EXCHANGE: ${PLATFORM_EXCHANGE:-binance}
+      PLATFORM_TIMEFRAME: ${PLATFORM_TIMEFRAME:-5m}
+      FREQTRADE__API_SERVER__USERNAME: ${PLATFORM_FREQTRADE_USERNAME:-freqtrader}
+      FREQTRADE__API_SERVER__PASSWORD: ${PLATFORM_FREQTRADE_PASSWORD}
+      FREQTRADE__API_SERVER__JWT_SECRET_KEY: ${FREQTRADE_JWT_SECRET}
+      FREQTRADE__API_SERVER__WS_TOKEN: ${FREQTRADE_WS_TOKEN}
+      FREQTRADE__WEBHOOK__URL: http://audit-api:8090/v1/execution-events?token=${PLATFORM_AUDIT_TOKEN}
+    volumes:
+      - ./user_data:/freqtrade/user_data
+      - signal_snapshots:/signals:ro
+    ports:
+      - "127.0.0.1:8080:8080"
+    security_opt: [no-new-privileges:true]
+
+  reconciler:
+    <<: *platform-service
+    command: ["platform-reconcile"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      freqtrade: {condition: service_started}
+    environment:
+      <<: *platform-environment
+      PLATFORM_FREQTRADE_URL: http://freqtrade:8080
+      PLATFORM_FREQTRADE_USERNAME: ${PLATFORM_FREQTRADE_USERNAME:-freqtrader}
+      PLATFORM_FREQTRADE_PASSWORD: ${PLATFORM_FREQTRADE_PASSWORD}
+
+  monitor:
+    <<: *platform-service
+    command: ["platform-monitor"]
+    ports:
+      - "127.0.0.1:9100:9100"
+
+  prometheus:
+    image: prom/prometheus:v3.2.1
+    profiles: [observability]
+    restart: unless-stopped
+    networks: [control]
+    command: ["--config.file=/etc/prometheus/prometheus.yml", "--storage.tsdb.retention.time=30d"]
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    depends_on:
+      monitor: {condition: service_started}
+    ports:
+      - "127.0.0.1:9090:9090"
+    security_opt: [no-new-privileges:true]
+
+networks:
+  control:
+    internal: true
+  exchange: {}
+
+volumes:
+  postgres_data: {}
+  nats_data: {}
+  signal_snapshots: {}
+  tradingagents_data: {}
+  prometheus_data: {}
+  source_artifacts: {}

@@ -1,0 +1,188 @@
+{
+  "accepted_strategy_arms": [],
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "historical_non_pnl_event_outcome_access_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "strategy_backtest_allowed_before_contract_freeze": false,
+    "strategy_market_return_or_pnl_access_allowed": false
+  },
+  "active_direction_id": "distributed_cusum_trend_onset_upside_long",
+  "active_experiment": null,
+  "candidate": {
+    "candidate_id": "btc-cusum-trend-onset-v1",
+    "economic_mechanism": "A distributed sequence of positive hourly BTC innovations may reflect gradual information diffusion or persistent order imbalance and therefore contain incremental next-72h return information beyond its endpoint return.",
+    "family": "sequential_directional_trend_onset",
+    "hypothesis_state": "TNE1_A_v2_rejected_frozen_trigger_sample_gates_labels_and_models_not_opened",
+    "mandate": {
+      "context_clock": "1h_completed_candles_only",
+      "decision_clock": "1h_completed_candles_only",
+      "direction": "long_or_flat",
+      "instrument": "BTCUSDT",
+      "market": "spot",
+      "maximum_allocation_fraction": 0.25,
+      "research_venue": "Binance_spot",
+      "risk_control": "frozen_EWMA_mandatory_benchmark"
+    },
+    "mandatory_controls": [
+      "flat_no_trade",
+      "BTC_buy_and_hold",
+      "M0_expanding_mean",
+      "M1_endpoint_24h_72h_momentum",
+      "legacy_fixed_20d_10d_breakout_overlap_diagnostic",
+      "prior_compression_and_expansion_event_overlap_diagnostics"
+    ],
+    "novelty_boundary": "The candidate is novel only if distributed online Page-CUSUM path geometry adds chronological forecast information beyond the same event's endpoint 24h and 72h momentum. It remains in the correlated BTC directional-trend family and cannot count as an independent routing arm.",
+    "parameters_deferred_to_later_strategy_backtest_id": [
+      "protective_stop_and_gap_convention",
+      "profit_exit_or_trailing_exit",
+      "maximum_holding_period",
+      "position_sizing_separate_from_signal",
+      "costed_execution_and_unfilled_order_logic",
+      "strategy_PnL_acceptance_and_rejection_gates"
+    ],
+    "permitted_inputs": [
+      "accepted_checksummed_segment_aware_BTC_spot_candles",
+      "completed_candle_prices_only_for_the_primary_hypothesis",
+      "frozen_execution_cost_scenarios_30_40_80_bps",
+      "frozen_EWMA_risk_benchmark_for_separate_sizing_comparison"
+    ],
+    "prohibited": [
+      "opening_market_outcomes_before_the_experiment_contract_is_frozen",
+      "parameter_or_feature_sweep_after_results",
+      "using_rejected_persistence_reversion_downside_jump_or_HMM_scores",
+      "using_a_regime_filter_to_rescue_failed_standalone_alpha",
+      "short_margin_derivatives_options_or_leverage",
+      "accessing_partial_OB0_or_protected_services",
+      "using_sealed_or_ineligible_2026_as_clean_holdout",
+      "production_or_live_integration"
+    ],
+    "routing_family": "btc_directional_trend",
+    "target": "positive_normalized_next_72h_BTC_return_and_incremental_CUSUM_path_information_beyond_endpoint_momentum_before_any_strategy_or_PnL_test"
+  },
+  "context_lineage": [
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "research/btc/contracts/btc-backtest-core-qualification-v1.json",
+      "sha256": "285b5403f515650620227efc43c71864d71f7fce4abe2535f0bb0fe7e02b9029"
+    },
+    {
+      "path": "research/btc/contracts/btc-score-combination-foundation-v1.json",
+      "sha256": "52757b49393cf3dd70d80cf376525637565929ebc3b40b16a7907b3837016a0f"
+    },
+    {
+      "path": "research/btc/contracts/btc-breakout-event-catalogue-v5.json",
+      "sha256": "f52c078aa05144e97e0c6cc69570090dec1c165522d270f0b9ee9b075654deae"
+    },
+    {
+      "path": "research/btc/reports/BTC_UPSIDE_BREAKOUT_RESEARCH_PLAN_V2.md",
+      "sha256": "52874e4b877143b92fe7bb1d542627ce2d620f65ca24a34bf33d0788f17e94fb"
+    }
+  ],
+  "direction_universe": [
+    {
+      "direction_id": "distributed_cusum_trend_onset_upside_long",
+      "family": "sequential_directional_trend_onset",
+      "position": "long",
+      "status": "rejected_TNE1_A_v2_insufficient_frozen_trigger_sample"
+    },
+    {
+      "direction_id": "range_compression_breakout_upside_long",
+      "family": "range_compression_breakout",
+      "position": "long",
+      "status": "evidence_insufficient_BEX2_not_fitted"
+    },
+    {
+      "direction_id": "range_compression_breakout_downside_short",
+      "family": "range_compression_breakout",
+      "position": "short",
+      "status": "deferred_requires_new_short_mandate"
+    },
+    {
+      "direction_id": "trend_pullback_continuation_upside_long",
+      "family": "trend_pullback_continuation",
+      "position": "long",
+      "status": "deferred"
+    },
+    {
+      "direction_id": "trend_pullback_continuation_downside_short",
+      "family": "trend_pullback_continuation",
+      "position": "short",
+      "status": "deferred_requires_new_short_mandate"
+    },
+    {
+      "direction_id": "consolidation_mean_reversion_lower_edge_long",
+      "family": "consolidation_mean_reversion",
+      "position": "long",
+      "status": "deferred"
+    },
+    {
+      "direction_id": "consolidation_mean_reversion_upper_edge_short",
+      "family": "consolidation_mean_reversion",
+      "position": "short",
+      "status": "deferred_requires_new_short_mandate"
+    },
+    {
+      "direction_id": "failed_breakdown_exhaustion_reversal_long",
+      "family": "exhaustion_failed_break_reversal",
+      "position": "long",
+      "status": "deferred"
+    },
+    {
+      "direction_id": "failed_upside_breakout_reversal_short",
+      "family": "exhaustion_failed_break_reversal",
+      "position": "short",
+      "status": "deferred_requires_new_short_mandate"
+    }
+  ],
+  "evidence_boundaries": [
+    {
+      "boundary": "2017-01-01_through_2025-12-31",
+      "disposition": "consumed_development_for_BTC_price_and_trend_research_not_promotion_holdout"
+    },
+    {
+      "boundary": "2026_history",
+      "disposition": "sealed_or_ineligible_where_existing_contracts_apply_not_clean_holdout"
+    },
+    {
+      "boundary": "after_complete_strategy_contract_freeze",
+      "disposition": "prospective_evidence_required_for_any_future_promotion_review"
+    }
+  ],
+  "next_permitted_action": "do_not_materialize_TNE1_labels_or_models_research_a_materially_new_non_event_sample_hypothesis_before_any_new_freeze",
+  "prior_family_evidence": [
+    {
+      "disposition": "development_control_only_not_accepted",
+      "experiment_id": "btc-fixed-20d-10d-breakout-legacy-control"
+    },
+    {
+      "disposition": "rejected_unstable_years_and_drawdown",
+      "experiment_id": "btc-4h-sma-10-30-development-control"
+    },
+    {
+      "disposition": "rejected_gate_reduced_return_and_information",
+      "experiment_id": "btc-online-regime-breakout-v1"
+    },
+    {
+      "disposition": "rejected",
+      "experiment_id": "btc-volatility-expansion-continuation-v1"
+    }
+  ],
+  "schema_version": "btc-strategy-direction-tracker-v1",
+  "selected_at": "2026-09-01T00:00:00Z",
+  "status": "TNE1_A_v2_rejected_insufficient_frozen_trigger_sample",
+  "tracker_id": "btc-strategy-directions-v1"
+}

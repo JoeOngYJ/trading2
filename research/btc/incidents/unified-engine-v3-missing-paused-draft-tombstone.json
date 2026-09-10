@@ -1,0 +1,33 @@
+{
+  "actionable_arm_id": "no_trade",
+  "current_candidate_disposition": "qualification_revoked_archived_unqualified_do_not_import_copy_repair_or_use_downstream",
+  "current_candidate_evidence": [
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v3-stale-v3-lineage/btc_decimal_ledger_e1.py",
+      "sha256": "d70cca4f0a51e3873b92023a7fadd3f1d3d7440a541e7d5a0121b26e9e8c89f5"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v3-stale-v3-lineage/test_btc_decimal_ledger_e1.py",
+      "sha256": "ba56c8011312279f2ade79d9e54a1a017e02051798748a142b8c8c092f7662b0"
+    }
+  ],
+  "incident_id": "unified-engine-v3-missing-paused-draft-lineage-v1",
+  "lost_expected_evidence": [
+    {
+      "expected_path": "src/trading_platform/btc_decimal_ledger_e1.py",
+      "expected_sha256": "1b482ca6f46ec4016e6e155401dd57281d8796dacbb627314d5bb8ce071558de",
+      "status": "bytes_unavailable_hash_cannot_be_reverified"
+    },
+    {
+      "expected_path": "research/btc/tests/test_btc_decimal_ledger_e1.py",
+      "expected_sha256": "4cbe50831593fcdd7b51e6eea4ea31f176253763a3090b01e2871e734f476764",
+      "status": "bytes_unavailable_hash_cannot_be_reverified"
+    }
+  ],
+  "no_market_strategy_2026_OB0_external_or_production_access": true,
+  "reason": "E0_v3_bound_mutable_active_paths_and_their_bytes_were_changed_after_v3_pass_without_first_archiving_the_paused_snapshot",
+  "recovery_boundary": "E0_v4_lineage_only_contract_then_new_clean_E1_identity_and_independent_qualification",
+  "schema_version": "btc-unified-engine-lineage-tombstone-v1",
+  "v3_contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+  "v3_contract_sha256": "b0cea8cb6b35df31d51c7745a6b2ec1b3a4a3c6ac99f67c4d5db12a021057df1"
+}

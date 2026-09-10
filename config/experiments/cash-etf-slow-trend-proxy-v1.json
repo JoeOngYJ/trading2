@@ -1,0 +1,54 @@
+{
+  "actionable_arm_id": "no_trade",
+  "controls": [
+    "zero_yield_gbp_cash",
+    "static_equal_weight_risky_proxies",
+    "per_asset_buy_and_hold",
+    "5000_seeded_exposure_and_timestamp_matched_random_gates",
+    "sign_inversion_diagnostic"
+  ],
+  "cost_scenarios_round_trip_bps": [
+    10,
+    25,
+    50
+  ],
+  "economic_results_read_before_freeze": false,
+  "experiment_id": "cash-etf-slow-trend-proxy-v1",
+  "family": "cash_etf_slow_trend",
+  "gates": {
+    "best_three_month_positive_pnl_max_fraction": "0.50",
+    "development_and_validation_net_return_positive": true,
+    "maximum_drawdown_fraction": "0.20",
+    "minimum_positive_calendar_year_fraction": "0.60",
+    "paired_month_block_excess_confidence_lower_bound_positive": true,
+    "stress_cost_net_return_positive": true,
+    "validation_minimum_calmar": "0.50",
+    "validation_minimum_sharpe": "0.50"
+  },
+  "primary_cost_round_trip_bps": 25,
+  "proxy_only": true,
+  "robustness_lookback_sessions": [
+    189,
+    315
+  ],
+  "rule": {
+    "allocation_per_risky_proxy": "0.1666666666666666666666666667",
+    "cash_return_assumption": "zero_percent_gbp",
+    "decision_time": "after_last_eligible_us_session_close_each_month",
+    "entry_time": "next_eligible_us_session_open",
+    "lookback_sessions": 252,
+    "positive_rule": "gbp_total_return_strictly_greater_than_zero",
+    "risky_proxy_symbols": [
+      "DBC",
+      "EFA",
+      "GLD",
+      "IEF",
+      "SPY",
+      "TLT"
+    ],
+    "unused_weight": "zero_yield_gbp_cash",
+    "weight_redistribution_allowed": false
+  },
+  "schema_version": "cash-etf-proxy-strategy-contract-v1",
+  "status": "frozen"
+}

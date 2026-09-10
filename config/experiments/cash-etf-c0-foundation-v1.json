@@ -1,0 +1,26 @@
+{
+  "activated_at": "2026-08-30T18:00:00Z",
+  "economic_results_allowed": false,
+  "experiment_id": "cash-etf-c0-foundation-v1",
+  "frozen_hypotheses": [
+    "config/experiments/cash-etf-slow-trend-proxy-v1.json",
+    "config/experiments/cash-etf-turn-of-month-proxy-v1.json"
+  ],
+  "output": {
+    "actionable_arm_id": "no_trade",
+    "accepted_strategy_arms": [],
+    "approved_execution_instruments": []
+  },
+  "predecessor_status_path": "config/research/cross-asset-status-v7.json",
+  "prohibitions": {
+    "broker_private_state_access_allowed": false,
+    "database_access_allowed": false,
+    "direct_futures_data_allowed": false,
+    "live_or_paper_trading_allowed": false,
+    "message_bus_access_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "production_signal_or_order_allowed": false
+  },
+  "schema_version": "cash-etf-c0-foundation-contract-v1",
+  "status": "frozen"
+}

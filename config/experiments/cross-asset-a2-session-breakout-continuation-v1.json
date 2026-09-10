@@ -1,0 +1,150 @@
+{
+  "acceptance_gates": {
+    "best_three_positive_month_profit_share_maximum": "0.50",
+    "development_and_validation_primary_net_return_same_positive_sign": true,
+    "final_partition_may_open_only_if_every_validation_gate_passes": true,
+    "maximum_drawdown_fraction_maximum": "0.12",
+    "minimum_instruments_with_positive_primary_validation_return": 4,
+    "primary_month_block_mean_trade_ci95_lower_bps_minimum": "0",
+    "primary_net_return_minimum": "0",
+    "primary_profit_factor_minimum": "1.10",
+    "primary_sharpe_minimum": "0.75",
+    "random_direction_empirical_percentile_minimum": "0.95",
+    "stress_net_return_minimum": "0",
+    "timestamp_matched_long_and_short_control_outperformance_bps_minimum": "0",
+    "us_equity_pair_positive_profit_share_maximum": "0.50",
+    "validation_filled_trades_minimum": 300
+  },
+  "accounting": {
+    "daily_loss_stop_fraction": "0.01",
+    "hard_drawdown_stop_fraction": "0.20",
+    "initial_equity_gbp": "20000",
+    "intraday_mark_to_market_drawdown_required": true,
+    "maximum_gross_exposure_fraction": "0.70",
+    "maximum_notional_per_position_fraction": "0.15",
+    "maximum_planned_risk_per_position_fraction": "0.0025",
+    "no_leverage": true,
+    "risk_sizes_reported_separately_from_unit_notional_alpha": true,
+    "simultaneous_candidates_scaled_pro_rata_without_ranking": true,
+    "soft_drawdown_stop_fraction": "0.12"
+  },
+  "controls": {
+    "buy_and_hold_disposition": "price_only_overnight_control_prohibited_because_financing_and_dividends_are_unqualified",
+    "flat_no_trade": true,
+    "intraday_always_long_same_session_window": true,
+    "random_direction_replications": 2000,
+    "random_direction_seed": 20260830,
+    "simple_confirmation_return_sign_same_timestamps": true,
+    "timestamp_matched_always_long": true,
+    "timestamp_matched_always_short": true
+  },
+  "costs": {
+    "additional_round_trip_slippage_bps": [
+      0,
+      5,
+      15
+    ],
+    "commission_assumption": "zero_separate_commission_pending_account_pricing_confirmation",
+    "historical_bid_ask_used_directly": true,
+    "primary_round_trip_slippage_bps": 5,
+    "promotion_blocked_until_exact_account_commission_is_confirmed": true,
+    "slippage_split_equally_between_entry_and_exit": true
+  },
+  "data_bindings": {
+    "a1_hourly_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+      "sha256": "1edafecafe08387fac0d1ce8884d7d035602ac2c998ddced250b02e9a0fe0008"
+    },
+    "a1_no_trade_masks_required": true,
+    "data_contract": {
+      "path": "config/research/cross-asset-data-contract-v4.json",
+      "sha256": "c0eddd637a91591ae918628a8eb5a740ca684cb53fa7873aec37af920ee7aaac"
+    },
+    "gbp_conversion_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-gbp-conversion-source-v1/evidence-manifest.json",
+      "sha256": "ccdf18fd96ef3bfb95516bc7caaf3c949fde6852064aa0141b5d78d3284c1080"
+    },
+    "gbp_conversion_instrument_is_not_a_strategy_candidate": true
+  },
+  "economic_hypothesis": "A decisive break beyond the first two liquid local-session hourly ranges, confirmed by the next completed hour, reflects delayed information assimilation and institutional order persistence that continues over the remaining cash session more often than a timestamp-matched direction control after spread and slippage.",
+  "experiment_id": "cross-asset-a2-session-breakout-continuation-v1",
+  "frozen_at": "2026-08-30T12:50:00Z",
+  "instrument_universe": [
+    "SPX500_USD",
+    "NAS100_USD",
+    "DE30_EUR",
+    "UK100_GBP",
+    "XAU_USD",
+    "EUR_USD",
+    "USD_JPY"
+  ],
+  "mandate": {
+    "path": "config/mandates/retail-cross-asset-research-v7.json",
+    "sha256": "a3caaa870c37afc06cab63d09ad78132e21a7ebe1597f3ce7e808b5fe7518f72"
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-continuation-v1",
+    "development_and_validation_only_on_initial_run": true
+  },
+  "partitions": {
+    "development": {
+      "end_exclusive": "2022-01-01T00:00:00Z",
+      "start_inclusive": "2010-01-01T00:00:00Z"
+    },
+    "final_sealed": {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "start_inclusive": "2024-01-01T00:00:00Z"
+    },
+    "initial_run_may_read_final_sealed_values": false,
+    "validation": {
+      "end_exclusive": "2024-01-01T00:00:00Z",
+      "start_inclusive": "2022-01-01T00:00:00Z"
+    }
+  },
+  "prohibitions": {
+    "database_or_message_bus_access_allowed": false,
+    "execution_or_order_creation_allowed": false,
+    "final_partition_access_before_validation_pass_allowed": false,
+    "live_or_paper_trading_allowed": false,
+    "parameter_tuning_after_results_allowed": false,
+    "production_signal_or_position_allowed": false,
+    "ranking_or_selecting_instruments_by_result_allowed": false
+  },
+  "schema_version": "cross-asset-a2-session-breakout-contract-v1",
+  "session_logic": {
+    "confirmation": "mid_close_strictly_above_opening_range_high_is_long_strictly_below_opening_range_low_is_short_else_no_trade",
+    "entry": "next_hour_open_after_confirmation_using_ask_for_long_bid_for_short",
+    "london": {
+      "confirmation_local_hour": 10,
+      "entry_local_hour": 11,
+      "exit_local_hour": 15,
+      "opening_range_local_hours": [
+        8,
+        9
+      ],
+      "timezone": "Europe/London"
+    },
+    "mid_ohlc_definition": "arithmetic_mean_of_historical_bid_and_ask_ohlc_fields",
+    "new_york": {
+      "confirmation_local_hour": 11,
+      "entry_local_hour": 12,
+      "exit_local_hour": 16,
+      "opening_range_local_hours": [
+        9,
+        10
+      ],
+      "timezone": "America/New_York"
+    },
+    "protective_stop": "opposite_opening_range_boundary_with_adverse_open_gap_and_intrabar_touch_filled_conservatively",
+    "session_exit": "exit_hour_open_using_bid_for_long_ask_for_short",
+    "stop_and_exit_prices_include_half_round_trip_additional_slippage": true
+  },
+  "statistics": {
+    "annualization_days": 252,
+    "confidence_level": "0.95",
+    "month_block_bootstrap_replications": 5000,
+    "month_block_bootstrap_seed": 20260831,
+    "profit_concentration_uses_positive_months_only": true
+  },
+  "status": "frozen"
+}

@@ -1,0 +1,189 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "cost_or_pnl_calculation_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "strategy_acceptance_allowed": false
+  },
+  "bootstrap": {
+    "block": "contiguous_UTC_confirmation_calendar_months",
+    "keep_zero_event_months": true,
+    "replications": 2000,
+    "resample_unit_inside_block": "whole_episode_id",
+    "seed": 20260901
+  },
+  "calibration": {
+    "method": "single_temperature_on_inner_out_of_fold_probabilities",
+    "temperature_grid": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      2.0
+    ]
+  },
+  "chronological_validation": {
+    "embargo_hours": 336,
+    "inner_validation_years": "calendar_years_from_2019_through_outer_year_minus_1_with_at_least_two_prior_training_years",
+    "outer_evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "outer_training": "only_episodes_with_label_available_at_at_or_before_eval_start_minus_336h",
+    "purge": "exclude_any_training_episode_whose_observed_path_or_label_availability_reaches_the_embargo_boundary",
+    "unavailable_early_cause_or_fold": "fail_closed_unknown_no_backfill_or_relaxation"
+  },
+  "disposition_rules": {
+    "development_pass": "all_primary_data_sample_comparative_calibration_stability_and_concentration_gates_pass",
+    "development_pass_meaning": "permission_only_to_freeze_a_new_prospective_non_PnL_validation_contract",
+    "promotion_or_strategy_acceptance": false,
+    "rejected": "any_required_gate_fails",
+    "same_id_tuning": false
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex2",
+  "feature_sets": {
+    "augmented_activity_diagnostic": [
+      "all_primary_price_only_features",
+      "lagged_24h_quote_volume_surprise",
+      "lagged_24h_trade_count_surprise"
+    ],
+    "augmented_use": "diagnostic_only_cannot_determine_primary_disposition",
+    "preprocessing": "training_only_mean_and_population_standard_deviation_for_M1_only_nonfinite_or_zero_scale_fails_closed",
+    "primary_price_only": [
+      "compression_percentile",
+      "compression_duration_bars",
+      "frozen_range_width",
+      "range_width_over_sigma7d",
+      "sigma24_over_sigma7d",
+      "normalized_confirmation_penetration",
+      "confirmation_hour_fraction_above_range",
+      "hour_of_week_sine",
+      "hour_of_week_cosine"
+    ]
+  },
+  "frozen_at": "2026-09-01T01:00:00Z",
+  "gates": {
+    "all_probability_rows_finite_nonnegative_and_sum_to_one": true,
+    "calibration_slope_maximum": 1.2,
+    "calibration_slope_minimum": 0.8,
+    "development_only_confirmed_episodes_minimum": 200,
+    "development_only_continuation_events_minimum": 60,
+    "development_only_reentry_events_minimum": 60,
+    "linear_outer_evaluation_each_cause_minimum": 5,
+    "linear_outer_training_each_cause_minimum": 8,
+    "linear_outer_training_episodes_minimum": 30,
+    "nonlinear_each_required_inner_and_outer_evaluation_each_cause_minimum": 10,
+    "nonlinear_each_required_inner_and_outer_training_continuation_minimum": 60,
+    "nonlinear_each_required_inner_and_outer_training_episodes_minimum": 200,
+    "nonlinear_each_required_inner_and_outer_training_reentry_minimum": 60,
+    "nonlinear_favorable_paired_IBS_improvement_95_interval_vs_M0_and_M1": true,
+    "nonlinear_outer_folds_won_minimum": 4,
+    "nonlinear_single_year_improvement_fraction_maximum": 0.5,
+    "required_outer_folds": 5
+  },
+  "losses": {
+    "calibration_secondary": "event_specific_calibration_intercept_and_slope",
+    "event_time_secondary": "negative_log_probability_of_observed_event_or_survival_path",
+    "ipcw": "training_only_Kaplan_Meier_estimator_of_segment_censoring",
+    "primary": "integrated_competing_risk_Brier_score",
+    "target_vector": "cumulative_continuation_incidence_cumulative_reentry_incidence_event_free_survival",
+    "time_grid_hours": "integers_1_through_168"
+  },
+  "models": {
+    "M0": {
+      "description": "training_only_empirical_age_specific_competing_hazards_with_Jeffreys_smoothing",
+      "hyperparameters": "none"
+    },
+    "M1": {
+      "description": "deterministic_L2_multinomial_discrete_time_hazard",
+      "lambda_grid": [
+        0.01,
+        0.1,
+        1.0,
+        10.0
+      ]
+    },
+    "M2": {
+      "early_stopping": false,
+      "l2_regularization_grid": [
+        1.0,
+        10.0
+      ],
+      "learning_rate_grid": [
+        0.03,
+        0.08
+      ],
+      "max_bins": 64,
+      "max_iter": 150,
+      "max_leaf_nodes_grid": [
+        3,
+        7
+      ],
+      "min_samples_leaf": 50,
+      "model": "sklearn_HistGradientBoostingClassifier",
+      "random_state": 20260901
+    },
+    "M3": {
+      "colsample_bytree": 1.0,
+      "device": "cpu",
+      "eta_grid": [
+        0.03,
+        0.08
+      ],
+      "max_depth_grid": [
+        1,
+        2
+      ],
+      "min_child_weight": 20,
+      "model": "xgboost_XGBClassifier",
+      "n_estimators": 150,
+      "nthread": 1,
+      "objective": "multi:softprob",
+      "reg_lambda_grid": [
+        1.0,
+        10.0
+      ],
+      "seed": 20260901,
+      "subsample": 1.0,
+      "tree_method": "hist"
+    }
+  },
+  "person_period_contract": {
+    "administrative_expiry": "rows_through_hour_168_with_no_event_and_right_censored_after_168",
+    "classes": [
+      "no_event_this_hour",
+      "continuation_this_hour",
+      "range_reentry_this_hour"
+    ],
+    "one_row_per_episode_hour_at_risk": true,
+    "segment_censoring": "last_complete_observable_same_segment_hour_only",
+    "tie_precedence": "range_reentry"
+  },
+  "prohibited": [
+    "strategy_return_or_PnL",
+    "entry_exit_position_size_cost_or_leverage_optimization",
+    "random_or_nonchronological_cross_validation",
+    "full_sample_preprocessing_or_calibration",
+    "feature_or_hyperparameter_changes_after_results",
+    "using_augmented_activity_results_for_primary_disposition",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "required_predecessor": {
+    "experiment_id": "btc-upside-compression-breakout-v1-bex1",
+    "path": "research/btc/contracts/btc-breakout-event-catalogue-v1.json",
+    "required_disposition": "catalogue_passed_engineering_only"
+  },
+  "schema_version": "btc-breakout-followthrough-models-contract-v1",
+  "status": "frozen_pending_BEX1_catalogue_preflight"
+}

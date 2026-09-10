@@ -1,0 +1,151 @@
+{
+  "schema_version": "strategy-experiment-v1",
+  "experiment_id": "btc-eth-relative-catchup-r2-v1",
+  "strategy_family": "btc-eth-relative-information",
+  "status": "development_frozen",
+  "frozen_at": "2026-08-26",
+  "research_only": true,
+  "live_trading_authorized": false,
+  "falsifiable_hypothesis": "During a completed positive BTC/ETH 24-hour market context, an extreme negative 4-hour BTC return residual relative to ETH represents temporary BTC underreaction and predicts a positive BTC catch-up over the following 24 hours large enough to survive retail spot costs.",
+  "economic_mechanism": "Shared crypto information is incorporated unevenly across BTC and ETH. Conditional on positive ETH participation and positive joint 24-hour context, an idiosyncratic BTC underreaction may mean-revert as liquidity and attention rotate back to BTC. The null is that the residual is contemporaneous noise or adverse BTC-specific information and has no executable forward value.",
+  "mandate": {
+    "mandate_id": "retail-btc-spot-v2",
+    "traded_pair": "BTC/USDT",
+    "context_only_pair": "ETH/USDT",
+    "direction": "spot_long_or_flat",
+    "live_capital": 0,
+    "maximum_account_fraction": 0.25,
+    "one_position_maximum": true,
+    "leverage": false
+  },
+  "isolation": {
+    "network_access_allowed": false,
+    "database_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "allowed_data_directory": "artifacts/agent-level-experiment/multi-asset-top2/development-input",
+    "allowed_output_root": "artifacts/agent-level-experiment/btc-eth-relative-catchup-r2",
+    "refuse_symlink_inputs": true
+  },
+  "data": {
+    "development_start": "2021-01-01T00:00:00Z",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "sealed_period_not_read": "2026-01-01 onward",
+    "bar_source": "validated Binance research 15-minute Feather archives",
+    "BTC/USDT_sha256": "e1254333eb3ed9e28d268975221f6134988c17577026177f503df012816ed688",
+    "ETH/USDT_sha256": "44bb979c6e01652ff3a7d563be4480e1766a42b51a038beb23a519137d5079e3",
+    "four_hour_bar_rule": "UTC-anchored left-labelled 4-hour bars; exactly 16 consecutive valid 15-minute rows required; incomplete or gap-crossing bars rejected",
+    "lineage": "Development history has been inspected by earlier BTC/ETH relationship and causal-model research. It can reject this mechanism but cannot provide independent promotion evidence."
+  },
+  "primary_model": {
+    "decision_grid": "end of each complete UTC 4-hour bar",
+    "return_type": "natural log close-to-close",
+    "rolling_regression": "OLS with intercept of BTC 4-hour return on ETH 4-hour return using only the previous 180 complete contiguous 4-hour bars",
+    "beta_window_bars": 180,
+    "minimum_regression_bars": 180,
+    "residual_threshold": "10th percentile of the previous 180 causal BTC residuals, excluding the current residual",
+    "residual_quantile": 0.10,
+    "context": [
+      "current completed ETH 4-hour log return strictly positive",
+      "mean of completed BTC and ETH simple 24-hour returns strictly positive"
+    ],
+    "entry_condition": "current BTC residual is at or below its causal rolling 10th percentile and every context condition passes",
+    "entry": "BTC at the first 15-minute open after the completed 4-hour bar",
+    "exit": "BTC at the 15-minute open exactly 24 hours after entry",
+    "holding_period_hours": 24,
+    "overlap_policy": "ignore new signals while a BTC position is open",
+    "sizing": "25 percent of current marked account equity, capped by available cash; no leverage"
+  },
+  "matched_controls": {
+    "flat": "zero return",
+    "btc_buy_hold": "25 percent of initial equity held in BTC for the development interval",
+    "btc_self_reversal": "BTC 4-hour return at or below its own causal rolling 10th percentile while BTC 24-hour return is positive; no ETH feature",
+    "joint_risk_on_every_24h": "enter BTC at the first eligible joint-positive 24-hour context after the previous control exit; no residual or ETH-direction gate",
+    "calendar_matched_random": {
+      "eligible_pool": "non-signal complete 4-hour timestamps with positive joint 24-hour context and a valid 24-hour future BTC execution path",
+      "matching": "one timestamp from the same UTC calendar month for each primary signal",
+      "simulations": 5000,
+      "seed": 20260831,
+      "statistic": "mean primary-cost 24-hour BTC return on allocated capital"
+    }
+  },
+  "statistics": {
+    "confidence_method": "UTC calendar-month block bootstrap",
+    "bootstrap_replications": 10000,
+    "bootstrap_seed": 20260830,
+    "confidence_interval": 0.95,
+    "calendar_slices": "UTC entry year and month",
+    "prior_related_hypotheses_acknowledged": true
+  },
+  "execution_scenarios": [
+    "candle-primary-30bps-rt-v1",
+    "candle-stress-40bps-rt-v1",
+    "candle-severe-80bps-rt-v1"
+  ],
+  "predeclared_sensitivities": [
+    {
+      "variant": "beta_window_120",
+      "beta_window_bars": 120,
+      "residual_quantile": 0.10,
+      "holding_period_hours": 24
+    },
+    {
+      "variant": "beta_window_240",
+      "beta_window_bars": 240,
+      "residual_quantile": 0.10,
+      "holding_period_hours": 24
+    },
+    {
+      "variant": "residual_quantile_05",
+      "beta_window_bars": 180,
+      "residual_quantile": 0.05,
+      "holding_period_hours": 24
+    },
+    {
+      "variant": "residual_quantile_15",
+      "beta_window_bars": 180,
+      "residual_quantile": 0.15,
+      "holding_period_hours": 24
+    },
+    {
+      "variant": "hold_12h",
+      "beta_window_bars": 180,
+      "residual_quantile": 0.10,
+      "holding_period_hours": 12
+    },
+    {
+      "variant": "hold_48h",
+      "beta_window_bars": 180,
+      "residual_quantile": 0.10,
+      "holding_period_hours": 48
+    }
+  ],
+  "acceptance_gates": {
+    "minimum_filled_primary_trades": 100,
+    "primary_30bps_net_return_positive": true,
+    "severe_80bps_net_return_positive": true,
+    "primary_profit_factor_minimum": 1.20,
+    "primary_max_drawdown_fraction": 0.15,
+    "primary_event_mean_bps_strictly_above": 0,
+    "primary_event_bootstrap_lower_95_bps_strictly_above": 0,
+    "calendar_matched_random_one_sided_p_maximum": 0.05,
+    "candidate_minus_btc_self_reversal_mean_bps_strictly_above": 0,
+    "positive_calendar_years_minimum": 4,
+    "top_three_profitable_months_share_maximum": 0.50,
+    "positive_primary_cost_sensitivities_minimum": 4,
+    "maximum_entry_gross_exposure_fraction": 0.25,
+    "no_post_decision_information": true,
+    "sealed_2026_not_read": true
+  },
+  "decision_rule": "Any failed gate rejects this experiment ID before any forward or paper promotion. Sensitivities are robustness diagnostics, not alternate candidates to select after seeing results.",
+  "promotion_blockers": [
+    "The development interval and related BTC/ETH feature family were previously inspected.",
+    "A passing development result would require a separately frozen genuinely prospective partition before paper-promotion review.",
+    "ETH is context only; this experiment does not authorize ETH orders or a BTC/ETH rotation."
+  ],
+  "research_basis": [
+    "Published BTC/ETH lead-lag evidence is mixed and reports little reliably exploitable hourly/daily price discovery, so fixed-lag direction is not assumed.",
+    "Time-varying correlation and bidirectional volatility spillovers motivate a rolling conditional residual rather than a fixed correlation or lagging indicator crossover.",
+    "The null is expected to be competitive; a negative result closes this exact catch-up mechanism without threshold tuning."
+  ]
+}

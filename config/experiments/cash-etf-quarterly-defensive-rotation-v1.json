@@ -1,0 +1,51 @@
+{
+  "actionable_arm_id": "no_trade",
+  "cash_fallback": "zero_yield_gbp_cash",
+  "controls": [
+    "zero_yield_gbp_cash",
+    "static_equal_weight_risky_proxies",
+    "per_asset_buy_and_hold",
+    "exposure_and_timestamp_matched_random_controls",
+    "sign_inversion_diagnostic"
+  ],
+  "cost_scenarios_round_trip_bps": [
+    10,
+    25,
+    50
+  ],
+  "economic_results_read_before_freeze": false,
+  "experiment_id": "cash-etf-quarterly-defensive-rotation-v1",
+  "family": "cash_etf_defensive_relative_strength",
+  "gates": {
+    "best_three_month_positive_pnl_max_fraction": "0.50",
+    "development_and_validation_net_return_positive": true,
+    "maximum_drawdown_fraction": "0.20",
+    "minimum_positive_calendar_year_fraction": "0.60",
+    "paired_month_block_excess_confidence_lower_bound_positive": true,
+    "stress_cost_net_return_positive": true,
+    "validation_minimum_calmar": "0.50",
+    "validation_minimum_sharpe": "0.50"
+  },
+  "hypothesis": "Quarterly cross-sectional relative strength among diversified risky proxies can avoid persistent weakness by holding only the strongest two eligible assets, with cash fallback when all scores are nonpositive.",
+  "lookback_sessions": 126,
+  "proxy_only": true,
+  "rebalance": "first_eligible_us_session_open_of_each_calendar_quarter",
+  "schema_version": "cash-etf-proxy-strategy-contract-v2",
+  "sealed_partitions_accessed": false,
+  "selection": {
+    "eligible_symbols": [
+      "DBC",
+      "EFA",
+      "GLD",
+      "IEF",
+      "SPY",
+      "TLT"
+    ],
+    "maximum_positions": 2,
+    "minimum_score": "strictly_greater_than_zero",
+    "score": "GBP_total_return_over_126_completed_sessions",
+    "weight_redistribution_allowed": false,
+    "weighting": "equal_weight_selected_assets"
+  },
+  "status": "frozen"
+}

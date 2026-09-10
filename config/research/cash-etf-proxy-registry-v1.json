@@ -1,0 +1,82 @@
+{
+  "actionable_arm_id": "no_trade",
+  "precommitted_exact_uk_candidates": [
+    {
+      "asset_role": "broad_commodity",
+      "execution_state": "conditional_unapproved",
+      "instrument_type": "unlevered_collateralised_etc",
+      "note": "The listed security is not a futures contract; its wrapper references a commodity-futures total-return index.",
+      "symbol": "AGCP"
+    },
+    {
+      "asset_role": "government_bond",
+      "execution_state": "conditional_unapproved",
+      "instrument_type": "cash_ucits_etf",
+      "symbol": "IGLT"
+    },
+    {
+      "asset_role": "physical_gold",
+      "execution_state": "conditional_unapproved",
+      "instrument_type": "physical_etc",
+      "symbol": "SGLN"
+    },
+    {
+      "asset_role": "developed_equity",
+      "execution_state": "conditional_unapproved",
+      "instrument_type": "cash_ucits_etf",
+      "symbol": "SWDA"
+    }
+  ],
+  "proxy_instruments": [
+    {
+      "asset_role": "usd_treasury_cash_proxy",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "BIL"
+    },
+    {
+      "asset_role": "broad_commodity",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "DBC"
+    },
+    {
+      "asset_role": "developed_ex_us_equity",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "EFA"
+    },
+    {
+      "asset_role": "physical_gold",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "GLD"
+    },
+    {
+      "asset_role": "conversion_only_usd_per_gbp",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "GBP/USD"
+    },
+    {
+      "asset_role": "intermediate_us_treasury",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "IEF"
+    },
+    {
+      "asset_role": "us_equity",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "SPY"
+    },
+    {
+      "asset_role": "long_us_treasury",
+      "evidence_status": "proxy_only",
+      "execution_eligible": false,
+      "symbol": "TLT"
+    }
+  ],
+  "registry_id": "cash-etf-proxy-and-exact-lines-v1",
+  "schema_version": "cash-etf-proxy-registry-v1"
+}

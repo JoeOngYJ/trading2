@@ -1,0 +1,36 @@
+{
+  "actionable_arm_id": "no_trade",
+  "close_exit": {
+    "close_available_ms": 300000,
+    "observed": [
+      0,
+      105,
+      "source_segment_end"
+    ],
+    "recorded_exit_ms": 0
+  },
+  "identity": "btc-breakout-execution-source-audit-a0-v1",
+  "outcome": "execution_chronology_and_boundary_findings_confirmed",
+  "scheduled_open_exit": {
+    "chronological_reference_price": 110,
+    "observed": [
+      1,
+      96.0,
+      "protective_stop"
+    ]
+  },
+  "segment_future_dependence": {
+    "changed_future": [
+      1,
+      105,
+      "source_segment_end"
+    ],
+    "unchanged_future": [
+      2,
+      110,
+      "source_segment_end"
+    ]
+  },
+  "source_sha256": "973280749d3316a055be4b5e99d0234a5cd1b1eff39ca61c0bfb2d2b320bbf61",
+  "synthetic_only": true
+}

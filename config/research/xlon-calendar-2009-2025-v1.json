@@ -1,0 +1,80 @@
+{
+  "boundary": {
+    "end_inclusive": "2025-12-31",
+    "start_inclusive": "2009-10-05"
+  },
+  "calendar_id": "xlon-uk-rules-2009-2025-v1",
+  "evidence": {
+    "path": "config/research/xlon-calendar-evidence-v1.json",
+    "sha256": "02f46f60f353ccb07b11d13a7225376de1e00517d84427ace19373c738c94e76"
+  },
+  "exceptional_closures": [
+    {
+      "date": "2011-04-29",
+      "reason": "royal_wedding"
+    },
+    {
+      "date": "2012-06-04",
+      "reason": "moved_spring_bank_holiday"
+    },
+    {
+      "date": "2012-06-05",
+      "reason": "diamond_jubilee"
+    },
+    {
+      "date": "2020-05-08",
+      "reason": "moved_early_may_bank_holiday"
+    },
+    {
+      "date": "2022-06-02",
+      "reason": "moved_spring_bank_holiday"
+    },
+    {
+      "date": "2022-06-03",
+      "reason": "platinum_jubilee"
+    },
+    {
+      "date": "2022-09-19",
+      "reason": "state_funeral_elizabeth_ii"
+    },
+    {
+      "date": "2023-05-08",
+      "reason": "coronation_charles_iii"
+    }
+  ],
+  "half_day_close_local": "12:30:00",
+  "half_day_count": 24,
+  "half_days": [
+    "2009-12-24",
+    "2009-12-31",
+    "2010-12-24",
+    "2010-12-31",
+    "2012-12-24",
+    "2012-12-31",
+    "2013-12-24",
+    "2013-12-31",
+    "2014-12-24",
+    "2014-12-31",
+    "2015-12-24",
+    "2015-12-31",
+    "2018-12-24",
+    "2018-12-31",
+    "2019-12-24",
+    "2019-12-31",
+    "2020-12-24",
+    "2020-12-31",
+    "2021-12-24",
+    "2021-12-31",
+    "2024-12-24",
+    "2024-12-31",
+    "2025-12-24",
+    "2025-12-31"
+  ],
+  "mic": "XLON",
+  "regular_close_local": "16:30:00",
+  "regular_open_local": "08:00:00",
+  "schema_version": "xlon-session-calendar-v1",
+  "session_count": 4103,
+  "session_records_sha256": "a7752a51be0ac15564d22c7cee547c6dd3287daa5b8118bcca93eff9650db5d1",
+  "timezone": "Europe/London"
+}

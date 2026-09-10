@@ -1,0 +1,180 @@
+{
+  "acceptance_gates": {
+    "best_three_positive_month_profit_share_maximum": "0.50",
+    "development_and_validation_primary_net_return_same_positive_sign": true,
+    "leave_one_instrument_out_positive_count_minimum": 5,
+    "maximum_drawdown_fraction_maximum": "0.12",
+    "minimum_instruments_with_positive_primary_validation_return": 4,
+    "positive_validation_years_minimum": 3,
+    "primary_month_block_mean_trade_ci95_lower_bps_minimum": "0",
+    "primary_net_return_minimum": "0",
+    "primary_profit_factor_minimum": "1.10",
+    "primary_sharpe_minimum": "0.75",
+    "random_direction_empirical_percentile_minimum": "0.95",
+    "robustness_variants_with_positive_primary_return_minimum": 3,
+    "simpler_gap_fade_mean_outperformance_bps_minimum": "0",
+    "stress_net_return_minimum": "0",
+    "timestamp_matched_long_short_and_continuation_outperformance_bps_minimum": "0",
+    "us_equity_pair_positive_profit_share_maximum": "0.50",
+    "validation_filled_trades_minimum": 300
+  },
+  "accounting": {
+    "daily_loss_stop_fraction": "0.01",
+    "hard_drawdown_stop_fraction": "0.20",
+    "initial_equity_gbp": "20000",
+    "intraday_mark_to_market_drawdown_required": true,
+    "maximum_gross_exposure_fraction": "0.70",
+    "maximum_notional_per_position_fraction": "0.15",
+    "maximum_planned_risk_per_position_fraction": "0.0025",
+    "no_leverage": true,
+    "risk_sizes_reported_separately_from_unit_notional_alpha": true,
+    "simultaneous_candidates_scaled_pro_rata_without_ranking": true,
+    "soft_drawdown_stop_fraction": "0.12"
+  },
+  "controls": {
+    "buy_and_hold_disposition": "price_only_overnight_control_prohibited_because_financing_and_dividends_are_unqualified",
+    "flat_no_trade": true,
+    "random_direction_replications": 5000,
+    "random_direction_seed": 20260902,
+    "threshold_only_gap_fade_without_first_hour_confirmation": true,
+    "timestamp_matched_always_long": true,
+    "timestamp_matched_always_short": true,
+    "timestamp_matched_gap_continuation": true
+  },
+  "costs": {
+    "additional_round_trip_slippage_bps": [
+      0,
+      5,
+      15
+    ],
+    "commission_assumption": "zero_separate_commission_pending_account_pricing_confirmation",
+    "historical_bid_ask_used_directly": true,
+    "primary_round_trip_slippage_bps": 5,
+    "promotion_blocked_until_exact_account_commission_is_confirmed": true,
+    "slippage_split_equally_between_entry_and_exit": true
+  },
+  "data_bindings": {
+    "data_contract": {
+      "path": "config/research/cross-asset-data-contract-v5.json",
+      "sha256": "3fe0d3b483ba10129348cb3b0b04ffae2302b998253be8437b968e375fcbe0dd"
+    },
+    "gbp_usd_is_conversion_only": true,
+    "prepartition_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a3-timestamp-prepartition-v1/evidence-manifest.json",
+      "sha256": "72d0483222ed01b67267f26f303cd65dcb5e310b526d1dd26db62002eb542d15"
+    },
+    "prepartition_manifest": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a3-timestamp-prepartition-v1/partition-manifest.json",
+      "sha256": "c897dd12a0268989cee60ebb4e55e5844cffb3da1a090fe74cac776be02a0018"
+    },
+    "source_files_outside_prepartitions_may_be_read": false
+  },
+  "economic_hypothesis": "Large close-to-open local-session gaps frequently contain temporary inventory and liquidity pressure; when the first completed session hour reverses rather than continues the gap without already reaching the prior eligible-session reference, price partially reverts toward that reference over the next two hours.",
+  "experiment_id": "cross-asset-a3-overnight-gap-reversion-v2",
+  "frozen_at": "2026-08-30T16:45:00Z",
+  "historical_result_policy": {
+    "all_historical_gates_pass": "candidate_pending_genuinely_prospective_evidence_with_zero_accepted_arms",
+    "any_historical_gate_fails": "reject_experiment_id_without_tuning",
+    "historical_result_can_accept_strategy_arm": false
+  },
+  "instrument_universe": [
+    "SPX500_USD",
+    "NAS100_USD",
+    "DE30_EUR",
+    "UK100_GBP",
+    "XAU_USD",
+    "EUR_USD",
+    "USD_JPY"
+  ],
+  "mandate": {
+    "path": "config/mandates/retail-cross-asset-research-v7.json",
+    "sha256": "a3caaa870c37afc06cab63d09ad78132e21a7ebe1597f3ce7e808b5fe7518f72"
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a3-overnight-gap-reversion-v2",
+    "development_and_validation_only_on_initial_run": true,
+    "immutable_after_first_result": true
+  },
+  "partitions": {
+    "development": {
+      "end_exclusive": "2022-01-01T00:00:00Z",
+      "start_inclusive": "2010-01-01T00:00:00Z"
+    },
+    "prospective_final": {
+      "minimum_duration_months": 12,
+      "minimum_filled_trades": 100,
+      "price_data_available_to_this_run": false,
+      "start_inclusive": "2026-08-31T00:00:00Z"
+    },
+    "validation": {
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "start_inclusive": "2022-01-01T00:00:00Z"
+    }
+  },
+  "predecessor_hypothesis": {
+    "mechanism_may_change": false,
+    "path": "config/experiments/cross-asset-a3-overnight-gap-reversion-v1.json",
+    "sha256": "5853ebc3acbb742cdff50991c1fea4cb84b967e9405ce3c71e22e1185cc6be60"
+  },
+  "prohibitions": {
+    "database_or_message_bus_access_allowed": false,
+    "execution_or_order_creation_allowed": false,
+    "live_or_paper_trading_allowed": false,
+    "parameter_tuning_after_results_allowed": false,
+    "production_signal_or_position_allowed": false,
+    "prospective_partition_access_allowed": false,
+    "ranking_or_selecting_instruments_by_result_allowed": false,
+    "regime_overlay_or_leverage_rescue_allowed": false
+  },
+  "robustness": {
+    "diagnostic_variants_are_not_replacement_candidates": true,
+    "gap_threshold_multipliers": [
+      "0.50",
+      "1.00"
+    ],
+    "lookback_complete_sessions": [
+      15,
+      30
+    ],
+    "primary_gap_threshold_multiplier": "0.75",
+    "primary_lookback_complete_sessions": 20
+  },
+  "schema_version": "cross-asset-a3-overnight-gap-reversion-contract-v2",
+  "session_logic": {
+    "entry": "hour_after_first_completed_session_hour_using_ask_for_long_and_bid_for_short",
+    "exit": "open_exactly_two_hours_after_entry_using_bid_for_long_and_ask_for_short",
+    "first_hour_confirmation": "up_gap_requires_mid_close_strictly_below_mid_open_and_down_gap_requires_mid_close_strictly_above_mid_open",
+    "gap": "current_first_session_hour_mid_open_minus_prior_eligible_session_exit_reference",
+    "gap_threshold": "absolute_gap_at_least_primary_multiplier_times_past_only_median_session_range",
+    "london": {
+      "entry_local_hour": 9,
+      "exit_local_hour": 11,
+      "first_session_local_hour": 8,
+      "prior_reference_local_hour": 15,
+      "range_last_inclusive_local_hour": 14,
+      "timezone": "Europe/London"
+    },
+    "median_range": "median_of_each_prior_complete_sessions_mid_high_minus_mid_low_from_first_session_hour_through_range_last_inclusive_hour",
+    "new_york": {
+      "entry_local_hour": 10,
+      "exit_local_hour": 12,
+      "first_session_local_hour": 9,
+      "prior_reference_local_hour": 16,
+      "range_last_inclusive_local_hour": 15,
+      "timezone": "America/New_York"
+    },
+    "no_trade_if": "first_hour_or_entry_open_reaches_or_crosses_prior_reference_or_any_required_bar_mask_or_conversion_is_missing",
+    "prior_reference": "prior_complete_eligible_session_reference_hour_mid_open",
+    "protective_stop": "one_past_only_median_session_range_from_entry_with_adverse_open_gap_and_intrabar_touch_filled_conservatively",
+    "signal_direction": "opposite_gap_direction",
+    "stop_has_priority_over_timed_exit": true
+  },
+  "statistics": {
+    "annualization_days": 252,
+    "confidence_level": "0.95",
+    "month_block_bootstrap_replications": 5000,
+    "month_block_bootstrap_seed": 20260903,
+    "profit_concentration_uses_positive_months_only": true
+  },
+  "status": "frozen"
+}

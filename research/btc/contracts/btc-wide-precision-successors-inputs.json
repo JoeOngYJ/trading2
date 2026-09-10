@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "path": "research/btc/contracts/btc-reference-fill-accounting-r1-v3.md",
+      "sha256": "b9fae5dc9f5b4d059e98855c36e2704452f0aa1d69ce6ce027845c4a0f37bdf5"
+    },
+    {
+      "path": "research/btc/contracts/btc-archived-breakout-reconciliation-r2-v2.md",
+      "sha256": "5e0b48515a63895310fd858bf95f357e50b8d97e2e386ecfb054011cdef44bf2"
+    }
+  ],
+  "status": "frozen_before_successor_implementation"
+}

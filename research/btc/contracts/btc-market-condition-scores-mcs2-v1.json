@@ -1,0 +1,165 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "market_data_or_feature_value_deserialization_allowed": false,
+    "model_or_score_fit_allowed": false,
+    "order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "strategy_or_pnl_evaluation_allowed": false,
+    "threshold_selection_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs1-v1/availability-report.json",
+      "sha256": "b181832638bf69c34123ded46f67c9570fc84d36518ebc0be82ab11d4cbcc931"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs1-v1/evidence-manifest.json",
+      "sha256": "24867b0db7f0bbe1f28004ba41b3aa0d6d008edddf2fc0c65d694b0105c04a8a"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs1-v1.json",
+      "sha256": "244f780e68fa0d9cbe1f714903da282b849bfcc247741ebd424794c5d4c69de7"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-v1.json",
+      "sha256": "0e7daffb6cd0ae92f684f6bec19cc40161e2387f00cbbbfd8abf955cedcb43df"
+    },
+    {
+      "path": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS1_RESULT.md",
+      "sha256": "f036f24b72dc1b448d2496a9f9cb2d1eea1d09e9cc4d9d6ceed71f4cdd64f605"
+    },
+    {
+      "path": "src/trading_platform/research_market_conditions.py",
+      "sha256": "977fc4e799077cea6f2ab34eb6106a9f587a6c4f2a1d68370f2cd0e92a9615ec"
+    }
+  ],
+  "experiment_id": "btc-market-condition-scores-mcs2-v1",
+  "frozen_at": "2026-08-31T12:19:56Z",
+  "implementation_scope": [
+    "immutable_MarketConditionScore_contract",
+    "non_aggregating_MarketConditionScorePanel",
+    "causal_completed_field_extraction",
+    "past_only_numeric_primitives",
+    "synthetic_formula_and_failure_tests",
+    "deterministic_synthetic_qualification"
+  ],
+  "primitive_definitions": [
+    {
+      "definition": "arithmetic_mean_of_completed_funding_rates_times_24_over_interval_hours_times_365.2425",
+      "id": "annualized_completed_funding",
+      "minimum_observations": 1,
+      "status": "transform_not_strategy_return"
+    },
+    {
+      "definition": "RV=sum_r_squared;_BPV=pi_over_2_times_n_over_n_minus_1_times_sum_adjacent_absolute_return_products;_jump=max_RV_minus_BPV_zero",
+      "id": "bipower_and_jump_variation",
+      "minimum_observations": 2,
+      "status": "descriptive_current_window_components_not_future_jump_forecast"
+    },
+    {
+      "definition": "sum_of_completed_funding_rates_received_by_a_matched_short_perpetual_when_exchange_rate_is_positive",
+      "id": "completed_short_perpetual_funding",
+      "minimum_observations": 1,
+      "status": "transform_not_net_carry_or_PnL"
+    },
+    {
+      "definition": "two_period_Corwin_Schultz_closed_form_with_nonnegative_alpha_truncation",
+      "id": "corwin_schultz_high_low_spread_proxy",
+      "minimum_observations": 2,
+      "status": "labelled_low_frequency_proxy_not_protected_fill_cost"
+    },
+    {
+      "definition": "absolute_sum_return_divided_by_sum_absolute_returns",
+      "id": "directional_efficiency",
+      "minimum_observations": 2,
+      "status": "descriptive_not_score_threshold"
+    },
+    {
+      "definition": "mean_centered_adjacent_return_cross_product_divided_by_n_minus_1",
+      "id": "lag_one_autocovariance",
+      "minimum_observations": 3,
+      "status": "diagnostic_not_evidence_of_persistence_or_reversion"
+    },
+    {
+      "definition": "arithmetic_mean_of_absolute_return_divided_by_strictly_positive_quote_volume",
+      "id": "mean_amihud_price_impact_proxy",
+      "minimum_observations": 1,
+      "status": "labelled_low_frequency_proxy_not_protected_fill_cost"
+    },
+    {
+      "definition": "perpetual_price_divided_by_spot_price_minus_one",
+      "id": "perpetual_basis_fraction",
+      "minimum_observations": 1,
+      "status": "instantaneous_transform_not_annualized_expiry_basis"
+    },
+    {
+      "definition": "sum_squared_positive_returns_and_sum_squared_negative_returns_reported_separately",
+      "id": "realized_semivariance",
+      "minimum_observations": 2,
+      "status": "descriptive_current_window_risk_not_future_forecast"
+    },
+    {
+      "definition": "current_value_minus_reference_mean_divided_by_reference_sample_standard_deviation_with_current_excluded_from_reference",
+      "id": "standardized_displacement",
+      "minimum_observations": 2,
+      "status": "descriptive_not_reversion_evidence"
+    },
+    {
+      "definition": "sum_return_divided_by_square_root_of_sum_squared_returns",
+      "id": "volatility_scaled_return",
+      "minimum_observations": 2,
+      "status": "descriptive_not_alpha_or_position_size"
+    },
+    {
+      "definition": "population_variance_of_overlapping_q_return_sums_about_q_times_the_one_period_mean_divided_by_q_times_population_one_period_variance",
+      "id": "variance_ratio",
+      "minimum_observations": "q_plus_2",
+      "status": "finite_sample_diagnostic_not_automatic_trend_or_reversion_label"
+    }
+  ],
+  "prohibited": [
+    "opening_any_candle_trade_funding_feature_label_or_PnL_file",
+    "using_BTC_or_any_real_market_value_in_fixtures",
+    "score_or_model_fit",
+    "score_threshold_selection",
+    "composite_or_universal_regime_score",
+    "mapping_score_to_position_or_strategy_action",
+    "strategy_selection_or_evaluation",
+    "reuse_or_tuning_of_rejected_experiments",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-market-condition-scores-mcs2-contract-v1",
+  "score_contract": {
+    "axes_must_remain_independent": true,
+    "evidence_statuses": [
+      "accepted",
+      "benchmark",
+      "development",
+      "rejected"
+    ],
+    "known_output_requires_point_and_interval": true,
+    "probability_kind_requires_zero_one_bounds": true,
+    "required_lineage_digests": true,
+    "required_timestamps": [
+      "fit_cutoff",
+      "observed_at",
+      "available_at",
+      "expires_at"
+    ],
+    "unknown_output_forbids_numeric_values": true
+  },
+  "stage_id": "MCS2",
+  "status": "frozen_before_implementation",
+  "synthetic_fixture_policy": {
+    "fixed_values_only": true,
+    "market_symbols_in_values": false,
+    "randomness_allowed": false,
+    "timestamps_end_before_or_at_decision": true
+  }
+}

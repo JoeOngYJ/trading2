@@ -1,0 +1,105 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "strategy_or_pnl_evaluation_allowed": false
+  },
+  "bound_inputs": [
+    {
+      "path": "config/experiments/btc-regime-routing-s2-ewma-v2.json",
+      "sha256": "11d0d0ba1ccca6460c52c83a287d6b897f4dadb899cf81c8df733d7de6fb5efd"
+    },
+    {
+      "path": "docs/BTC_REGIME_ROUTING_S3_RESULT.md",
+      "sha256": "d2f437a9d888bcefe55cafad4755c4bbedf67747614ed40640c2ee88805d5eb7"
+    },
+    {
+      "path": "research/btc/contracts/btc-only-program-v1.json",
+      "sha256": "8b3a4dd4a720202afe73551e14140166f4829169070d2b84fdb0ee390bce9a9f"
+    }
+  ],
+  "clocks": {
+    "fast_shock_monitor": "4h_completed_observations_only",
+    "slow_risk_budget": "daily_completed_observations_only"
+  },
+  "experiment_id": "btc-multidimensional-risk-foundation-v1",
+  "frozen_at": "2026-08-31T00:52:21Z",
+  "fusion_policy": {
+    "automatic_releveraging_allowed": false,
+    "direction_change_allowed": false,
+    "existing_position_rule": "minimum_of_current_allocation_and_all_usable_required_risk_caps",
+    "maximum_allocation_fraction": 0.25,
+    "missing_required_axis_allocation_fraction": 0,
+    "new_entry_rule": "minimum_of_requested_allocation_and_all_usable_required_risk_caps",
+    "protective_exit_can_be_blocked": false,
+    "rejected_or_development_detector_can_set_cap": false
+  },
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_account_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "network_access_allowed": false,
+    "sealed_2026_access_allowed": false
+  },
+  "output_contracts": [
+    "RiskForecast",
+    "RiskPanel",
+    "RiskCap",
+    "RiskBudgetDecision"
+  ],
+  "prohibited": [
+    "bull_bear_sideways_universal_label",
+    "majority_vote_across_correlated_detectors",
+    "reopening_or_tuning_rejected_BOCPD",
+    "reopening_or_tuning_rejected_Student_t_HMM",
+    "using_a_risk_layer_to_rescue_a_rejected_strategy",
+    "automatic_position_increase_after_intratrade_derisking"
+  ],
+  "research_axes": [
+    {
+      "axis": "volatility",
+      "initial_status": "mandatory_benchmark_only",
+      "initial_target": "one_and_seven_day_realized_variance",
+      "models": [
+        "frozen_EWMA",
+        "future_separately_frozen_HAR_RV_challenger"
+      ]
+    },
+    {
+      "axis": "downside_tail",
+      "initial_status": "planned_separate_experiment",
+      "initial_target": "negative_realized_semivariance_and_joint_VaR_ES"
+    },
+    {
+      "axis": "jump_change",
+      "initial_status": "planned_separate_experiment",
+      "initial_target": "jump_or_forecast_process_break_probability"
+    },
+    {
+      "axis": "implied_risk",
+      "initial_status": "optional_pending_DVOL_source_qualification",
+      "initial_target": "thirty_day_option_implied_volatility"
+    },
+    {
+      "axis": "liquidity_execution",
+      "initial_status": "blocked_pending_independent_OB1_acceptance",
+      "initial_target": "protected_fill_cost_and_availability"
+    }
+  ],
+  "schema_version": "btc-multidimensional-risk-foundation-contract-v1",
+  "status": "frozen_before_implementation",
+  "validation_gates": {
+    "canonical_serialization_and_digest": true,
+    "duplicate_detector_axis_horizon_rejected": true,
+    "future_stale_unknown_and_missing_required_inputs_fail_closed": true,
+    "intratrade_decision_never_increases_allocation": true,
+    "only_benchmark_or_accepted_caps_are_usable": true,
+    "standard_library_only_and_no_production_imports": true
+  }
+}

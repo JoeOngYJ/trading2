@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tauric-freqtrade-platform"
+version = "0.1.0"
+description = "Reliable signal transport between TradingAgents and Freqtrade"
+requires-python = ">=3.10"
+dependencies = [
+  "ccxt>=4.5,<5",
+  "fastapi>=0.115,<1",
+  "httpx>=0.27,<1",
+  "nats-py>=2.9,<3",
+  "prometheus-client>=0.21,<1",
+  "psycopg[binary,pool]>=3.2,<4",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "pytest-asyncio>=0.25,<1"]
+
+[project.scripts]
+platform-scheduler = "trading_platform.scheduler:main"
+platform-worker = "trading_platform.worker:main"
+platform-outbox = "trading_platform.outbox:main"
+platform-bridge = "trading_platform.bridge:main"
+platform-audit = "trading_platform.audit_api:main"
+platform-reconcile = "trading_platform.reconcile:main"
+platform-synthetic-signal = "trading_platform.synthetic:main"
+platform-monitor = "trading_platform.monitor:main"
+platform-market-collector = "trading_platform.market_collector:main"
+platform-capture-audit = "trading_platform.capture_audit:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

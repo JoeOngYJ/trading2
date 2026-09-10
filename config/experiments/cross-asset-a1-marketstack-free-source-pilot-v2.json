@@ -1,0 +1,23 @@
+{
+  "activated_at": "2026-08-29T13:41:00Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v1.json",
+    "sha256": "623e11b4f555dd67db529fd1dc7f841b878c9d1837c7f12628d07ec1ec6d8ce7"
+  },
+  "changes_from_predecessor": {
+    "endpoint_paths": {
+      "tickers": "/tickers/{symbol}"
+    },
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v2"
+  },
+  "frozen_failure_evidence": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v1/failure-report.json",
+    "sha256": "abb918d4d09bcceabe7d020cf3b408febbe95e597c80a6a89eb1c92b7ee7e3d2"
+  },
+  "no_other_contract_field_changes": true,
+  "pilot_id": "cross-asset-a1-marketstack-free-source-pilot-v2",
+  "reason": "The first credentialed request returned HTTP 404 because v2 requires the exact identity route /tickers/{symbol}; no response body, price row or partial artifact set was retained.",
+  "schema_version": "cross-asset-a1-marketstack-source-pilot-amendment-v1",
+  "status": "frozen",
+  "supersedes": "cross-asset-a1-marketstack-free-source-pilot-v1"
+}

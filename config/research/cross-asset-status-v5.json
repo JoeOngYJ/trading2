@@ -1,0 +1,178 @@
+{
+  "a1_contract_path": "config/experiments/cross-asset-a1-oanda-hourly-history-v2.json",
+  "a1_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+  "a2_contract_path": "config/experiments/cross-asset-a2-session-breakout-continuation-v1.json",
+  "a2_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-continuation-v1/evidence-manifest.json",
+  "a2_integrity_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-integrity-review-v1/evidence-manifest.json",
+  "a3_hypothesis_contract_path": "config/experiments/cross-asset-a3-overnight-gap-reversion-v1.json",
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "context_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json",
+      "sha256": "1edafecafe08387fac0d1ce8884d7d035602ac2c998ddced250b02e9a0fe0008"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-gbp-conversion-source-v1/evidence-manifest.json",
+      "sha256": "ccdf18fd96ef3bfb95516bc7caaf3c949fde6852064aa0141b5d78d3284c1080"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-continuation-v1/evidence-manifest.json",
+      "sha256": "11797c19862be462d2b2bdee7d94c9b2cdc639b6d01f3be171cbbfb542159f3f"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-integrity-review-v1/evidence-manifest.json",
+      "sha256": "ad631ff6c84fdf9f132d3dc2753b4d3392fa2dbb21a0ba1a8dc3e361a5cf02c2"
+    },
+    {
+      "path": "config/experiments/cross-asset-a2-gbp-conversion-source-v1.json",
+      "sha256": "be8dfdd1b4fb33fe179eb526123570fc31d460295f6f97dc96bdb5e6971e1d24"
+    },
+    {
+      "path": "config/experiments/cross-asset-a2-session-breakout-continuation-v1.json",
+      "sha256": "09d70c79643f5a5c88430685b9f0fa60124b86334a36e9c335cf10ff5d99990a"
+    },
+    {
+      "path": "config/experiments/cross-asset-a2-session-breakout-integrity-review-v1.json",
+      "sha256": "ec142b146a0086676901d62001fb3cabb33681b9e6c7289b25e3162eb758f785"
+    },
+    {
+      "path": "config/experiments/cross-asset-a3-overnight-gap-reversion-v1.json",
+      "sha256": "5853ebc3acbb742cdff50991c1fea4cb84b967e9405ce3c71e22e1185cc6be60"
+    },
+    {
+      "path": "config/mandates/retail-cross-asset-research-v7.json",
+      "sha256": "a3caaa870c37afc06cab63d09ad78132e21a7ebe1597f3ce7e808b5fe7518f72"
+    },
+    {
+      "path": "config/research/cross-asset-data-contract-v5.json",
+      "sha256": "3fe0d3b483ba10129348cb3b0b04ffae2302b998253be8437b968e375fcbe0dd"
+    },
+    {
+      "path": "config/research/cross-asset-decisions-v1.jsonl",
+      "sha256": "6fde38da52be07b89be0f8701680243904e64e27e46f33e61565a44459f9234b"
+    },
+    {
+      "path": "config/research/cross-asset-instrument-access-v4.json",
+      "sha256": "59fef4786ba59f0e69784b9a8bf69b744f6b512c6390277b7d6014269dd3fe29"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A2_SESSION_BREAKOUT_RESULT.md",
+      "sha256": "d436d9be3d5cd527ef3fcdb49679d3420252ee234103e26852b49c508199bc29"
+    },
+    {
+      "path": "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+      "sha256": "042969693f82b441c016cfafaf7a814ccc1b3ce22e0e614d0b3cc3a886315f57"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+      "sha256": "d2bb8325a269ea088d5e03d34e8da51eef5b15a194baa52ae4df80423b4208f3"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+      "sha256": "0a9beb95b27b0fdfc4bd20362255ef6eaac722e866cdf128db545b4cfb58ef7e"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "aed2dfe7daa0a4949237a0b032487d54343f55edfa0b4a632d46a1cced344ec5"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_gbp_conversion.py",
+      "sha256": "8d41b75d17e64112b3cbbe4e71f2d9fc15cbcaf61eb2538b6ca83581f9fbdb9c"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_oanda_hourly.py",
+      "sha256": "03521494410f16e5320638a1c34f09866c27a91d0e4eb31816421f0e251bcdc5"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_session_breakout.py",
+      "sha256": "bd581ce8119de33dfd475547f051e1ab1f85f29ea95342a631422532961ca5ec"
+    }
+  ],
+  "current_stage": "A2",
+  "current_state": "rejected",
+  "decision_log_path": "config/research/cross-asset-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "src/trading_platform/cross_asset_gbp_conversion.py",
+    "src/trading_platform/cross_asset_oanda_hourly.py",
+    "src/trading_platform/cross_asset_session_breakout.py"
+  ],
+  "latest_decision_digest": "4abcbf7960a4d223d3cf5f6749601f2f58311587607a6d34b5e3869395c5c15b",
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "schema_version": "cross-asset-program-status-v5",
+  "stages": [
+    {
+      "artifact_paths": [
+        "config/research/cross-asset-program-v1.json",
+        "config/research/cross-asset-status-v1.json"
+      ],
+      "completed_at": "2026-08-29T12:18:35Z",
+      "decision_record_digest": "a71a53d35c69b0f92ed2b8fd7141ce967a1242bb1257f4ad4f4fd87bf3831abf",
+      "stage_id": "A0",
+      "state": "passed"
+    },
+    {
+      "activated_at": "2026-08-30T11:56:20Z",
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a1-oanda-hourly-history-v2/evidence-manifest.json"
+      ],
+      "completed_at": "2026-08-30T12:30:00Z",
+      "decision_record_digest": "67ed17d7b763b4ad5bd343d7e8343e62822c58936ff59da6dff69e624109cb25",
+      "stage_id": "A1",
+      "state": "passed"
+    },
+    {
+      "activated_at": "2026-08-30T12:45:00Z",
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a2-gbp-conversion-source-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-continuation-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-integrity-review-v1/evidence-manifest.json",
+        "config/experiments/cross-asset-a2-session-breakout-continuation-v1.json",
+        "docs/CROSS_ASSET_A2_SESSION_BREAKOUT_RESULT.md"
+      ],
+      "completed_at": "2026-08-30T13:05:00Z",
+      "decision_record_digest": "4abcbf7960a4d223d3cf5f6749601f2f58311587607a6d34b5e3869395c5c15b",
+      "stage_id": "A2",
+      "state": "rejected"
+    },
+    {
+      "artifact_paths": [
+        "config/experiments/cross-asset-a3-overnight-gap-reversion-v1.json"
+      ],
+      "stage_id": "A3",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A4",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A5",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A6",
+      "state": "planned"
+    }
+  ],
+  "supersedes": {
+    "path": "config/research/cross-asset-status-v4.json",
+    "sha256": "1eda705c6b47376433bbe260c3d0bfe3f0a0de349e037a5847f90a794df7b5dd"
+  }
+}

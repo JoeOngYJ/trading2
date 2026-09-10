@@ -1,0 +1,30 @@
+{
+  "c0_owned_obligations": [
+    {"obligation_id":"C0O01","owner":"C0","probe_id":"P03","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/bound_authorities","value_sha256":"c38311c021efe5a61cf81906dcb2efc4bf544ff6e67eb449afbc7c0f7a3f7d78"},
+    {"obligation_id":"C0O02","owner":"C0","probe_id":"P01","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/data_contract/duplicate_policy","value_sha256":"67f347f593a7a1eb3b530a30595d5bb67bb9d8cb375cc1566205df6d4c0131f4"},
+    {"obligation_id":"C0O03","owner":"C0","probe_id":"P06","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/data_contract/timestamp","value_sha256":"4392fa070fc12f198cbea388f87c543a9421de80e33f5287fe761cb122703f2a"},
+    {"obligation_id":"C0O04","owner":"C0","probe_id":"P03","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/data_contract/validation/5","value_sha256":"c17c13e49bd78a5c57be9c9ad782dedc7542e3fd73cc08b2b88ed02aa988a3e5"},
+    {"obligation_id":"C0O05","owner":"C0","probe_id":"P07","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/execution_adapter_capabilities/unsupported_capability","value_sha256":"6586ac1f1de5b7417aabb4e51e20a96cc3ac391bf216c4a61150dc3002ec8161"},
+    {"obligation_id":"C0O06","owner":"C0","probe_id":"P03","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/serialization_and_digest_contract/artifact_file_sha256","value_sha256":"2163435a32c642792bef04afeb79ecdd8fd40320e534c64196b972c19afa3cce"},
+    {"obligation_id":"C0O07","owner":"C0","probe_id":"P01","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/serialization_and_digest_contract/canonical_JSON","value_sha256":"1c1fd2fa6c226f126b702331828391b848be08d4dbae7981ca59cd9793ade2b7"},
+    {"obligation_id":"C0O08","owner":"C0","probe_id":"P09","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/serialization_and_digest_contract/digest_domain","value_sha256":"d8f81b7f06725217cc334ea1537a31d4b04fa12fd4c222ac081b1925d20ceb76"},
+    {"obligation_id":"C0O09","owner":"C0","probe_id":"P01","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/serialization_and_digest_contract/duplicate_object_keys","value_sha256":"a8837e1822384c56931b35accb26ac7a18c433c2dd51caea2afacca53608d3a1"},
+    {"obligation_id":"C0O10","owner":"C0","probe_id":"P03","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/serialization_and_digest_contract/manifest_entry","value_sha256":"6a59b833c5be1911dfb5f567683bc08063ae71c2edfa5e5f8dd66a314314fd8a"},
+    {"obligation_id":"C0O11","owner":"C0","probe_id":"P06","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/serialization_and_digest_contract/timestamp_encoding","value_sha256":"543d5f09d51565d64cdacfae7ddff912db005241c0362a3470dc8bfdc06e3e1a"},
+    {"obligation_id":"C0O12","owner":"C0","probe_id":"P05","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v1.json","source_pointer":"/action_boundary","value_sha256":"cdbf7f41d7d5fbc3eb4d87257c5e992b4deb9cea6a06f1c4cdd27d459eba45f7"},
+    {"obligation_id":"C0O13","owner":"C0","probe_id":"P12","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v2.json","source_pointer":"/predecessor","value_sha256":"b718997dd9559787e3bc8f57647f6ed5adb875684edcc9847629b4b3dca44946"},
+    {"obligation_id":"C0O14","owner":"C0","probe_id":"P12","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json","source_pointer":"/inheritance","value_sha256":"3c489ca2047d79d9261116515484e55a7d0ab38deb218634b54b224fdad53827"},
+    {"obligation_id":"C0O15","owner":"C0","probe_id":"P05","source_path":"research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json","source_pointer":"/action_boundary","value_sha256":"a526f725dfe2e5ca9cb1aeee72432a9b44f06c431db52ca1f31f0e00cc5a8283"}
+  ],
+  "deferred_inherited_domains": [
+    {"future_owner":"C1","status":"unresolved_not_closed","topics":["accounting","event_order","fees_taxes","funding","signed_pnl","residuals"]},
+    {"future_owner":"C2","status":"unresolved_not_closed","topics":["candle_execution","next_open","gap_semantics"]},
+    {"future_owner":"C3","status":"unresolved_not_closed","topics":["L2_depth","latency","partial_fill","book_costs"]},
+    {"future_owner":"C4","status":"unresolved_not_closed","topics":["atomic_pair_preflight","commit","recovery"]},
+    {"future_owner":"C5","status":"unresolved_not_closed","topics":["margin","liquidation","risk_controls","stale_unknown"]},
+    {"future_owner":"C6","status":"unresolved_not_closed","topics":["integration","economic_timestamps","cost_reports","output_contract"]}
+  ],
+  "experiment_id":"btc-unified-backtest-engine-e0-v11-c0-authority-boundary",
+  "scope_rule":"Exhaustive only for precisely selected C0-owned nested pointers; every other inherited economic obligation remains binding and unresolved.",
+  "schema_version":"btc-backtest-c0-inherited-obligations-e0-v11"
+}

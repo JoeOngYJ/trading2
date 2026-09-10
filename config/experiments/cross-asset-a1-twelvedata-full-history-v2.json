@@ -1,0 +1,19 @@
+{
+  "activated_at": "2026-08-29T19:30:09Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-twelvedata-full-history-v1.json",
+    "sha256": "fe8bd4353dedc117049e482bdab74451c14cd4ab403f2c122b5d0f5e284639e6"
+  },
+  "changes_from_predecessor": {
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2"
+  },
+  "experiment_id": "cross-asset-a1-twelvedata-full-history-v2",
+  "frozen_interruption_evidence": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v1/failure-report.json",
+    "sha256": "e02a9793cf0c786f053d1db0ac770d0b7a5fd2a89db97f6d693e441ead6d7898"
+  },
+  "no_other_contract_field_changes": true,
+  "schema_version": "cross-asset-a1-twelvedata-full-history-amendment-v1",
+  "status": "frozen",
+  "supersedes": "cross-asset-a1-twelvedata-full-history-v1"
+}

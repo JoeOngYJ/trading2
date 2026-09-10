@@ -1,0 +1,265 @@
+{
+  "activated_at": "2026-08-29T13:16:52Z",
+  "boundaries": {
+    "expected_lse_sessions": [
+      "2025-09-01",
+      "2025-09-02",
+      "2025-09-03",
+      "2025-09-04",
+      "2025-09-05",
+      "2025-09-08",
+      "2025-09-09",
+      "2025-09-10",
+      "2025-09-11",
+      "2025-09-12",
+      "2025-09-15",
+      "2025-09-16",
+      "2025-09-17",
+      "2025-09-18",
+      "2025-09-19",
+      "2025-09-22",
+      "2025-09-23",
+      "2025-09-24",
+      "2025-09-25",
+      "2025-09-26",
+      "2025-09-29",
+      "2025-09-30"
+    ],
+    "expected_sessions_per_instrument": 22,
+    "pilot_end_inclusive": "2025-09-30",
+    "pilot_start_inclusive": "2025-09-01",
+    "sealed_partitions_accessed": false
+  },
+  "cash_control": {
+    "currency": "GBP",
+    "instrument_id": "GBP-CASH-ZERO-YIELD",
+    "market_data_required": false,
+    "yield_policy": "zero_yield_conservative_control"
+  },
+  "decision_rule": {
+    "a1_stage_pass_requires": [
+      "all exact instrument identities independently verified",
+      "raw execution-price fields distinguished from adjusted fields",
+      "corporate-action responses documented and adjusted fields excluded unless their methodology is proven",
+      "GBP versus GBX quote unit and GBP conversion multiplier verified",
+      "conservative next-session availability fallback frozen",
+      "documented terms permit private source qualification and reproducible internal research",
+      "complete expected-session coverage and valid OHLCV for every listed instrument",
+      "checksummed immutable raw bytes and deterministic parser",
+      "a separately frozen full-history acquisition contract"
+    ],
+    "pilot_can_only": "accept_or_reject_marketstack_for_later_full_history_qualification",
+    "technical_json_success_is_source_acceptance": false,
+    "unknown_or_undocumented_semantics": "reject_source"
+  },
+  "hypothesis": "Without computing returns or strategy signals, a zero-cost four-instrument September 2025 Marketstack pilot can determine whether its free LSE EOD, ticker, split and dividend responses are sufficiently identified, complete, causal, licensed and reproducible to justify a separately frozen full-history acquisition.",
+  "instruments": [
+    {
+      "asset_role": "global_equity",
+      "exchange": "London Stock Exchange",
+      "expected_name_tokens": [
+        "iShares",
+        "MSCI World"
+      ],
+      "expected_vendor_exchange_code": "XLON",
+      "expected_vendor_quote_unit": "GBX",
+      "income_treatment": "accumulating",
+      "instrument_id": "LSE-SWDA-GBP-IE00B4L5Y983",
+      "isin": "IE00B4L5Y983",
+      "iso_settlement_currency": "GBP",
+      "listing_start": "2009-09-28",
+      "marketstack_symbol": "SWDA",
+      "price_to_gbp_multiplier": "0.01",
+      "ric": "SWDA.L",
+      "sedol": "B4L60Z9",
+      "ticker": "SWDA"
+    },
+    {
+      "asset_role": "global_aggregate_bond_gbp_hedged",
+      "exchange": "London Stock Exchange",
+      "expected_name_tokens": [
+        "Vanguard",
+        "Global Aggregate"
+      ],
+      "expected_vendor_exchange_code": "XLON",
+      "expected_vendor_quote_unit": "GBP",
+      "income_treatment": "accumulating",
+      "instrument_id": "LSE-VAGS-GBP-IE00BG47K971",
+      "isin": "IE00BG47K971",
+      "iso_settlement_currency": "GBP",
+      "listing_start": "2019-06-20",
+      "marketstack_symbol": "VAGS",
+      "price_to_gbp_multiplier": "1",
+      "ric": "VAGS.L",
+      "sedol": "BJLBN27",
+      "ticker": "VAGS"
+    },
+    {
+      "asset_role": "physical_gold",
+      "exchange": "London Stock Exchange",
+      "expected_name_tokens": [
+        "iShares",
+        "Physical Gold"
+      ],
+      "expected_vendor_exchange_code": "XLON",
+      "expected_vendor_quote_unit": "GBX",
+      "income_treatment": "no_income",
+      "instrument_id": "LSE-SGLN-GBP-IE00B4ND3602",
+      "isin": "IE00B4ND3602",
+      "iso_settlement_currency": "GBP",
+      "listing_start": "2011-04-11",
+      "marketstack_symbol": "SGLN",
+      "price_to_gbp_multiplier": "0.01",
+      "ric": "SGLN.L",
+      "sedol": "B4R1D93",
+      "ticker": "SGLN"
+    },
+    {
+      "asset_role": "broad_commodity_total_return_swap",
+      "exchange": "London Stock Exchange",
+      "expected_name_tokens": [
+        "iShares",
+        "Diversified Commodity"
+      ],
+      "expected_vendor_exchange_code": "XLON",
+      "expected_vendor_quote_unit": "GBX",
+      "income_treatment": "accumulating",
+      "instrument_id": "LSE-COMM-GBP-IE00BDFL4P12",
+      "isin": "IE00BDFL4P12",
+      "iso_settlement_currency": "GBP",
+      "listing_start": "2017-07-20",
+      "marketstack_symbol": "COMM",
+      "price_to_gbp_multiplier": "0.01",
+      "ric": "COMM.L",
+      "sedol": "BDFLHQ3",
+      "ticker": "COMM"
+    }
+  ],
+  "jurisdiction": {
+    "execution_access_approved": false,
+    "planning_path": "UK_retail",
+    "research_mapping_only": true
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v1",
+    "overwrite_existing_artifacts": false
+  },
+  "pilot_id": "cross-asset-a1-marketstack-free-source-pilot-v1",
+  "prohibitions": {
+    "bulk_download_allowed": false,
+    "derivative_data_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "schema_version": "cross-asset-a1-marketstack-source-pilot-contract-v1",
+  "source_access": {
+    "api_token_environment_variable": "MARKETSTACK_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "broker_or_exchange_credentials_allowed": false,
+    "free_account_only": true,
+    "paid_upgrade_authorized": false,
+    "research_data_provider_api_token_allowed": true
+  },
+  "sources": {
+    "issuer_identity": {
+      "accepted_as_execution_price_source": false,
+      "checksummed_controls": [
+        {
+          "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/swda-issuer.html",
+          "sha256": "9a99a68a3036793f7e51cb2d78add498221796e4ffe8486798a43cb6c1efea1b",
+          "ticker": "SWDA"
+        },
+        {
+          "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/vags-issuer.html",
+          "sha256": "e538c439f20da09724d9642abcf6f24cbe62bcceea945d1421a719bccad76fa2",
+          "ticker": "VAGS"
+        },
+        {
+          "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/sgln-issuer.html",
+          "sha256": "7854b36832c8384f1baf9d635dc16064175bbacbf6b19cb4e6da7286197260c6",
+          "ticker": "SGLN"
+        },
+        {
+          "path": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1/raw/comm-issuer.html",
+          "sha256": "3b2d59c2b6bdf2125f3b69a319bae42914a171ca07e6590c952f486d1551ca9a",
+          "ticker": "COMM"
+        }
+      ],
+      "role": "instrument_identity_and_quote_unit_control"
+    },
+    "marketstack_free": {
+      "accepted_before_pilot": false,
+      "adjusted_fields_eligible_for_research": false,
+      "adjustment_methodology_documented": false,
+      "api_base_url": "https://api.marketstack.com/v2",
+      "availability_fallback_frozen": true,
+      "availability_time_documented": false,
+      "corporate_action_endpoints_documented": true,
+      "date_semantics": "ISO-8601 UTC midnight identifies the LSE trading date but is not an availability timestamp",
+      "endpoint_paths": {
+        "dividends": "/dividends",
+        "eod": "/eod",
+        "splits": "/splits",
+        "tickers": "/tickers"
+      },
+      "expected_eod_fields": [
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "adj_open",
+        "adj_high",
+        "adj_low",
+        "adj_close",
+        "adj_volume",
+        "split_factor",
+        "dividend",
+        "symbol",
+        "exchange",
+        "date"
+      ],
+      "free_history_limit": "1_year",
+      "maximum_requests": 20,
+      "maximum_symbols": 4,
+      "plan": "free",
+      "query_parameters": {
+        "date_from": "2025-09-01",
+        "date_to": "2025-09-30",
+        "exchange": "XLON",
+        "limit": "100",
+        "sort": "ASC"
+      },
+      "raw_plus_separate_corporate_actions_policy_frozen": true,
+      "research_reuse_terms": {
+        "archival_use_after_account_termination_resolved": false,
+        "observed_at": "2026-08-29T13:28:00Z",
+        "private_source_qualification_while_account_active_documented": true,
+        "service_agreement_url": "https://marketstack.com/agreement"
+      },
+      "research_reuse_terms_documented": true,
+      "role": "candidate_lse_daily_raw_and_adjusted_ohlcv_with_corporate_actions",
+      "source_id": "marketstack-free-eod-candidate"
+    },
+    "quote_unit_controls": {
+      "comm": "https://www.blackrock.com/uk/individual/products/287254/ishares-diversified-commodity-swap-ucits-etf-fund",
+      "sgln": "https://www.londonstockexchange.com/stock/SGLN/ishares/company-page",
+      "swda": "https://www.londonstockexchange.com/stock/SWDA/ishares/company-page",
+      "vags": "https://www.vanguard.co.uk/professional/product/etf/bond/9685/global-aggregate-bond-ucits-etf-gbp-hedged-accumulating"
+    }
+  },
+  "status": "frozen",
+  "strategy_evaluation_authorized": false,
+  "timestamp_convention": {
+    "availability_rule_if_vendor_time_unproved": "bar_available_only_after_one_complete_subsequent_LSE_session",
+    "bar_observed_at": "16:30 Europe/London on trading date",
+    "decision_may_use_same_session_close": false,
+    "stored_timezone": "UTC"
+  }
+}

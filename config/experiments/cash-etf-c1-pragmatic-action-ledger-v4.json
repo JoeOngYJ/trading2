@@ -1,0 +1,47 @@
+{
+  "activated_at": "2026-08-30T21:50:00Z",
+  "changes_from_predecessor": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4",
+    "fx_patch": {
+      "availability_policy": "observation_date_plus_10_calendar_days_at_23_59_59Z",
+      "expected_dates": [
+        "2011-04-15",
+        "2013-10-08",
+        "2017-07-11",
+        "2017-11-16"
+      ],
+      "expected_series_id": "DEXUSUK",
+      "expected_units": "USD_per_GBP",
+      "http_method": "GET",
+      "maximum_response_bytes": 1000000,
+      "release_policy_evidence_url": "https://www.federalreserve.gov/Releases/h10/",
+      "source_url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DEXUSUK&cosd=2011-04-15&coed=2017-11-16"
+    }
+  },
+  "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v4",
+  "predecessor": {
+    "evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v3/evidence-manifest.json",
+    "evidence_sha256": "11d98754cd6b104017d4639a9c63758b004d632c07694da16a3f70091346abd4",
+    "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v3",
+    "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v3.json",
+    "sha256": "dc90d63a587c417f634a50e99ae0fd9fd986f669c78f237ac306d8d0b407fa03"
+  },
+  "predecessor_disposition": "rejected_because_four_same_session_GBP_USD_observations_were_missing_and_no_forward_fill_was_permitted",
+  "schema_version": "cash-etf-c1-pragmatic-action-ledger-successor-v3",
+  "status": "frozen",
+  "unchanged_fields": [
+    "acceptance_gates",
+    "boundary",
+    "causality",
+    "corporate_action_inputs",
+    "distribution_event_counts",
+    "fail_closed_rules",
+    "forbidden_actions",
+    "gld_zero_distribution_triangulation",
+    "ledger_currency",
+    "locked_numeric_partition_policy",
+    "provider_action_diagnostic_only_policy",
+    "retention_policy",
+    "split_candidate_detection"
+  ]
+}

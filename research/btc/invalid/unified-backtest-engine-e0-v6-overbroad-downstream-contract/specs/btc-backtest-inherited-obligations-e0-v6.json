@@ -1,0 +1,262 @@
+{
+  "actionable_arm_id": "no_trade",
+  "obligations": [
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O01_v1_data_contract",
+      "qualification_probe_id": "OQ01",
+      "value_pointer": "/data_contract",
+      "value_sha256": "7458f27e1d2b03fd0bb890c19d4b0994a7f7e373a10f265f603069d5778395f8"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O02_v1_event_order",
+      "qualification_probe_id": "OQ02",
+      "value_pointer": "/event_order",
+      "value_sha256": "0865e77fc8ad69d5a22462079dffc66f3bdfb3b1565614867d42fe6c640b564c"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O03_v1_accounting",
+      "qualification_probe_id": "OQ03",
+      "value_pointer": "/accounting_contract",
+      "value_sha256": "aea3e42df20506e39bf63bd135e16936467d5d82ad50470db7a473dc005e7001"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O04_v1_fee_assets",
+      "qualification_probe_id": "OQ04",
+      "value_pointer": "/fee_asset_contract",
+      "value_sha256": "2b53509eab29661c8601f24a4b20680f064e6a42bd7e97b094d216291e507e6f"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O05_v1_margin",
+      "qualification_probe_id": "OQ05",
+      "value_pointer": "/margin_contract",
+      "value_sha256": "0f72bde41743e84e19feb581d866187fc50429f965e6bae3061aa1188b06157c"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O06_v1_partition",
+      "qualification_probe_id": "OQ06",
+      "value_pointer": "/partition_contract",
+      "value_sha256": "97befa1c1ce9d76c7b00a1f5ce285c6ca6afb7bde7c98c787afbf2628546be58"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O07_v1_risk_state",
+      "qualification_probe_id": "OQ07",
+      "value_pointer": "/risk_state_contract",
+      "value_sha256": "fbb24d86db2b387a2e5dcf7524ed3a11fc1f2fd6e751de59563b7df8f96d17c6"
+    },
+    {
+      "component": "C2",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O08_v1_candle_capability",
+      "qualification_probe_id": "OQ08",
+      "value_pointer": "/execution_adapter_capabilities/candle_OHLC",
+      "value_sha256": "c6ace1ea27ca3103d416df3d80af9d0f1ce6a196ddad51f6c56b105c8700d8b8"
+    },
+    {
+      "component": "C3",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O09_v1_partial_capability",
+      "qualification_probe_id": "OQ09",
+      "value_pointer": "/execution_adapter_capabilities/partial_fill",
+      "value_sha256": "a3dd2ebb77bb8e958f9825a675486f837102ffac65b17adf593bd446c1e2ce63"
+    },
+    {
+      "component": "C3",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O10_v1_L2_capability",
+      "qualification_probe_id": "OQ10",
+      "value_pointer": "/execution_adapter_capabilities/qualified_quote_or_L2",
+      "value_sha256": "c262f8c582082523e7461cbe3318a71d0f503ce042b61a36330ceb05034ae774"
+    },
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O11_v1_unsupported_capability",
+      "qualification_probe_id": "OQ11",
+      "value_pointer": "/execution_adapter_capabilities/unsupported_capability",
+      "value_sha256": "6586ac1f1de5b7417aabb4e51e20a96cc3ac391bf216c4a61150dc3002ec8161"
+    },
+    {
+      "component": "C5",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O12_v1_reference_controls",
+      "qualification_probe_id": "OQ12",
+      "value_pointer": "/reference_controls",
+      "value_sha256": "43cc4f23a145b0dfedf8bdb08462396c41a6fc0fc3ca4b83eb80facf75ae03ca"
+    },
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O13_v1_serialization",
+      "qualification_probe_id": "OQ13",
+      "value_pointer": "/serialization_and_digest_contract",
+      "value_sha256": "29c5ec914b75f84a98fe07a2df6703286bed0004729c564b2c7a074488d033de"
+    },
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O14_v1_output_contract",
+      "qualification_probe_id": "OQ14",
+      "value_pointer": "/output_contract",
+      "value_sha256": "b43975e315af2dc0bada80239b382abdf3f43301dc5714acaf5e47b004ff29fd"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "obligation_id": "O15_v1_market_position_models",
+      "qualification_probe_id": "OQ15",
+      "value_pointer": "/market_and_position_models",
+      "value_sha256": "bcedf068d03924ad8faa6ee897bd4d7188a97c71b911328620429b1885c3ecb0"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O16_v2_adverse_mark",
+      "qualification_probe_id": "OQ16",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/adverse_intrabar_mark",
+      "value_sha256": "0280f6f6faadd2317ae85d50a99962a2f70744af32c108913c410272d626f407"
+    },
+    {
+      "component": "C4",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O17_v2_atomic_pair",
+      "qualification_probe_id": "OQ17",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/atomic_pair_net_spot_and_neutralization",
+      "value_sha256": "5f7da1dc339359498b6c5a90140c2facdcb704f8318df8a9c25927ceeade117c"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O18_v2_decimal_quantization",
+      "qualification_probe_id": "OQ18",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/decimal_and_quantization",
+      "value_sha256": "5aa861fa6c8390ba95b7c705e18f916f493b54c32269e74d1dd25da4135fcf9e"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O19_v2_exit_reserve",
+      "qualification_probe_id": "OQ19",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/exit_cost_reserve",
+      "value_sha256": "8f0348c6d0d1a5d8e3ed93daac931020f918998cb85f0bb0fab6f87f16516989"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O20_v2_initial_margin",
+      "qualification_probe_id": "OQ20",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/initial_margin",
+      "value_sha256": "c88bee778da7cd8942614637c380240d9aa6d115ed41d616e2fa84d920693f0b"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O21_v2_liquidation_cost",
+      "qualification_probe_id": "OQ21",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/liquidation_cost",
+      "value_sha256": "5c7c7b888fa463aec0114b24087ee5a806df81152f4be04b4b303352239f02e4"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O22_v2_collateral_release",
+      "qualification_probe_id": "OQ22",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/partial_collateral_release",
+      "value_sha256": "0fccfe080e5d6f8fd5d5ab6866fa428511bc31873393629fdcc86d38ebb7339f"
+    },
+    {
+      "component": "C1",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "obligation_id": "O23_v2_terminal_execution",
+      "qualification_probe_id": "OQ23",
+      "value_pointer": "/clarifications_replacing_ambiguous_v1_wording/terminal_execution",
+      "value_sha256": "a4bd3b168e7a850ba9d5afe89e127132579620e496836331248061c7e3dd265c"
+    },
+    {
+      "component": "C2",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O24_v3_candle_pair_capability",
+      "qualification_probe_id": "OQ24",
+      "value_pointer": "/adapter_capabilities/candle_OHLC",
+      "value_sha256": "e883c53c03cf48470a8e14510082403929a5ee1b431360690f117a4200de796d"
+    },
+    {
+      "component": "C3",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O25_v3_L2_pair_capability",
+      "qualification_probe_id": "OQ25",
+      "value_pointer": "/adapter_capabilities/qualified_quote_or_L2",
+      "value_sha256": "28283b247bd63216cd18e24f5608d43e3d09c962f112a920e77cf21166565681"
+    },
+    {
+      "component": "C4",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O26_v3_atomic_pair_close",
+      "qualification_probe_id": "OQ26",
+      "value_pointer": "/atomic_pair_close",
+      "value_sha256": "6fbb6a58594c33fdeddcbba00ba21e3492d0d7db2ecb3a30a33ccc1d96eaab41"
+    },
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O27_v3_authority_bindings",
+      "qualification_probe_id": "OQ27",
+      "value_pointer": "/authority_bindings",
+      "value_sha256": "e0e36659aa687895abd06ed67b810400e612006cf45db492a6e1374325c2d9d3"
+    },
+    {
+      "component": "C4",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O28_v3_mismatch_limit",
+      "qualification_probe_id": "OQ28",
+      "value_pointer": "/bound_mismatch_limit",
+      "value_sha256": "e9b427d44177a92c683d8a44717c0c4cb48c2bd709015bd3c8712351d57fea6e"
+    },
+    {
+      "component": "C4",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O29_v3_enumerated_outcomes",
+      "qualification_probe_id": "OQ29",
+      "value_pointer": "/enumerated_outcomes",
+      "value_sha256": "0590fea4f94c9c803e536264476a4c8fa6bedfea9cb3520b124b741ce4d3d552"
+    },
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O30_v3_inheritance",
+      "qualification_probe_id": "OQ30",
+      "value_pointer": "/inheritance",
+      "value_sha256": "3c489ca2047d79d9261116515484e55a7d0ab38deb218634b54b224fdad53827"
+    },
+    {
+      "component": "C0",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O31_v3_output_requirements",
+      "qualification_probe_id": "OQ31",
+      "value_pointer": "/output_requirements",
+      "value_sha256": "d218c2ee5fef607da6eb76b09bbb923f1ed05565abad96fcc530c5e30782d187"
+    },
+    {
+      "component": "C4",
+      "contract_path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "obligation_id": "O32_v3_preflight",
+      "qualification_probe_id": "OQ32",
+      "value_pointer": "/preflight",
+      "value_sha256": "a972eb0f209b95fb6e0f870b76d967a8b5613431a29c0746fc9b9da13e376c59"
+    }
+  ],
+  "schema_version": "btc-backtest-inherited-obligations-e0-v6"
+}

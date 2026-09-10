@@ -1,0 +1,183 @@
+{
+  "activated_at": "2026-08-29T12:40:00Z",
+  "boundaries": {
+    "expected_lse_sessions": [
+      "2025-01-02",
+      "2025-01-03",
+      "2025-01-06",
+      "2025-01-07",
+      "2025-01-08",
+      "2025-01-09",
+      "2025-01-10",
+      "2025-01-13",
+      "2025-01-14",
+      "2025-01-15",
+      "2025-01-16",
+      "2025-01-17",
+      "2025-01-20",
+      "2025-01-21",
+      "2025-01-22",
+      "2025-01-23",
+      "2025-01-24",
+      "2025-01-27",
+      "2025-01-28",
+      "2025-01-29",
+      "2025-01-30",
+      "2025-01-31"
+    ],
+    "expected_sessions_per_instrument": 22,
+    "pilot_end_inclusive": "2025-01-31",
+    "pilot_start_inclusive": "2025-01-02",
+    "sealed_partitions_accessed": false
+  },
+  "cash_control": {
+    "currency": "GBP",
+    "instrument_id": "GBP-CASH-ZERO-YIELD",
+    "market_data_required": false,
+    "yield_policy": "zero_yield_conservative_control"
+  },
+  "decision_rule": {
+    "a1_stage_pass_requires": [
+      "all exact instrument identities independently verified",
+      "an execution-price source with documented adjustment and corporate-action semantics",
+      "an execution-price source with documented observation and availability timestamps",
+      "documented license or terms permitting reproducible research use",
+      "complete expected-session coverage and valid OHLCV for every listed instrument",
+      "checksummed immutable raw bytes and deterministic parser",
+      "a separately frozen full-history acquisition contract"
+    ],
+    "pilot_can_only": "accept_or_reject_each_candidate_source_for_later_full_history_qualification",
+    "technical_csv_success_is_source_acceptance": false,
+    "unknown_or_undocumented_semantics": "reject_source"
+  },
+  "hypothesis": "Without computing returns or strategy signals, a four-instrument January 2025 pilot can determine whether free daily LSE data and official issuer metadata are sufficiently identified, complete, causal, licensed and reproducible to justify a separately frozen full-history acquisition.",
+  "instruments": [
+    {
+      "asset_role": "global_equity",
+      "exchange": "London Stock Exchange",
+      "income_treatment": "accumulating",
+      "instrument_id": "LSE-SWDA-GBP-IE00B4L5Y983",
+      "isin": "IE00B4L5Y983",
+      "issuer": "iShares III plc",
+      "issuer_product_url": "https://www.ishares.com/uk/individual/en/products/251882/SWDA",
+      "listing_currency": "GBP",
+      "listing_start": "2009-09-28",
+      "ric": "SWDA.L",
+      "sedol": "B4L60Z9",
+      "stooq_symbol": "swda.uk",
+      "ticker": "SWDA"
+    },
+    {
+      "asset_role": "global_aggregate_bond_gbp_hedged",
+      "exchange": "London Stock Exchange",
+      "income_treatment": "accumulating",
+      "instrument_id": "LSE-VAGS-GBP-IE00BG47K971",
+      "isin": "IE00BG47K971",
+      "issuer": "Vanguard Funds plc",
+      "issuer_product_url": "https://www.vanguard.co.uk/professional/product/etf/bond/9685/gbp-hedged-accumulating",
+      "listing_currency": "GBP",
+      "listing_start": "2019-06-20",
+      "ric": "VAGS.L",
+      "sedol": "BJLBN27",
+      "stooq_symbol": "vags.uk",
+      "ticker": "VAGS"
+    },
+    {
+      "asset_role": "physical_gold",
+      "exchange": "London Stock Exchange",
+      "income_treatment": "no_income",
+      "instrument_id": "LSE-SGLN-GBP-IE00B4ND3602",
+      "isin": "IE00B4ND3602",
+      "issuer": "iShares Physical Metals plc",
+      "issuer_product_url": "https://www.ishares.com/uk/individual/en/products/258441/ishares-physical-gold",
+      "listing_currency": "GBP",
+      "listing_start": "2011-04-11",
+      "ric": "SGLN.L",
+      "sedol": "B4R1D93",
+      "stooq_symbol": "sgln.uk",
+      "ticker": "SGLN"
+    },
+    {
+      "asset_role": "broad_commodity_total_return_swap",
+      "exchange": "London Stock Exchange",
+      "income_treatment": "accumulating",
+      "instrument_id": "LSE-COMM-GBP-IE00BDFL4P12",
+      "isin": "IE00BDFL4P12",
+      "issuer": "iShares VI plc",
+      "issuer_product_url": "https://www.ishares.com/uk/individual/en/products/287254/ishares-diversified-commodity-swap-ucits_1",
+      "listing_currency": "GBP",
+      "listing_start": "2017-07-20",
+      "ric": "COMM.L",
+      "sedol": "BDFLHQ3",
+      "stooq_symbol": "comm.uk",
+      "ticker": "COMM"
+    }
+  ],
+  "jurisdiction": {
+    "execution_access_approved": false,
+    "planning_path": "UK_retail",
+    "research_mapping_only": true
+  },
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-lse-source-pilot-v1",
+    "overwrite_existing_artifacts": false
+  },
+  "pilot_id": "cross-asset-a1-lse-source-pilot-v1",
+  "prohibitions": {
+    "bulk_download_allowed": false,
+    "credentials_allowed": false,
+    "derivative_data_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "schema_version": "cross-asset-a1-source-pilot-contract-v1",
+  "sources": {
+    "calendar": {
+      "role": "expected_session_evidence",
+      "source_id": "lse-trading-calendar-2025",
+      "url": "https://docs.londonstockexchange.com/sites/default/files/documents/lse-turquoise-calendar-2025.pdf"
+    },
+    "issuer_identity": {
+      "accepted_as_execution_price_source": false,
+      "expected_token_fields": [
+        "ticker",
+        "isin",
+        "sedol",
+        "ric"
+      ],
+      "role": "instrument_identity_and_product_cashflow_treatment"
+    },
+    "stooq_daily_csv": {
+      "accepted_before_pilot": false,
+      "adjustment_policy_documented": false,
+      "availability_time_documented": false,
+      "corporate_action_policy_documented": false,
+      "credentials_required": false,
+      "endpoint": "https://stooq.com/q/d/l/",
+      "exact_query_parameters": {
+        "d1": "20250102",
+        "d2": "20250131",
+        "i": "d"
+      },
+      "expected_columns": [
+        "Date",
+        "Open",
+        "High",
+        "Low",
+        "Close",
+        "Volume"
+      ],
+      "maximum_requests": 4,
+      "research_reuse_terms_documented": false,
+      "role": "candidate_lse_daily_raw_ohlcv",
+      "source_id": "stooq-free-daily-csv-candidate"
+    }
+  },
+  "status": "frozen",
+  "strategy_evaluation_authorized": false
+}

@@ -1,0 +1,99 @@
+{
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "required_session_start_paths": [
+    "AGENTS.md",
+    "config/mandates/retail-cross-asset-research-v3.json",
+    "config/research/cross-asset-data-contract-v1.json",
+    "config/research/cross-asset-decisions-v1.jsonl",
+    "config/research/cross-asset-instrument-access-v1.json",
+    "config/research/cross-asset-program-v1.json",
+    "config/research/cross-asset-status-v1.json",
+    "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+    "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+    "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+    "docs/EXECUTION_COST_MODEL.md",
+    "docs/RESEARCH_TRACKER.md",
+    "docs/STRATEGY_RESEARCH_STANDARD.md"
+  ],
+  "safety_boundaries": {
+    "actionable_arm_id": "no_trade",
+    "bulk_market_data_download_allowed": false,
+    "credentials_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "live_trading_authorized": false,
+    "message_bus_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "research_data_provider_api_tokens_allowed": true,
+    "running_soak_access_allowed": false,
+    "strategy_evaluation_allowed_in_a0": false
+  },
+  "schema_version": "cross-asset-research-program-v1",
+  "stages": [
+    {
+      "dependencies": [],
+      "next_action": "Freeze A0 as passed; activate A1 only under a separate request and before downloading or inspecting evaluation data.",
+      "objective": "Freeze the research-only mandate, jurisdiction and instrument-access states, capital risk budget, data requirements, stage graph, durable handoff and fail-closed validator.",
+      "pass_gate": "All A0 contracts serialize canonically, referenced artifacts match checksums, unsafe jurisdiction or runtime assumptions fail closed, no instrument or strategy is approved, and actionable output remains no_trade.",
+      "stage_id": "A0"
+    },
+    {
+      "dependencies": [
+        "A0"
+      ],
+      "next_action": "Freeze one exact investable universe and data-source audit before any strategy hypothesis or bulk acquisition.",
+      "objective": "Qualify point-in-time data and exact executable instrument mappings for a small cross-asset universe under the selected lawful jurisdiction and venue path.",
+      "pass_gate": "Every instrument has causal prices, total-return or cash-flow treatment, calendars, rules, costs, FX conversion, gap policy and source checksums; current-survivor and ambiguous adjusted series fail closed.",
+      "stage_id": "A1"
+    },
+    {
+      "dependencies": [
+        "A1"
+      ],
+      "next_action": "Record independent acceptance or rejection before selecting a non-trend family.",
+      "objective": "Evaluate one frozen, diversified cross-asset trend family at fixed risk using chronological and genuinely prospective evidence.",
+      "pass_gate": "The trend family beats flat, static allocation, matched-exposure and simple controls after all frozen costs with acceptable uncertainty, concentration and drawdown; multiple speeds remain one family.",
+      "stage_id": "A2"
+    },
+    {
+      "dependencies": [
+        "A1"
+      ],
+      "next_action": "Continue to risk overlays only if at least one arm passes; routing still requires two distinct accepted families.",
+      "objective": "Evaluate one economically distinct non-trend family selected by a pre-result access branch: lawful carry when complete derivative/cash-flow data exist, otherwise liquid-instrument mean reversion.",
+      "pass_gate": "The chosen family independently passes causal, cost, capacity, robustness, attribution and unseen-evidence gates; no alternative family is opened after observing its PnL.",
+      "stage_id": "A3"
+    },
+    {
+      "dependencies": [
+        "A2"
+      ],
+      "next_action": "Retain the simple risk benchmark regardless of result; do not create a universal directional regime oracle.",
+      "objective": "Evaluate continuous volatility, correlation and liquidity risk scaling for accepted arms, beginning with simple EWMA and covariance controls.",
+      "pass_gate": "Risk scaling improves frozen tail and risk-adjusted metrics without changing forecast direction, exceeding leverage limits, or depending on hindsight thresholds.",
+      "stage_id": "A4"
+    },
+    {
+      "dependencies": [
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "next_action": "Freeze the complete shared-capital system before prospective observation.",
+      "objective": "Compare no_trade, the best single arm, a static accepted-arm blend and a deterministic risk-aware router using one shared capital account.",
+      "pass_gate": "At least two economically distinct arms are accepted and routing adds stable net value after costs, uncertainty, turnover and concentration while actionable output remains no_trade.",
+      "stage_id": "A5"
+    },
+    {
+      "dependencies": [
+        "A5"
+      ],
+      "next_action": "Require a new execution mandate, exact venue, credentials review and explicit written approval before any live-capital proposal.",
+      "objective": "Prospectively paper-observe each accepted arm and the frozen shared-capital portfolio with availability, forecasts, fills, costs, risk and decay attribution.",
+      "pass_gate": "The frozen observer completes its predeclared duration and opportunity minimums without evidence contamination, unresolved operational failures or drawdown-limit breaches.",
+      "stage_id": "A6"
+    }
+  ]
+}

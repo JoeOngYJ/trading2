@@ -1,0 +1,150 @@
+{
+  "accepted_strategy_arms_before_test": [],
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "credentials_allowed": false,
+    "live_or_exchange_paper_orders_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "protected_service_access_allowed": false,
+    "year_2026_access_allowed": false
+  },
+  "attribution": [
+    "long_price_pnl",
+    "short_price_pnl",
+    "funding_cashflow",
+    "explicit_fees",
+    "implicit_cost",
+    "turnover",
+    "absolute_and_net_exposure",
+    "fixed_size_versus_EWMA_downscaling",
+    "calendar_year_and_month",
+    "best_month_and_episode_concentration"
+  ],
+  "bound_inputs": [
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V1_PLAN.md",
+      "sha256": "0eca2df792e5d798551fc797f8cf3246ae7d3cd80592e453dd3c240fd25c8982"
+    },
+    {
+      "path": "docs/BTC_DIRECTIONAL_PERPETUAL_RESEARCH_MANDATE.md",
+      "sha256": "3f45479d9e6461b725f7a21eaaeeea025d531fd30ba331930aea4cbde02a076d"
+    },
+    {
+      "path": "config/mandates/retail-btc-directional-perpetual-research-v1.json",
+      "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v2/source-manifest.json",
+      "sha256": "eed7a2ea11e6f9cfbaa29cd810e4047f8b5416921a5271b4d4de5fa2bb06c1a4"
+    }
+  ],
+  "controls": [
+    "flat",
+    "BTC_perpetual_buy_and_hold",
+    "always_long_identical_daily_size",
+    "simple_28_day_return_sign_identical_size_and_timestamps",
+    "lagged_seeded_random_sign_identical_size_and_timestamps",
+    "downward_only_EWMA_risk_implementation"
+  ],
+  "cost_scenarios": [
+    "candle-primary-30bps-rt-v1",
+    "candle-stress-40bps-rt-v1",
+    "candle-severe-80bps-rt-v1"
+  ],
+  "data": {
+    "decision_input": "completed_Binance_USD_M_BTCUSDT_1h_klines",
+    "execution": "next_01_00_UTC_hourly_open",
+    "funding": "official_Binance_USD_M_exact_scheduled_funding_archives",
+    "instrument": "BTCUSDT_USD_M_perpetual",
+    "missing_or_segment_crossing_policy": "force_flat_next_eligible_open_under_severe_cost",
+    "venue": "Binance_public_archives"
+  },
+  "evidence_boundary": {
+    "consumed_stability_diagnostic_end_inclusive": "2025-12-31T23:00:00Z",
+    "consumed_stability_diagnostic_start_inclusive": "2024-01-01T00:00:00Z",
+    "development_end_inclusive": "2023-12-31T23:00:00Z",
+    "development_start_inclusive": "2020-02-03T00:00:00Z",
+    "promotion_evidence_available": false,
+    "year_2026_access": "forbidden"
+  },
+  "experiment_id": "btc-multihorizon-perp-trend-v1",
+  "family": "btc_directional_trend",
+  "frozen_gates": {
+    "best_three_month_positive_pnl_fraction_max": 0.6,
+    "bootstrap_monthly_mean_net_return_95pct_lower_bound_min_exclusive": 0.0,
+    "causality_funding_completeness_margin_stress_and_no_2026_required": true,
+    "maximum_drawdown_max": 0.2,
+    "minimum_closed_position_episodes": 12,
+    "positive_calendar_years_2020_2025_min": 4,
+    "primary_net_return_both_partitions_min_exclusive": 0.0,
+    "primary_profit_factor_min_exclusive": 1.1,
+    "primary_return_per_absolute_exposure_minus_always_long_min_exclusive": 0.0,
+    "primary_return_per_absolute_exposure_minus_simple_28d_sign_min_exclusive": 0.0,
+    "primary_sharpe_min_exclusive": 0.5,
+    "severe_net_return_both_partitions_min_exclusive": 0.0,
+    "strictly_positive_2024_and_2025_required": true
+  },
+  "hypothesis": "A fixed equal-weight blend of causal completed 7-day, 28-day and 84-day volatility-standardized BTC perpetual returns has persistent directional information sufficient to outperform same-size always-long and simple 28-day-sign controls after funding and 30/40/80-bps turnover costs.",
+  "outputs_root": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1",
+  "parameters": {
+    "component_clip_absolute": 2.0,
+    "decision_time_utc": "00:05_daily",
+    "entry_time_utc": "next_01:00",
+    "ewma_annualized_volatility_target": 0.4,
+    "ewma_daily_lambda": 0.94,
+    "fixed_absolute_notional_fraction": 0.25,
+    "horizon_hours": [
+      168,
+      672,
+      2016
+    ],
+    "minimum_absolute_blended_score": 0.25,
+    "position_directions": [
+      "long",
+      "short",
+      "flat"
+    ],
+    "quantity_step_BTC": "0.00001",
+    "random_control_seed": 20260905,
+    "risk_scaling_direction": "downward_only"
+  },
+  "prohibited": [
+    "parameter_or_gate_tuning_after_result",
+    "regime_or_news_filter",
+    "funding_threshold_filter",
+    "breakout_or_CUSUM_event_selection",
+    "exposure_or_leverage_presented_as_alpha",
+    "counting_as_independent_from_other_directional_trend_variants",
+    "credentials_or_exchange_connection",
+    "live_or_exchange_paper_orders",
+    "production_integration",
+    "partial_OB0_access",
+    "protected_service_access",
+    "2026_historical_data"
+  ],
+  "risk_model": {
+    "adverse_mark_shock_fraction": 0.5,
+    "collateral_fraction_of_equity": 0.75,
+    "historical_bracket_claim_allowed": false,
+    "maintenance_margin_planning_fraction": 0.1,
+    "minimum_shocked_margin_equity_to_maintenance_ratio": 2.0,
+    "risk_exit": "next_available_hour_open_under_severe_cost",
+    "risk_releveraging_intraday_allowed": false
+  },
+  "schema_version": "btc-multihorizon-perp-trend-contract-v1",
+  "status": "frozen_before_strategy_return_access"
+}

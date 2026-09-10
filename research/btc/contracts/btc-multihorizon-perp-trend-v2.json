@@ -1,0 +1,58 @@
+{
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "credentials_allowed": false,
+    "historical_strategy_return_access_allowed_during_t1": false,
+    "live_or_exchange_paper_orders_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "protected_service_access_allowed": false,
+    "year_2026_access_allowed": false
+  },
+  "base_contract": {
+    "inherit_all_fields_except_experiment_id_status_and_clarifications": true,
+    "path": "research/btc/contracts/btc-multihorizon-perp-trend-v1.json",
+    "sha256": "6f6a2e63d91e9fded7553d43db3cdf3899620b895b0e71b9a94c78ed7699cfee"
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/reports/BTC_MULTIHORIZON_PERP_TREND_V2_PLAN.md",
+      "sha256": "7831b3ca504807fa46e15a059d80a4430e10de5a6f09e4ecbe8c05c59b91ac98"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1/t0-v2/report.json",
+      "sha256": "f5a1a06ae4cfa39b47bc1d09a4546777117431427e46d6af1b858b65d380aff8"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v1/t0-v2/evidence-manifest.json",
+      "sha256": "c3e3a9ee7fc125288277763051375f1d877c261c0a614e8feb3818c7446365ed"
+    }
+  ],
+  "clarifications": {
+    "component": "clip(log(close_t/close_t_minus_h)/(sqrt(h)*daily_volatility_t),-2,2)",
+    "daily_close": "close_of_23_00_UTC_hour_available_at_00_00",
+    "daily_return": "log_ratio_of_consecutive_daily_closes",
+    "direction": "long_if_blend_gt_0.25_short_if_blend_lt_minus_0.25_else_flat",
+    "ewma_initialization": "arithmetic_mean_first_20_squared_daily_returns",
+    "ewma_update": "variance_t=0.94*variance_t_minus_1+0.06*daily_return_t_squared_from_return_21",
+    "fixed_fraction": 0.25,
+    "funding_cashflow": "minus_direction_times_quantity_times_mark_times_rate",
+    "gap_policy": "severe_cost_next_available_hour_flatten_and_feature_history_reset",
+    "quantity_rounding": "down_to_0.00001_BTC",
+    "random_control": "local_Python_random_Random_20260905_chronological_long_flat_short_probabilities_0.45_0.10_0.45",
+    "rebalance": "mark_to_market_then_size_at_next_01_00_open_reversal_is_close_plus_open",
+    "risk_fraction": "min(0.25,0.40/(sqrt(365)*daily_volatility_t))",
+    "risk_stress": "each_completed_hour_50pct_adverse_mark_75pct_isolated_planning_collateral_10pct_maintenance_min_ratio_2_next_hour_severe_exit"
+  },
+  "experiment_id": "btc-multihorizon-perp-trend-v2",
+  "family": "btc_directional_trend",
+  "maximum_result_after_all_gates": "development_candidate_only_due_consumed_2024_2025",
+  "output_root": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v2",
+  "replaces": {
+    "experiment_id": "btc-multihorizon-perp-trend-v1",
+    "reason": "pre_return_volatility_estimator_and_accounting_underspecification"
+  },
+  "schema_version": "btc-multihorizon-perp-trend-contract-v2",
+  "status": "frozen_before_signal_or_return_access_t1_synthetic_only"
+}

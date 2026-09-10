@@ -1,0 +1,61 @@
+{
+  "audit_id": "btc-derivatives-crowding-data-audit-v1",
+  "boundary": {
+    "development_end_exclusive": "2024-01-01T00:00:00Z",
+    "development_start_inclusive": "2020-01-01T00:00:00Z",
+    "excluded_2026_start": "2026-01-01T00:00:00Z",
+    "locked_validation_end_exclusive": "2026-01-01T00:00:00Z",
+    "locked_validation_start_inclusive": "2024-01-01T00:00:00Z"
+  },
+  "economic_results_read_before_freeze": false,
+  "forbidden_actions": [
+    "account_or_trial_creation",
+    "data_purchase",
+    "database_or_message_bus_access",
+    "order_or_position_creation",
+    "production_signal_creation",
+    "strategy_evaluation",
+    "validation_or_2026_numeric_access"
+  ],
+  "hypothesis_for_later_separate_experiment": "Changes in BTC derivatives crowding may contain causal information about next-one-day and next-seven-day volatility, downside loss or return beyond price momentum and realized volatility controls.",
+  "instrument": "BTCUSDT",
+  "required_fields": [
+    "observed_at",
+    "available_at",
+    "source",
+    "funding_rate",
+    "basis_rate",
+    "open_interest",
+    "contract_identity",
+    "source_lineage_sha256"
+  ],
+  "schema_version": "btc-derivatives-crowding-data-audit-contract-v1",
+  "sources": [
+    {
+      "endpoint": "https://fapi.binance.com/fapi/v1/fundingRate",
+      "role": "perpetual_funding_history",
+      "source_id": "binance_usd_m_funding",
+      "status_before_audit": "candidate_public"
+    },
+    {
+      "endpoint": "https://fapi.binance.com/futures/data/openInterestHist",
+      "role": "aggregate_open_interest_history",
+      "source_id": "binance_usd_m_open_interest",
+      "status_before_audit": "candidate_public_latest_30_days_only"
+    },
+    {
+      "endpoint": "https://fapi.binance.com/futures/data/basis",
+      "role": "futures_basis_history",
+      "source_id": "binance_usd_m_basis",
+      "status_before_audit": "candidate_public_latest_30_days_only"
+    },
+    {
+      "endpoint": "https://www.cftc.gov/dea/futures/deacmesf.htm",
+      "role": "weekly_cme_participant_positioning",
+      "source_id": "cftc_cme_bitcoin_cot",
+      "status_before_audit": "candidate_public"
+    }
+  ],
+  "status": "frozen",
+  "whole_gate": "No later information experiment may start unless at least funding plus one independently sourced positioning or leverage series cover every frozen development subperiod with causal availability and checksummed archival rights."
+}

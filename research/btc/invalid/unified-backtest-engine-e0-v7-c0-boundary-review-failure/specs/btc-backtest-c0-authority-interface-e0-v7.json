@@ -1,0 +1,152 @@
+{
+  "experiment_id": "btc-unified-backtest-engine-e0-v7-c0-authority-boundary",
+  "schema_version": "btc-backtest-c0-authority-interface-e0-v7",
+  "supported_public_api": {
+    "arguments": [
+      {
+        "consumers": ["C0"],
+        "name": "run_spec_id",
+        "nullable": false,
+        "producer": "caller",
+        "type": "NonEmptyIdentifier"
+      }
+    ],
+    "name": "build_run_context",
+    "return_type": "RunContext",
+    "security_claim": "deterministic_fail_closed_supported_public_API_not_hostile_Python_security"
+  },
+  "types": {
+    "AuthorityRef": {
+      "fields": [
+        {"consumers": ["C0"], "name": "path", "nullable": false, "producer": "C0", "type": "SafeRelativePath"},
+        {"consumers": ["C0"], "name": "sha256", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0"], "name": "size_bytes", "nullable": false, "producer": "C0", "type": "NonNegativeInteger"},
+        {"consumers": ["C0"], "name": "role", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"}
+      ],
+      "kind": "record"
+    },
+    "ComponentFileRef": {
+      "fields": [
+        {"consumers": ["C0"], "name": "path", "nullable": false, "producer": "C0", "type": "SafeRelativePath"},
+        {"consumers": ["C0"], "name": "sha256", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0"], "name": "size_bytes", "nullable": false, "producer": "C0", "type": "NonNegativeInteger"},
+        {"consumers": ["C0"], "name": "role", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"}
+      ],
+      "kind": "record"
+    },
+    "ComponentId": {
+      "kind": "enum",
+      "values": ["C0", "C1", "C2", "C3", "C4", "C5", "C6"]
+    },
+    "ComponentManifest": {
+      "constraints": ["files_unique_by_path_and_role", "authority_bindings_unique_by_path_and_role", "dependency_acceptances_unique_by_experiment_id_and_component_id"],
+      "fields": [
+        {"consumers": ["C0"], "name": "schema_version", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0"], "name": "experiment_id", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0"], "name": "component_id", "nullable": false, "producer": "C0", "type": "ComponentId"},
+        {"consumers": ["C0"], "name": "files", "nullable": false, "producer": "C0", "type": "List[ComponentFileRef]"},
+        {"consumers": ["C0"], "name": "authority_bindings", "nullable": false, "producer": "C0", "type": "List[AuthorityRef]"},
+        {"consumers": ["C0"], "name": "dependency_acceptances", "nullable": false, "producer": "C0", "type": "List[DependencyAcceptance]"},
+        {"consumers": ["C0"], "name": "created_at", "nullable": false, "producer": "C0", "type": "UtcTimestamp"},
+        {"consumers": ["C0"], "name": "manifest_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"}
+      ],
+      "kind": "record"
+    },
+    "DependencyAcceptance": {
+      "fields": [
+        {"consumers": ["C0"], "name": "experiment_id", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0"], "name": "component_id", "nullable": false, "producer": "C0", "type": "ComponentId"},
+        {"consumers": ["C0"], "name": "manifest_path", "nullable": false, "producer": "C0", "type": "SafeRelativePath"},
+        {"consumers": ["C0"], "name": "manifest_sha256", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0"], "name": "review_path", "nullable": false, "producer": "C0", "type": "SafeRelativePath"},
+        {"consumers": ["C0"], "name": "review_sha256", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0"], "name": "status", "nullable": false, "producer": "C0", "type": "AcceptedLiteral"}
+      ],
+      "kind": "record"
+    },
+    "ExecutionMode": {
+      "kind": "enum",
+      "values": ["candle_taker", "book_taker"]
+    },
+    "LatencyMilliseconds": {
+      "kind": "integer",
+      "maximum": 86400000,
+      "minimum": 0
+    },
+    "NonEmptyIdentifier": {
+      "kind": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "NonNegativeInteger": {
+      "kind": "integer",
+      "minimum": 0
+    },
+    "RunContext": {
+      "fields": [
+        {"consumers": ["C0", "future_C1_C6"], "name": "run_context_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "run_spec_id", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "mandate_id", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "mandate_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "adapter_id", "nullable": false, "producer": "C0", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "execution_mode", "nullable": false, "producer": "C0", "type": "ExecutionMode"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "latency_ms", "nullable": true, "producer": "C0", "type": "LatencyMilliseconds"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "source_manifest_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "rule_manifest_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "margin_manifest_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "settings_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "scenario_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "implementation_manifest_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "partition_start", "nullable": false, "producer": "C0", "type": "UtcTimestamp"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "partition_end", "nullable": false, "producer": "C0", "type": "UtcTimestamp"},
+        {"consumers": ["C0", "future_C1_C6"], "name": "c0_manifest_digest", "nullable": false, "producer": "C0", "type": "Sha256Hex"}
+      ],
+      "kind": "record"
+    },
+    "RunSpec": {
+      "conditional_constraints": [
+        {"if": {"execution_mode": "book_taker"}, "then": "latency_ms_is_non_null"},
+        {"if": {"execution_mode": "candle_taker"}, "then": "latency_ms_is_null"},
+        {"if": {"mandate_id": "retail-btc-spot-v2"}, "then": "adapter_id_is_spot_and_margin_manifest_role_is_spot_not_applicable"},
+        {"if": {"mandate_id": "retail-btc-directional-perpetual-research-v1"}, "then": "adapter_id_is_linear_perpetual"},
+        {"if": {"mandate_id": "retail-btc-delta-neutral-research-v1"}, "then": "adapter_id_is_spot_perpetual_pair"}
+      ],
+      "fields": [
+        {"consumers": ["C0"], "name": "run_spec_id", "nullable": false, "producer": "repository", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0"], "name": "mandate_id", "nullable": false, "producer": "repository", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0"], "name": "mandate", "nullable": false, "producer": "repository", "type": "AuthorityRef"},
+        {"consumers": ["C0"], "name": "adapter_id", "nullable": false, "producer": "repository", "type": "NonEmptyIdentifier"},
+        {"consumers": ["C0"], "name": "execution_mode", "nullable": false, "producer": "repository", "type": "ExecutionMode"},
+        {"consumers": ["C0"], "name": "latency_ms", "nullable": true, "producer": "repository", "type": "LatencyMilliseconds"},
+        {"consumers": ["C0"], "name": "source_manifest", "nullable": false, "producer": "repository", "type": "AuthorityRef"},
+        {"consumers": ["C0"], "name": "rule_manifest", "nullable": false, "producer": "repository", "type": "AuthorityRef"},
+        {"consumers": ["C0"], "name": "margin_manifest", "nullable": false, "producer": "repository", "type": "AuthorityRef"},
+        {"consumers": ["C0"], "name": "settings", "nullable": false, "producer": "repository", "type": "AuthorityRef"},
+        {"consumers": ["C0"], "name": "scenario", "nullable": false, "producer": "repository", "type": "AuthorityRef"},
+        {"consumers": ["C0"], "name": "implementation_manifest", "nullable": false, "producer": "repository", "type": "ComponentManifest"},
+        {"consumers": ["C0"], "name": "partition_start", "nullable": false, "producer": "repository", "type": "UtcTimestamp"},
+        {"consumers": ["C0"], "name": "partition_end", "nullable": false, "producer": "repository", "type": "UtcTimestamp"}
+      ],
+      "kind": "record"
+    },
+    "SafeRelativePath": {
+      "constraints": ["non_empty", "POSIX_normalized", "not_absolute", "no_parent_segment", "resolves_within_repository_root"],
+      "kind": "string"
+    },
+    "Sha256Hex": {
+      "kind": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "UtcTimestamp": {
+      "kind": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]+)?Z$"
+    },
+    "AcceptedLiteral": {
+      "kind": "literal",
+      "value": "accepted"
+    }
+  },
+  "unsupported_caller_fields": [
+    "price", "open", "high", "low", "close", "timestamp", "observed_at", "available_at",
+    "target", "order", "fill", "fee", "funding", "balance", "position", "pnl", "liquidation"
+  ]
+}

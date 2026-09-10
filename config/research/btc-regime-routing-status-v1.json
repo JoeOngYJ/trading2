@@ -1,0 +1,586 @@
+{
+  "context_artifacts": [
+    {
+      "kind": "repository_instruction",
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "kind": "preceding_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-online-regime-breakout/development-v1/manifest.json",
+      "sha256": "c225758b5a251e0c5d3987cf56a617175dadf170067af3655c8e458049b86ca5"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s0-v1.json",
+      "sha256": "3f36267853f9d7103de0c3fa5caeaaf32ee54ad2d5a1533bf705992aa93d67d0"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s1-ledger-v1.json",
+      "sha256": "9a2000c6f2685a9ae878a024fb3105e7dac8ae968a9d1216b66d8cf3b7122f1d"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s2-ewma-v1.json",
+      "sha256": "ee1037b07c3b829a74c36350d2118fd7ec3dd80b9f7f699250bda33b267e339a"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s2-ewma-v2.json",
+      "sha256": "11d0d0ba1ccca6460c52c83a287d6b897f4dadb899cf81c8df733d7de6fb5efd"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s3-student-t-hmm-v1.json",
+      "sha256": "ed577f204387fff3b2df8d55e91bf74956eb5e9212db36e273d1dd4673941ec4"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s3-student-t-hmm-v2.json",
+      "sha256": "032fac4fc2201ba6b30a32c4ebceab74a0ec25bdfc05ede4e1e557bb3ab4afee"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s5-breakout-mechanism-v1.json",
+      "sha256": "804c5dd2b8a296ed0de1a39976a5980be6135b3f1a81c1169e8835151c16d6b7"
+    },
+    {
+      "kind": "frozen_stage_contract",
+      "path": "config/experiments/btc-regime-routing-s5-breakout-mechanism-v2.json",
+      "sha256": "227abb65e8f148808c2e3061f377001b5242a4df42937e18dd79812f84d82658"
+    },
+    {
+      "kind": "frozen_data_audit_contract",
+      "path": "config/experiments/btc-regime-routing-s2-daily-data-audit-v1.json",
+      "sha256": "7df2b16ef31384cb1a1294216023e5dc4344264a5845249fd157980e789f3224"
+    },
+    {
+      "kind": "frozen_data_audit_contract",
+      "path": "config/experiments/btc-order-book-cryptolake-sample-audit-v1.json",
+      "sha256": "bc59e7aed38efa0768ad16266ba2047133beedcb7f4244a1cb7980ce63324f9e"
+    },
+    {
+      "kind": "frozen_data_audit_contract",
+      "path": "config/experiments/btc-order-book-cryptohftdata-hour-day-audit-v1.json",
+      "sha256": "9dee3b804e52643c8cd7bf26732e5ebb2faf8f5c2859f810f68f98bda8aad0ac"
+    },
+    {
+      "kind": "frozen_data_audit_contract",
+      "path": "config/experiments/btc-order-book-cryptohftdata-hour-day-audit-v2.json",
+      "sha256": "ad9b217de0ef7c644bab897b6de1e6d34ea078c4a9db8ac237d9fe9e1bef1769"
+    },
+    {
+      "kind": "frozen_provider_pilot_contract",
+      "path": "config/experiments/btc-order-book-tardis-raw-pilot-v1.json",
+      "sha256": "85627eaf8f406ce425cb7d6ec923d0339fdcf691ed6043fc3d82d43ece76c339"
+    },
+    {
+      "kind": "evidence_boundary_registry",
+      "path": "config/research/btc-directional-trend-evidence-boundaries-v1.json",
+      "sha256": "041b1966ede73129e9a33f7469b9e24d441ae39452a4babddb87abc47b56fca8"
+    },
+    {
+      "kind": "evidence_boundary_registry",
+      "path": "config/research/btc-directional-trend-evidence-boundaries-v2.json",
+      "sha256": "f3736036b628c97cc7eb635ec6815f571c49564469c168821d54bc6a02364af1"
+    },
+    {
+      "kind": "arm_registry",
+      "path": "config/research/btc-regime-routing-arm-registry-v1.json",
+      "sha256": "fbe1cbea6b3860fbcd4acb14907517bda665375c251bda77c1e25a52be873a8a"
+    },
+    {
+      "kind": "append_only_decision_log",
+      "path": "config/research/btc-regime-routing-decisions-v1.jsonl",
+      "sha256": "02b7e0443d3cbfe82fba85e27d9bed12e3554bbf02d5d5e0342bbbb7d7e8b7bb"
+    },
+    {
+      "kind": "program_contract",
+      "path": "config/research/btc-regime-routing-program-v1.json",
+      "sha256": "eda4aaa1b4b8816cf9ae410941d4a0c568c904bb8f326dfee7d1147876f881ae"
+    },
+    {
+      "kind": "session_handoff",
+      "path": "docs/BTC_REGIME_STRATEGY_ROUTING_HANDOFF.md",
+      "sha256": "06d0f60c2c9659ef4f2a3cd2523848714099fd9377c23f2596a8df71f984638d"
+    },
+    {
+      "kind": "stable_program_document",
+      "path": "docs/BTC_REGIME_STRATEGY_ROUTING_PROGRAM.md",
+      "sha256": "f31ebe78d4a7a69992abd8d688c0b5960d09ddb60d01442aed0bf2da11366cb8"
+    },
+    {
+      "kind": "stage_result",
+      "path": "docs/BTC_REGIME_ROUTING_S1_RESULT.md",
+      "sha256": "600abc5c4afa7af0ffe2467c71f39dce6b7d747b9e4d5cec00fe75e482b9b8d8"
+    },
+    {
+      "kind": "stage_result",
+      "path": "docs/BTC_REGIME_ROUTING_S2_RESULT.md",
+      "sha256": "329b4fca7961a4572f13daf2dc668576977507087adaec0e8c366f88c2d8c721"
+    },
+    {
+      "kind": "data_audit_result",
+      "path": "docs/BTC_REGIME_ROUTING_S2_DAILY_DATA_AUDIT_RESULT.md",
+      "sha256": "d27998269e6aaa778a4b497823d8a3635a4d71eaa426523bffded266abf86359"
+    },
+    {
+      "kind": "data_audit_result",
+      "path": "docs/BTC_ORDER_BOOK_CRYPTOLAKE_SAMPLE_AUDIT_RESULT.md",
+      "sha256": "af45519e42a9ccdb2009a38fa5343e1015e63de53fae9ee756b55b4278b8cd0c"
+    },
+    {
+      "kind": "data_audit_result",
+      "path": "docs/BTC_ORDER_BOOK_CRYPTOHFTDATA_AUDIT_RESULT.md",
+      "sha256": "3cd3c52bfc984c718afca864e484884a3fc3762086415d565834c87e93a47860"
+    },
+    {
+      "kind": "provider_pilot_plan",
+      "path": "docs/BTC_ORDER_BOOK_TARDIS_RAW_PILOT_PLAN.md",
+      "sha256": "1e12269801a153784b3556c7e3518a70ab9284bd61772e1923ec10d7235eb790"
+    },
+    {
+      "kind": "stage_result",
+      "path": "docs/BTC_REGIME_ROUTING_S3_RESULT.md",
+      "sha256": "d2f437a9d888bcefe55cafad4755c4bbedf67747614ed40640c2ee88805d5eb7"
+    },
+    {
+      "kind": "stage_result",
+      "path": "docs/BTC_REGIME_ROUTING_S5_BREAKOUT_MECHANISM_RESULT.md",
+      "sha256": "3e5d4b8dca67d079fcb25c3086526acb0ef8dc0c84fbd70dbfa8e3cf7533ad3d"
+    },
+    {
+      "kind": "stage_result",
+      "path": "docs/BTC_REGIME_ROUTING_S2_V2_RESULT.md",
+      "sha256": "9337e4d5838da735311a45be0dc876bb3dd69d6fb4c5c23c3d354da28d28967c"
+    },
+    {
+      "kind": "required_research_document",
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "kind": "required_research_document",
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "e0d5ef4dbb29079e6b77a71a5eb19312c05eb0355fbcd77b7b4607dd53ce706b"
+    },
+    {
+      "kind": "required_research_document",
+      "path": "docs/BTC_ORDER_BOOK_RESEARCH.md",
+      "sha256": "8a1baca2d67d83b6570234ed51a8720f66211d741cc7c2c06e79a3446bb4aeb4"
+    },
+    {
+      "kind": "provider_audit_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-order-book/provider-audits/cryptolake-sample-v1/manifest.json",
+      "sha256": "af711e298fd8972a40b376a0617a7621a49da8ceeb8f573c3419fa3e8649b3b0"
+    },
+    {
+      "kind": "provider_audit_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-order-book/provider-audits/cryptohftdata-hour-day-v1/pilot/hour-manifest.json",
+      "sha256": "91b88b167b163992e5a531072b7183a31c32617a9ad80953db614a31646d0dd4"
+    },
+    {
+      "kind": "provider_audit_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-order-book/provider-audits/cryptohftdata-hour-day-v2/pilot/hour-manifest.json",
+      "sha256": "9011e28da83633fee04384500e0bb9908c12d7c74c725ef6b268e4cdb6b1f25d"
+    },
+    {
+      "kind": "required_research_document",
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "kind": "required_research_document",
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "kind": "context_validator_entrypoint",
+      "path": "scripts/validate_btc_regime_routing_context.py",
+      "sha256": "7b8af0bb02748b247a8ab66c4df78736966d74c7dbfef6ef44c40880ed75958e"
+    },
+    {
+      "kind": "provider_contract_validator",
+      "path": "scripts/validate_btc_order_book_tardis_pilot_contract.py",
+      "sha256": "5ff270cd2db9c759459ccb855e0bd166365d028a8e845f676f0df19a2b1cf202"
+    },
+    {
+      "kind": "provider_contract_test",
+      "path": "tests/test_btc_order_book_tardis_pilot_contract.py",
+      "sha256": "62d27a12ce473c09b5adea350a4b01f8f9bae964cc7fabffcaf8a5429511dc63"
+    },
+    {
+      "kind": "isolated_stage_runner",
+      "path": "scripts/build_btc_regime_research_ledger.py",
+      "sha256": "510baf32d82195694132035d66dbea43ee68f888c72e6b0ff1fee7c001347242"
+    },
+    {
+      "kind": "isolated_context_module",
+      "path": "src/trading_platform/research_program.py",
+      "sha256": "005ff30148db48d15fb1883e06725248e775866511afe4c0bd85ab3859cc1e55"
+    },
+    {
+      "kind": "isolated_routing_module",
+      "path": "src/trading_platform/research_routing.py",
+      "sha256": "13a786be221de9a5b31572b4a3f52078359df6c71d67ffc485bf2fd165d34175"
+    },
+    {
+      "kind": "isolated_ledger_module",
+      "path": "src/trading_platform/research_ledger.py",
+      "sha256": "6b36311efa28c8f58dec1459df0ee146a9a51efd5ff6504fe5531ea0de00e75e"
+    },
+    {
+      "kind": "isolated_arm_module",
+      "path": "src/trading_platform/research_breakout.py",
+      "sha256": "973280749d3316a055be4b5e99d0234a5cd1b1eff39ca61c0bfb2d2b320bbf61"
+    },
+    {
+      "kind": "isolated_evidence_module",
+      "path": "src/trading_platform/research_evidence.py",
+      "sha256": "ffbf532eb70caaaee30ffa65f2f07c7f611f50c34079c703aa7708765420837d"
+    },
+    {
+      "kind": "isolated_volatility_module",
+      "path": "src/trading_platform/research_volatility.py",
+      "sha256": "1cc67d574c10babd5629d36fe12f3071053b44581a456faeff20f5f7d467ee10"
+    },
+    {
+      "kind": "isolated_hmm_module",
+      "path": "src/trading_platform/research_hmm.py",
+      "sha256": "c1d17d22f71e5ea34dfa5c9113ee9f80bcf21bb1db27fa3263fc190913f9cf43"
+    },
+    {
+      "kind": "isolated_mechanism_module",
+      "path": "src/trading_platform/research_breakout_mechanism.py",
+      "sha256": "bafd96f29f4815463601b9e6b748784d41497aa58f9ad134c17645d6b4629efb"
+    },
+    {
+      "kind": "isolated_stage_runner",
+      "path": "scripts/run_btc_regime_routing_s2_ewma.py",
+      "sha256": "667d78b2e0dc705d3b2532665fca9a5e9cf6888c1b9a4c7982ea9f83ada793d8"
+    },
+    {
+      "kind": "isolated_stage_runner",
+      "path": "scripts/run_btc_regime_routing_s2_ewma_v2.py",
+      "sha256": "6fec551e6298510afe10e9033c8efcacb98570a1612d6fedb8969da670d58f0d"
+    },
+    {
+      "kind": "isolated_stage_runner",
+      "path": "scripts/run_btc_regime_routing_s3_hmm.py",
+      "sha256": "f0ab1e1e577d11971a8368f30c1cb164c6353fca8f0cac916cf66ddd0331a7b3"
+    },
+    {
+      "kind": "isolated_stage_runner",
+      "path": "scripts/run_btc_regime_routing_s5_breakout_mechanism.py",
+      "sha256": "29e3757833b301f14c1e16703d5abf6281b486cdf565691ad10ee5f97536bc42"
+    },
+    {
+      "kind": "allowlisted_public_archive_acquisition",
+      "path": "scripts/download_btc_regime_routing_daily_audit.py",
+      "sha256": "b62a7ba7bbae28cde68fdb883af9ad2fca05a22e96b9728c33472fc4b1d02ce3"
+    },
+    {
+      "kind": "offline_data_audit",
+      "path": "scripts/audit_btc_regime_routing_s2_daily_data.py",
+      "sha256": "82085b301478ef5ef8bc9ada120cc2700e10e881561c42664450435d51930699"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_program.py",
+      "sha256": "922053ceff8c6cb91ef9f914390ee84605ccab4791de22af4e49d8f07fd1a34b"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_routing.py",
+      "sha256": "1510a45ad1545a455de1e9d9734170bf56ee448a0b6865bcf16e548863ca4e5c"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_ledger.py",
+      "sha256": "6a64d8a30c011732db74e4c514f05381098d12a18a383ab14f8dbcf0e872f83a"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_breakout.py",
+      "sha256": "ac4c00a490c95806390897b31de8502bec8a107aff52132afd091f03a4531f12"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_evidence.py",
+      "sha256": "62020f4dacc42df61004dc84454b5aaa0c03aca801bb4e03b818a2b77a29e4fb"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_volatility.py",
+      "sha256": "469c1f7c9bc73e91687848bd032a04804d557ffb8d9b1e01655583e2f9c83269"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_daily_data_audit.py",
+      "sha256": "bc1d35aad318ae75e51ae7ce9f52f912cd3b6c825e8181b7c377a82284be1f9e"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_hmm.py",
+      "sha256": "ea9ed85f77486e4577ce26f140cc9b5efc1ee6612330bab84d3d73d94d093ac5"
+    },
+    {
+      "kind": "offline_test",
+      "path": "tests/test_research_breakout_mechanism.py",
+      "sha256": "252ae3b701a5553cf8e6e5fa9d5410a0ac7bdc7d21c2341d1a6d17922c18bf91"
+    },
+    {
+      "kind": "stage_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "kind": "stage_reproduction_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-reproduction-report.json",
+      "sha256": "e4d631998153f2841e54f2d36ee7008a9c5874201f65ad3b8e19bb9bca2a9b61"
+    },
+    {
+      "kind": "stage_determinism_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/determinism-verification.json",
+      "sha256": "c00b01dbd698d752d5dd47c2b04ecd1bf8f459e98c47a783ec36e710969ca162"
+    },
+    {
+      "kind": "stage_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1/manifest.json",
+      "sha256": "03613b92340a98c030da01d2935dbd524b94caf35647b509ba135c181aed0c72"
+    },
+    {
+      "kind": "stage_evaluation_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1/s2-ewma-report.json",
+      "sha256": "632015c6db32728c552faee0952316ab27c0165da3087b1b6474d48048f5c2d4"
+    },
+    {
+      "kind": "stage_determinism_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1/determinism-verification.json",
+      "sha256": "a63bb98043f3eb49d86f63efca5cad1a1d7b937b472c8c9b72f491f279a1eb3f"
+    },
+    {
+      "kind": "data_audit_source_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/source-manifest.json",
+      "sha256": "a68ebc20c3da63c6ff7b563981fa88c272f50a771714b49b505973b43fa929ea"
+    },
+    {
+      "kind": "data_audit_dataset",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/btc-usdt-direct-1d-development-2017-2025.jsonl.gz",
+      "sha256": "b47b32f0f64371108d947fcb1b0656170dc728d81442accdf52808c2f95fba12"
+    },
+    {
+      "kind": "data_audit_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/daily-data-audit-report.json",
+      "sha256": "695fbecb60978010739f2add729b66dbe57558e357396f90d40e5f1810323e0e"
+    },
+    {
+      "kind": "data_audit_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/manifest.json",
+      "sha256": "417ac403fd06d71af9fd9c62e3d677065de8452f254c57cd7bcb9f3f10ea849d"
+    },
+    {
+      "kind": "stage_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/manifest.json",
+      "sha256": "0b10e3ce5f99bbfac0fa95e305c2f81cecfd0f98556a6e9b17123eaa75a2b4b1"
+    },
+    {
+      "kind": "stage_evaluation_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/s2-ewma-report.json",
+      "sha256": "15effc218435e6388edde2b30349a078b942205eabed8ae070a6ffa7ea7ce30e"
+    },
+    {
+      "kind": "stage_determinism_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/determinism-verification.json",
+      "sha256": "6aa819163db15514b3aa0712755cf068c4233c4a0496efe386a356d4b45db682"
+    },
+    {
+      "kind": "stage_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1/manifest.json",
+      "sha256": "26e2d619d65e6e0d76b71a065a926bc702485dac3810e9cde8782523779ede59"
+    },
+    {
+      "kind": "stage_evaluation_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1/s3-hmm-report.json",
+      "sha256": "fc9d41b0d2f3652d32678194a3079ec57516f92b120a225f73b4fcd71bc2a45b"
+    },
+    {
+      "kind": "stage_determinism_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1/determinism-verification.json",
+      "sha256": "25fed6c1a365d0577cc80a7a16b7dc86cf0f864a32ddc48b5a719fa169e637a5"
+    },
+    {
+      "kind": "stage_evidence_manifest",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/manifest.json",
+      "sha256": "8f7faacee84fc0260ba4f27a88797eff5cd1977f1badb97ebd969c40702ac8db"
+    },
+    {
+      "kind": "stage_evaluation_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/s5-breakout-mechanism-report.json",
+      "sha256": "a991d3e550aa54e4b200099769216f462b3664d074e819f9b9628fceab762919"
+    },
+    {
+      "kind": "stage_determinism_report",
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/determinism-verification.json",
+      "sha256": "c35bf83218f1dc0d82b015f28300584500983908e63ec62558c5c67da471e0c3"
+    }
+  ],
+  "current_stage": "S5",
+  "decision_log_path": "config/research/btc-regime-routing-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "src/trading_platform/research_program.py",
+    "src/trading_platform/research_routing.py",
+    "src/trading_platform/research_ledger.py",
+    "src/trading_platform/research_breakout.py",
+    "src/trading_platform/research_evidence.py",
+    "src/trading_platform/research_volatility.py",
+    "src/trading_platform/research_hmm.py",
+    "src/trading_platform/research_breakout_mechanism.py",
+    "scripts/build_btc_regime_research_ledger.py",
+    "scripts/run_btc_regime_routing_s2_ewma.py",
+    "scripts/run_btc_regime_routing_s2_ewma_v2.py",
+    "scripts/run_btc_regime_routing_s3_hmm.py",
+    "scripts/run_btc_regime_routing_s5_breakout_mechanism.py",
+    "scripts/validate_btc_order_book_tardis_pilot_contract.py"
+  ],
+  "program_id": "btc-regime-strategy-routing-v1",
+  "schema_version": "regime-routing-program-status-v1",
+  "sealed_partitions": [
+    {
+      "access_state": "sealed",
+      "accessed": false,
+      "partition_id": "btc-2026-01-01-through-2026-07-31",
+      "source_contract": "config/experiments/btc-online-regime-breakout-v1.json",
+      "source_contract_sha256": "79ea3d7d7287e35170d404b3ccb5f02d97f6dac81c758f169fe8b2d74a153bb0"
+    }
+  ],
+  "stages": [
+    {
+      "artifact_paths": [
+        "config/experiments/btc-regime-routing-s0-v1.json",
+        "config/research/btc-regime-routing-arm-registry-v1.json",
+        "docs/BTC_REGIME_STRATEGY_ROUTING_PROGRAM.md",
+        "src/trading_platform/research_program.py",
+        "src/trading_platform/research_routing.py"
+      ],
+      "completed_at": "2026-08-28T20:40:00Z",
+      "decision_record_digest": "30f01aa4a639506877bf5eadc29c06aed4dce4d63eebda10ff4e5630d2fd7737",
+      "stage_id": "S0",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/breakout-reproduction-report.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/determinism-verification.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+        "config/experiments/btc-regime-routing-s1-ledger-v1.json",
+        "config/research/btc-directional-trend-evidence-boundaries-v1.json",
+        "docs/BTC_REGIME_ROUTING_S1_RESULT.md",
+        "scripts/build_btc_regime_research_ledger.py",
+        "src/trading_platform/research_breakout.py",
+        "src/trading_platform/research_evidence.py",
+        "src/trading_platform/research_ledger.py",
+        "tests/test_research_breakout.py",
+        "tests/test_research_evidence.py",
+        "tests/test_research_ledger.py",
+        "tests/test_research_program.py"
+      ],
+      "completed_at": "2026-08-28T21:00:00Z",
+      "decision_record_digest": "03bb6e881ae917ee98101bd3b63a605cc2f3084c167e6b74f49737bd870a4232",
+      "stage_id": "S1",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/daily-data-audit-report.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/manifest.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/source-manifest.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1/determinism-verification.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1/manifest.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v1/s2-ewma-report.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/determinism-verification.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/manifest.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/s2-ewma-report.json",
+        "config/experiments/btc-regime-routing-s2-daily-data-audit-v1.json",
+        "config/experiments/btc-regime-routing-s2-ewma-v1.json",
+        "config/experiments/btc-regime-routing-s2-ewma-v2.json",
+        "config/research/btc-directional-trend-evidence-boundaries-v2.json",
+        "docs/BTC_REGIME_ROUTING_S2_DAILY_DATA_AUDIT_RESULT.md",
+        "docs/BTC_REGIME_ROUTING_S2_RESULT.md",
+        "docs/BTC_REGIME_ROUTING_S2_V2_RESULT.md",
+        "scripts/audit_btc_regime_routing_s2_daily_data.py",
+        "scripts/download_btc_regime_routing_daily_audit.py",
+        "scripts/run_btc_regime_routing_s2_ewma.py",
+        "scripts/run_btc_regime_routing_s2_ewma_v2.py",
+        "src/trading_platform/research_evidence.py",
+        "src/trading_platform/research_program.py",
+        "src/trading_platform/research_volatility.py",
+        "tests/test_research_evidence.py",
+        "tests/test_research_daily_data_audit.py",
+        "tests/test_research_program.py",
+        "tests/test_research_volatility.py"
+      ],
+      "completed_at": "2026-08-28T23:02:47Z",
+      "decision_record_digest": "6bb6f27113a702a7468898fa27c625638e5746e46c2009924a1f3387ad03974c",
+      "stage_id": "S2",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1/determinism-verification.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1/manifest.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s3-student-t-hmm-v1/s3-hmm-report.json",
+        "config/experiments/btc-regime-routing-s3-student-t-hmm-v1.json",
+        "config/experiments/btc-regime-routing-s3-student-t-hmm-v2.json",
+        "docs/BTC_REGIME_ROUTING_S3_RESULT.md",
+        "scripts/run_btc_regime_routing_s3_hmm.py",
+        "src/trading_platform/research_hmm.py",
+        "tests/test_research_hmm.py"
+      ],
+      "completed_at": "2026-08-28T23:32:49Z",
+      "decision_record_digest": "e5c1e545a4e5209a0f4a0718d88cecb5f02dfcecc39dbda129729f418bfc7839",
+      "stage_id": "S3",
+      "state": "rejected"
+    },
+    {
+      "artifact_paths": [],
+      "completed_at": "2026-08-28T23:32:50Z",
+      "decision_record_digest": "e1fdd5e1579b60943f852d74dae04c665c7e56f0fd2d87ca75862f1a6ba81e75",
+      "stage_id": "S4",
+      "state": "skipped"
+    },
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/determinism-verification.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/manifest.json",
+        "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/s5-breakout-mechanism-report.json",
+        "config/experiments/btc-regime-routing-s5-breakout-mechanism-v1.json",
+        "config/experiments/btc-regime-routing-s5-breakout-mechanism-v2.json",
+        "docs/BTC_REGIME_ROUTING_S5_BREAKOUT_MECHANISM_RESULT.md",
+        "scripts/run_btc_regime_routing_s5_breakout_mechanism.py",
+        "src/trading_platform/research_breakout_mechanism.py",
+        "tests/test_research_breakout_mechanism.py"
+      ],
+      "completed_at": "2026-08-28T23:56:37Z",
+      "decision_record_digest": "df3d80667ce6fc71e94cc7e58a30798215fe2346f93675f7294d928298acdaeb",
+      "stage_id": "S5",
+      "state": "blocked"
+    },
+    {
+      "artifact_paths": [],
+      "completed_at": null,
+      "decision_record_digest": null,
+      "stage_id": "S6",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "completed_at": null,
+      "decision_record_digest": null,
+      "stage_id": "S7",
+      "state": "planned"
+    }
+  ],
+  "updated_at": "2026-08-31T02:35:00Z"
+}

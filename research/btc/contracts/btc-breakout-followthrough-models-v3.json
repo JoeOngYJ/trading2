@@ -1,0 +1,116 @@
+{
+  "base_contract": {
+    "path": "research/btc/contracts/btc-breakout-followthrough-models-v2.json",
+    "sha256": "fb610e5cb9e4757012137bffb4e0abb703664de0e7d9f56802fb94f7a4697f54"
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex2-v3",
+  "frozen_at": "2026-09-01T00:31:32Z",
+  "patch_operations": [
+    {
+      "op": "replace",
+      "path": "/experiment_id",
+      "value": "btc-upside-compression-breakout-v1-bex2-v3"
+    },
+    {
+      "op": "replace",
+      "path": "/frozen_at",
+      "value": "2026-09-01T00:31:32Z"
+    },
+    {
+      "op": "replace",
+      "path": "/required_predecessor/experiment_id",
+      "value": "btc-upside-compression-breakout-v1-bex1-v3"
+    },
+    {
+      "op": "replace",
+      "path": "/required_predecessor/path",
+      "value": "research/btc/contracts/btc-breakout-event-catalogue-v3.json"
+    },
+    {
+      "op": "add",
+      "path": "/feature_sets/age_basis",
+      "value": {
+        "applies_to": [
+          "M1",
+          "M2",
+          "M3"
+        ],
+        "continuous": "age_hour_divided_by_168",
+        "piecewise_one_hot_bins_inclusive": [
+          [
+            1,
+            6
+          ],
+          [
+            7,
+            24
+          ],
+          [
+            25,
+            72
+          ],
+          [
+            73,
+            168
+          ]
+        ]
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/calibration",
+      "value": {
+        "gate_definition": "for_each_cause_fit_weighted_logistic_observed_event_by_168h_on_logit_predicted_168h_cumulative_incidence_using_pooled_outer_OOF_rows_and_training_fold_KM_segment_censor_weights_slope_must_be_0.8_to_1.2_intercept_report_only",
+        "method": "single_temperature_on_inner_out_of_fold_person_period_probabilities",
+        "temperature_grid": [
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          2.0
+        ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/dependency_prerequisite",
+      "value": {
+        "contract_path": "research/btc/contracts/btc-breakout-model-dependencies-v1.json",
+        "contract_sha256": "435952823c387bfd025a3ec839668a6060a4fdef9a7a6e82fd171934fcb43017",
+        "failure_behavior": "M2_and_M3_unavailable_with_reason_never_fallback_to_an_unqualified_environment"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/selection_rules",
+      "value": {
+        "eligible_models": "only_models_passing_dependency_and_every_frozen_train_validation_cause_count_gate",
+        "inner_selection": "lowest_mean_inner_validation_IBS_then_model_order_M0_M1_M2_M3_then_lexicographic_hyperparameter_tuple",
+        "nonlinear_additional_gate": "a_selected_M2_or_M3_must_also_have_favorable_paired_outer_month_block_IBS_improvement_95_interval_versus_M1",
+        "outer_primary_gate": "selected_model_must_have_favorable_paired_outer_month_block_IBS_improvement_95_interval_versus_M0_and_win_at_least_4_of_5_outer_years",
+        "single_year_concentration": "no_single_outer_year_may_supply_more_than_50_percent_of_total_positive_IBS_improvement",
+        "when_only_M0_is_eligible": "reject_no_incremental_forecast",
+        "when_selected_model_fails_outer_gate": "reject_without_trying_a_post_result_alternative"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/gates/selected_primary_favorable_paired_IBS_improvement_95_interval_vs_M0",
+      "value": true
+    },
+    {
+      "op": "add",
+      "path": "/gates/selected_primary_outer_years_won_minimum",
+      "value": 4
+    },
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "frozen_validated_successor_pending_BEX1_v3_catalogue_preflight_and_dependency_qualification"
+    }
+  ],
+  "reason_for_successor": "BEX2_v2_was_future_dated_and_inherited_missing_age_fairness_selection_calibration_and_dependency_rules_and_was_rejected_before_any_model_outcome",
+  "schema_version": "btc-breakout-followthrough-models-successor-contract-v3",
+  "status": "frozen_validated_successor_pending_BEX1_v3_catalogue_preflight_and_dependency_qualification"
+}

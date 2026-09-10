@@ -1,0 +1,99 @@
+{
+  "authority": {
+    "credentials_allowed": false,
+    "execution_credentials_allowed": false,
+    "live_funds_allowed": false,
+    "live_trading_authorized": false,
+    "maximum_live_allocation_gbp": 0,
+    "order_submission_allowed": false,
+    "paper_trading_authorized": false,
+    "requires_separate_written_live_approval": true,
+    "requires_separate_written_paper_approval": true,
+    "research_data_provider_api_tokens_allowed": true,
+    "strategy_evaluation_allowed_only_by_frozen_offline_contract": true
+  },
+  "capital": {
+    "hard_drawdown_ceiling_fraction": 0.2,
+    "hard_equity_floor_gbp": 16000,
+    "research_equity_gbp": 20000,
+    "soft_drawdown_stop_fraction": 0.12,
+    "soft_equity_floor_gbp": 17600
+  },
+  "change_control": {
+    "material_changes_require_new_mandate_id": true,
+    "negative_results_are_append_only": true
+  },
+  "data_provider_token_policy": {
+    "allowed_environment_variables": [
+      "OANDA_ACCOUNT_ID",
+      "OANDA_API_TOKEN",
+      "OANDA_API_URL"
+    ],
+    "allowed_http_method": "GET",
+    "allowed_purpose": "offline_checksummed_oanda_a2_conversion_source_qualification_only",
+    "allowed_resource_classes": [
+      "historical_instrument_candles"
+    ],
+    "broker_private_state_access_allowed": false,
+    "database_or_message_bus_tokens_allowed": false,
+    "may_be_logged_or_serialized": false,
+    "order_or_order_preview_access_allowed": false,
+    "repository_storage_allowed": false,
+    "runtime_order_or_signal_access_allowed": false
+  },
+  "execution_scope": {
+    "approved_execution_instrument_ids": [],
+    "conversion_only_oanda_instruments": [
+      "GBP_USD"
+    ],
+    "derivatives_execution_authorized": false,
+    "live_venue": null,
+    "oanda_execution_authorized": false,
+    "research_candidate_oanda_instruments": [
+      "SPX500_USD",
+      "NAS100_USD",
+      "DE30_EUR",
+      "UK100_GBP",
+      "XAU_USD",
+      "EUR_USD",
+      "USD_JPY"
+    ],
+    "shorting_authorized_for_execution": false,
+    "simulated_research_directions": [
+      "long",
+      "short"
+    ]
+  },
+  "jurisdiction": {
+    "alternative_research_scenario": "Malaysia_retail",
+    "client_classification": "retail",
+    "execution_jurisdiction": null,
+    "planning_default": "UK_retail",
+    "residency_may_not_be_selected_to_bypass_rules": true,
+    "venue_and_product_eligibility_must_be_rechecked_before_paper_or_live": true
+  },
+  "mandate_id": "retail-cross-asset-research-v7",
+  "objective": {
+    "objective_statement": "Evaluate independently frozen intraday strategy families at fixed risk with exact GBP accounting; do not select leverage or hypotheses to reach a requested headline return.",
+    "stretch_annualized_return_fraction": 0.5,
+    "stretch_return_is_acceptance_gate": false
+  },
+  "risk": {
+    "daily_loss_stop_fraction": 0.01,
+    "hard_drawdown_action": "disable_new_risk_and_require_manual_program_review",
+    "loss_limits_include_realized_and_unrealized_pnl": true,
+    "maximum_planned_risk_per_position_fraction": 0.005,
+    "maximum_single_strategy_share_of_portfolio_risk": 0.3333333333333333,
+    "minimum_planned_risk_per_position_fraction": 0.0025,
+    "protective_exits_remain_enabled": true,
+    "return_target_may_not_set_leverage": true,
+    "soft_drawdown_action": "disable_new_risk_and_require_attribution_review"
+  },
+  "schema_version": "cross-asset-research-mandate-v7",
+  "status": "frozen_a2_offline_strategy_research_and_conversion_data_only",
+  "supersedes": {
+    "mandate_id": "retail-cross-asset-research-v6",
+    "path": "config/mandates/retail-cross-asset-research-v6.json",
+    "sha256": "789211dc38ca539b5d9a23d39848815fe4cb9087fddb33351f05fd9f42c9e957"
+  }
+}

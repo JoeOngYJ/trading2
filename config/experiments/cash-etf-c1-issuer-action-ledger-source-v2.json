@@ -1,0 +1,35 @@
+{
+  "activated_at": "2026-08-30T18:40:00Z",
+  "changes_from_predecessor": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v2",
+    "parser_change": "case_insensitive_zero_distribution_sentence_matching",
+    "source_replacement": {
+      "source_id": "spdr_gold_document_index",
+      "url": "https://www.spdrgoldshares.com/usa/gld/"
+    }
+  },
+  "experiment_id": "cash-etf-c1-issuer-action-ledger-source-v2",
+  "predecessor": {
+    "evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v1/evidence-manifest.json",
+    "evidence_sha256": "c8a6ab6b429ed5fb4524d1cfbd98cdffaa9a52a1afd1376dfe77851db0234334",
+    "experiment_id": "cash-etf-c1-issuer-action-ledger-source-v1",
+    "path": "config/experiments/cash-etf-c1-issuer-action-ledger-source-v1.json",
+    "sha256": "468346e959fd096bb93bf353e728f9b012f4b87d5d38316e8cad9802427aec5c"
+  },
+  "predecessor_disposition": "rejected_implementation_parser_case_bug_and_obsolete_gld_document_index_url",
+  "schema_version": "cash-etf-c1-issuer-action-ledger-source-successor-v1",
+  "status": "frozen",
+  "unchanged_fields": [
+    "acceptance_gates",
+    "boundary",
+    "fail_closed_rules",
+    "forbidden_data",
+    "frozen_dbc_expected_distribution_by_year",
+    "frozen_dbc_expected_events",
+    "inherited_action_sources",
+    "operational_limits",
+    "prior_reconciliation_report",
+    "provider_dbc_dividends",
+    "whole_universe_gate"
+  ]
+}

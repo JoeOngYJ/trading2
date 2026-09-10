@@ -1,0 +1,41 @@
+{
+  "base_contract": {
+    "path": "research/btc/contracts/btc-breakout-driver-attribution-v1.json",
+    "sha256": "95e59ed10eed2023df1664a8fd6967c7d19ad5689cd31d2b88f3323e39fc9cd2"
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex-d-v2",
+  "frozen_at": "2026-09-01T00:31:32Z",
+  "patch_operations": [
+    {
+      "op": "replace",
+      "path": "/experiment_id",
+      "value": "btc-upside-compression-breakout-v1-bex-d-v2"
+    },
+    {
+      "op": "replace",
+      "path": "/frozen_at",
+      "value": "2026-09-01T00:31:32Z"
+    },
+    {
+      "op": "add",
+      "path": "/matching_foundation/future_control_boundary",
+      "value": "plus_1_and_plus_2_week_controls_are_retrospective_association_placebos_only_and_are_forbidden_from_online_or_decision_time_features"
+    },
+    {
+      "op": "add",
+      "path": "/matching_foundation/required_strata_schema",
+      "value": {
+        "compression_percentile_decile": "integer_0_through_9_computed_past_only",
+        "sigma24_decile": "integer_0_through_9_computed_past_only"
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "frozen_validated_successor_source_foundation_only_no_numeric_driver_study"
+    }
+  ],
+  "reason_for_successor": "driver_v1_was_future_dated_and_implementation_audit_required_explicit_association_only_future_placebo_and_fixed_strata_semantics_before_any_numeric_study",
+  "schema_version": "btc-breakout-driver-attribution-successor-contract-v2",
+  "status": "frozen_validated_successor_source_foundation_only_no_numeric_driver_study"
+}

@@ -1,0 +1,106 @@
+{
+  "authority": {
+    "credentials_allowed": false,
+    "execution_credentials_allowed": false,
+    "live_funds_allowed": false,
+    "live_trading_authorized": false,
+    "maximum_live_allocation_gbp": 0,
+    "order_submission_allowed": false,
+    "paper_trading_authorized": false,
+    "requires_separate_written_live_approval": true,
+    "requires_separate_written_paper_approval": true,
+    "research_data_provider_api_tokens_allowed": true
+  },
+  "capital": {
+    "hard_drawdown_ceiling_fraction": 0.2,
+    "hard_equity_floor_gbp": 16000,
+    "research_equity_gbp": 20000,
+    "soft_drawdown_stop_fraction": 0.12,
+    "soft_equity_floor_gbp": 17600
+  },
+  "change_control": {
+    "material_changes_require_new_mandate_id": true,
+    "material_fields": [
+      "operating_jurisdiction",
+      "client_classification",
+      "execution_venue",
+      "instrument_universe",
+      "market_type",
+      "position_directions",
+      "capital_limits",
+      "risk_limits",
+      "margin_or_leverage",
+      "execution_policy"
+    ],
+    "negative_results_are_append_only": true
+  },
+  "data_provider_token_policy": {
+    "allowed_environment_variables": [
+      "CME_DATAMINE_API_ID",
+      "CME_DATAMINE_API_PASSWORD",
+      "DATABENTO_API_KEY",
+      "TWELVEDATA_API_KEY"
+    ],
+    "allowed_purpose": "offline_checksummed_a1_source_qualification_only",
+    "broker_or_exchange_tokens_allowed": false,
+    "database_or_message_bus_tokens_allowed": false,
+    "may_be_logged_or_serialized": false,
+    "repository_storage_allowed": false,
+    "runtime_order_or_signal_access_allowed": false
+  },
+  "execution_scope": {
+    "approved_execution_instrument_ids": [],
+    "candidate_asset_classes": [
+      "cash",
+      "listed_fund",
+      "listed_future"
+    ],
+    "candidate_futures": [
+      "MES",
+      "MGC",
+      "MCL",
+      "M6E",
+      "MTN"
+    ],
+    "derivatives_execution_authorized": false,
+    "listed_futures_data_research_authorized": true,
+    "live_venue": null,
+    "long_short_offline_simulation_may_be_separately_frozen_after_a1": true,
+    "shorting_authorized_for_execution": false
+  },
+  "jurisdiction": {
+    "alternative_research_scenario": "Malaysia_retail",
+    "client_classification": "retail",
+    "execution_jurisdiction": null,
+    "planning_default": "UK_retail",
+    "residency_may_not_be_selected_to_bypass_rules": true,
+    "venue_and_product_eligibility_must_be_rechecked_before_paper_or_live": true
+  },
+  "mandate_id": "retail-cross-asset-research-v4",
+  "objective": {
+    "objective_statement": "Build a diversified portfolio of independently validated and economically distinct forecasts; report attainable return at frozen risk rather than selecting leverage to reach a headline.",
+    "stretch_annualized_return_fraction": 0.5,
+    "stretch_return_is_acceptance_gate": false
+  },
+  "relationship_to_existing_programs": {
+    "btc_regime_program_disposition": "preserved_blocked",
+    "btc_regime_program_id": "btc-regime-strategy-routing-v1",
+    "may_reuse_rejected_experiment_ids": false,
+    "may_rewrite_existing_negative_results": false
+  },
+  "risk": {
+    "a0_maximum_gross_exposure_fraction": 0,
+    "daily_loss_stop_fraction": 0.01,
+    "hard_drawdown_action": "disable_new_risk_and_require_manual_program_review",
+    "loss_limits_include_realized_and_unrealized_pnl": true,
+    "maximum_planned_risk_per_position_fraction": 0.005,
+    "maximum_single_strategy_share_of_portfolio_risk": 0.3333333333333333,
+    "minimum_planned_risk_per_position_fraction": 0.0025,
+    "protective_exits_remain_enabled": true,
+    "return_target_may_not_set_leverage": true,
+    "soft_drawdown_action": "disable_new_risk_and_require_attribution_review"
+  },
+  "schema_version": "cross-asset-research-mandate-v4",
+  "status": "frozen_a1_data_access_and_derivatives_research_only",
+  "supersedes": "retail-cross-asset-research-v3"
+}

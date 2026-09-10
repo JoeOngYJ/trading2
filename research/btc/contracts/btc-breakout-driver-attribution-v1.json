@@ -1,0 +1,79 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "causal_claim_allowed": false,
+    "driver_numeric_study_allowed_before_source_qualification": false,
+    "live_allocation_usdt": 0,
+    "order_or_position_creation_allowed": false,
+    "strategy_or_pnl_calculation_allowed": false
+  },
+  "allowed_event_families": [
+    "FOMC_decisions",
+    "US_CPI",
+    "US_employment_situation",
+    "US_PCE_price_index",
+    "US_GDP",
+    "SEC_BTC_material_actions",
+    "Bitcoin_protocol_material_events",
+    "major_exchange_material_events"
+  ],
+  "disposition_rules": {
+    "foundation_pass": "immutable_record_matching_and_synthetic_causality_tests_pass",
+    "numeric_study_blocked": "any_required_official_history_or_release_timestamp_is_missing_ambiguous_revised_without_lineage_or_unchecksummed",
+    "promotion_or_strategy_acceptance": false
+  },
+  "experiment_id": "btc-upside-compression-breakout-v1-bex-d",
+  "frozen_at": "2026-09-01T01:00:00Z",
+  "matching_foundation": {
+    "association_window_hours": 4,
+    "candidate_controls": "same_weekday_and_release_time_at_offsets_minus_2_minus_1_plus_1_plus_2_weeks",
+    "control_exclusion": "exclude_any_candidate_with_another_qualified_event_within_plus_or_minus_4h",
+    "matching_covariates": [
+      "past_only_compression_percentile_decile",
+      "past_only_sigma24_decile"
+    ],
+    "matching_method": "nearest_exact_decile_match_without_replacement_then_deterministic_timestamp_tie_break",
+    "multiplicity": "Holm_correction_across_event_family_by_horizon_tests",
+    "permutation_unit": "whole_official_event_release_or_release_batch",
+    "statement_boundary": "temporal_association_is_not_a_causal_driver_claim"
+  },
+  "outputs": {
+    "qualified_source_ledger": "artifacts/agent-level-experiment/btc-focused/upside-compression-breakout-v1/driver-source-ledger.jsonl",
+    "source_readiness_report": "artifacts/agent-level-experiment/btc-focused/upside-compression-breakout-v1/driver-source-readiness.json"
+  },
+  "prohibited": [
+    "general_news_scraping_as_official_release_evidence",
+    "GDELT_or_AlphaVantage_as_qualified_primary_event_timestamp",
+    "retrospective_story_selection_from_price_outcomes",
+    "publication_date_without_exact_release_timestamp",
+    "revised_value_without_vintage_and_retrieval_lineage",
+    "claiming_causation_from_temporal_proximity",
+    "strategy_return_or_PnL",
+    "sealed_or_ineligible_2026_access",
+    "partial_OB0_inspection",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "required_record_fields": [
+    "event_id",
+    "event_family",
+    "release_at",
+    "retrieved_at",
+    "source_url",
+    "source_sha256",
+    "vintage_or_revision_id",
+    "value_status",
+    "available_at",
+    "record_digest"
+  ],
+  "schema_version": "btc-breakout-driver-attribution-contract-v1",
+  "source_gate": {
+    "completeness": "every_scheduled_release_in_the_declared_family_boundary_or_explicit_official_non_release_recorded",
+    "official_primary_source_required": true,
+    "release_and_retrieval_timestamps_distinct": true,
+    "revisions_preserved_not_overwritten": true,
+    "source_bytes_or_official_document_checksummed": true
+  },
+  "status": "frozen_source_foundation_only_no_numeric_driver_study"
+}

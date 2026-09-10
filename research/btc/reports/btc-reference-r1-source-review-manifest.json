@@ -1,0 +1,25 @@
+{
+  "files": [
+    {
+      "path": "scripts/backtest_btc_online_regime_breakout.py",
+      "sha256": "6486aef45ca7c13259d2cb5c9d19930b0ab0e3787ce3310e013705924c78c959"
+    },
+    {
+      "path": "scripts/qualify_btc_backtest_core.py",
+      "sha256": "04381b82840a9f2569ce4bd500c7bedae9489d73aefc2c9370c3ee7b2c3e6fa3"
+    },
+    {
+      "path": "src/trading_platform/research_breakout.py",
+      "sha256": "973280749d3316a055be4b5e99d0234a5cd1b1eff39ca61c0bfb2d2b320bbf61"
+    },
+    {
+      "path": "config/experiments/btc-online-regime-breakout-v1.json",
+      "sha256": "79ea3d7d7287e35170d404b3ccb5f02d97f6dac81c758f169fe8b2d74a153bb0"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_BACKTESTER_R1_RECONCILIATION_PLAN.md",
+      "sha256": "48db3454aa40b5c147040d483500a7a32cc87b9c426e378ae16d9a486191bc80"
+    }
+  ],
+  "review_scope": "source_only_no_market_rows"
+}

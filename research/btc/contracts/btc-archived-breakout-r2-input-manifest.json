@@ -1,0 +1,13 @@
+{
+  "files": [
+    {
+      "path": "research/btc/contracts/btc-archived-breakout-reconciliation-r2-v1.md",
+      "sha256": "8a4a9ee52eee4ed4e1400d3495c2d08e57fa78a514c17f71f2384c2ae83fec49"
+    },
+    {
+      "path": "research/btc/reports/BTC_ARCHIVED_BREAKOUT_R2_FREEZE.md",
+      "sha256": "7bbbd15bb8391b238377a3ec098874be4d4d6e16295c54abec8451ed45e90fba"
+    }
+  ],
+  "identity": "btc-archived-breakout-reconciliation-r2-v1"
+}

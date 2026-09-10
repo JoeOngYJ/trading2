@@ -1,0 +1,33 @@
+{
+  "actionable_arm_id": "no_trade",
+  "combined_test_count": 46,
+  "decision": "E1_synthetic_Decimal_kernel_passed_E2_independent_oracle_only_permitted",
+  "exact_oracle_terminal_NAV": {
+    "atomic_pair_failure_invalid": "999.45",
+    "exposed_gap_invalid": "979.68",
+    "funding_liquidation_invalid": "982.17",
+    "perpetual_long": "1019.37",
+    "perpetual_short": "1019.43",
+    "reversal": "989.58",
+    "spot_long": "1019.37"
+  },
+  "focused_test_count": 38,
+  "gates": {
+    "canonical_lineage_and_no_trade": true,
+    "clean_room_independence": true,
+    "decimal_only_no_float_literals": true,
+    "event_accounting_and_residuals": true,
+    "exact_closed_form_oracles": true,
+    "fail_closed_gap_liquidation_and_boundaries": true,
+    "nine_phase_state_machine": true,
+    "spot_perpetual_and_atomic_pair_semantics": true,
+    "stdlib_only_prohibited_import_scan": true,
+    "transactional_failure_rollback_or_committed_safety_resolution": true
+  },
+  "historical_market_rows_or_strategy_results_accessed": 0,
+  "module_sha256": "d70cca4f0a51e3873b92023a7fadd3f1d3d7440a541e7d5a0121b26e9e8c89f5",
+  "next_permitted_phase": "E2_independent_oracle_and_row_level_reconciliation_only",
+  "production_external_service_2026_or_partial_OB0_accessed": false,
+  "qualification_id": "btc-unified-backtest-engine-e1-v3",
+  "test_sha256": "ba56c8011312279f2ade79d9e54a1a017e02051798748a142b8c8c092f7662b0"
+}

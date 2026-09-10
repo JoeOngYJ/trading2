@@ -1,0 +1,46 @@
+{
+  "allowed_environment_path": ".venv-breakout",
+  "allowed_packages": [
+    {
+      "name": "numpy",
+      "version": "2.5.2"
+    },
+    {
+      "name": "scikit-learn",
+      "version": "1.9.0"
+    },
+    {
+      "name": "xgboost",
+      "version": "3.4.1"
+    }
+  ],
+  "contract_id": "btc-breakout-model-dependencies-v1",
+  "cpu_only": true,
+  "frozen_at": "2026-09-01T00:30:00Z",
+  "network_policy": "package_installation_only_no_market_or_event_data_acquisition",
+  "prerequisite_for_models": [
+    "M2",
+    "M3"
+  ],
+  "prohibited": [
+    "modifying_the_project_default_environment",
+    "unversioned_dependency_resolution",
+    "GPU_training",
+    "network_access_during_model_fit_or_evaluation",
+    "market_exchange_database_NATS_Freqtrade_or_soak_access"
+  ],
+  "qualification_gates": [
+    "isolated_environment_created_from_requirements_breakout_research_txt",
+    "exact_top_level_versions_match",
+    "imports_complete_without_network",
+    "single_thread_CPU_configuration_enforced",
+    "deterministic_fixed_seed_synthetic_fit_and_predict_replay_matches",
+    "environment_manifest_checksums_all_installed_distributions"
+  ],
+  "requirements": {
+    "path": "requirements-breakout-research.txt",
+    "sha256": "890ebd25c00799a938c769cd97f6fbf750cc3d00b17870d4011816706c7f276e"
+  },
+  "schema_version": "btc-breakout-model-dependency-contract-v1",
+  "status": "frozen_before_isolated_environment_creation"
+}

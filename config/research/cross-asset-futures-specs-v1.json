@@ -1,0 +1,91 @@
+{
+  "approved_execution_instruments": [],
+  "evidence": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-executable-universe-feasibility-v1/public-feasibility-facts.json",
+    "sha256": "e9089210a167bafe76a18df20e88787b7a9051ffb1bdf6d84abc320af1628a8c"
+  },
+  "instruments": [
+    {
+      "contract_terms_state": "qualified_public_snapshot_requires_current_rulebook_reconciliation",
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity",
+      "micro_root": "MES",
+      "micro_usable_start": "2019-05-06",
+      "multiplier": "USD 5 per index point",
+      "parent_root": "ES",
+      "parent_usable_start": "2009-10-05",
+      "settlement_method": "financial",
+      "tick_size": "0.25 index point",
+      "tick_value": "USD 1.25",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCME"
+    },
+    {
+      "contract_terms_state": "blocked_pending_current_rulebook_and_delivery_reconciliation",
+      "execution_state": "conditional_unapproved",
+      "family": "gold",
+      "micro_root": "MGC",
+      "micro_usable_start": "2010-10-04",
+      "multiplier": "10 troy ounces",
+      "parent_root": "GC",
+      "parent_usable_start": "2009-10-05",
+      "settlement_method": "physical_delivery_control_required",
+      "tick_size": "USD 0.10 per troy ounce",
+      "tick_value": "USD 1.00",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCEC"
+    },
+    {
+      "contract_terms_state": "qualified_public_snapshot_requires_current_rulebook_reconciliation",
+      "execution_state": "conditional_unapproved",
+      "family": "energy",
+      "micro_root": "MCL",
+      "micro_usable_start": "2021-07-12",
+      "multiplier": "100 barrels",
+      "parent_root": "CL",
+      "parent_usable_start": "2009-10-05",
+      "settlement_method": "financial",
+      "tick_size": "USD 0.01 per barrel",
+      "tick_value": "USD 1.00",
+      "usable_end": "2025-12-31",
+      "venue_mic": "XNYM"
+    },
+    {
+      "contract_terms_state": "pending_official_rulebook_evidence",
+      "execution_state": "conditional_unapproved",
+      "family": "foreign_exchange",
+      "micro_root": "M6E",
+      "micro_usable_start": "2009-10-05",
+      "multiplier": null,
+      "parent_root": "6E",
+      "parent_usable_start": "2009-10-05",
+      "settlement_method": null,
+      "tick_size": null,
+      "tick_value": null,
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCME"
+    },
+    {
+      "contract_terms_state": "pending_official_rulebook_evidence_short_exact_history",
+      "execution_state": "conditional_unapproved",
+      "family": "sovereign_rates",
+      "micro_root": "MTN",
+      "micro_usable_start": "2024-03-25",
+      "multiplier": null,
+      "parent_root": "TN",
+      "parent_usable_start": "2016-01-11",
+      "settlement_method": null,
+      "tick_size": null,
+      "tick_value": null,
+      "usable_end": "2025-12-31",
+      "venue_mic": "XCBT"
+    }
+  ],
+  "parent_bridge_policy": {
+    "exact_micro_history_required_for_executable_evaluation": true,
+    "parent_history_is_mechanism_evidence_only": true,
+    "parent_history_may_prove_micro_execution": false
+  },
+  "schema_version": "cross-asset-futures-spec-registry-v1",
+  "status": "incomplete_no_instrument_qualified"
+}

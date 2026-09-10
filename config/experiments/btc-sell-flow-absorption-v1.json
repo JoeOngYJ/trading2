@@ -1,0 +1,133 @@
+{
+  "schema_version": "strategy-experiment-v1",
+  "experiment_id": "btc-sell-flow-absorption-v1",
+  "strategy_family": "btc-aggregate-taker-flow-price-response",
+  "status": "development_frozen",
+  "frozen_at": "2026-08-28",
+  "research_only": true,
+  "live_trading_authorized": false,
+  "falsifiable_hypothesis": "On a completed BTCUSDT spot hour, unusually negative taker-flow imbalance accompanied by high volume but an unusually positive price-response residual indicates passive buyer absorption and predicts a long-only rebound over the following 12 hours large enough to survive conservative retail costs.",
+  "economic_mechanism": "Aggressive sellers normally move price down. If completed-hour selling pressure is extreme but price falls materially less than its trailing flow/return relationship predicts, passive demand may be absorbing market sells. The null is that this residual is measurement noise, contemporaneous volatility, or adverse information and has no executable forward value.",
+  "prior_family_evidence": {
+    "acknowledged": true,
+    "standalone_extreme_imbalance": "rejected_below_cost",
+    "positive_taker_exhaustion": "rejected_below_predeclared_12bps_hurdle",
+    "material_difference": "This experiment tests a causal rolling residual of price response to selling pressure, restricts execution to the long side, aggregates decisions to one hour, uses a 12-hour trade with a protective stop, and requires incremental value over an extreme-sell-only control. It does not retune either rejected rule."
+  },
+  "mandate": {
+    "mandate_id": "retail-btc-spot-v2",
+    "traded_pair": "BTC/USDT",
+    "direction": "spot_long_or_flat",
+    "live_capital": 0,
+    "account_fraction_per_entry": 0.20,
+    "maximum_account_fraction": 0.25,
+    "maximum_planned_risk_fraction": 0.005,
+    "one_position_maximum": true,
+    "maximum_entries_per_utc_day": 1,
+    "leverage": false
+  },
+  "isolation": {
+    "network_access_allowed": false,
+    "database_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "active_order_book_partial_access_allowed": false,
+    "allowed_data_file": "artifacts/agent-level-experiment/btc-taker-history/validated/BTCUSDT-5m-taker-trade-flow-development-2017-2025-316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8.csv.gz",
+    "allowed_output_root": "artifacts/agent-level-experiment/btc-sell-flow-absorption",
+    "refuse_symlink_inputs": true
+  },
+  "data": {
+    "development_dataset_sha256": "316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8",
+    "development_evaluation_start": "2019-01-01T00:00:00Z",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "sealed_holdout_partition": "2026-01-01 through 2026-07-31",
+    "sealed_holdout_dataset_sha256": "1d50d201211ad78ab5985d2099e4238a24c73efb480848379ba7b88254df1212",
+    "hour_rule": "UTC-anchored left-labelled hour containing exactly 12 consecutive accepted five-minute bars from one segment",
+    "gap_rule": "Hourly aggregation and every rolling feature reset at a source segment boundary; no feature, entry, stop path, or exit may cross a gap",
+    "lineage": "The 2017-2025 aggregate-flow family has been inspected previously and is development evidence only. The sealed 2026 file must not be read unless every frozen development gate passes."
+  },
+  "primary_model": {
+    "decision_time": "close of each complete UTC hour",
+    "feature_lookback_hours": 720,
+    "minimum_history_hours": 720,
+    "rolling_update": "At each decision, fit OLS with intercept using only the previous 720 contiguous complete hours from the same segment.",
+    "regression": "completed-hour natural-log open-to-close return on base-volume taker-flow imbalance",
+    "absorption_residual": "current completed-hour return minus the OLS return predicted from current completed-hour imbalance",
+    "flow_condition": "current base-volume taker-flow imbalance at or below the trailing 10th percentile",
+    "flow_quantile": 0.10,
+    "absorption_condition": "current price-response residual at or above the trailing regression-residual 90th percentile",
+    "absorption_quantile": 0.90,
+    "volume_condition": "current quote volume at or above the trailing 75th percentile",
+    "volume_quantile": 0.75,
+    "entry": "price-protected long at the first five-minute open after the completed decision hour",
+    "holding_period_hours": 12,
+    "protective_stop_fraction_below_entry": 0.015,
+    "stop_resolution": "On five-minute OHLC, a gap below the stop exits at the worse bar open; otherwise a touched stop exits at the stop price.",
+    "overlap_policy": "ignore new signals while a position is open",
+    "daily_entry_policy": "accept at most the first otherwise eligible entry in each UTC day",
+    "sizing": "20 percent of current marked account equity, capped by cash; no leverage",
+    "risk_check": "At 20 percent allocation, a 1.5 percent stop plus the severe 80 bps round-trip scenario remains below the 0.5 percent planned account-risk limit before gap risk."
+  },
+  "matched_controls": {
+    "flat": "zero return",
+    "btc_buy_hold": "20 percent of initial equity held in BTC across the development evaluation interval under primary entry and exit costs",
+    "extreme_sell_only": "same rolling flow and volume conditions, but omit the price-response residual condition; apply identical cadence, execution, holding, stop, and sizing",
+    "price_only_reversal": "completed-hour return at or below its trailing 10th percentile with the same volume condition; omit taker flow and the absorption residual",
+    "calendar_hour_matched_random": {
+      "eligible_pool": "complete non-signal hours with valid history and execution paths",
+      "matching": "one non-signal timestamp from the same UTC calendar month and hour-of-day for each primary signal, without replacement inside each simulation where possible",
+      "simulations": 5000,
+      "seed": 20260901,
+      "statistic": "mean primary-cost full-position trade return"
+    }
+  },
+  "statistics": {
+    "confidence_method": "UTC calendar-month block bootstrap over primary filled trades",
+    "bootstrap_replications": 10000,
+    "bootstrap_seed": 20260902,
+    "confidence_interval": 0.95,
+    "calendar_slices": "UTC entry year and month",
+    "report_market_beta_and_intercept": true,
+    "report_concentration": true
+  },
+  "execution_scenarios": [
+    "candle-primary-30bps-rt-v1",
+    "candle-stress-40bps-rt-v1",
+    "candle-severe-80bps-rt-v1"
+  ],
+  "predeclared_sensitivities": [
+    {"variant": "lookback_336h", "feature_lookback_hours": 336},
+    {"variant": "lookback_1440h", "feature_lookback_hours": 1440},
+    {"variant": "flow_quantile_05", "flow_quantile": 0.05},
+    {"variant": "flow_quantile_15", "flow_quantile": 0.15},
+    {"variant": "absorption_quantile_85", "absorption_quantile": 0.85},
+    {"variant": "absorption_quantile_95", "absorption_quantile": 0.95},
+    {"variant": "volume_quantile_50", "volume_quantile": 0.50},
+    {"variant": "volume_quantile_90", "volume_quantile": 0.90},
+    {"variant": "hold_6h", "holding_period_hours": 6},
+    {"variant": "hold_24h", "holding_period_hours": 24},
+    {"variant": "stop_10bps", "protective_stop_fraction_below_entry": 0.01},
+    {"variant": "stop_20bps", "protective_stop_fraction_below_entry": 0.02}
+  ],
+  "acceptance_gates": {
+    "minimum_filled_primary_trades": 100,
+    "primary_30bps_total_return_positive": true,
+    "severe_80bps_total_return_positive": true,
+    "primary_profit_factor_minimum": 1.20,
+    "primary_max_drawdown_fraction_maximum": 0.10,
+    "primary_mean_net_trade_bps_strictly_above": 0,
+    "primary_month_block_bootstrap_lower_95_bps_strictly_above": 0,
+    "candidate_minus_extreme_sell_only_mean_bps_strictly_above": 0,
+    "calendar_hour_matched_random_one_sided_p_maximum": 0.05,
+    "positive_calendar_years_minimum": 5,
+    "top_three_profitable_months_share_maximum": 0.50,
+    "positive_primary_cost_sensitivities_minimum": 8,
+    "sensitivity_count": 12,
+    "maximum_entry_gross_exposure_fraction": 0.25,
+    "maximum_planned_risk_fraction": 0.005,
+    "no_post_decision_information": true,
+    "sealed_2026_not_read": true
+  },
+  "decision_rule": "Any failed gate rejects this experiment ID before the sealed 2026 holdout. Sensitivities are robustness diagnostics and may not be selected as replacement candidates after results are observed.",
+  "family_stop_rule": "If rejected, do not create another threshold variation from aggregate five-minute taker-flow bars. Retain aggregate flow only as a control and wait for accepted L2 evidence or move to a different economic family."
+}

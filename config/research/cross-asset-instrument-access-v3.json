@@ -1,0 +1,55 @@
+{
+  "approved_execution_instruments": [],
+  "default_planning_jurisdiction": "UK_retail",
+  "jurisdiction_selection_policy": {
+    "account_specific_permission_required_before_paper_or_live": true,
+    "anti_circumvention": true
+  },
+  "research_candidates": [
+    {
+      "economic_evaluation_state": "candidate_intraday_only_pending_hourly_source_pilot",
+      "execution_state": "conditional_unapproved",
+      "family": "global_equity",
+      "instrument_id": "SPX500_USD",
+      "market": "OANDA OTC index CFD",
+      "research_data_state": "daily_bid_ask_source_pilot_passed"
+    },
+    {
+      "economic_evaluation_state": "candidate_intraday_only_pending_hourly_source_pilot",
+      "execution_state": "conditional_unapproved",
+      "family": "gold",
+      "instrument_id": "XAU_USD",
+      "market": "OANDA spot metal",
+      "research_data_state": "daily_bid_ask_source_pilot_passed"
+    },
+    {
+      "economic_evaluation_state": "blocked_pending_historical_continuous_financing",
+      "execution_state": "conditional_unapproved",
+      "family": "energy",
+      "instrument_id": "WTICO_USD",
+      "market": "OANDA OTC commodity CFD",
+      "research_data_state": "daily_bid_ask_segment_passed_from_2005-11-27T22:00:00Z"
+    },
+    {
+      "economic_evaluation_state": "candidate_intraday_only_pending_hourly_source_pilot",
+      "execution_state": "conditional_unapproved",
+      "family": "foreign_exchange",
+      "instrument_id": "EUR_USD",
+      "market": "OANDA spot FX",
+      "research_data_state": "daily_bid_ask_source_pilot_passed"
+    },
+    {
+      "economic_evaluation_state": "blocked_pending_historical_continuous_financing",
+      "execution_state": "conditional_unapproved",
+      "family": "sovereign_rates",
+      "instrument_id": "USB10Y_USD",
+      "market": "OANDA OTC bond CFD",
+      "research_data_state": "daily_bid_ask_source_pilot_passed"
+    }
+  ],
+  "schema_version": "cross-asset-instrument-access-v3",
+  "supersedes": {
+    "path": "config/research/cross-asset-instrument-access-v2.json",
+    "sha256": "75b5b5936c9c1d59416b7030a29bb3d4415b1af20e7bf3ffa84fff28258d2361"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "accepted_sources": [],
+  "bulk_download_authorized": false,
+  "candidate_asset_classes": [
+    "cash",
+    "listed_fund",
+    "listed_future"
+  ],
+  "contract_id": "cross-asset-data-qualification-a1-v2",
+  "cost_and_cashflow_policy": {
+    "all_costs_must_be_effective_dated": true,
+    "cash_and_collateral_yield_primary": "zero_percent",
+    "fees_spread_slippage_and_tax_must_be_separate": true,
+    "futures_margin_history_may_not_be_invented": true,
+    "roll_yield_and_roll_execution_required_for_futures": true,
+    "round_trip_implicit_cost_bps": [
+      10,
+      30,
+      80
+    ]
+  },
+  "futures_policy": {
+    "exact_expiry_rows_required": true,
+    "forced_roll_sessions_before_delivery_risk": 5,
+    "parent_history_is_mechanism_evidence_only": true,
+    "parent_history_may_prove_micro_execution": false,
+    "roll_uses_prior_completed_session_only": true,
+    "vendor_adjusted_continuous_series_allowed": false
+  },
+  "gap_policy": {
+    "cross_gap_features": "reject",
+    "forward_fill_prices": "reject",
+    "missing_expected_session": "segment_or_reject",
+    "silent_repair": "reject"
+  },
+  "license_policy": {
+    "active_twelvedata_subscription_required_for_lse_use": true,
+    "automatic_data_deletion_allowed": false,
+    "post_subscription_use": "ineligible_pending_license_review",
+    "source_purchase_requires_user_approval": true
+  },
+  "required_fields_by_instrument_type": {
+    "cash": [
+      "currency",
+      "effective_at",
+      "available_at",
+      "yield_or_zero_yield_policy",
+      "source_digest"
+    ],
+    "future": [
+      "venue",
+      "root",
+      "contract_id",
+      "underlying",
+      "expiry",
+      "multiplier",
+      "tick_value",
+      "settlement_method",
+      "official_final_settlement",
+      "ohlcv",
+      "volume",
+      "open_interest",
+      "initial_and_maintenance_margin",
+      "roll_rule_and_prices",
+      "event_or_bar_time",
+      "available_at",
+      "source_digest"
+    ],
+    "listed_fund": [
+      "venue",
+      "stable_instrument_identifier",
+      "raw_quote_unit",
+      "canonical_trading_currency",
+      "raw_ohlcv",
+      "corporate_actions",
+      "issuer_distribution_policy",
+      "total_return_derivation",
+      "event_or_bar_time",
+      "available_at",
+      "market_rules",
+      "source_digest"
+    ]
+  },
+  "schema_version": "cross-asset-data-contract-v2",
+  "source_acceptance_gates": [
+    "stable instrument identity and exact contract mapping",
+    "license and reproducible retrieval permit private repository research",
+    "explicit UTC event and availability semantics",
+    "checksummed immutable raw bytes and deterministic parser",
+    "complete expected-session and gap report",
+    "corporate-action, roll, margin, cost and FX lineage where applicable",
+    "no strategy result inspected during source qualification"
+  ],
+  "source_candidates": [
+    "twelvedata_exact_lse",
+    "cme_datamine",
+    "databento"
+  ],
+  "strategy_evaluation_authorized": false,
+  "supersedes": {
+    "path": "config/research/cross-asset-data-contract-v1.json",
+    "sha256": "2bedbfd16509703a9a9683cc1e7e96bf72c367b5a25d10a0226f106833864c00"
+  },
+  "timestamp_policy": {
+    "availability_after_observation": true,
+    "future_dependent_rows": "reject",
+    "naive_timestamps": "reject",
+    "publication_and_retrieval_times_separate": true,
+    "reversed_timestamps": "reject",
+    "timezone": "UTC"
+  },
+  "xlon_calendar": {
+    "path": "config/research/xlon-calendar-2009-2025-v2.json",
+    "sha256": "73440fb80de73fd22f04b482910dc2017b590be837debc16dbd567f4230a900a"
+  }
+}

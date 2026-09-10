@@ -1,0 +1,109 @@
+{
+  "allowed_operations": {
+    "account_metadata_fields": [
+      "broker",
+      "cash_or_derivative_classification",
+      "exact_symbol",
+      "instrument_name",
+      "isin",
+      "order_entry_availability_boolean",
+      "trading_currency",
+      "venue"
+    ],
+    "exact_instrument_search_allowed": true,
+    "existing_authenticated_browser_session_allowed": true,
+    "interactive_login_allowed_if_user_completes_authentication": true,
+    "read_only_account_metadata_allowed": true
+  },
+  "brokers": [
+    {
+      "account_scope": "UK retail Invest or Stocks ISA cash account",
+      "broker_id": "trading_212_uk",
+      "required_product_type": "Invest cash product"
+    },
+    {
+      "account_scope": "UK retail cash account",
+      "broker_id": "interactive_brokers_uk",
+      "required_product_type": "cash-listed security"
+    }
+  ],
+  "candidate_instruments": [
+    {
+      "economic_role": "global_equity",
+      "isin": "IE00B4L5Y983",
+      "mic": "XLON",
+      "symbol": "SWDA",
+      "trading_currency": "GBX"
+    },
+    {
+      "economic_role": "defensive_bonds",
+      "isin": "IE00BG47K971",
+      "mic": "XLON",
+      "symbol": "VAGS",
+      "trading_currency": "GBP"
+    },
+    {
+      "economic_role": "gold",
+      "isin": "IE00B4ND3602",
+      "mic": "XLON",
+      "symbol": "SGLN",
+      "trading_currency": "GBX"
+    },
+    {
+      "economic_role": "broad_commodities",
+      "isin": "IE00BDFL4P12",
+      "mic": "XLON",
+      "symbol": "COMM",
+      "trading_currency": "GBX"
+    }
+  ],
+  "decision_rules": {
+    "availability_on_one_broker_implies_availability_on_another": false,
+    "broker_result_is_independent_per_exact_instrument": true,
+    "cash_product_required": true,
+    "economic_similarity_can_replace_exact_isin": false,
+    "instrument_search_presence_is_execution_approval": false,
+    "missing_or_ambiguous_metadata": "conditional_unapproved",
+    "public_catalog_can_replace_account_check": false,
+    "quoted_price_or_performance_is_evidence": false
+  },
+  "evidence_boundary": {
+    "completion_review": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/evidence-manifest.json",
+      "sha256": "5c9e13ef4a7de7daca9a4778c6332e67039687ea905951ebd643189dc631fc3c"
+    },
+    "instrument_access_registry": {
+      "path": "config/research/cross-asset-instrument-access-v1.json",
+      "sha256": "137f061754018296f9967ac86b82842629ace8a106afafeaf90e7e096e273444"
+    },
+    "mandate": {
+      "path": "config/mandates/retail-cross-asset-research-v3.json",
+      "sha256": "d60eab15d8e839beb998867ae609f670068c9a5666182b449712bd1d5db37268"
+    },
+    "sealed_2026_partition_accessed": false
+  },
+  "experiment_id": "cross-asset-a1-account-instrument-verification-v1",
+  "frozen_at": "2026-08-29T22:56:06Z",
+  "prohibitions": {
+    "account_balance_access_allowed": false,
+    "account_history_access_allowed": false,
+    "api_or_session_token_read_or_storage_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "feature_generation_allowed": false,
+    "holdings_or_positions_access_allowed": false,
+    "live_or_delayed_quote_retention_allowed": false,
+    "new_market_price_download_allowed": false,
+    "order_creation_allowed": false,
+    "order_preview_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "schema_version": "cross-asset-a1-account-instrument-verification-contract-v1",
+  "status": "frozen"
+}

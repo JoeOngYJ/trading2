@@ -1,0 +1,124 @@
+{
+  "a1_contract_path": "config/experiments/cross-asset-a1-oanda-source-pilot-v2.json",
+  "a1_evidence_manifest_path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2/evidence-manifest.json",
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "context_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/evidence-manifest.json",
+      "sha256": "91a8b89f1f3c1a73a37f907283d013e0880fa7a3a3ed7f47aa6dbd3303501ad0"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2/evidence-manifest.json",
+      "sha256": "20d8a2186a09e90b49e336afff108f489d0d312dd1c513cb13d548f47e40b9e0"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-oanda-source-pilot-v1.json",
+      "sha256": "dacfb9dbe55446f2f0e45043481b53d44beccca49f2c6b0d1f76ef2577c99bd3"
+    },
+    {
+      "path": "config/experiments/cross-asset-a1-oanda-source-pilot-v2.json",
+      "sha256": "d53e04f1e3b2a8441e0099109d4f1038674b225a7af992c41473b7d04c3a2f71"
+    },
+    {
+      "path": "config/research/cross-asset-decisions-v1.jsonl",
+      "sha256": "df543678a3f6cbb168dd7a326f9f459f3e72f3b5ed278ecfcc50fd6f8c0c9eac"
+    },
+    {
+      "path": "docs/CROSS_ASSET_A1_OANDA_SOURCE_PILOT_RESULT.md",
+      "sha256": "6a6b4ea90e422daa5eb23cba420c0380c65e2a52220faf721927b25371f52e41"
+    },
+    {
+      "path": "docs/CROSS_ASSET_MULTI_STRATEGY_PROGRAM.md",
+      "sha256": "0b71061a2fbae15cc6c6fb1a023439f9328e71ac933dbe0f95ae1e56584c14ad"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_HANDOFF.md",
+      "sha256": "b20845a8d35013d150bf8a71cd236f1f348d73d5eb9f9cff15a0028024f8ab88"
+    },
+    {
+      "path": "docs/CROSS_ASSET_RESEARCH_MANDATE.md",
+      "sha256": "5fe8d339619c99e907887976fea1b2133ac041ce9c78d09535c2891791127af7"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "9d8845e23e70d7dbf84274139107156c51f859158f22d75f7c21c62645d7aeec"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "src/trading_platform/cross_asset_oanda_audit.py",
+      "sha256": "8db28e94739549828bfcf6c5a3f33e10ac440e89c591492f3909adcb3c6a3b62"
+    }
+  ],
+  "current_stage": "A1",
+  "current_state": "active",
+  "decision_log_path": "config/research/cross-asset-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "src/trading_platform/cross_asset_oanda_audit.py"
+  ],
+  "latest_decision_digest": "dc867cdee090326221a6e567c3ed25224759b6ea489c59bf09f3ee896fe26432",
+  "program_id": "retail-cross-asset-multi-strategy-v1",
+  "schema_version": "cross-asset-program-status-v3",
+  "stages": [
+    {
+      "artifact_paths": [
+        "config/research/cross-asset-program-v1.json",
+        "config/research/cross-asset-status-v1.json"
+      ],
+      "completed_at": "2026-08-29T12:18:35Z",
+      "decision_record_digest": "a71a53d35c69b0f92ed2b8fd7141ce967a1242bb1257f4ad4f4fd87bf3831abf",
+      "stage_id": "A0",
+      "state": "passed"
+    },
+    {
+      "activated_at": "2026-08-30T11:56:20Z",
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cross-asset/a1-oanda-source-pilot-v2/evidence-manifest.json",
+        "config/experiments/cross-asset-a1-oanda-source-pilot-v1.json",
+        "config/experiments/cross-asset-a1-oanda-source-pilot-v2.json",
+        "docs/CROSS_ASSET_A1_OANDA_SOURCE_PILOT_RESULT.md"
+      ],
+      "decision_record_digest": "dc867cdee090326221a6e567c3ed25224759b6ea489c59bf09f3ee896fe26432",
+      "stage_id": "A1",
+      "state": "active"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A2",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A3",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A4",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A5",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "A6",
+      "state": "planned"
+    }
+  ]
+}

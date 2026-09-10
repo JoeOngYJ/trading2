@@ -1,0 +1,182 @@
+{
+  "activated_at": "2026-08-29T20:06:02Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-twelvedata-full-history-v2.json",
+    "sha256": "0e648b0d3349ffb8a944f76bccbef550bbb6704fff773569db99e26a4acdf901"
+  },
+  "boundaries": {
+    "calendar": {
+      "path": "config/research/cross-asset-a1-calendars-2008-2025-v2.json",
+      "sha256": "1458a26e587bdf2dbbc3ba8e9b0c5d072990ceb82c967db27a906f80c29230cd"
+    },
+    "development_end_inclusive": "2025-12-31",
+    "development_start_inclusive": "2008-01-02",
+    "sealed_2026_partition_accessed": false
+  },
+  "decision_rule": {
+    "a1_stage_passed_by_recovery": false,
+    "eem_is_optional": true,
+    "essential_roles": {
+      "bond": [
+        "IEF",
+        "TLT"
+      ],
+      "broad_commodity": [
+        "DBC"
+      ],
+      "cash": [
+        "BIL"
+      ],
+      "equity": [
+        "SPY",
+        "EFA"
+      ],
+      "fx_conversion": [
+        "GBP/USD"
+      ],
+      "gold": [
+        "GLD"
+      ]
+    },
+    "instrument_decisions_are_independent": true,
+    "next_if_essential_roles_pass": "issuer_action_reconciliation_and_executable_instrument_mapping_before_A1_pass",
+    "next_if_role_missing": "freeze_a_bounded_second_source_pilot_for_only_the_missing_role",
+    "technical_download_success_is_acceptance": false
+  },
+  "dividend_windows": [
+    {
+      "end_date": "2014-01-31",
+      "start_date": "2008-01-01",
+      "window_id": "d1"
+    },
+    {
+      "end_date": "2020-01-31",
+      "start_date": "2013-12-01",
+      "window_id": "d2"
+    },
+    {
+      "end_date": "2026-01-02",
+      "start_date": "2019-12-01",
+      "window_id": "d3"
+    }
+  ],
+  "experiment_id": "cross-asset-a1-twelvedata-recovery-v3",
+  "frozen_v2_evidence": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/evidence-manifest.json",
+    "sha256": "550a78799913afeda9c1bba3645a12065d9ac340eb20599fa069aa2ca3a650ab"
+  },
+  "fx_policy": {
+    "maximum_consecutive_missing_reference_sessions": 3,
+    "maximum_missing_fraction": "0.005",
+    "missing_sessions_create_ineligible_decision_dates": true,
+    "off_calendar_labels": "quarantine",
+    "pair_semantics": "USD per GBP",
+    "unexpected_gap_forward_fill_allowed": false
+  },
+  "inherited_splits": {
+    "semantics": {
+      "price_multiplier": "ratio approximately equals to_factor divided by from_factor",
+      "ratio_absolute_tolerance": "0.00001",
+      "unit_multiplier": "from_factor divided by to_factor"
+    },
+    "source_manifest_path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v2/source-manifest.json",
+    "source_manifest_sha256": "fbc29cfb90c35b33ae9c394a13ac481c391ab3748e33d1f0a157748032a7e686"
+  },
+  "instruments": [
+    "SPY",
+    "EFA",
+    "EEM",
+    "IEF",
+    "TLT",
+    "GLD",
+    "DBC",
+    "BIL",
+    "GBP/USD"
+  ],
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3",
+    "normalized_format": "canonical_json_lines",
+    "overwrite_existing_artifacts": false,
+    "raw_response_format": "provider_json_bytes"
+  },
+  "per_instrument_policy": {
+    "conflicting_duplicate_dates": "reject_instrument",
+    "dbc_eligible_start_without_independent_2008_verification": "2009-01-02",
+    "dividend_response_record_limit": 100,
+    "etf_missing_exchange_sessions": "reject_instrument",
+    "off_calendar_etf_rows": "quarantine",
+    "overlap_disagreement": "reject_instrument",
+    "passing_dividend_minimums": {
+      "BIL": 100,
+      "EEM": 20,
+      "EFA": 20,
+      "IEF": 150,
+      "SPY": 60,
+      "TLT": 150
+    }
+  },
+  "prohibitions": {
+    "adjusted_price_use_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "feature_generation_allowed": false,
+    "further_paid_upgrade_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "request_plan": {
+    "api_base_url": "https://api.twelvedata.com",
+    "api_token_environment_variable": "TWELVEDATA_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "dividend_query": {
+      "adjust": "false"
+    },
+    "endpoint_credit_weights": {
+      "dividends": 20,
+      "time_series": 1
+    },
+    "maximum_requests": 51,
+    "maximum_weighted_credits": 507,
+    "minute_credit_ceiling": 55,
+    "phase_count": 13,
+    "phase_spacing_seconds": 61,
+    "time_series_query": {
+      "adjust": "none",
+      "interval": "1day",
+      "order": "ASC",
+      "outputsize": "5000",
+      "timezone": "UTC"
+    }
+  },
+  "retention_and_revision_policy": {
+    "archival_use_after_subscription_termination": "ineligible_pending_explicit_provider_permission",
+    "overlap_equality_required": true,
+    "provider_revision_version_available": false,
+    "responses_are_write_once": true
+  },
+  "schema_version": "cross-asset-a1-twelvedata-recovery-contract-v1",
+  "status": "frozen",
+  "time_series_windows": [
+    {
+      "end_date": "2014-01-03",
+      "start_date": "2007-12-31",
+      "window_id": "t1"
+    },
+    {
+      "end_date": "2020-01-03",
+      "start_date": "2013-12-30",
+      "window_id": "t2"
+    },
+    {
+      "end_date": "2026-01-02",
+      "start_date": "2019-12-30",
+      "window_id": "t3"
+    }
+  ]
+}

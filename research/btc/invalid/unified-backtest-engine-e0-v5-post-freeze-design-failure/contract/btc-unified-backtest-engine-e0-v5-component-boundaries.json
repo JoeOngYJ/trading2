@@ -1,0 +1,322 @@
+{
+  "actionable_arm_id": "no_trade",
+  "bound_design_artifacts": [
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V5_COMPONENT_BOUNDARIES_PLAN.md",
+      "role": "design_plan",
+      "sha256": "e26117472842d7e30d0fb1a5a7b03f8e8510c087b5fc473fa782d150a50c323b"
+    },
+    {
+      "path": "research/btc/reports/BTC_UNIFIED_BACKTEST_ENGINE_E0_V5_FAILURE_MATRIX.md",
+      "role": "failure_requirement_matrix",
+      "sha256": "2a6366de8582226aaa37b1bccb6b543e0363b06cfc37e8f40770490d419482e7"
+    },
+    {
+      "path": "research/btc/specs/btc-backtest-component-interfaces-e0-v5.json",
+      "role": "machine_component_interfaces",
+      "sha256": "7d137729670b6fcdf3d1c4dd4c937da2e83e3592cffd8d2ba4f66d8e1d069b13"
+    },
+    {
+      "path": "research/btc/specs/btc-backtest-component-fixtures-e0-v5.json",
+      "role": "machine_fixture_and_probe_specification",
+      "sha256": "12602ffca7f04a10b39174094058fd43534dd3bfad761c591f52f6bc81da06b5"
+    }
+  ],
+  "bound_inheritance_and_evidence": [
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v1.json",
+      "role": "inherited_economic_semantics_v1",
+      "sha256": "af23751e6ef08a4c0dc11eb33559b4d939ec38260ae2d3ae22fcb73237856c0e"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v2.json",
+      "role": "inherited_economic_clarifications_v2",
+      "sha256": "201bbaad8f1fb6e00efdc2b3c25d632d0d3da94d8b8521c2f92b37da29cde887"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v3-pair-close.json",
+      "role": "inherited_final_fill_and_pair_semantics_v3",
+      "sha256": "b0cea8cb6b35df31d51c7745a6b2ec1b3a4a3c6ac99f67c4d5db12a021057df1"
+    },
+    {
+      "path": "research/btc/contracts/btc-unified-backtest-engine-e0-v4-lineage-recovery.json",
+      "role": "pending_contract_retained_as_incident_evidence_not_implementation_authority",
+      "sha256": "d8b2852e6ef1e1c5b32bbf585f64683751d95480f9c87f890408708b58b5407c"
+    },
+    {
+      "path": "research/btc/incidents/unified-engine-v3-missing-paused-draft-tombstone.json",
+      "role": "lineage_incident_tombstone",
+      "sha256": "2c3e5c7c65ef5b2323689693ed0c1a2e8d7a1fd52566857f04257cb4bee9ae26"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/README.md",
+      "role": "latest_rejection_summary",
+      "sha256": "8f806d9e52bc908c2dcea9f332ea54645072dad6330485ea8685761e52e92af2"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/identity/btc-unified-backtest-engine-e1-v14-identity.json",
+      "role": "latest_rejected_identity",
+      "sha256": "d9deacb388f46daa77fda6470b82feba13093b2bb2c4895be9c32b0caa0d1259"
+    },
+    {
+      "path": "research/btc/invalid/unified-backtest-engine-e1-v14-accounting-authority-failure/snapshot/candidate/candidate-manifest.json",
+      "role": "latest_rejected_candidate_manifest",
+      "sha256": "33af0cdb2eea21ce54d16786f17632a51fdbaebd4fdf598b9cfa3e1bf9e2268b"
+    }
+  ],
+  "bound_policies": [
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "role": "research_policy",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "docs/RETAIL_TRADING_MANDATE.md",
+      "role": "spot_mandate_document",
+      "sha256": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "role": "execution_cost_policy",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "config/execution_scenarios.json",
+      "role": "execution_scenarios",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    },
+    {
+      "path": "config/retail_mandate.json",
+      "role": "spot_machine_mandate",
+      "sha256": "7e34cfb0928b4373bbf52b5c5505f63a2b19e674124059191c1b6c62ec129041"
+    },
+    {
+      "path": "config/mandates/retail-btc-directional-perpetual-research-v1.json",
+      "role": "directional_perpetual_machine_mandate",
+      "sha256": "1b5d492f12f71ebe28e1bdfbd0b5916bcf0ad285b483cb10bf8770504371165d"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+      "role": "pair_machine_mandate",
+      "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+    }
+  ],
+  "component_sequence": [
+    "C0",
+    "C1",
+    "C2",
+    "C5_candle_v1",
+    "C3",
+    "C4",
+    "C5_L2_and_pair_new_ID_extensions",
+    "C6",
+    "Q0_end_to_end"
+  ],
+  "experiment_id": "btc-unified-backtest-engine-e0-v5-component-boundaries",
+  "failure_mapping": [
+    {
+      "component": "C0",
+      "finding_id": "F01_v4_incomplete_contract_coverage",
+      "probe_id": "M01_contract_coverage",
+      "requirement_id": "R01_complete_owned_obligations"
+    },
+    {
+      "component": "Q0",
+      "finding_id": "F02_v5_oracle_leak",
+      "probe_id": "M02_oracle_absence_before_snapshot",
+      "requirement_id": "R02_post_snapshot_oracle_only"
+    },
+    {
+      "component": "C1",
+      "finding_id": "F03_v6_structural_transition_bypass",
+      "probe_id": "M03_transition_mutations",
+      "requirement_id": "R03_public_transition_mutations"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F04_v7_missing_probes",
+      "probe_id": "M04_probe_bijection",
+      "requirement_id": "R04_complete_unique_probe_registry"
+    },
+    {
+      "component": "Q0",
+      "finding_id": "F05_v8_self_referential_oracle",
+      "probe_id": "M05_external_oracle",
+      "requirement_id": "R05_external_closed_form_oracle"
+    },
+    {
+      "component": "C4",
+      "finding_id": "F06_v8_nonatomic_entry",
+      "probe_id": "M06_pair_preflight",
+      "requirement_id": "R06_bound_outcome_preflight_before_fill"
+    },
+    {
+      "component": "C1",
+      "finding_id": "F07_v9_phase_contradictions",
+      "probe_id": "M07_phase_ownership",
+      "requirement_id": "R07_single_nine_phase_owner"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F08_v10_opaque_probes",
+      "probe_id": "M08_probe_observability",
+      "requirement_id": "R08_public_observable_rejection_rule"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F09_v11_private_test_mutation",
+      "probe_id": "M09_public_API_only",
+      "requirement_id": "R09_supported_public_API_tests"
+    },
+    {
+      "component": "C2",
+      "finding_id": "F10_v11_candle_partial_conflation",
+      "probe_id": "M10_adapter_capability_separation",
+      "requirement_id": "R10_candle_all_or_none_L2_partial_only"
+    },
+    {
+      "component": "C5",
+      "finding_id": "F11_v11_placeholder_controls",
+      "probe_id": "M11_control_economics",
+      "requirement_id": "R11_independent_control_intentions"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F12_v12_unfrozen_RunSpecs",
+      "probe_id": "M12_runspec_lineage",
+      "requirement_id": "R12_frozen_complete_run_identity"
+    },
+    {
+      "component": "C6",
+      "finding_id": "F13_v12_overlapping_probe_ownership",
+      "probe_id": "M24_integration_probe_ownership",
+      "requirement_id": "R13_integration_does_not_duplicate_semantics"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F14_v13_L2_scenario_mismatch",
+      "probe_id": "M13_scenario_compatibility",
+      "requirement_id": "R14_adapter_scenario_mandate_compatibility"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F15_v14_hostile_Python_boundary_claim",
+      "probe_id": "M25_no_hostile_Python_claim",
+      "requirement_id": "R15_realistic_supported_API_trust_model"
+    },
+    {
+      "component": "C1",
+      "finding_id": "F16_v14_valid_L2_nonzero_residual",
+      "probe_id": "M14_residual_gate",
+      "requirement_id": "R16_inherited_runtime_and_exact_fixture_residual_gates"
+    },
+    {
+      "component": "C0",
+      "finding_id": "F17_v14_incomplete_implementation_lineage",
+      "probe_id": "M15_complete_lineage",
+      "requirement_id": "R17_complete_run_and_event_lineage"
+    },
+    {
+      "component": "C5",
+      "finding_id": "F18_v14_missing_L2_cost_reports",
+      "probe_id": "M16_cost_grid_completeness",
+      "requirement_id": "R18_complete_distinct_cost_reports"
+    },
+    {
+      "component": "C5",
+      "finding_id": "F19_v14_candle_substitution_in_L2_controls",
+      "probe_id": "M17_no_adapter_substitution",
+      "requirement_id": "R19_immutable_adapter_execution_facts"
+    },
+    {
+      "component": "C3",
+      "finding_id": "F20_v14_exceptional_L2_bypass",
+      "probe_id": "M18_exceptional_L2_paths",
+      "requirement_id": "R20_all_L2_fill_reasons_use_depth_latency"
+    },
+    {
+      "component": "C1",
+      "finding_id": "F21_v14_unintegrated_fees_taxes",
+      "probe_id": "M19_fee_asset_balance",
+      "requirement_id": "R21_actual_asset_balance_and_NAV_effect"
+    },
+    {
+      "component": "C4",
+      "finding_id": "F22_v14_incomplete_pair_recovery_preflight",
+      "probe_id": "M26_pair_recovery_preflight",
+      "requirement_id": "R22_final_fills_no_rollback_truthful_invalid_unknown"
+    },
+    {
+      "component": "C4",
+      "finding_id": "F23_v14_wrong_pair_direction",
+      "probe_id": "M20_pair_episode_identity",
+      "requirement_id": "R23_delta_neutral_pair_identity"
+    },
+    {
+      "component": "C5",
+      "finding_id": "F24_v14_severe_L2_relabelled_candle",
+      "probe_id": "M21_scenario_label_integrity",
+      "requirement_id": "R24_separate_execution_and_budget_identity"
+    },
+    {
+      "component": "C1",
+      "finding_id": "F25_v14_incomplete_funding_causality",
+      "probe_id": "M22_funding_causality",
+      "requirement_id": "R25_complete_funding_time_and_source_tuple"
+    },
+    {
+      "component": "C3",
+      "finding_id": "F26_v14_wrong_sell_bound",
+      "probe_id": "M23_side_aware_bounds",
+      "requirement_id": "R26_buy_cap_and_sell_floor"
+    }
+  ],
+  "future_boundary": {
+    "Q0_end_to_end_required_before_historical_reconciliation": true,
+    "on_E0_v5_fail": "archive_or_correct_only_under_new_E0_ID_no_component_work",
+    "on_E0_v5_pass": "only_btc-backtest-authorities-c0-v1_may_be_frozen_next",
+    "passing_component_is_necessary_not_sufficient": true
+  },
+  "independent_review": {
+    "contract_may_not_self_certify": true,
+    "required_after_contract_freeze": true,
+    "review_artifact_and_digest_required_for_pass": true
+  },
+  "prohibited": [
+    "any_E1_v15_or_C0_C6_implementation_during_E0_v5",
+    "oracle_terminal_values_before_a_component_candidate_snapshot",
+    "historical_market_rows_strategy_results_metrics_or_PnL",
+    "sealed_2026_or_partial_OB0_data",
+    "credentials_network_exchange_database_NATS_Freqtrade_or_protected_services",
+    "paper_or_live_trading",
+    "any_actionable_arm_other_than_no_trade"
+  ],
+  "qualification_requirements": [
+    "canonical_duplicate_safe_finite_JSON_and_safe_unique_paths",
+    "exact_bound_artifact_roles_paths_and_hashes",
+    "exact_C0_C6_and_Q0_roles_dependency_DAG_and_typed_edges",
+    "exact_F01_F26_to_R01_R26_to_unique_probe_mapping",
+    "probe_public_observables_and_rejection_conditions_not_self_certifying_booleans",
+    "exact_E0_v1_v2_v3_economic_inheritance",
+    "E0_v4_pending_contract_retained_only_as_incident_evidence",
+    "E0_v4_obsolete_next_E1_paths_superseded_by_this_contract",
+    "runtime_residual_tolerance_preserved_and_exact_zero_limited_to_closed_form_fixtures",
+    "final_fills_no_rollback_and_unforeseen_failure_sticky_invalid_unknown",
+    "candle_and_L2_adapter_separation",
+    "candle_economic_runs_distinct_from_L2_reporting_overlays",
+    "complete_run_context_and_event_specific_lineage_or_not_applicable",
+    "exact_whitelist_contains_only_design_validator_tests_and_review",
+    "no_component_or_oracle_implementation_or_answer_exists",
+    "separate_post_freeze_independent_review_pass",
+    "only_no_trade_actionable"
+  ],
+  "schema_version": "btc-unified-backtest-engine-e0-v5-component-boundaries",
+  "scope": "offline_synthetic_zero_capital_design_qualification_only",
+  "status": "frozen_before_independent_review",
+  "supersession": {
+    "economic_semantics_changed": false,
+    "preserves": "E0_v1_v2_v3_economics_and_E0_v4_incident_evidence",
+    "supersedes": "only_E0_v4_obsolete_process_and_E1_v4_path_authorization"
+  },
+  "trust_model": "supported_public_API_correctness_contract_not_hostile_Python_security_sandbox"
+}

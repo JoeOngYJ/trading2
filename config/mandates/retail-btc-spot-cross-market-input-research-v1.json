@@ -1,0 +1,50 @@
+{
+  "actionable_arm_id": "no_trade",
+  "authority": {
+    "account_connection_allowed": false,
+    "credentials_allowed": false,
+    "live_allocation_usdt": 0,
+    "live_trading_allowed": false,
+    "order_submission_allowed": false,
+    "paper_orders_sent_to_exchange_allowed": false,
+    "transfers_allowed": false
+  },
+  "candidate_output": {
+    "direction": "long_or_flat",
+    "execution_market": "BTCUSDT_spot_only",
+    "perpetual_position_allowed": false,
+    "status": "not_implemented_information_gate_only"
+  },
+  "input_permission": {
+    "allowed_public_inputs": [
+      "BTCUSDT_spot_klines",
+      "BTCUSDT_USD_M_perpetual_klines"
+    ],
+    "derivatives_data_role": "research_feature_input_only",
+    "historical_boundary": "pre_2026_only",
+    "research_venue": "Binance_public_market_data",
+    "strategy_or_PnL_permission": false
+  },
+  "mandate_id": "retail-btc-spot-cross-market-input-research-v1",
+  "prohibited": [
+    "derivatives_position",
+    "naked_futures_short",
+    "directional_perpetual_position",
+    "spot_borrowing",
+    "margin",
+    "leverage",
+    "options",
+    "live_credentials",
+    "live_orders",
+    "production_integration",
+    "opening_sealed_or_ineligible_2026_history"
+  ],
+  "schema_version": "btc-spot-cross-market-input-research-mandate-v1",
+  "spot_mandate_reference": "retail-btc-spot-v2",
+  "status": "frozen_offline_information_research_only",
+  "supersedes": null,
+  "universe": [
+    "BTCUSDT_spot",
+    "BTCUSDT_USD_M_perpetual_as_input_only"
+  ]
+}

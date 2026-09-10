@@ -1,0 +1,103 @@
+{
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "bound_inputs": [
+    {
+      "path": "research/btc/reports/BTC_BACKTEST_SCORECARD_PLAN.md",
+      "sha256": "cb590ecac9695d1fc70cf33220c720948c3e87a77e1e294204734f5d800f4ef1"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/manifest.json",
+      "sha256": "0b10e3ce5f99bbfac0fa95e305c2f81cecfd0f98556a6e9b17123eaa75a2b4b1"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/s2-ewma-report.json",
+      "sha256": "15effc218435e6388edde2b30349a078b942205eabed8ae070a6ffa7ea7ce30e"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-ewma-v2/simulation-trades.jsonl.gz",
+      "sha256": "ca980bca5247cd854d432e6f6f13c73ff2d53726f39ee79c99e6b8ca9c2decf3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s5-breakout-mechanism-v1/s5-breakout-mechanism-report.json",
+      "sha256": "a991d3e550aa54e4b200099769216f462b3664d074e819f9b9628fceab762919"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/report.json",
+      "sha256": "4c3b8fafd945b24a54dfcbf0e23e87ac50872a196159d4e499bdc528f393818a"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/positive-funding-carry-v1/evidence-manifest.json",
+      "sha256": "23bd88f671595dd86b20ecc4926dc5be360ddcb07096e766cf80d259a7a68457"
+    }
+  ],
+  "evaluation_roles": [
+    "alpha_strategy",
+    "risk_overlay",
+    "control"
+  ],
+  "evidence_minimums": {
+    "continuous_monthly_blocks": 36,
+    "daily_observations": 730,
+    "event_trade_cohorts": 30,
+    "independent_dependence_blocks": 24
+  },
+  "experiment_id": "btc-backtest-scorecard-v1",
+  "frozen_at": "2026-08-31T12:00:00Z",
+  "outputs": {
+    "artifact_root": "artifacts/agent-level-experiment/btc-focused/backtest-scorecard-v1",
+    "context_updates_required": true,
+    "historical_artifact_overwrite_allowed": false,
+    "supplemental_only": true
+  },
+  "prohibited": [
+    "2026_data_access",
+    "partial_OB0_access",
+    "network_or_protected_service_access",
+    "credentials_or_orders",
+    "live_or_exchange_paper_capital",
+    "regime_model_fitting",
+    "strategy_parameter_tuning",
+    "leverage_scaling_as_alpha",
+    "strategy_combination",
+    "historical_report_overwrite"
+  ],
+  "retrospective_targets": [
+    {
+      "evaluation_role": "alpha_strategy",
+      "experiment_id": "btc-fixed-20d-10d-breakout-legacy-control",
+      "strategy_family": "btc-directional-trend"
+    },
+    {
+      "evaluation_role": "risk_overlay",
+      "experiment_id": "btc-regime-routing-s2-ewma-v2",
+      "strategy_family": "btc-directional-trend-risk-control"
+    },
+    {
+      "evaluation_role": "alpha_strategy",
+      "experiment_id": "btc-positive-funding-carry-v1",
+      "strategy_family": "btc-delta-neutral-funding-carry"
+    }
+  ],
+  "schema_version": "btc-backtest-scorecard-contract-v1",
+  "statistics": {
+    "annualization_days": 365.2425,
+    "bootstrap_replications": 10000,
+    "confidence": 0.95,
+    "expected_shortfall_confidences": [
+      0.95,
+      0.975
+    ],
+    "probabilistic_sharpe_probability_minimum": 0.95,
+    "trial_history_unknown_fails_closed": true
+  },
+  "status": "frozen_before_supplemental_recalculation"
+}

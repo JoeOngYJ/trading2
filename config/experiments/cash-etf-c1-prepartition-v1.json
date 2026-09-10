@@ -1,0 +1,191 @@
+{
+  "activated_at": "2026-08-30T17:40:00Z",
+  "excluded_2026_rows_allowed": false,
+  "experiment_id": "cash-etf-c1-prepartition-v1",
+  "inputs": [
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/bil-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "7bc347681bfc62c58bb50212cd7bc4b71a8e18cb7893e93b13d665850e2bf9f2",
+      "symbol": "BIL"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/bil-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "c04c36a74e6115d06c9e6eed484dc04329314926d5d61792f12dc66a5141710e",
+      "symbol": "BIL"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/bil-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "3e3da093a81a1aeb5e77f935f7c66775e13616cd1fd24a910cef7113345744ab",
+      "symbol": "BIL"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/dbc-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "1c725a9baed93e38aaa8a3ea6fcbbbb5534b19917c576e63a27b698af0a965a1",
+      "symbol": "DBC"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/dbc-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "c71a826bebab630b9e54ed14a0c9db7004c4b1aa0241b5aa2fbde276b2e14f29",
+      "symbol": "DBC"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/dbc-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "DBC"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/efa-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "156ab42161ba65723f0d53dc645b3505eb6717eda45f92c3b25be9ae6772d540",
+      "symbol": "EFA"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/efa-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "491acf7e551d5ffea7576444c4e39c4ec1845a5b4e6b662e0a6e69bfd1e21373",
+      "symbol": "EFA"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/efa-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "EFA"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gbp-usd-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "269d1ff63f1b219a6e94b8c49ff8f5dece44e7b880dcdc5beb8cbcba3e247a74",
+      "symbol": "GBP/USD"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gld-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "8c274161eb61751527f7a592ec66b1cc4193c68c75d27eb727bf1219caa036aa",
+      "symbol": "GLD"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gld-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "GLD"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gld-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "GLD"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/ief-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "9858e277d39008ca986f80a7aef5d5bb649bac8dbd561d5a179c33ceb7d574e9",
+      "symbol": "IEF"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/ief-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "f6256a326d1b4b566732a76a2e143dd773ab7a0f24309eea29525d548189dd0d",
+      "symbol": "IEF"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/ief-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "IEF"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/spy-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "3582cac21071b21df13f9ac76d3a67f1014032d7ed9db2735ac0eebcfdde4066",
+      "symbol": "SPY"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/spy-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "9c9f91742b941ba146a7309bc32a49124759b39030bbb3032e36a93f2443c586",
+      "symbol": "SPY"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/spy-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "SPY"
+    },
+    {
+      "kind": "daily",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/tlt-daily.jsonl",
+      "routing_field": "session",
+      "sha256": "421e47a14a05bc7d56740170a82226c7d26e652be618b896a9d693ec220363ca",
+      "symbol": "TLT"
+    },
+    {
+      "kind": "dividends",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/tlt-dividends.jsonl",
+      "routing_field": "action_date",
+      "sha256": "8f7ffe5d307644285acbc49e0537330e9957e024123109b6fa2ce36337089bb4",
+      "symbol": "TLT"
+    },
+    {
+      "kind": "splits",
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/tlt-splits.jsonl",
+      "routing_field": "action_date",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "symbol": "TLT"
+    }
+  ],
+  "known_source_gate": {
+    "complete_issuer_action_reconciliation": false,
+    "evidence_path": "artifacts/agent-level-experiment/cross-asset/a1-completion-review-v1/evidence-manifest.json",
+    "required_response": "block_before_numeric_ledger_or_economics"
+  },
+  "method": "opaque_jsonl_copy_routed_only_by_session_or_action_date",
+  "numeric_fields_deserialized": false,
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-prepartition-v1",
+    "overwrite_existing_artifacts": false
+  },
+  "partitions": [
+    {
+      "end_exclusive": "2019-01-01",
+      "partition_id": "development",
+      "start_inclusive": "2009-01-02"
+    },
+    {
+      "end_exclusive": "2024-01-01",
+      "partition_id": "validation",
+      "start_inclusive": "2019-01-01"
+    },
+    {
+      "end_exclusive": "2026-01-01",
+      "partition_id": "historical_confirmation",
+      "start_inclusive": "2024-01-01"
+    }
+  ],
+  "schema_version": "cash-etf-c1-prepartition-contract-v1",
+  "status": "frozen"
+}

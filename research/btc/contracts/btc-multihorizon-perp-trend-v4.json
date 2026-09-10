@@ -1,0 +1,45 @@
+{
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "credentials_network_orders_production_ob0_protected_services_allowed": false,
+    "year_2026_access_allowed": false
+  },
+  "base_contract": {
+    "inherit_without_economic_parameter_or_gate_change": true,
+    "path": "research/btc/contracts/btc-multihorizon-perp-trend-v3.json",
+    "sha256": "dcfbadf1a79c1994792964baa15b7bcad7972eb1f199e72405b6d4d9a172e5b8"
+  },
+  "bootstrap": {
+    "confidence_interval": 0.95,
+    "draws": 10000,
+    "lower_order_statistic_zero_based": 249,
+    "method": "resample_calendar_month_returns_with_replacement_within_each_partition",
+    "seed": 20260905
+  },
+  "bound_implementation": [
+    {
+      "path": "scripts/run_btc_multihorizon_perp_trend_v4.py",
+      "sha256": "b539a2892f8d0a1f2687f46fcf02fa01f00e190dbf6b9336487002883ebef4c1"
+    },
+    {
+      "path": "research/btc/tests/test_multihorizon_perp_trend_v4_adapter.py",
+      "sha256": "3f7688a460e268ac289edb0d407ccbe8b21c8b2cf4d8c02f5d4ec98fbf9c69e2"
+    },
+    {
+      "path": "src/trading_platform/btc_multihorizon_trend.py",
+      "sha256": "ecc8d2db2ef04a15ae18d49c420daaaeb58f967e0e818021eba4d8994a8afff9"
+    }
+  ],
+  "concentration": {
+    "gate": "best_three_positive_calendar_month_returns_divided_by_all_positive_calendar_month_returns_lte_0.60",
+    "scope": "each_partition"
+  },
+  "experiment_id": "btc-multihorizon-perp-trend-v4",
+  "output_root": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v4",
+  "replaces": {
+    "experiment_id": "btc-multihorizon-perp-trend-v3",
+    "reason": "pre_return_bootstrap_seed_draw_count_and_runner_digest_not_bound"
+  },
+  "schema_version": "btc-multihorizon-perp-trend-contract-v4",
+  "status": "frozen_before_single_historical_run"
+}

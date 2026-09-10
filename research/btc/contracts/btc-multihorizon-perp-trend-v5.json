@@ -1,0 +1,56 @@
+{
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "credentials_network_orders_production_ob0_protected_services_allowed": false,
+    "year_2026_access_allowed": false
+  },
+  "base_contract": {
+    "inherit_without_economic_parameter_statistical_method_or_gate_change": true,
+    "path": "research/btc/contracts/btc-multihorizon-perp-trend-v4.json",
+    "sha256": "ba173e808ef77a49ce4a4bb0747535bbf0f3a61407e96ea6e2197470d030c376"
+  },
+  "bound_implementation": [
+    {
+      "path": "scripts/run_btc_multihorizon_perp_trend_v5.py",
+      "sha256": "6ecab3d7b6fdf9136beffd845b0d7b3e5f4d6399dbee881dec3a77c968f9f83c"
+    },
+    {
+      "path": "research/btc/tests/test_multihorizon_perp_trend_v5_adapter.py",
+      "sha256": "31b816cc258f9daf48d6a027d98d7cefb118725f5e63caa75617f04831faa3fa"
+    },
+    {
+      "path": "src/trading_platform/btc_multihorizon_trend.py",
+      "sha256": "ecc8d2db2ef04a15ae18d49c420daaaeb58f967e0e818021eba4d8994a8afff9"
+    }
+  ],
+  "bound_inputs": [
+    {
+      "path": "research/btc/contracts/btc-multihorizon-perp-trend-v4.json",
+      "sha256": "ba173e808ef77a49ce4a4bb0747535bbf0f3a61407e96ea6e2197470d030c376"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-gap-recovery-v1/source-manifest.json",
+      "sha256": "7640f3d7e3bb62bf64267498951a79672bde59f102e4f6f0254a2807f6990cb7"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v2/t1/evidence-manifest.json",
+      "sha256": "c37a57459579c6bba9e18162ed0d206cdb2ba8c2cee17df150ede6b7fd4aca89"
+    },
+    {
+      "path": "config/execution_scenarios.json",
+      "sha256": "a020cb07780e88b60fffd4c6e1b205922f0b815f033a4676dd422a7038538f36"
+    }
+  ],
+  "experiment_id": "btc-multihorizon-perp-trend-v5",
+  "output_root": "artifacts/agent-level-experiment/btc-focused/multihorizon-perp-trend-v5",
+  "replaces": {
+    "experiment_id": "btc-multihorizon-perp-trend-v4",
+    "reason": "pre_source_adapter_expected_bound_inputs_key_missing_from_v4"
+  },
+  "schema_version": "btc-multihorizon-perp-trend-contract-v5",
+  "status": "frozen_before_single_historical_run"
+}

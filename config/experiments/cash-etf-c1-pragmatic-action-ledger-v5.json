@@ -1,0 +1,25 @@
+{
+  "activated_at": "2026-08-30T22:30:00Z",
+  "changes_from_predecessor": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v5",
+    "execution_field_policy": "causal_same_session_open_equivalent_for_next_open_execution",
+    "ledger_field_additions": [
+      "open",
+      "gbp_open_equivalent"
+    ]
+  },
+  "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v5",
+  "predecessor": {
+    "evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4/evidence-manifest.json",
+    "evidence_sha256": "4294a993b2133fc38b61a4938c64038258b2c58f0c10a74d4c721ea49ad1be02",
+    "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v4",
+    "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v4.json",
+    "sha256": "efd5b3cc0dcfe82b9fb1a8fb1004b4ef18bfb0e87af3393473d8575781481135"
+  },
+  "predecessor_disposition": "passed_data_infrastructure_but_c2_preflight_found_open_execution_fields_missing",
+  "schema_version": "cash-etf-c1-pragmatic-action-ledger-successor-v4",
+  "status": "frozen",
+  "unchanged_fields": [
+    "all_v4_inputs_boundaries_actions_fx_values_and_safety_gates"
+  ]
+}

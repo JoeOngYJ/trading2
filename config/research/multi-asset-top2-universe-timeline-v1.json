@@ -1,0 +1,86 @@
+{
+  "schema_version": "research-universe-timeline-v1",
+  "universe_id": "multi-asset-top2-static-seven-evidence-v1",
+  "status": "incomplete_fail_closed",
+  "frozen_at": "2026-08-26T00:00:00Z",
+  "venue": "binance_spot_research_archive",
+  "quote_asset": "USDT",
+  "inclusion_rule": {
+    "rule_id": "legacy-static-seven-posthoc-v1",
+    "definition": "Fixed BTC, ETH, SOL, XRP, BNB, DOGE and ADA set inherited from historically inspected prior research; no contemporaneous rule selected these seven from the full venue universe.",
+    "point_in_time_defensible": false
+  },
+  "coverage": {
+    "start": "2021-01-01T00:00:00Z",
+    "end_exclusive": "2026-01-01T00:00:00Z"
+  },
+  "candidate_pairs": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "SOL/USDT",
+    "XRP/USDT",
+    "BNB/USDT",
+    "DOGE/USDT",
+    "ADA/USDT"
+  ],
+  "evidence": [],
+  "intervals": [
+    {
+      "pair": "BTC/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    },
+    {
+      "pair": "ETH/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    },
+    {
+      "pair": "SOL/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    },
+    {
+      "pair": "XRP/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    },
+    {
+      "pair": "BNB/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    },
+    {
+      "pair": "DOGE/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    },
+    {
+      "pair": "ADA/USDT",
+      "start": "2021-01-01T00:00:00Z",
+      "end_exclusive": "2026-01-01T00:00:00Z",
+      "state": "unknown",
+      "evidence_ids": [],
+      "reason": "No frozen point-in-time universe-membership and historical venue-rule source was captured before R0. OHLCV availability alone is not accepted as membership evidence."
+    }
+  ],
+  "decision": "This timeline validates structurally but fails closed for every historical eligibility query until evidence-backed eligible/ineligible intervals replace the unknown intervals under a new version."
+}

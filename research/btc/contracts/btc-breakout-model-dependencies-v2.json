@@ -1,0 +1,48 @@
+{
+  "base_contract": {
+    "path": "research/btc/contracts/btc-breakout-model-dependencies-v1.json",
+    "sha256": "435952823c387bfd025a3ec839668a6060a4fdef9a7a6e82fd171934fcb43017"
+  },
+  "contract_id": "btc-breakout-model-dependencies-v2",
+  "frozen_at": "2026-09-01T00:34:39Z",
+  "patch_operations": [
+    {
+      "op": "replace",
+      "path": "/contract_id",
+      "value": "btc-breakout-model-dependencies-v2"
+    },
+    {
+      "op": "replace",
+      "path": "/allowed_environment_path",
+      "value": ".venv-breakout-v2"
+    },
+    {
+      "op": "replace",
+      "path": "/allowed_packages/2/name",
+      "value": "xgboost-cpu"
+    },
+    {
+      "op": "replace",
+      "path": "/frozen_at",
+      "value": "2026-09-01T00:34:39Z"
+    },
+    {
+      "op": "replace",
+      "path": "/requirements/path",
+      "value": "requirements-breakout-research-v2.txt"
+    },
+    {
+      "op": "replace",
+      "path": "/requirements/sha256",
+      "value": "365f7a388019a754e015a96ade8ac2b937891df808996e3d70d883e4b32cf4ae"
+    },
+    {
+      "op": "replace",
+      "path": "/status",
+      "value": "frozen_CPU_only_successor_before_isolated_environment_creation"
+    }
+  ],
+  "reason_for_successor": "dependency_v1_installed_the_standard_xgboost_wheel_which_pulled_GPU_NCCL_libraries_and_failed_the_CPU_only_gate_before_any_model_fit",
+  "schema_version": "btc-breakout-model-dependency-successor-contract-v2",
+  "status": "frozen_CPU_only_successor_before_isolated_environment_creation"
+}

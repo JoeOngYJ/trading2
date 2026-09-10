@@ -1,0 +1,268 @@
+{
+  "activated_at": "2026-08-29T19:19:22Z",
+  "boundaries": {
+    "development_end_inclusive": "2025-12-31",
+    "development_start_inclusive": "2008-01-02",
+    "expected_calendar": {
+      "fx_session_count": 4671,
+      "path": "config/research/cross-asset-a1-calendars-2008-2025-v1.json",
+      "sha256": "85bb13a34457acccf980bfc0e623b75bc532146422f3a51fd402dd3103ce8da2",
+      "us_session_count": 4529
+    },
+    "sealed_2026_partition_accessed": false,
+    "source_query_end_exclusive_buffer": "2026-01-02",
+    "source_query_start_inclusive_buffer": "2007-12-31"
+  },
+  "cash_flow_and_split_policy": {
+    "adjusted_price_fields_eligible": false,
+    "cash_distribution_application": "future research ledgers credit explicit per-share cash only to units held before the ex-date; this contract does not compute that ledger",
+    "corporate_action_endpoint_symbols": [
+      "SPY",
+      "EFA",
+      "EEM",
+      "IEF",
+      "TLT",
+      "GLD",
+      "DBC",
+      "BIL"
+    ],
+    "distribution_plausibility_minimum_records": {
+      "BIL": 100,
+      "EEM": 20,
+      "EFA": 20,
+      "IEF": 150,
+      "SPY": 60,
+      "TLT": 150
+    },
+    "duplicate_action_records": "reject",
+    "split_application": "future research ledgers multiply units by the provider's positive numeric ratio on the effective date and do not create PnL; this contract does not compute that ledger",
+    "unknown_or_unattributable_actions": "reject"
+  },
+  "decision_rule": {
+    "a1_stage_passed_by_history_contract": false,
+    "history_acceptance_requires": [
+      "all nine identities match the accepted v2 pilot",
+      "every independent expected US and FX session appears exactly once after discarding only boundary-buffer rows",
+      "all unadjusted daily OHLCV rows are finite and internally valid",
+      "all eight ETF split and dividend responses are attributable, ordered, in-boundary and meet frozen plausibility gates",
+      "normalized point-in-time observations and corporate actions reproduce from immutable source bytes",
+      "all requests, raw bytes, normalized files and lineage records are checksummed",
+      "the provider token is absent from persisted URLs, parameters, logs and artifacts"
+    ],
+    "history_rejection_on_any_failed_gate": true,
+    "next_if_accepted": "review_A1_research_proxy_boundary_and_freeze_A2_only_after_a_separate_stage_decision",
+    "technical_download_success_is_history_acceptance": false,
+    "unknown_or_undocumented_semantics": "reject_or_mark_ineligible"
+  },
+  "experiment_id": "cross-asset-a1-twelvedata-full-history-v1",
+  "fx_policy": {
+    "availability": "GBP/USD daily session labels are eligible no earlier than 05:00 UTC on the next calendar day",
+    "pair_semantics": "USD per GBP",
+    "usd_to_gbp_conversion": "divide USD amount by the latest causally available GBP/USD observation",
+    "weekend_or_missing_conversion": "fail closed; do not forward-fill across an unexpected calendar gap"
+  },
+  "hypothesis": "Without computing returns, PnL, forecasts, features or signals, Twelve Data can provide a complete, causally timestamped and checksummed 2008-2025 unadjusted daily history plus attributable ETF cash distributions and splits for the nine accepted research proxies.",
+  "instruments": [
+    "SPY",
+    "EFA",
+    "EEM",
+    "IEF",
+    "TLT",
+    "GLD",
+    "DBC",
+    "BIL",
+    "GBP/USD"
+  ],
+  "output": {
+    "artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-full-history-v1",
+    "normalized_format": "canonical_json_lines",
+    "overwrite_existing_artifacts": false,
+    "raw_response_format": "provider_json_bytes"
+  },
+  "prohibitions": {
+    "adjusted_price_use_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "execution_credentials_allowed": false,
+    "feature_generation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "request_plan": {
+    "corporate_action_query": {
+      "dividends": {
+        "adjust": "false",
+        "end_date": "2026-01-02",
+        "start_date": "2008-01-01"
+      },
+      "splits": {
+        "end_date": "2026-01-02",
+        "start_date": "2008-01-01"
+      }
+    },
+    "endpoint_credit_weights": {
+      "dividends": 20,
+      "splits": 20,
+      "time_series": 1
+    },
+    "maximum_requests": 25,
+    "maximum_weighted_credits": 329,
+    "minute_credit_ceiling": 55,
+    "phases": [
+      {
+        "endpoints": [
+          "time_series"
+        ],
+        "maximum_weighted_credits": 9,
+        "phase": 1,
+        "symbols": [
+          "SPY",
+          "EFA",
+          "EEM",
+          "IEF",
+          "TLT",
+          "GLD",
+          "DBC",
+          "BIL",
+          "GBP/USD"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 61,
+        "phase": 2,
+        "symbols": [
+          "SPY"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 122,
+        "phase": 3,
+        "symbols": [
+          "EFA"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 183,
+        "phase": 4,
+        "symbols": [
+          "EEM"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 244,
+        "phase": 5,
+        "symbols": [
+          "IEF"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 305,
+        "phase": 6,
+        "symbols": [
+          "TLT"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 366,
+        "phase": 7,
+        "symbols": [
+          "GLD"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 427,
+        "phase": 8,
+        "symbols": [
+          "DBC"
+        ]
+      },
+      {
+        "endpoints": [
+          "dividends",
+          "splits"
+        ],
+        "minimum_seconds_after_phase_1_start": 488,
+        "phase": 9,
+        "symbols": [
+          "BIL"
+        ]
+      }
+    ],
+    "time_series_query": {
+      "adjust": "none",
+      "end_date": "2026-01-02",
+      "interval": "1day",
+      "order": "ASC",
+      "outputsize": "5000",
+      "start_date": "2007-12-31",
+      "timezone": "UTC"
+    }
+  },
+  "retention_and_revision_policy": {
+    "archival_use_after_subscription_termination": "ineligible_pending_explicit_provider_permission",
+    "automatic_deletion_on_cancellation": false,
+    "corrections": "this retrieval is an immutable source snapshot; any refreshed provider bytes require a new snapshot ID and may not overwrite this experiment",
+    "current_use_boundary": "private internal noncommercial research while the individual subscription is active",
+    "provider_revision_version_available": false
+  },
+  "schema_version": "cross-asset-a1-twelvedata-full-history-contract-v1",
+  "source_access": {
+    "api_base_url": "https://api.twelvedata.com",
+    "api_token_environment_variable": "TWELVEDATA_API_KEY",
+    "api_token_may_be_logged_or_serialized": false,
+    "authorization_header_scheme": "apikey",
+    "existing_paid_subscription_use_authorized": true,
+    "further_paid_upgrade_authorized": false
+  },
+  "source_qualification_lineage": {
+    "accepted_pilot_contract": {
+      "path": "config/experiments/cross-asset-a1-twelvedata-economic-proxy-pilot-v2.json",
+      "sha256": "9e053082ac8bd3e346436497bfa2162aa01165054354e1f40eee3918c43b661a"
+    },
+    "accepted_pilot_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2/evidence-manifest.json",
+      "sha256": "827b5bcce1a16480caacc61df0d0aa017b5e724755ebf231969aa617dfbd7a93"
+    }
+  },
+  "status": "frozen",
+  "timestamp_policy": {
+    "available_at": "05:00:00Z on the next calendar day after the session label",
+    "daily_datetime_is_session_label_not_availability_timestamp": true,
+    "naive_intraday_or_availability_timestamps": "reject",
+    "observed_at": "provider daily session label normalized to UTC calendar date",
+    "retrieved_at": "one explicit UTC timestamp for the transactional source snapshot"
+  }
+}

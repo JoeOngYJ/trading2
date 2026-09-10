@@ -1,0 +1,66 @@
+{
+  "schema_version": "strategy-experiment-v1",
+  "experiment_id": "multi-asset-top2-causal-v1",
+  "status": "development_frozen",
+  "frozen_at": "2026-08-25",
+  "research_only": true,
+  "live_trading_authorized": false,
+  "mandate_compatibility": "incompatible_pair_count_and_entry_cadence_research_exception",
+  "development_period": {
+    "start": "2021-01-01T00:00:00Z",
+    "end_exclusive": "2026-01-01T00:00:00Z",
+    "sealed_period_not_read": "2026-01-01 onward"
+  },
+  "universe": [
+    "BTC/USDT",
+    "ETH/USDT",
+    "SOL/USDT",
+    "XRP/USDT",
+    "BNB/USDT",
+    "DOGE/USDT",
+    "ADA/USDT"
+  ],
+  "signal": {
+    "timeframe": "15m",
+    "decision_grid": "every 4h at UTC hours divisible by 4",
+    "entry": "next 15m open after the completed signal candle",
+    "gate": "strict_altseason_v1 plus near_high_breadth_guard_v1 plus btc_anchor_v1",
+    "ranking": "top two of the entry-time top-four core assets by frozen trend score",
+    "holding_period_hours": 48,
+    "risk_observation_hours": 12,
+    "risk_action": "sell 50 percent at the next 15m open when top-two 12h mean return is non-positive and neither leg had positive 4h return with at least 1 percent 4h MFE"
+  },
+  "portfolio": {
+    "starting_equity_usdt": 1000,
+    "maximum_gross_entry_fraction": 0.25,
+    "four_hour_cohort_fraction": 0.020833333333333333,
+    "maximum_overlapping_cohorts": 12,
+    "daily_control_cohort_fraction": 0.25,
+    "daily_control_hour_utc": 0
+  },
+  "execution_scenarios": [
+    "candle-primary-30bps-rt-v1",
+    "candle-stress-40bps-rt-v1",
+    "candle-severe-80bps-rt-v1"
+  ],
+  "predeclared_variants": [
+    "four_hour_hold48",
+    "four_hour_reduce50_at_12h",
+    "daily_hold48",
+    "daily_reduce50_at_12h"
+  ],
+  "acceptance_gates": {
+    "primary_net_return_positive": true,
+    "stress_net_return_positive": true,
+    "primary_profit_factor_minimum": 1.2,
+    "primary_max_drawdown_fraction": 0.15,
+    "positive_calendar_years_minimum": 3,
+    "no_entry_uses_post_signal_information": true,
+    "initial_gross_exposure_fraction_maximum": 0.25
+  },
+  "notes": [
+    "This is an independent causal reconstruction, not a promotion of the earlier repository artifact.",
+    "The earlier additive event reports allowed overlapping 48h observations; this experiment enforces one shared cash account and a 25 percent gross-entry cap.",
+    "No 2026 row may be loaded or used by this development experiment."
+  ]
+}

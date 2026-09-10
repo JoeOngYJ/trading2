@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "path": "research/btc/contracts/btc-reference-fill-accounting-r1-v1.md",
+      "sha256": "3559e66f274b4a37ee5c0d70e9ba2c3e68ce007e6e51fa1e85d3a6d1ccbe10c3"
+    },
+    {
+      "path": "research/btc/reports/BTC_REFERENCE_R1_LITERAL_CASES.md",
+      "sha256": "2ad5cd8f2dfe6ecac88a57fcc4ad3d8e2a94c0385d121560c68b5c043a57e1e7"
+    }
+  ],
+  "identity": "btc-reference-fill-accounting-r1-v1",
+  "status": "frozen_before_implementation"
+}

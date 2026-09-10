@@ -1,0 +1,110 @@
+{
+  "decision_rules": {
+    "account_result_plus_official_lineage_can_verify_exact_line": true,
+    "economic_similarity_can_replace_exact_instrument": false,
+    "gbp_or_gbpence_display_normalization_requires_official_support": true,
+    "ibkr_lseetf_to_xlon_mapping_requires_official_support": true,
+    "missing_or_conflicting_field": "conditional_unapproved",
+    "public_source_can_approve_account_access_without_authenticated_evidence": false,
+    "strategy_or_price_evidence_can_repair_identity_failure": false
+  },
+  "evidence_boundary": {
+    "account_verification": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-account-instrument-verification-v1/evidence-manifest.json",
+      "sha256": "ecbafc21e6678b50a4c564f201153f04cb6bbf4c18305f1f68d7c92b2d878883"
+    },
+    "instrument_access_registry": {
+      "path": "config/research/cross-asset-instrument-access-v1.json",
+      "sha256": "137f061754018296f9967ac86b82842629ace8a106afafeaf90e7e096e273444"
+    },
+    "mandate": {
+      "path": "config/mandates/retail-cross-asset-research-v3.json",
+      "sha256": "d60eab15d8e839beb998867ae609f670068c9a5666182b449712bd1d5db37268"
+    },
+    "sealed_2026_partition_accessed": false
+  },
+  "expected_instruments": [
+    {
+      "economic_role": "global_equity",
+      "isin": "IE00B4L5Y983",
+      "mic": "XLON",
+      "symbol": "SWDA",
+      "trading_currency": "GBX"
+    },
+    {
+      "economic_role": "defensive_bonds",
+      "isin": "IE00BG47K971",
+      "mic": "XLON",
+      "symbol": "VAGS",
+      "trading_currency": "GBP"
+    },
+    {
+      "economic_role": "gold",
+      "isin": "IE00B4ND3602",
+      "mic": "XLON",
+      "symbol": "SGLN",
+      "trading_currency": "GBX"
+    },
+    {
+      "economic_role": "broad_commodities",
+      "isin": "IE00BDFL4P12",
+      "mic": "XLON",
+      "symbol": "COMM",
+      "trading_currency": "GBX"
+    }
+  ],
+  "frozen_at": "2026-08-29T23:20:52Z",
+  "gates": {
+    "broker_exchange_mapping": [
+      "official IBKR material links LSEETF to London Stock Exchange ETF trading",
+      "authenticated account result matches symbol, name, currency and Stock classification"
+    ],
+    "currency": [
+      "official listing currency matches the expected trading line",
+      "any GBp-to-GBX equivalence is explicitly supported rather than inferred"
+    ],
+    "issuer_identity": [
+      "official issuer name and ISIN match the expected instrument"
+    ],
+    "listing_identity": [
+      "official LSE source binds symbol, ISIN, currency and XLON trading line"
+    ]
+  },
+  "prohibitions": {
+    "account_balances_access_allowed": false,
+    "account_history_access_allowed": false,
+    "account_or_broker_login_allowed": false,
+    "credentials_or_tokens_allowed": false,
+    "economic_metrics_allowed": false,
+    "execution_approval_allowed": false,
+    "feature_generation_allowed": false,
+    "holdings_or_positions_access_allowed": false,
+    "live_or_delayed_quote_retention_allowed": false,
+    "market_price_retention_allowed": false,
+    "order_creation_allowed": false,
+    "order_preview_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "pnl_allowed": false,
+    "protected_service_access_allowed": false,
+    "return_calculation_allowed": false,
+    "sealed_2026_access_allowed": false,
+    "strategy_parameters_allowed": false,
+    "strategy_signals_allowed": false
+  },
+  "review_id": "cross-asset-a1-ibkr-contract-details-public-review-v1",
+  "schema_version": "cross-asset-a1-ibkr-contract-details-public-review-contract-v1",
+  "source_policy": {
+    "allowed_domains": [
+      "interactivebrokers.co.uk",
+      "interactivebrokers.com",
+      "ishares.com",
+      "londonstockexchange.com",
+      "six-group.com",
+      "vanguard.co.uk"
+    ],
+    "current_official_documents_only": true,
+    "price_or_performance_fields_are_discarded": true,
+    "search_snippets_are_final_evidence": false
+  },
+  "status": "frozen"
+}

@@ -1,0 +1,23 @@
+# Test-only override. Never attach this profile to production volumes.
+services:
+  worker:
+    environment: &fault-environment
+      PLATFORM_ENVIRONMENT: test
+      PLATFORM_FAULT_INJECTION: "1"
+      PLATFORM_FAULT_CHECKPOINT: ${PLATFORM_FAULT_CHECKPOINT}
+      PLATFORM_FAULT_MARKER_DIR: /fault-markers
+    volumes:
+      - fault_markers:/fault-markers
+
+  outbox:
+    environment: *fault-environment
+    volumes:
+      - fault_markers:/fault-markers
+
+  bridge:
+    environment: *fault-environment
+    volumes:
+      - fault_markers:/fault-markers
+
+volumes:
+  fault_markers: {}

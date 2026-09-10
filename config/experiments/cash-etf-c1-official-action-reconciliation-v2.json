@@ -1,0 +1,81 @@
+{
+  "activated_at": "2026-08-30T18:13:00Z",
+  "changes_from_predecessor": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2",
+    "source_allowlist": [
+      {
+        "allowed_content": "historical_distributions_workbook_only",
+        "source_id": "state_street_historical_distributions",
+        "url": "https://www.ssga.com/library-content/products/fund-data/etfs/us/spdr-etf-historical-distributions.xlsx"
+      },
+      {
+        "allowed_content": "DistributionV3_component_only",
+        "source_id": "ishares_efa_distribution_component",
+        "url": "https://www.ishares.com/us/products/239623/ishares-msci-eafe-etf"
+      },
+      {
+        "allowed_content": "DistributionV3_component_only",
+        "source_id": "ishares_ief_distribution_component",
+        "url": "https://www.ishares.com/us/products/239456/ishares-710-year-treasury-bond-etf"
+      },
+      {
+        "allowed_content": "DistributionV3_component_only",
+        "source_id": "ishares_tlt_distribution_component",
+        "url": "https://www.ishares.com/us/products/239454/ishares-20-year-treasury-bond-etf"
+      },
+      {
+        "allowed_content": "historical_distribution_and_corporate_action_document_index_only",
+        "source_id": "invesco_dbc_tax_document_index",
+        "url": "https://www.invesco.com/us/en/accounts/tax-center/etf-tax-center.html"
+      },
+      {
+        "allowed_content": "2018_2019_audited_distribution_per_share_evidence_only",
+        "source_id": "invesco_dbc_2019_annual_report",
+        "url": "https://www.invesco.com/us-rest/contentdetail?contentId=cb3113e88ed90710VgnVCM1000006e36b50aRCRD&dnsName=us"
+      },
+      {
+        "allowed_content": "2022_shareholder_equity_distribution_evidence_only",
+        "source_id": "invesco_dbc_2022_monthly_report",
+        "url": "https://www.invesco.com/us-rest/contentdetail?contentId=8956d2f8-3066-4b84-9e5f-92ddbde454e3&dnsName=us"
+      },
+      {
+        "allowed_content": "2023_shareholder_equity_distribution_evidence_only",
+        "source_id": "invesco_dbc_2023_monthly_report",
+        "url": "https://www.invesco.com/us-rest/contentdetail?contentId=e08d9763-d366-43b1-918e-178ce3ff9874&dnsName=us"
+      },
+      {
+        "allowed_content": "issuer_statement_that_gld_generates_no_income_only",
+        "source_id": "gld_issuer_filed_no_income_statement",
+        "url": "https://www.sec.gov/Archives/edgar/data/1222333/000119312517226293/d424167dfwp.htm"
+      },
+      {
+        "allowed_content": "issuer_filed_bil_split_event_date_only",
+        "source_id": "bil_issuer_filed_split_notice",
+        "url": "https://www.sec.gov/Archives/edgar/data/1064642/000119312517353499/d481888d497.htm"
+      },
+      {
+        "allowed_content": "bil_2017_split_date_and_ratio_only",
+        "source_id": "state_street_bil_form_8937",
+        "url": "https://www.ssga.com/library-content/products/fund-docs/etfs/us/tax-documents/SPDR-Bloomberg-Barclays-1-3-Month-T-Bill-ETF-2017-Form-8937.pdf"
+      }
+    ]
+  },
+  "experiment_id": "cash-etf-c1-official-action-reconciliation-v2",
+  "predecessor": {
+    "experiment_id": "cash-etf-c1-official-action-reconciliation-v1",
+    "path": "config/experiments/cash-etf-c1-official-action-reconciliation-v1.json",
+    "sha256": "85a9950a931348e1766c7e991d930b76436b80962ab821042f47ea3c80d6cfeb"
+  },
+  "predecessor_disposition": "rejected_before_acquisition_invalid_gld_url_and_bil_ratio_source",
+  "schema_version": "cash-etf-c1-official-action-reconciliation-successor-v1",
+  "status": "frozen",
+  "unchanged_fields": [
+    "acceptance_gates",
+    "boundary",
+    "fail_closed_rules",
+    "forbidden_data",
+    "inputs",
+    "operational_limits",
+    "whole_universe_gate"
+  ]
+}

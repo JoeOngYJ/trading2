@@ -1,0 +1,131 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "cost_or_execution_model_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "perpetual_position_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "base_contract": {
+    "path": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v2.json",
+    "sha256": "8bdca8bf01ec379cdb89397e9c5a09d8a8c0bb747726ffa50290a9a75efbf567"
+  },
+  "bound_inputs": [
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V3_PLAN.md",
+      "sha256": "724d435bac25b4e65105a1064a3218246c7d6f2da9c456096a007766662ff8ee"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V2_RESULT.md",
+      "sha256": "7b4b44167f9b904420197d926f568fa5e42ce6710aa0ffd50fee9da009cc0ff2"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/evidence-manifest.json",
+      "sha256": "bb41f2806c49683364d730ade5cfd3a714d76770af1b00d1b222c8070823871f"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/features/features.jsonl.gz",
+      "sha256": "2181b5df0a20bc0b545634971ebe1b2d6a2313a22fccfe1a04e73b642070a1fa"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/features/feature-gate-report.json",
+      "sha256": "43d754ae825c547e9812d8371f6224fd62e43dc66e01b91a9c9a7227b97a7b0d"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/features/evidence-manifest.json",
+      "sha256": "00c157555f9a392efdeb986f4efd6f8d953ee3b8aeecc13d25001a1a3660e4f5"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2/labels/label-gate-report.json",
+      "sha256": "21b2790b4ff6f47bdc4f64e0e6ed041cae2546319ff7812435425e7d54ed629d"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/raw/btc-history-source-manifest.json",
+      "sha256": "41ad227706e3ac49cee3edb7933803f6d42167e652e16117f7ca4aab4e71acf9"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+      "sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    }
+  ],
+  "candidate_experiment_id": "btc-spot-perp-continuation-information-v1",
+  "effective_contract_resolution": [
+    "resolve_D1_v2_and_its_D1_v1_base_with_all_existing_overrides",
+    "replace_experiment_id_with_btc_spot_perp_continuation_information_d1_v3",
+    "reuse_D1_v2_feature_ledger_byte_for_byte",
+    "replace_outputs_root_d1_v2_with_d1_v3",
+    "replace_same_segment_endpoint_requirement_with_two_authenticated_exact_official_endpoints",
+    "record_interior_gaps_diagnostically_without_using_them_for_endpoint_label_eligibility",
+    "preserve_every_feature_model_statistical_gate_and_safety_boundary_exactly"
+  ],
+  "endpoint_audit_contract": {
+    "archive_end_period_inclusive": "2025-12",
+    "archive_start_period_inclusive": "2019-12",
+    "authoritative_source": "official_Binance_BTCUSDT_spot_monthly_5m_kline_archives",
+    "expected_archive_count": 73,
+    "expected_unique_endpoint_timestamps": 2209,
+    "official_and_S1_open_price_exact_match_required": true,
+    "official_archive_sha256_required": true,
+    "positive_base_and_quote_volume_required": true,
+    "positive_finite_open_required": true,
+    "raw_rows_at_or_after_2026_allowed": false,
+    "same_venue": "Binance_spot",
+    "target_return_materialization_allowed_in_endpoint_phase": false,
+    "unique_exact_five_minute_timestamp_required": true
+  },
+  "experiment_id": "btc-spot-perp-continuation-information-d1-v3",
+  "freeze_recorded_at": "2026-09-01T22:14:37Z",
+  "label_contract_override": {
+    "authoritative_entry_and_exit_source": "authenticated_official_raw_Binance_spot_5m_rows",
+    "formula_unchanged": "log(exact_spot_5m_open_at_decision_plus_72h/exact_spot_5m_open_at_decision)",
+    "interior_gap_behavior": "count_and_report_not_an_endpoint_label_exclusion",
+    "manual_label_allowed": false,
+    "missing_or_invalid_endpoint_behavior": "ineligible_never_imputed",
+    "same_five_minute_segment_required": false,
+    "target_end_strictly_before_2026": true
+  },
+  "label_gates_unchanged_from_D1_v2": {
+    "evaluation_label_coverage_minimum": 0.98,
+    "evaluation_label_rows_each_year_minimum": 340,
+    "evaluation_label_rows_minimum": 1700,
+    "per_year_label_coverage_minimum": 0.95,
+    "pre_2021_training_labels_minimum": 300,
+    "serialized_invalid_labels_maximum": 0
+  },
+  "model_and_statistics_contract": "inherit_D1_v1_through_D1_v2_exactly_without_any_change",
+  "outputs": {
+    "endpoint_ledger": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/endpoints/endpoints.jsonl.gz",
+    "endpoint_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/endpoints/evidence-manifest.json",
+    "endpoint_report": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/endpoints/endpoint-gate-report.json",
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/evidence-manifest.json",
+    "forecast_ledger": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/forecasts.jsonl.gz",
+    "label_ledger": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/labels/labels.jsonl.gz",
+    "label_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/labels/evidence-manifest.json",
+    "label_report": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/labels/label-gate-report.json",
+    "model_manifest": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/evidence-manifest.json",
+    "model_report": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/report.json",
+    "model_snapshots": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v3/model/model-snapshots.jsonl.gz"
+  },
+  "predecessor": {
+    "disposition": "rejected_at_frozen_2021_label_coverage_gate_before_model",
+    "experiment_id": "btc-spot-perp-continuation-information-d1-v2",
+    "result_path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V2_RESULT.md",
+    "result_sha256": "7b4b44167f9b904420197d926f568fa5e42ce6710aa0ffd50fee9da009cc0ff2"
+  },
+  "schema_version": "btc-spot-perp-continuation-information-contract-v3",
+  "status": "frozen_before_any_D1_v3_endpoint_label_or_model_materialization"
+}

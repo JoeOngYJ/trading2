@@ -1,0 +1,192 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "benchmark": {
+    "control_definition": "previously_completed_same_direction_quiet_displacement_with_similar_past_24h_realized_variance",
+    "quiet_absolute_z_maximum": 0.5,
+    "zero_reversion_benchmark": 0
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-4h.jsonl.gz",
+      "sha256": "df23c3ecccf3945080f52e3103f1335cf0fea03f0b26c19ce50dbb5000f50707"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs2-v1.json",
+      "sha256": "4c3499da9621d6dcfc9ab615934b39c2934bba4fb3749df6cd41b421b1a6ca0a"
+    },
+    {
+      "path": "research/btc/contracts/btc-market-condition-scores-mcs3-p-v1.json",
+      "sha256": "c78352b57563155d1055276cdbc1aaaff25f57a453ac07b2441c65ffed044901"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-p-v1/evidence-manifest.json",
+      "sha256": "3a3410bbe65c73f0d2432f2519b2401e4e026adb2abc1dd2e1cb6522b0d1cfe7"
+    },
+    {
+      "path": "research/btc/BTC_MARKET_CONDITION_SCORE_PROGRAM.md",
+      "sha256": "e4b9a2bdc8b32c76715021bdf71ddc091265ab28ab3ce0ff092b73b8a12d22cb"
+    }
+  ],
+  "candidate": {
+    "absolute_event_threshold": 2,
+    "axis": "reversion",
+    "displacement": "completed_6x4h_close_to_close_log_return",
+    "formula": "negative_of_current_displacement_z_score_against_preceding_126_completed_same_segment_24h_displacements",
+    "id": "negative_standardized_24h_displacement",
+    "interpretation": "positive_score_forecasts_unwind_of_a_negative_displacement_and_negative_score_forecasts_unwind_of_a_positive_displacement_not_a_position",
+    "reference_center": "arithmetic_mean",
+    "reference_scale": "sample_standard_deviation"
+  },
+  "chronology": {
+    "decision_clock": "every completed contiguous same-segment 4h candle close",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_start": "2017-08-17T04:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "reference_displacement_observations": 126,
+    "reference_rule": "preceding_only_excluding_current_displacement",
+    "source_displacement_bars": 6,
+    "warmup_bars": 132
+  },
+  "control_matching": {
+    "control_target_must_be_available_strictly_before_event_observed_at": true,
+    "direction": "same_sign_completed_24h_displacement",
+    "matching_distance": "absolute_difference_in_log_completed_24h_realized_variance",
+    "matching_ratio": "one_control_per_event",
+    "maximum_lookback_days": 90,
+    "maximum_past_realized_variance_ratio": 2,
+    "reuse_allowed": false,
+    "selection": "nearest_distance_then_latest_observed_at_then_lexical_segment",
+    "target_overlap_allowed": false
+  },
+  "cost_break_even_diagnostics": {
+    "definition": "gross_signed_reversal_log_return_in_bps_before_any_execution_or_cost_model",
+    "frozen_reference_round_trip_bps": [
+      30,
+      40,
+      80
+    ],
+    "interpretation": "descriptive_gross_break_even_only_not_net_PnL_or_fill_evidence"
+  },
+  "disposition_rules": {
+    "accepted_for_future_offline_conditioning_research": "all_frozen_primary_and_data_gates_pass",
+    "promotion_or_live_evidence": false,
+    "rejected": "any_frozen_gate_fails",
+    "rerun_or_tuning_under_same_id": false
+  },
+  "event_and_label_rules": {
+    "event_direction": "sign_of_completed_24h_displacement",
+    "event_selection": "chronological_greedy_with_next_event_observed_at_at_or_after_previous_event_target_available_at",
+    "forward_return": "log_of_close_at_t_plus_h_divided_by_close_at_t",
+    "signed_reversal": "negative_event_direction_times_forward_return",
+    "target_available_at": "completed_close_at_t_plus_h",
+    "windows_crossing_segments": "unknown_and_excluded"
+  },
+  "experiment_id": "btc-market-condition-scores-mcs3-r-v1",
+  "frozen_at": "2026-08-31T13:15:00Z",
+  "gates": {
+    "all_feature_coverage_overall_minimum": 0.85,
+    "all_feature_coverage_per_year_minimum": 0.75,
+    "all_input_causality_nonoverlap_and_matching_checks_pass": true,
+    "primary_1d_both_direction_event_fractions_minimum": 0.2,
+    "primary_1d_both_direction_mean_reversal_strictly_positive": true,
+    "primary_1d_event_count_minimum": 100,
+    "primary_1d_event_mean_reversal_bps_strictly_above": 80,
+    "primary_1d_event_mean_reversal_month_block_lower_95_bps_strictly_above": 30,
+    "primary_1d_event_months_excluding_best_three_mean_reversal_strictly_positive": true,
+    "primary_1d_matched_control_coverage_overall_minimum": 0.8,
+    "primary_1d_matched_control_coverage_per_year_minimum": 0.5,
+    "primary_1d_matched_event_minus_control_month_block_lower_95_bps_strictly_above": 0,
+    "primary_1d_positive_annual_event_mean_years_minimum": 5,
+    "primary_1d_positive_annual_matched_delta_years_minimum": 5,
+    "primary_1d_yearly_event_count_minimum": 8,
+    "required_evaluation_years": [
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "valid_bootstrap_replications_minimum": 9500
+  },
+  "hypothesis": "A completed BTC 24-hour displacement at least two causal standard deviations from its preceding 21-day displacement distribution partially unwinds over the next day. Its direction-adjusted forward return should be positive, survive frozen cost break-even references, and exceed a previously completed same-direction quiet displacement matched on past realized variance.",
+  "input_contract": {
+    "expected_interval": "4h",
+    "expected_rows": 18282,
+    "instrument": "BTC/USDT",
+    "rules": [
+      "canonical_UTC_Z_timestamps_only",
+      "observed_at_equals_available_at_equals_close_at",
+      "strictly_increasing_close_at",
+      "positive_finite_close",
+      "exact_4h_spacing_inside_each_segment",
+      "closed_segments_may_not_reappear",
+      "feature_reference_and_target_windows_may_not_cross_segments",
+      "input_checksum_and_row_count_must_match",
+      "no_2026_or_holdout_path"
+    ]
+  },
+  "outputs": {
+    "event_ledger": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/events.jsonl.gz",
+    "evidence_manifest": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/evidence-manifest.json",
+    "report": "artifacts/agent-level-experiment/btc-focused/market-condition-scores-mcs3-r-v1/report.json",
+    "result_document": "research/btc/reports/BTC_MARKET_CONDITION_SCORES_MCS3_R_RESULT.md"
+  },
+  "prohibited": [
+    "treating_reversion_as_negative_persistence",
+    "strategy_entry_exit_position_or_order_logic",
+    "return_or_PnL_backtest",
+    "execution_or_leverage_optimization",
+    "threshold_reference_window_or_match_selection_from_results",
+    "reopening_or_rescuing_rejected_strategy_or_score_families",
+    "universal_bull_bear_sideways_or_composite_regime_label",
+    "partial_OB0_inspection",
+    "sealed_or_ineligible_2026_access",
+    "network_database_NATS_Freqtrade_exchange_or_soak_access",
+    "production_signal_order_position_or_route_creation"
+  ],
+  "schema_version": "btc-market-condition-scores-mcs3-r-contract-v1",
+  "stage_id": "MCS3-R",
+  "statistics": {
+    "confidence_interval": 0.95,
+    "month_block_bootstrap_replications": 10000,
+    "month_block_bootstrap_seed": 20260831,
+    "month_block_unit": "UTC_event_target_available_calendar_month",
+    "same_exact_seed_for_every_bootstrap": true,
+    "year_assignment": "event_target_available_at_UTC_calendar_year"
+  },
+  "status": "frozen_before_any_reversion_outcome_read",
+  "targets": [
+    {
+      "bars": 1,
+      "horizon": "4h",
+      "role": "secondary_diagnostic"
+    },
+    {
+      "bars": 6,
+      "horizon": "1d",
+      "role": "primary"
+    },
+    {
+      "bars": 42,
+      "horizon": "7d",
+      "role": "secondary_diagnostic"
+    }
+  ]
+}

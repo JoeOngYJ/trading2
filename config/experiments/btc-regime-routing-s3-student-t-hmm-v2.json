@@ -1,0 +1,24 @@
+{
+  "base_contract_path": "config/experiments/btc-regime-routing-s3-student-t-hmm-v1.json",
+  "base_contract_sha256": "ed577f204387fff3b2df8d55e91bf74956eb5e9212db36e273d1dd4673941ec4",
+  "clarifications": {
+    "dwell_and_transition_accounting": "Use the chronological hard-state path over known evaluation observations. Unknown observations break runs and are excluded from occupancy denominators. A transition is a hard-state change between adjacent known daily observations. One-day-run fraction is one-observation runs divided by all known-state runs, and each state's median dwell is calculated over its own completed and terminal runs.",
+    "fit_convergence": "A refit converges after at least two EM updates when the absolute change in total training log likelihood divided by training observation count is at most 1e-6. Failure to converge within 100 updates produces unknown states for that refit month.",
+    "forward_filtering": "After each monthly fit, forward-filter all strictly pre-cutoff training observations under the fitted canonical model to obtain the prior filtered distribution. Then transform and filter each newly available observation in order without smoothing or Viterbi decoding.",
+    "forward_labels": {
+      "downside_loss": "max(0, negative sum of the 2,016 consecutive five-minute close-to-close log returns beginning at the state observation availability timestamp)",
+      "overlap_policy": "Overlapping seven-day labels are retained; calendar-month block resampling preserves their dependence within each label-start month.",
+      "realized_variance": "sum of squared 2,016 consecutive five-minute close-to-close log returns beginning at the state observation availability timestamp",
+      "validity": "The prior five-minute close and all 2,016 future candles must be consecutive and belong to one execution-data segment; labels crossing a gap, segment, or 2026 development boundary are excluded. Labels never affect fitting, filtering, scaling, state labels, or allocation."
+    },
+    "month_block_bootstrap": "For each state and label metric, compute the observed stress-minus-ordinary difference in arithmetic observation means. For each replication, sample with replacement the same number of distinct UTC label-start months from the joint labeled table, concatenate every observation in each sampled month including repeated sampled blocks, and recompute the difference. Use the linearly interpolated 2.5th and 97.5th percentiles of 10,000 replications from the frozen seed. A replication missing either state is invalid; reject the gate if fewer than 9,500 replications are valid.",
+    "strictly_positive_ci_gate": "Both observed stress-minus-ordinary differences and both 95% interval lower bounds must be greater than zero."
+  },
+  "experiment_id": "btc-regime-routing-s3-student-t-hmm-v2",
+  "frozen_at": "2026-08-28T23:23:00Z",
+  "inheritance_rule": "Every field in the checksummed base contract is inherited unchanged except experiment_id, frozen_at, schema_version, and this clarification metadata. No base feature, window, model parameter, action mapping, control, cost, threshold, branch rule, or safety boundary is changed.",
+  "replacement_reason": "The v1 activation was stopped before feature generation or model output because its seven-day downside label and month-block resampling procedure were not fully executable from the text. This successor closes only that specification gap.",
+  "schema_version": "regime-routing-s3-student-t-hmm-contract-amendment-v1",
+  "stage_id": "S3",
+  "status": "frozen"
+}

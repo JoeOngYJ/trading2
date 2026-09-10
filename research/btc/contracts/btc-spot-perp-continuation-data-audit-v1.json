@@ -1,0 +1,126 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "future_return_label_allowed": false,
+    "model_fit_allowed": false,
+    "position_order_or_signal_allowed": false,
+    "strategy_or_PnL_allowed": false
+  },
+  "allowed_hosts": [
+    "data.binance.vision",
+    "fapi.binance.com"
+  ],
+  "audit_id": "btc-spot-perp-continuation-d0-v1",
+  "bound_inputs": [
+    {
+      "path": "config/mandates/retail-btc-spot-cross-market-input-research-v1.json",
+      "sha256": "5b3e3b1e9d91c5d600c38b92b6e060ec60652fcaa45785f0ee4ba150be6c8a93"
+    },
+    {
+      "path": "docs/BTC_SPOT_PERP_INPUT_RESEARCH_MANDATE.md",
+      "sha256": "a3a8af2ab8600e3d0982c6f2eebd5f1a0a6bf00e3fb12a966c83c800d6575fcd"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_RESEARCH_PLAN.md",
+      "sha256": "67851b1dc66267b70a5a060b7e474a73811f74ed00afb5d64ea8ebbe774e9d6d"
+    },
+    {
+      "path": "scripts/acquire_btc_spot_perp_continuation_data.py",
+      "sha256": "042cbb6a5dd5db4ead019181b9e59aa80b0bc91b152fa368c8feeb9f92b87f8f"
+    },
+    {
+      "path": "scripts/audit_btc_spot_perp_continuation_data.py",
+      "sha256": "d1fc6286a283ec80f9d4f3c6d7b0c2adf818ff352cea4b101c60d26fc111c6fa"
+    },
+    {
+      "path": "research/btc/tests/test_spot_perp_continuation_data.py",
+      "sha256": "85aaf7952730b8fa6a5be579a14e946a32b47647db6003b694ed7ab11f623d17"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/audit-report.json",
+      "sha256": "64ac19463c5c3d934adc1ea99c90fe80d142acb6b7d7268f2cb0145b5395a722"
+    }
+  ],
+  "bound_inputs_by_role": {
+    "existing_perpetual_source_manifest": {
+      "path": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1/source-manifest.json",
+      "sha256": "13b8ba176a3f650b18b9f84e60e16ac965d09cd014848eeedfe16a1bb2cd8d5c"
+    },
+    "spot_candles_5m": {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/candles-5m.jsonl.gz",
+      "sha256": "3d37dadf416469cef7ce57fb009a1796658b7cf098c1e451045f85436eab46ab"
+    }
+  },
+  "candidate_experiment_id": "btc-spot-perp-continuation-information-v1",
+  "data_boundary": {
+    "evaluation_coverage_audit": "2020-01-01_through_2025-12-31",
+    "pre_2020_warmup_source_only": "2019-09-08T17:00:00Z_through_2019-12-31T23:00:00Z",
+    "sealed_or_ineligible": "2026_and_later"
+  },
+  "freeze_recorded_at": "2026-09-01T19:13:00Z",
+  "gates": {
+    "all_2020_2025_monthly_sidecars_must_still_match": true,
+    "daily_and_monthly_overlap_must_match_exactly": true,
+    "feature_ready_days_before_2021_minimum": 300,
+    "feature_ready_days_each_evaluation_year_minimum": 330,
+    "normalization_warmup_days": 90,
+    "overall_common_hourly_coverage_minimum": 0.99,
+    "yearly_common_hourly_coverage_minimum": 0.98
+  },
+  "hypothesis_boundary": "D0 tests source and feature-availability feasibility only; the future D1 question is whether signed spot/perpetual observations add next-72-hour BTC spot-return information beyond a frozen price-only control.",
+  "output_directory": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d0-v1",
+  "pre_2020_rest_fallback": {
+    "end_exclusive": "2020-01-03T00:00:00Z",
+    "endpoint": "GET_https://fapi.binance.com/fapi/v1/klines",
+    "interval": "1h",
+    "limit": 1500,
+    "maximum_pages": 3,
+    "overlap_policy": "2019-12-31_must_match_official_daily_archive_and_2020-01-01_through_2020-01-02_must_match_bound_monthly_archive",
+    "start_inclusive": "2019-09-08T17:00:00Z",
+    "symbol": "BTCUSDT"
+  },
+  "prefreeze_source_feasibility_observations": {
+    "future_return_or_strategy_outcome_opened": false,
+    "monthly_2019_archive_sidecars": "HTTP_404_for_September_through_December",
+    "official_REST_earliest_observed_hour": "2019-09-08T17:00:00Z",
+    "official_daily_archive_first_confirmed_overlap": "2019-12-31",
+    "purpose": "define_auditable_source_fallback_before_D0_freeze"
+  },
+  "prohibited": [
+    "future_return_label",
+    "forecast_or_model_fit",
+    "feature_threshold_selection",
+    "strategy_return_or_PnL",
+    "position_signal_or_order",
+    "funding_open_interest_liquidation_or_news_input",
+    "perpetual_position",
+    "credentials_or_account_access",
+    "partial_OB0_access",
+    "protected_service_access",
+    "sealed_or_ineligible_2026_access"
+  ],
+  "revision_policy": {
+    "bound_archives_may_not_be_overwritten": true,
+    "current_official_sidecar_difference": "fail_D0_and_require_new_audit_ID",
+    "raw_REST_responses_and_retrieval_times_retained": true
+  },
+  "schema_version": "btc-spot-perp-continuation-data-audit-contract-v1",
+  "status": "frozen_before_d0_acquisition"
+}

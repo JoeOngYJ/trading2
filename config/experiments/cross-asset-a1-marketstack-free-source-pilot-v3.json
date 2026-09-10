@@ -1,0 +1,27 @@
+{
+  "activated_at": "2026-08-29T13:45:00Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-marketstack-free-source-pilot-v1.json",
+    "sha256": "623e11b4f555dd67db529fd1dc7f841b878c9d1837c7f12628d07ec1ec6d8ce7"
+  },
+  "changes_from_predecessor": {
+    "identity_source": "eod_name_symbol_exchange_price_currency_plus_checksummed_issuer_control",
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v3",
+    "request_endpoints": [
+      "eod",
+      "splits",
+      "dividends"
+    ],
+    "total_planned_requests": 12
+  },
+  "frozen_failure_evidence": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-marketstack-free-source-pilot-v2/failure-report.json",
+    "sha256": "5d9cf8c5ab81cc128ffaaca6f6cb1aae20e8b85ffe28ad46a271259d8a93b335"
+  },
+  "no_other_contract_field_changes": true,
+  "pilot_id": "cross-asset-a1-marketstack-free-source-pilot-v3",
+  "reason": "Both v2 ticker identity forms returned HTTP 404 before price access; the final successor uses the provider's primary documented EOD endpoint and requires its returned identity metadata plus issuer controls.",
+  "schema_version": "cross-asset-a1-marketstack-source-pilot-eod-identity-amendment-v1",
+  "status": "frozen",
+  "supersedes": "cross-asset-a1-marketstack-free-source-pilot-v2"
+}

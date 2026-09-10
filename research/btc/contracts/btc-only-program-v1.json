@@ -1,0 +1,39 @@
+{
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "active_market": "BTC",
+  "archived_research_lanes": [
+    "ETH",
+    "cash_etf",
+    "cross_asset",
+    "multi_asset"
+  ],
+  "controls": [
+    "flat",
+    "btc_buy_and_hold",
+    "btc_fixed_breakout_development_control",
+    "btc_ewma_scaled_breakout_development_control",
+    "timestamp_and_exposure_matched_controls"
+  ],
+  "evidence_catalog_path": "research/btc/BTC_EVIDENCE_CATALOG.json",
+  "l2_policy": {
+    "accepted_strategy_evidence": false,
+    "lane": "background_data_engineering_only",
+    "partial_or_mutable_capture_inspection_forbidden": true,
+    "strategy_use_blocked_until": "separate_OB1_60_development_plus_30_unread_days_acceptance"
+  },
+  "mandatory_risk_benchmark": "btc-regime-routing-s2-ewma-v2",
+  "maximum_active_strategy_hypotheses": 1,
+  "program_id": "btc-only-research-v1",
+  "prohibited": [
+    "live_trading",
+    "production_signal_or_order_integration",
+    "relabel_rejected_experiment",
+    "reuse_rejected_experiment_id",
+    "tune_rejected_threshold_or_window",
+    "inspect_partial_OB0",
+    "open_sealed_or_ineligible_2026_history"
+  ],
+  "schema_version": "btc-only-program-contract-v1",
+  "status": "frozen"
+}

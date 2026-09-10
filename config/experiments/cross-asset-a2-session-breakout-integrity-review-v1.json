@@ -1,0 +1,30 @@
+{
+  "experiment_id": "cross-asset-a2-session-breakout-integrity-review-v1",
+  "frozen_at": "2026-08-30T13:05:00Z",
+  "inputs": {
+    "a2_contract": {
+      "path": "config/experiments/cross-asset-a2-session-breakout-continuation-v1.json",
+      "sha256": "09d70c79643f5a5c88430685b9f0fa60124b86334a36e9c335cf10ff5d99990a"
+    },
+    "a2_evidence": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-continuation-v1/evidence-manifest.json",
+      "sha256": "11797c19862be462d2b2bdee7d94c9b2cdc639b6d01f3be171cbbfb542159f3f"
+    },
+    "a2_result": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-continuation-v1/result.json",
+      "sha256": "b90716fa2ea40c8812cbdb1dab849be9ccdb60ae9d2226fef8d58bd4f21a82f0"
+    },
+    "evaluator_module": {
+      "path": "src/trading_platform/cross_asset_session_breakout.py",
+      "sha256": "bd581ce8119de33dfd475547f051e1ab1f85f29ea95342a631422532961ca5ec"
+    },
+    "runner": {
+      "path": "scripts/run_cross_asset_a2_session_breakout.py",
+      "sha256": "2346dbceebf21887644721edad6f4a5394c9d5871952c8f2110624705b2232ee"
+    }
+  },
+  "method": "source_control_flow_review_only_no_market_data_or_strategy_rerun",
+  "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a2-session-breakout-integrity-review-v1",
+  "schema_version": "cross-asset-a2-integrity-review-contract-v1",
+  "status": "frozen"
+}

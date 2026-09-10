@@ -1,0 +1,80 @@
+{
+  "actionable_arm_id": "no_trade",
+  "allowed_research_position": {
+    "futures_leg": "short_BTCUSDT_USD_M_perpetual",
+    "maximum_absolute_delta_mismatch_fraction": 0.01,
+    "maximum_futures_notional_fraction_of_equity": 0.49,
+    "maximum_spot_notional_fraction_of_equity": 0.49,
+    "position_structure": "matched_delta_neutral_pair_only",
+    "spot_leg": "long_BTCUSDT_spot"
+  },
+  "authority": {
+    "account_connection_allowed": false,
+    "credentials_allowed": false,
+    "live_allocation_usdt": 0,
+    "live_trading_allowed": false,
+    "order_submission_allowed": false,
+    "paper_orders_sent_to_exchange_allowed": false,
+    "transfers_allowed": false
+  },
+  "data_exception": {
+    "missing_premium_index_open_at": "2020-12-01T23:00:00Z",
+    "policy": "unavailable_fail_flat_and_reset_if_consumed",
+    "strategy_may_avoid_premium_index_entirely": true,
+    "value_imputation_allowed": false
+  },
+  "development_margin_model": {
+    "adverse_mark_shock_fraction": 0.20,
+    "collateral_fraction_of_equity_before_fees": 0.51,
+    "historical_bracket_claim_allowed": false,
+    "isolated_margin_only": true,
+    "planning_maintenance_margin_fraction_of_mark_notional": 0.10,
+    "stress_and_observed_margin_must_be_checked_hourly": true,
+    "stress_or_observed_breach": "forced_liquidation_and_strategy_rejection"
+  },
+  "execution_boundary": {
+    "atomic_research_intention_required": true,
+    "matched_BTC_quantity_required": true,
+    "missing_or_partial_leg": "fail_closed_and_charge_severe_neutralization_cost",
+    "production_integration_allowed": false
+  },
+  "mandate_id": "retail-btc-delta-neutral-development-v2",
+  "promotion_blockers": [
+    "effective_dated_historical_maintenance_margin_brackets",
+    "effective_dated_historical_spot_and_perpetual_fees",
+    "exact_account_fees",
+    "ADL_and_venue_failure_calibration",
+    "jurisdiction_and_account_eligibility",
+    "prospective_paper_evidence"
+  ],
+  "prohibited": [
+    "naked_futures_short",
+    "directional_perpetual_position",
+    "spot_borrowing",
+    "cross_margin",
+    "portfolio_margin",
+    "multi_asset_collateral",
+    "options",
+    "live_credentials",
+    "live_orders",
+    "promotion_claim_from_development_assumptions"
+  ],
+  "required_attribution": [
+    "spot_price_pnl",
+    "perpetual_price_pnl",
+    "funding_cashflow",
+    "basis_convergence",
+    "spot_fees",
+    "perpetual_fees",
+    "spot_implicit_cost",
+    "perpetual_implicit_cost",
+    "hedge_error",
+    "collateral_opportunity_cost",
+    "liquidation_and_margin_stress",
+    "ADL_and_venue_failure_unmodeled_tail"
+  ],
+  "research_equity_usdt": 1000,
+  "schema_version": "btc-delta-neutral-development-mandate-v2",
+  "status": "frozen_offline_development_backtest_only",
+  "supersedes_for_development_only": "retail-btc-delta-neutral-research-v1"
+}

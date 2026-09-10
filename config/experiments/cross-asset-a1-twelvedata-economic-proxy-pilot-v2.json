@@ -1,0 +1,45 @@
+{
+  "activated_at": "2026-08-29T19:00:00Z",
+  "base_contract": {
+    "path": "config/experiments/cross-asset-a1-twelvedata-economic-proxy-pilot-v1.json",
+    "sha256": "6fba0c1d57f2c496435812e7ce13aedd3de8d81a059a7595387808f2a3c42f36"
+  },
+  "changes_from_predecessor": {
+    "corporate_action_identity_policy": "bind SPY symbol, currency and MIC to the separately validated time-series identity because corporate-action metadata omits type",
+    "corporate_action_query_boundary": {
+      "end_date": "2025-02-28",
+      "start_date": "2025-02-03"
+    },
+    "earliest_date_not_after": {
+      "DBC": "2008-01-02",
+      "EEM": "2008-01-02",
+      "IEF": "2002-07-30",
+      "TLT": "2002-07-30"
+    },
+    "expected_listing_identity": {
+      "IEF": {
+        "exchange": "NASDAQ",
+        "mic_code": "XNMS"
+      },
+      "TLT": {
+        "exchange": "NASDAQ",
+        "mic_code": "XNMS"
+      }
+    },
+    "output_artifact_root": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v2",
+    "response_filter_policy": "require every frozen February session exactly once after discarding only ordered rows outside the frozen pilot boundary",
+    "time_series_query_boundary": {
+      "end_date": "2025-03-03",
+      "start_date": "2025-01-31"
+    }
+  },
+  "frozen_failure_evidence": {
+    "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-economic-proxy-pilot-v1/evidence-manifest.json",
+    "sha256": "503d9be184796263273140aecfcc3e7a96c9b2e4181966ae32afc444a17c95c2"
+  },
+  "no_other_contract_field_changes": true,
+  "pilot_id": "cross-asset-a1-twelvedata-economic-proxy-pilot-v2",
+  "schema_version": "cross-asset-a1-twelvedata-source-pilot-amendment-v1",
+  "status": "frozen",
+  "supersedes": "cross-asset-a1-twelvedata-economic-proxy-pilot-v1"
+}

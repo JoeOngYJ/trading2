@@ -1,0 +1,340 @@
+{
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "c1_archive_availability_evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-corporate-action-archive-availability-v1/evidence-manifest.json",
+  "c1_evidence_manifest_path": "artifacts/agent-level-experiment/cash-etf/c1-prepartition-v1/evidence-manifest.json",
+  "c1_official_action_evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v2/evidence-manifest.json",
+  "c1_pragmatic_ledger_evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v5/evidence-manifest.json",
+  "c2_evaluation_contract_path": "config/experiments/cash-etf-c2-proxy-evaluation-v1.json",
+  "context_artifacts": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "10eae7f7c5394a24d2563ac4a2b25040e6a3ff0ca6e31773ab94c551778c5735"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-corporate-action-archive-availability-v1/evidence-manifest.json",
+      "sha256": "950af97fb5f5ce84749a6940039904ed53c8fae7b454263580e409a08416ed09"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v1/evidence-manifest.json",
+      "sha256": "c8a6ab6b429ed5fb4524d1cfbd98cdffaa9a52a1afd1376dfe77851db0234334"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v2/evidence-manifest.json",
+      "sha256": "a58f71a1d0b4ab3f3b82a47468bd3d5a54a3b99c119d1c4c0a2b84e6ffafb216"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/evidence-manifest.json",
+      "sha256": "99d00e3efde779ecd011a37b0fa072287e608f9295a6699e11b75add473f04ae"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-prepartition-v1/evidence-manifest.json",
+      "sha256": "9dd83e3f7e9a9a748801eff1dacae917140620f62faaa20a30e61084f6de3792"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-prepartition-v1/partition-manifest.json",
+      "sha256": "e194f628a9870ffad5974891fb50ff4e26765326198b2213946e8adcc50939bf"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v1/evidence-manifest.json",
+      "sha256": "43f6b56620574d11d261ac886ee9654b9a1c756bcb238533ef2292d379fa7d1e"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v2/evidence-manifest.json",
+      "sha256": "ed1d5c016a07a468ca75b8ac63d27cc2a545019c194a6ac8d33e995270ff0edf"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v3/evidence-manifest.json",
+      "sha256": "11d98754cd6b104017d4639a9c63758b004d632c07694da16a3f70091346abd4"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4/evidence-manifest.json",
+      "sha256": "4294a993b2133fc38b61a4938c64038258b2c58f0c10a74d4c721ea49ad1be02"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v5/evidence-manifest.json",
+      "sha256": "2dd1848b80cb65fb54f4c9a59ef920b9058092eda135d16f9f4603bf1395130c"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/evidence-manifest.json",
+      "sha256": "72dca315d92feced97442d502db46775f634dc7b4363764dd6dbf4c14bb61c98"
+    },
+    {
+      "path": "config/experiments/cash-etf-c0-foundation-v1.json",
+      "sha256": "60d35582a5e700a46f28092e7fd254c9ea07090d1f3043017e39d0881cf03354"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-corporate-action-archive-availability-v1.json",
+      "sha256": "43c85ee23cc4e518876460e4d158149d77e9ed8f3674c2064127d6ff138dd0d2"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-prepartition-v1.json",
+      "sha256": "7cbc2f3298f356bb53b530e9201a4e2dc3192edce0672fbd0012feec2ccc843b"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-official-action-reconciliation-v1.json",
+      "sha256": "85a9950a931348e1766c7e991d930b76436b80962ab821042f47ea3c80d6cfeb"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-official-action-reconciliation-v2.json",
+      "sha256": "14ec0d895e0870a7ef7632a5deee98e076759c862961ef3bb856cad02ae5d787"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-issuer-action-ledger-source-v1.json",
+      "sha256": "468346e959fd096bb93bf353e728f9b012f4b87d5d38316e8cad9802427aec5c"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-issuer-action-ledger-source-v2.json",
+      "sha256": "2b01c0f3af025d77ffba78a7a58764a7c535c5d882c84b6d3b37fe05cebd058a"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v1.json",
+      "sha256": "ebf9be95c929651602a41978e783ef52778ca7dbd3a964abec786787f7acbc87"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v2.json",
+      "sha256": "e1c450c2548d25e8e570fb5fe684122daac8d62f6b167e8bcee28aa53627757a"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v3.json",
+      "sha256": "dc90d63a587c417f634a50e99ae0fd9fd986f669c78f237ac306d8d0b407fa03"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v4.json",
+      "sha256": "efd5b3cc0dcfe82b9fb1a8fb1004b4ef18bfb0e87af3393473d8575781481135"
+    },
+    {
+      "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v5.json",
+      "sha256": "d13a6dd80e67498a8c32d7a27e70320c08e9efee4b59c234d6ec24024b347535"
+    },
+    {
+      "path": "config/experiments/cash-etf-c2-proxy-evaluation-v2.json",
+      "sha256": "e12a506a93aa7c1fe91f708d7aeb5176df5ff5c91488513df2f8f95b2e96d61b"
+    },
+    {
+      "path": "config/experiments/cash-etf-slow-trend-proxy-v1.json",
+      "sha256": "afe8424277b0c7c1c27bf278e38fb6c979bacc377a3e6f17b68de54bd7f11e3c"
+    },
+    {
+      "path": "config/experiments/cash-etf-turn-of-month-proxy-v1.json",
+      "sha256": "3981471001f0841256c643cbdd23ccad3f662f3b9134ec9e2771a66a673bbebc"
+    },
+    {
+      "path": "config/mandates/retail-cash-etf-research-v1.json",
+      "sha256": "92c293ca7197240cc5dcff971d49043abe95cacab4cfe70de05669b102ccf2fe"
+    },
+    {
+      "path": "config/experiments/cash-etf-c2-proxy-evaluation-v1.json",
+      "sha256": "41232ecea4cdf861ac9da1f8d3cdb8a2972863d33d22e8b7ade503659d792fbd"
+    },
+    {
+      "path": "config/research/cash-etf-decisions-v1.jsonl",
+      "sha256": "50b453a6927a46079e798684aefd4566d65fa568697c642450f3966592262a5b"
+    },
+    {
+      "path": "config/research/cash-etf-evidence-boundaries-v1.json",
+      "sha256": "b615d74c4c91440e5f4882c07c5e9f4e91e496f9e2645354de2fc8ed020cf83c"
+    },
+    {
+      "path": "config/research/cash-etf-program-v1.json",
+      "sha256": "c5a4705aa172deda359a27eea75c795627c4cb3fac2aa0f62b2a2cc3ab92363d"
+    },
+    {
+      "path": "config/research/cash-etf-proxy-registry-v1.json",
+      "sha256": "b7df44cc4f2739b2135253d41c1be2655fec7761118f18ce94400d2b8bd66446"
+    },
+    {
+      "path": "config/research/cross-asset-status-v7.json",
+      "sha256": "33adeae1023dffc21af5bc3fdddbf684938440353bf2f8a315d1ead89ab6615d"
+    },
+    {
+      "path": "docs/CASH_ETF_C1_CORPORATE_ACTION_ARCHIVE_AVAILABILITY_RESULT.md",
+      "sha256": "a13e83f57bd63167bcea4f72fb352fa7b5ff65a761d0175b70f0372822f655fa"
+    },
+    {
+      "path": "docs/CASH_ETF_C1_ISSUER_ACTION_LEDGER_SOURCE_RESULT.md",
+      "sha256": "07d2f6c1431e0f38f2cb5d1e4cea73e0191bc643b4bc8b80bcaad99304513378"
+    },
+    {
+      "path": "docs/CASH_ETF_C1_OFFICIAL_ACTION_RECONCILIATION_RESULT.md",
+      "sha256": "d3dca908c9eb54cfba339014757900d81849c9ec78d5399552d151d03d410995"
+    },
+    {
+      "path": "docs/CASH_ETF_C1_PRAGMATIC_ACTION_LEDGER_RESULT.md",
+      "sha256": "336b0374d563d326f3a66fa2febc11e755e46ae824094206006791d6d3236a14"
+    },
+    {
+      "path": "docs/CASH_ETF_C1_SOURCE_GATE_RESULT.md",
+      "sha256": "5d1f319cd95242179a964ebbebba5b512daaaabea64b3f40d85e01854095f1b6"
+    },
+    {
+      "path": "docs/CASH_ETF_RESEARCH_HANDOFF.md",
+      "sha256": "8821dc88554954162ea99e84ab6af2b0d18eae1516ab27d9aee76e1456c4f979"
+    },
+    {
+      "path": "docs/CASH_ETF_RESEARCH_PROGRAM.md",
+      "sha256": "795d7a14dcf6eec5dbc269ffb19bc7f9306ae8464b2355cf72f4baee50938ef4"
+    },
+    {
+      "path": "docs/EXECUTION_COST_MODEL.md",
+      "sha256": "9f0ef4ee05a97d90592130a5256e812d556703497eb727ad70d4aa15c50ea940"
+    },
+    {
+      "path": "docs/RESEARCH_TRACKER.md",
+      "sha256": "e0d5ef4dbb29079e6b77a71a5eb19312c05eb0355fbcd77b7b4607dd53ce706b"
+    },
+    {
+      "path": "docs/STRATEGY_RESEARCH_STANDARD.md",
+      "sha256": "7b09d4d6bcbbd736e5aa6f9581ed8466cb90682bf9623f187dc2d45f6b8b97d3"
+    },
+    {
+      "path": "scripts/build_cash_etf_pragmatic_action_ledger.py",
+      "sha256": "c6ba5998f8ac4207a4e0ece100596f337e608373d6f104209bb018152a2bd876"
+    },
+    {
+      "path": "scripts/build_cash_etf_c1_prepartitions.py",
+      "sha256": "81e8f222e0a59abec939d32f62294f59e5c68dde3bf34ddb202866e043e561ef"
+    },
+    {
+      "path": "scripts/reconcile_cash_etf_official_actions.py",
+      "sha256": "77341c4b85fcd4b457ef5d87db0ae25b8034ad9bee889d87f9b4efd6d15f41a7"
+    },
+    {
+      "path": "scripts/reconcile_cash_etf_issuer_action_sources.py",
+      "sha256": "da0764b2ca9360ac84697916f9af75c7e1fcedc80306d9d7ef52d683947a9548"
+    },
+    {
+      "path": "scripts/reconcile_cash_etf_issuer_action_sources_v2.py",
+      "sha256": "34aff210836341b8c378b8c9ac58d970c11fcc922efa0318fd7ee595f4bac8cf"
+    },
+    {
+      "path": "scripts/validate_cash_etf_research_context.py",
+      "sha256": "a2a2aafe960d6c506049b99987da47b1e5a27a5b1e6181e0b8f11a947b090f4a"
+    },
+    {
+      "path": "src/trading_platform/cash_etf_actions.py",
+      "sha256": "897218417553a9f0cb22a786e732b963f46e5c55d1cf3027df5cc3372d2effdb"
+    },
+    {
+      "path": "src/trading_platform/cash_etf_issuer_actions.py",
+      "sha256": "b9baf4379bab58e4329ebe2a9433b32f9936e95f449759903ec4b2420a002f70"
+    },
+    {
+      "path": "src/trading_platform/cash_etf_issuer_actions_v2.py",
+      "sha256": "71d876d6a4d95d9099fd88ad72dbcb7b42b11e0594745758902316bcd20e7c76"
+    },
+    {
+      "path": "src/trading_platform/cash_etf_prepartition.py",
+      "sha256": "5ec5ab71bd0c00812ccb91aad90aac00f61c9c69ee69ff7538a1b122b70334c2"
+    },
+    {
+      "path": "src/trading_platform/cash_etf_program.py",
+      "sha256": "7e50e666428a9992099fbf77138aa5b8c0aad7503621c4edbcc474b86e1e2f73"
+    },
+    {
+      "path": "src/trading_platform/cash_etf_pragmatic_ledger.py",
+      "sha256": "d4f02d217ece15090855e15ad2930d6439d43950023feceb5968cd5030815f93"
+    }
+  ],
+  "current_stage": "C2",
+  "current_state": "active",
+  "decision_log_path": "config/research/cash-etf-decisions-v1.jsonl",
+  "isolated_module_paths": [
+    "src/trading_platform/cash_etf_actions.py",
+    "src/trading_platform/cash_etf_issuer_actions.py",
+    "src/trading_platform/cash_etf_issuer_actions_v2.py",
+    "src/trading_platform/cash_etf_prepartition.py",
+    "src/trading_platform/cash_etf_program.py",
+    "src/trading_platform/cash_etf_pragmatic_ledger.py"
+  ],
+  "latest_decision_digest": "93a8782f9e01a96740a0ebe282dd7ac2013119a59781a97d4e23bf33cc24d329",
+  "program_id": "retail-cash-etf-multi-strategy-v1",
+  "schema_version": "cash-etf-program-status-v1",
+  "stages": [
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cash-etf/c1-corporate-action-archive-availability-v1/availability-report.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-corporate-action-archive-availability-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-corporate-action-archive-availability-v1/source-manifest.json",
+        "config/experiments/cash-etf-c0-foundation-v1.json",
+        "config/research/cash-etf-program-v1.json",
+        "config/research/cash-etf-proxy-registry-v1.json",
+        "config/research/cash-etf-evidence-boundaries-v1.json"
+      ],
+      "completed_at": "2026-08-30T17:34:19Z",
+      "decision_record_digest": "f58e763d21adc0401cec21d638972c7d409e93947a0e6fa383e061c3cd2b5bcb",
+      "stage_id": "C0",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [
+        "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v2/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v3/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4/ledger-report.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v4/source-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v1/reconciliation-report.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v2/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v2/reconciliation-report.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-official-action-reconciliation-v2/reconciliation-report.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-prepartition-v1/evidence-manifest.json",
+        "artifacts/agent-level-experiment/cash-etf/c1-prepartition-v1/partition-manifest.json",
+        "config/experiments/cash-etf-c1-corporate-action-archive-availability-v1.json",
+        "config/experiments/cash-etf-c1-official-action-reconciliation-v1.json",
+        "config/experiments/cash-etf-c1-official-action-reconciliation-v2.json",
+        "config/experiments/cash-etf-c1-issuer-action-ledger-source-v1.json",
+        "config/experiments/cash-etf-c1-issuer-action-ledger-source-v2.json",
+        "config/experiments/cash-etf-c1-prepartition-v1.json",
+        "config/experiments/cash-etf-c1-pragmatic-action-ledger-v1.json",
+        "config/experiments/cash-etf-c1-pragmatic-action-ledger-v2.json",
+        "config/experiments/cash-etf-c1-pragmatic-action-ledger-v3.json",
+        "config/experiments/cash-etf-c1-pragmatic-action-ledger-v4.json",
+        "docs/CASH_ETF_C1_CORPORATE_ACTION_ARCHIVE_AVAILABILITY_RESULT.md",
+        "docs/CASH_ETF_C1_ISSUER_ACTION_LEDGER_SOURCE_RESULT.md",
+        "docs/CASH_ETF_C1_OFFICIAL_ACTION_RECONCILIATION_RESULT.md",
+        "docs/CASH_ETF_C1_PRAGMATIC_ACTION_LEDGER_RESULT.md",
+        "docs/CASH_ETF_C1_SOURCE_GATE_RESULT.md"
+      ],
+      "completed_at": "2026-08-30T22:00:00Z",
+      "decision_record_digest": "2b722ff5a180264b970eab7e18fa6df47d867790d7d0f255f20a1e04a14b74df",
+      "stage_id": "C1",
+      "state": "passed"
+    },
+    {
+      "artifact_paths": [
+        "config/experiments/cash-etf-c2-proxy-evaluation-v1.json"
+      ],
+      "stage_id": "C2",
+      "state": "active"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "C3",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "C4",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "C5",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "C6",
+      "state": "planned"
+    },
+    {
+      "artifact_paths": [],
+      "stage_id": "C7",
+      "state": "planned"
+    }
+  ]
+}

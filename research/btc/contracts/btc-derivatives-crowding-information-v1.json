@@ -1,0 +1,116 @@
+{
+  "action_boundary": {
+    "actionable_arm_id": "no_trade",
+    "cost_scenarios": "not_applicable_no_orders_positions_or_pnl",
+    "order_or_signal_generation_forbidden": true,
+    "strategy_threshold_selection_forbidden": true
+  },
+  "availability": {
+    "basis": "observation_timestamp_D_is_available_at_D_plus_1_day_00_00_UTC",
+    "btc_daily_close": "session_D_close_is_available_at_D_plus_1_day_00_00_UTC",
+    "cftc": "Tuesday_report_date_is_available_at_report_date_plus_4_calendar_days_00_00_UTC",
+    "decision_timestamp": "00_00_UTC_each_calendar_day",
+    "funding": "require_exactly_three_regular_events_in_prior_UTC_day_all_strictly_before_decision"
+  },
+  "bound_inputs": [
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/derivatives-crowding-data-audit-v1/funding.json",
+      "sha256": "34b3dd2c20160849f65ebc2267866446f9c334d8644400b6c3792641c240e7c3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/derivatives-crowding-data-audit-v2/basis.json",
+      "sha256": "6623a6f00c3bda0bbc431967e1b81235411ac15c07bb741ed8606916584a7a3f"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/derivatives-crowding-data-audit-v2/cftc-bitcoin-tff.json",
+      "sha256": "0ee9ba84ea92ff1ef3d3c80f1c82c25d82cbf351c5bdf173feed3484f0c70fbe"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s2-daily-data-audit-v1/btc-usdt-direct-1d-development-2017-2025.jsonl.gz",
+      "sha256": "b47b32f0f64371108d947fcb1b0656170dc728d81442accdf52808c2f95fba12"
+    }
+  ],
+  "controls": {
+    "abs_momentum": "absolute_log_close_return_over_previous_7_completed_days",
+    "ewma_variance": {
+      "decay": 0.94,
+      "initialization": "sample_variance_of_first_30_consecutive_completed_daily_log_returns",
+      "update": "past_only_through_day_before_decision"
+    },
+    "forecast_model": "expanding_OLS_with_intercept_and_training_sample_standardization",
+    "refit": "first_eligible_decision_of_each_UTC_calendar_month",
+    "training_embargo_days": 7,
+    "training_minimum_complete_observations": 365
+  },
+  "crowding_feature": {
+    "basis_component": "absolute_past_only_zscore_of_prior_day_basisRate",
+    "cftc_component": "absolute_past_only_zscore_of_last_available_leveraged_money_net_share_where_net_share_is_long_minus_short_divided_by_open_interest",
+    "composite": "arithmetic_mean_of_all_three_required_absolute_zscores",
+    "funding_component": "absolute_past_only_zscore_of_sum_of_prior_day_fundingRate",
+    "normalization": {
+      "basis_and_funding_minimum_history": 60,
+      "basis_and_funding_window_observations": 90,
+      "cftc_minimum_history": 26,
+      "cftc_window_observations": 52,
+      "current_observation_excluded": true,
+      "standard_deviation": "sample_ddof_1"
+    },
+    "unknown_policy": "fail_closed_unless_all_three_components_and_both_controls_are_available"
+  },
+  "data_boundary": {
+    "development_end_inclusive": "2023-12-31",
+    "development_start_inclusive": "2020-01-01",
+    "locked_numeric_rows": "2024-01-01_through_2025-12-31",
+    "numeric_deserialization_after_development_end_forbidden": true,
+    "sealed_or_ineligible": "2026_and_later"
+  },
+  "diagnostics": [
+    "next_1d_log_return",
+    "next_7d_log_return",
+    "next_1d_squared_log_return",
+    "signed_funding_basis_and_cftc_component_associations",
+    "leave_one_calendar_year_out_summary",
+    "monthly_concentration"
+  ],
+  "experiment_id": "btc-derivatives-crowding-information-v1",
+  "gates": {
+    "all_required": true,
+    "complete_feature_observations_minimum": 1000,
+    "high_crowding_occupancy_maximum": 0.25,
+    "high_crowding_occupancy_minimum": 0.15,
+    "high_minus_low_next_7d_downside_loss_month_block_95pct_ci_lower_strictly_positive": true,
+    "high_minus_low_next_7d_realized_variance_month_block_95pct_ci_lower_strictly_positive": true,
+    "next_7d_log_realized_variance_oos_mse_relative_improvement_minimum": 0.02,
+    "next_7d_log_realized_variance_paired_month_block_error_improvement_95pct_ci_lower_strictly_positive": true,
+    "walk_forward_calendar_months_minimum": 24,
+    "walk_forward_predictions_minimum": 600
+  },
+  "group_test": {
+    "classification": "high_at_or_above_and_low_at_or_below_past_only_80th_and_20th_percentiles",
+    "percentile_history_minimum": 365,
+    "percentile_history_window": "expanding_prior_complete_feature_observations"
+  },
+  "hypothesis": "Extreme derivatives crowding intensity contains incremental information about BTC next-seven-day realized variance and downside path loss beyond causal EWMA variance and absolute seven-day price momentum.",
+  "labels": {
+    "next_1d_log_return": "log_close_D_div_close_D_minus_1",
+    "next_1d_squared_log_return": "square_of_next_1d_log_return",
+    "next_7d_downside_path_loss": "maximum_of_zero_and_negative_minimum_cumulative_log_return_from_decision_close_through_next_7_completed_days",
+    "next_7d_log_return": "sum_of_next_7_completed_daily_log_returns",
+    "next_7d_realized_variance": "sum_of_squares_of_next_7_completed_daily_log_returns",
+    "primary_forecast_target": "natural_log_of_next_7d_realized_variance_floored_at_1e_minus_18"
+  },
+  "method": {
+    "bootstrap_calendar_month_blocks": 5000,
+    "bootstrap_seed": 20260830,
+    "comparison": "price_only_control_versus_same_control_plus_crowding_composite",
+    "forecast_evaluation": "strictly_chronological_monthly_expanding_walk_forward",
+    "interval_percentiles": [
+      0.025,
+      0.975
+    ],
+    "tie_and_percentile_method": "numpy_linear_percentile_and_inclusive_thresholds"
+  },
+  "predecessor_data_audit": "btc-derivatives-crowding-data-audit-v2",
+  "schema_version": "btc-derivatives-crowding-information-contract-v1",
+  "status": "frozen_before_forward_outcome_evaluation"
+}

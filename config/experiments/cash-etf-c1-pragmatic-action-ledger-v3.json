@@ -1,0 +1,47 @@
+{
+  "activated_at": "2026-08-30T21:30:00Z",
+  "changes_from_predecessor": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v3",
+    "boundary": {
+      "end_inclusive": "2018-12-31",
+      "start_inclusive": "2009-01-02"
+    },
+    "distribution_event_counts": {
+      "BIL": 38,
+      "DBC": 1,
+      "EFA": 20,
+      "GLD": 0,
+      "IEF": 120,
+      "SPY": 40,
+      "TLT": 120
+    },
+    "fx_input": {
+      "path": "artifacts/agent-level-experiment/cross-asset/a1-twelvedata-recovery-v3/normalized/gbp-usd-daily.jsonl",
+      "sha256": "269d1ff63f1b219a6e94b8c49ff8f5dece44e7b880dcdc5beb8cbcba3e247a74",
+      "symbol": "GBP/USD"
+    },
+    "ledger_currency": "GBP",
+    "locked_numeric_partition_policy": "no_2019_or_later_price_or_fx_row_may_be_JSON_deserialized"
+  },
+  "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v3",
+  "predecessor": {
+    "evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-pragmatic-action-ledger-v2/evidence-manifest.json",
+    "evidence_sha256": "ed1d5c016a07a468ca75b8ac63d27cc2a545019c194a6ac8d33e995270ff0edf",
+    "experiment_id": "cash-etf-c1-pragmatic-action-ledger-v2",
+    "path": "config/experiments/cash-etf-c1-pragmatic-action-ledger-v2.json",
+    "sha256": "e1c450c2548d25e8e570fb5fe684122daac8d62f6b167e8bcee28aa53627757a"
+  },
+  "predecessor_disposition": "passed_source_and_action_subledger_not_full_C1_because_GBP_conversion_and_open_partition_only_output_were_missing",
+  "schema_version": "cash-etf-c1-pragmatic-action-ledger-successor-v2",
+  "status": "frozen",
+  "unchanged_fields": [
+    "causality",
+    "corporate_action_inputs",
+    "fail_closed_rules",
+    "forbidden_actions",
+    "gld_zero_distribution_triangulation",
+    "provider_action_diagnostic_only_policy",
+    "retention_policy",
+    "split_candidate_detection"
+  ]
+}

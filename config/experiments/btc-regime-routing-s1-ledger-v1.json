@@ -1,0 +1,159 @@
+{
+  "data": {
+    "allowed_dataset_path": "artifacts/agent-level-experiment/btc-taker-history/validated/BTCUSDT-5m-taker-trade-flow-development-2017-2025-316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8.csv.gz",
+    "development_dataset_sha256": "316e5789d4b49f79a0adfdd90f0e98c26dd2658060c49fe2366c91dffa2024e8",
+    "development_end_exclusive": "2026-01-01T00:00:00Z",
+    "development_manifest_path": "artifacts/agent-level-experiment/btc-taker-history/validated/development-2017-2025-manifest.json",
+    "development_manifest_sha256": "506b8839a42fd3c44687020e85e995181a4033e5dbacedfcdc382801d8da18ae",
+    "development_start": "2017-08-17T04:00:00Z",
+    "evaluation_end_exclusive": "2026-01-01T00:00:00Z",
+    "evaluation_start": "2019-01-01T00:00:00Z",
+    "expected_rows_5m": 878985,
+    "expected_source_segments": 34,
+    "sealed_2026_dataset_sha256": "1d50d201211ad78ab5985d2099e4238a24c73efb480848379ba7b88254df1212",
+    "sealed_2026_path_allowed": false
+  },
+  "engineering_hypothesis": "A single causal, segment-aware research ledger and generic fixed-breakout adapter can reproduce the existing 2019-2025 development control exactly without changing parameters, execution semantics, evidence status, or sealed-partition access.",
+  "experiment_id": "btc-regime-routing-s1-ledger-v1",
+  "feature_contract": {
+    "available_at_rule": "The completed bar is available exactly at its UTC close timestamp.",
+    "feature_digest_required": true,
+    "feature_names": [
+      "close_to_close_log_return",
+      "high_low_log_range",
+      "open_to_close_log_return"
+    ],
+    "first_close_to_close_after_segment": "unknown_and_omitted",
+    "intervals": [
+      "4h",
+      "1d"
+    ],
+    "rolling_model_features_allowed": false,
+    "source_digest_required": true
+  },
+  "frozen_at": "2026-08-28T20:44:00Z",
+  "isolation": {
+    "active_order_book_partial_access_allowed": false,
+    "active_soak_access_allowed": false,
+    "database_access_allowed": false,
+    "exchange_access_allowed": false,
+    "freqtrade_access_allowed": false,
+    "holdout_access_allowed": false,
+    "message_bus_access_allowed": false,
+    "model_fitting_allowed": false,
+    "network_access_allowed": false,
+    "order_intent_creation_allowed": false,
+    "position_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "refuse_symlink_inputs": true
+  },
+  "legacy_parity": {
+    "expected_aggregation": {
+      "bars_4h": 18282,
+      "bars_daily": 3024,
+      "discarded_rows_4h": 1449,
+      "discarded_rows_daily": 8073
+    },
+    "expected_breakout_conditions": 291,
+    "expected_controls": {
+      "flat_maximum_drawdown_fraction": 0,
+      "flat_net_return": 0,
+      "segmented_buy_hold_allocation_fraction": 0.1,
+      "segmented_buy_hold_cagr": 0.07448965468520252,
+      "segmented_buy_hold_maximum_drawdown_fraction": 0.11887183088770137,
+      "segmented_buy_hold_net_return": 0.6536420643431269,
+      "segmented_buy_hold_segments": 23
+    },
+    "expected_scenarios": {
+      "candle-primary-30bps-rt-v1": {
+        "busy_signal_count": 224,
+        "cagr": 0.022599325584939933,
+        "calmar": 0.44975711309951716,
+        "expired_entry_count": 0,
+        "exposure_fraction": 0.18716464131659763,
+        "frequency_blocked_count": 0,
+        "maximum_drawdown_fraction": 0.05024784472933819,
+        "mean_net_trade_bps": 239.3878505970865,
+        "net_return": 0.1693554713741534,
+        "positive_calendar_years": 5,
+        "profit_factor": 1.8755973019684713,
+        "trade_count": 67
+      },
+      "candle-severe-80bps-rt-v1": {
+        "busy_signal_count": 224,
+        "cagr": 0.017629009086345793,
+        "calmar": 0.31353497138747555,
+        "expired_entry_count": 0,
+        "exposure_fraction": 0.18716464131659763,
+        "frequency_blocked_count": 0,
+        "maximum_drawdown_fraction": 0.05622661168651377,
+        "mean_net_trade_bps": 188.31827885602323,
+        "net_return": 0.13014101538893663,
+        "positive_calendar_years": 4,
+        "profit_factor": 1.6124577421551713,
+        "trade_count": 67
+      },
+      "candle-stress-40bps-rt-v1": {
+        "busy_signal_count": 224,
+        "cagr": 0.021601541656285583,
+        "calmar": 0.4198650284928527,
+        "expired_entry_count": 0,
+        "exposure_fraction": 0.18716464131659763,
+        "frequency_blocked_count": 0,
+        "maximum_drawdown_fraction": 0.05144877565494432,
+        "mean_net_trade_bps": 229.15354919428668,
+        "net_return": 0.16139102227246216,
+        "positive_calendar_years": 5,
+        "profit_factor": 1.8183049075599937,
+        "trade_count": 67
+      }
+    },
+    "legacy_contract_path": "config/experiments/btc-online-regime-breakout-v1.json",
+    "legacy_contract_sha256": "79ea3d7d7287e35170d404b3ccb5f02d97f6dac81c758f169fe8b2d74a153bb0",
+    "legacy_report_path": "artifacts/agent-level-experiment/btc-online-regime-breakout/development-v1/development-report.json",
+    "legacy_report_sha256": "22e7b5f9c0c3b109c0f8ace146af11850ddb5b63f66494f92595077cba777d89",
+    "legacy_runner_path": "scripts/backtest_btc_online_regime_breakout.py",
+    "legacy_runner_sha256": "6486aef45ca7c13259d2cb5c9d19930b0ab0e3787ce3310e013705924c78c959",
+    "promotion_evidence": false,
+    "result_classification": "development_reproduction_only"
+  },
+  "output": {
+    "allow_overwrite_nonempty": false,
+    "deterministic_gzip_mtime": 0,
+    "root": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1"
+  },
+  "parameters": {
+    "account_fraction_per_entry": 0.1,
+    "daily_bar_child_count": 288,
+    "entry_channel_bars": 120,
+    "entry_channel_days": 20,
+    "entry_comparison": "strictly_greater_than_prior_high_maximum",
+    "entry_execution": "first_exact_five_minute_open_after_completed_four_hour_decision",
+    "execution_scenario_ids": [
+      "candle-primary-30bps-rt-v1",
+      "candle-stress-40bps-rt-v1",
+      "candle-severe-80bps-rt-v1"
+    ],
+    "exit_channel_bars": 60,
+    "exit_channel_days": 10,
+    "exit_comparison": "strictly_less_than_prior_low_minimum",
+    "exit_precedence": [
+      "protective_stop",
+      "source_segment_end",
+      "maximum_holding_time",
+      "exit_channel"
+    ],
+    "five_minute_interval_ms": 300000,
+    "four_hour_bar_child_count": 48,
+    "maximum_entries_per_rolling_seven_days": 4,
+    "maximum_entries_per_utc_day": 1,
+    "maximum_holding_days": 14,
+    "one_position_maximum": true,
+    "protective_stop_fraction": 0.04,
+    "traded_instrument": "BTC/USDT"
+  },
+  "rejection_rule": "Any checksum, aggregation, timestamp, segment, feature, signal, trade, control, cost-scenario, deterministic-output, isolation, or sealed-boundary mismatch rejects S1. Do not adjust parameters, tolerances, or data to force parity. S1 passing does not accept or promote the breakout and does not activate S2.",
+  "schema_version": "regime-routing-s1-contract-v1",
+  "stage_id": "S1",
+  "status": "frozen"
+}

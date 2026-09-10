@@ -1,0 +1,167 @@
+{
+  "acceptance_gates": {
+    "archive_retention": "permanent_private_research_retention_or_contractually_reproducible_subscription_access",
+    "boundary_complete": "2009-01-02_through_2023-12-31",
+    "coverage_confirmation": "public_document_or_written_vendor_confirmation_for_all_seven_exact_symbols",
+    "event_fields": [
+      "effective_or_ex_date",
+      "event_type",
+      "instrument_identifier",
+      "payable_date_when_applicable",
+      "per_share_amount_or_split_ratio",
+      "record_date_when_applicable"
+    ],
+    "sample_required_before_purchase": true,
+    "zero_event_semantics": "vendor_must_confirm_that_no_returned_event_means_no_event_within_complete_coverage_not_unknown_or_unavailable"
+  },
+  "activated_at": "2026-08-30T19:00:00Z",
+  "artifact_policy": {
+    "artifact_root": "artifacts/agent-level-experiment/cash-etf/c1-corporate-action-archive-availability-v1",
+    "overwrite_existing_artifacts": false,
+    "preserve_availability_only_extracts": true,
+    "preserve_full_commercial_pages": false,
+    "record_response_sha256": true
+  },
+  "candidate_set": [
+    {
+      "authority_class": "listing_exchange_official",
+      "candidate_id": "nyse_group_corporate_actions",
+      "expected_role": "primary_authoritative_archive",
+      "official_domain": "nyse.com"
+    },
+    {
+      "authority_class": "exchange_owner_qualified_commercial",
+      "candidate_id": "ice_corporate_actions",
+      "expected_role": "qualified_archive",
+      "official_domain": "ice.com"
+    },
+    {
+      "authority_class": "qualified_commercial",
+      "candidate_id": "lseg_corporate_actions",
+      "expected_role": "qualified_archive",
+      "official_domain": "lseg.com"
+    },
+    {
+      "authority_class": "qualified_commercial",
+      "candidate_id": "factset_corporate_actions",
+      "expected_role": "qualified_archive",
+      "official_domain": "factset.com"
+    },
+    {
+      "authority_class": "low_cost_commercial_screening",
+      "candidate_id": "eodhd_corporate_actions_api",
+      "expected_role": "possible_retail_pilot",
+      "official_domain": "eodhd.com"
+    },
+    {
+      "authority_class": "low_cost_commercial_screening",
+      "candidate_id": "massive_corporate_actions_api",
+      "expected_role": "possible_retail_pilot",
+      "official_domain": "massive.com"
+    }
+  ],
+  "cost_policy": {
+    "conditional_annual_gbp_maximum_if_price_data_also_replaced": 600,
+    "one_time_gbp_maximum": 250,
+    "routine_annual_gbp_maximum": 240,
+    "sales_contact_without_quote": "contact_required_not_purchase_eligible"
+  },
+  "decision_states": [
+    "eligible_for_sample_pilot",
+    "contact_required",
+    "rejected"
+  ],
+  "experiment_id": "cash-etf-c1-corporate-action-archive-availability-v1",
+  "fail_closed_rules": [
+    "marketing_claims_of_global_or_comprehensive_coverage_do_not_prove_exact_symbol_and_boundary_coverage",
+    "an_api_endpoint_without_explicit_zero_event_semantics_cannot_close_a_zero_action_history",
+    "a_price_plan_without_archival_retention_terms_is_not_purchase_eligible",
+    "a_sales_contact_or_custom_quote_is_not_affordable_by_assumption",
+    "no_purchase_trial_signup_contact_form_or_external_message_is_authorized_by_this_experiment",
+    "no_market_price_nav_return_feature_signal_trade_or_pnl_may_be_requested_or_computed"
+  ],
+  "forbidden_actions": [
+    "account_creation",
+    "contact_form_submission",
+    "data_purchase",
+    "email_or_sales_message",
+    "numeric_ledger_construction",
+    "strategy_evaluation"
+  ],
+  "instrument_scope": [
+    "SPY",
+    "EFA",
+    "IEF",
+    "TLT",
+    "GLD",
+    "DBC",
+    "BIL"
+  ],
+  "operational_limits": {
+    "allowed_http_method": "GET",
+    "maximum_response_bytes": 10000000,
+    "maximum_responses": 16,
+    "network_access_scope": "candidate_official_public_product_documentation_pricing_and_terms_only"
+  },
+  "predecessor": {
+    "evidence_path": "artifacts/agent-level-experiment/cash-etf/c1-issuer-action-ledger-source-v2/evidence-manifest.json",
+    "evidence_sha256": "a58f71a1d0b4ab3f3b82a47468bd3d5a54a3b99c119d1c4c0a2b84e6ffafb216",
+    "experiment_id": "cash-etf-c1-issuer-action-ledger-source-v2",
+    "path": "config/experiments/cash-etf-c1-issuer-action-ledger-source-v2.json",
+    "sha256": "2b01c0f3af025d77ffba78a7a58764a7c535c5d882c84b6d3b37fe05cebd058a"
+  },
+  "source_allowlist": [
+    {
+      "candidate_id": "nyse_group_corporate_actions",
+      "source_id": "nyse_product_page",
+      "url": "https://www.nyse.com/market-data/corporate-actions"
+    },
+    {
+      "candidate_id": "nyse_group_corporate_actions",
+      "source_id": "nyse_client_specification",
+      "url": "https://www.nyse.com/publicdocs/nyse/data/Distribution_NYSE_CorporateActions_Client_Specification.v2.2.6.pdf"
+    },
+    {
+      "candidate_id": "ice_corporate_actions",
+      "source_id": "ice_product_page",
+      "url": "https://www.ice.com/data-services/reference-data/corporate-actions"
+    },
+    {
+      "candidate_id": "lseg_corporate_actions",
+      "source_id": "lseg_product_page",
+      "url": "https://www.lseg.com/en/data-analytics/financial-data/reference-data/corporate-actions-data"
+    },
+    {
+      "candidate_id": "factset_corporate_actions",
+      "source_id": "factset_product_page",
+      "url": "https://www.factset.com/marketplace/catalog/product/factset-corporate-actions"
+    },
+    {
+      "candidate_id": "eodhd_corporate_actions_api",
+      "source_id": "eodhd_api_documentation",
+      "url": "https://eodhd.com/financial-apis/api-splits-dividends"
+    },
+    {
+      "candidate_id": "eodhd_corporate_actions_api",
+      "source_id": "eodhd_pricing",
+      "url": "https://eodhd.com/pricing"
+    },
+    {
+      "candidate_id": "massive_corporate_actions_api",
+      "source_id": "massive_dividend_documentation",
+      "url": "https://massive.com/docs/rest/stocks/corporate-actions/dividends"
+    },
+    {
+      "candidate_id": "massive_corporate_actions_api",
+      "source_id": "massive_split_documentation",
+      "url": "https://massive.com/docs/rest/stocks/corporate-actions/splits"
+    },
+    {
+      "candidate_id": "massive_corporate_actions_api",
+      "source_id": "massive_pricing",
+      "url": "https://massive.com/pricing"
+    }
+  ],
+  "status": "frozen",
+  "whole_gate": "at_least_one_candidate_must_be_eligible_for_sample_pilot_before_any_purchase_or_C1_ledger_work"
+}

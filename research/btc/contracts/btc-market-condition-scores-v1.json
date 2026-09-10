@@ -1,0 +1,168 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "live_allocation_usdt": 0,
+    "market_data_values_loaded_in_mcs0": false,
+    "order_intent_creation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "score_fit_allowed_in_mcs0": false,
+    "strategy_or_pnl_evaluation_allowed_in_mcs0": false
+  },
+  "active_stage": null,
+  "context_protocol": {
+    "active_score_experiments_maximum": 1,
+    "active_strategy_hypotheses_maximum": 1,
+    "append_only_decision_required": true,
+    "focused_handoff_and_index_refresh_required": true,
+    "load_only_active_contract_and_bound_manifests": true,
+    "one_conceptual_change_per_experiment_id": true
+  },
+  "dependencies": {
+    "MCS0": [],
+    "MCS1": [
+      "MCS0"
+    ],
+    "MCS2": [
+      "MCS1"
+    ],
+    "MCS3-C": [
+      "MCS2"
+    ],
+    "MCS3-D": [
+      "MCS2"
+    ],
+    "MCS3-I": [
+      "MCS2",
+      "full_DVOL_source_qualification"
+    ],
+    "MCS3-J": [
+      "MCS2"
+    ],
+    "MCS3-L": [
+      "MCS2",
+      "independent_OB1_acceptance"
+    ],
+    "MCS3-O": [
+      "MCS2",
+      "point_in_time_onchain_source_acceptance"
+    ],
+    "MCS3-P": [
+      "MCS2"
+    ],
+    "MCS3-R": [
+      "MCS2"
+    ],
+    "MCS4": [
+      "at_least_one_MCS3_score_accepted"
+    ],
+    "MCS5": [
+      "MCS4"
+    ],
+    "MCS6": [
+      "MCS5_standalone_strategy_accepted"
+    ],
+    "MCS7": [
+      "at_least_two_scores_independently_accepted",
+      "MCS6_single_score_conditioning_accepted"
+    ],
+    "MCS8": [
+      "two_economically_distinct_strategies_independently_accepted"
+    ],
+    "MCS9": [
+      "complete_pipeline_and_gates_frozen"
+    ]
+  },
+  "frozen_at": "2026-08-31T11:43:22Z",
+  "program_id": "btc-market-condition-scores-v1",
+  "prohibited": [
+    "bull_bear_sideways_universal_label",
+    "composite_master_score_before_axis_validation",
+    "majority_vote_across_correlated_scores",
+    "treating_low_persistence_as_reversion",
+    "treating_risk_forecast_as_alpha",
+    "using_score_to_rescue_rejected_strategy",
+    "tuning_rejected_experiment",
+    "inspecting_partial_OB0",
+    "opening_sealed_or_ineligible_2026_history",
+    "network_database_NATS_Freqtrade_or_soak_access",
+    "production_or_live_integration"
+  ],
+  "schema_version": "btc-market-condition-score-program-contract-v1",
+  "score_axes": [
+    {
+      "axis": "persistence",
+      "initial_status": "planned",
+      "target": "future_signed_return_persistence_or_directional_efficiency",
+      "use": "strategy_condition_only_after_standalone_acceptance"
+    },
+    {
+      "axis": "reversion",
+      "initial_status": "planned",
+      "target": "future_unwind_after_completed_displacement",
+      "use": "strategy_condition_only_after_standalone_acceptance"
+    },
+    {
+      "axis": "volatility",
+      "initial_status": "benchmark_available",
+      "target": "one_and_seven_day_realized_variance",
+      "use": "downward_only_risk"
+    },
+    {
+      "axis": "downside_tail",
+      "initial_status": "planned",
+      "target": "negative_realized_semivariance_and_joint_VaR_ES",
+      "use": "downward_only_risk"
+    },
+    {
+      "axis": "jump_change",
+      "initial_status": "planned",
+      "target": "future_jump_occurrence_or_discontinuous_variation",
+      "use": "downward_only_four_hour_shock_risk"
+    },
+    {
+      "axis": "liquidity_cost",
+      "initial_status": "blocked_pending_OB1",
+      "target": "future_protected_fill_availability_and_execution_cost",
+      "use": "entry_expiry_cost_budget_or_downward_only_risk"
+    },
+    {
+      "axis": "carry",
+      "initial_status": "planned_separate_from_rejected_crowding_and_carry_v1",
+      "target": "future_matched_spot_perpetual_net_carry",
+      "use": "separate_delta_neutral_strategy_only"
+    },
+    {
+      "axis": "implied_risk",
+      "initial_status": "blocked_pending_full_DVOL_qualification",
+      "target": "future_realized_risk_relative_to_option_implied_risk",
+      "use": "optional_downward_only_risk"
+    },
+    {
+      "axis": "onchain_flow",
+      "initial_status": "absent_pending_point_in_time_source",
+      "target": "not_frozen",
+      "use": "none"
+    }
+  ],
+  "stage_status": {
+    "MCS0": "passed_planning_infrastructure_only",
+    "MCS1": "planned",
+    "MCS2": "planned",
+    "MCS3-C": "planned",
+    "MCS3-D": "planned",
+    "MCS3-I": "blocked",
+    "MCS3-J": "planned",
+    "MCS3-L": "blocked",
+    "MCS3-O": "blocked",
+    "MCS3-P": "planned",
+    "MCS3-R": "planned",
+    "MCS4": "blocked",
+    "MCS5": "blocked",
+    "MCS6": "blocked",
+    "MCS7": "blocked",
+    "MCS8": "blocked",
+    "MCS9": "blocked"
+  },
+  "status": "planned_no_active_experiment"
+}

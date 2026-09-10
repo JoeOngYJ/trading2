@@ -1,0 +1,42 @@
+{
+  "arms": [
+    {
+      "arm_id": "no_trade",
+      "capacity_fraction": 0.0,
+      "counterfactual_only": true,
+      "direction": "flat",
+      "evidence_digest": "931f5e0ed05f2d4feaf67d8757ca9f9df523732c5f7180c8019d002cc285f9f2",
+      "evidence_status": "eligible",
+      "family": "flat",
+      "horizon": "none",
+      "maximum_cost_bps": 0.0,
+      "version": "1"
+    },
+    {
+      "arm_id": "btc_breakout_20d_10d",
+      "capacity_fraction": 0.1,
+      "counterfactual_only": true,
+      "direction": "spot_long_or_flat",
+      "evidence_digest": "c225758b5a251e0c5d3987cf56a617175dadf170067af3655c8e458049b86ca5",
+      "evidence_status": "development",
+      "family": "btc_directional_trend",
+      "horizon": "14d_maximum",
+      "maximum_cost_bps": 80.0,
+      "version": "1"
+    },
+    {
+      "arm_id": "btc_bocpd_gated_breakout",
+      "capacity_fraction": 0.1,
+      "counterfactual_only": true,
+      "direction": "spot_long_or_flat",
+      "evidence_digest": "c225758b5a251e0c5d3987cf56a617175dadf170067af3655c8e458049b86ca5",
+      "evidence_status": "rejected",
+      "family": "btc_directional_trend",
+      "horizon": "14d_maximum",
+      "maximum_cost_bps": 80.0,
+      "version": "1"
+    }
+  ],
+  "registry_id": "btc-regime-routing-arms-v1",
+  "schema_version": "strategy-arm-registry-v1"
+}

@@ -1,0 +1,61 @@
+{
+  "action_boundary": {
+    "accepted_strategy_arms": [],
+    "actionable_arm_id": "no_trade",
+    "cost_or_execution_model_allowed": false,
+    "live_allocation_usdt": 0,
+    "order_intent_creation_allowed": false,
+    "partial_ob0_access_allowed": false,
+    "perpetual_position_allowed": false,
+    "position_or_pnl_calculation_allowed": false,
+    "production_signal_creation_allowed": false,
+    "sealed_or_ineligible_2026_access_allowed": false,
+    "strategy_backtest_allowed": false
+  },
+  "base_contract": {
+    "path": "research/btc/contracts/btc-spot-perp-continuation-information-d1-v1.json",
+    "sha256": "a7d9b0d1a46d9972934e0f5bd49be85c9bbfbe8471483666691425958edc3b4c"
+  },
+  "candidate_experiment_id": "btc-spot-perp-continuation-information-v1",
+  "effective_contract_resolution": [
+    "load_and_checksum_base_contract",
+    "replace_experiment_id_with_btc_spot_perp_continuation_information_d1_v2",
+    "replace_status_with_frozen_before_any_D1_v2_historical_feature_label_or_model_access",
+    "replace_outputs_root_d1_v1_with_d1_v2",
+    "remove_label_gate_invalid_or_cross_segment_labels_maximum",
+    "add_label_gate_serialized_invalid_labels_maximum_equal_zero",
+    "count_missing_or_cross_segment_target_candidates_as_excluded_diagnostics",
+    "preserve_every_other_base_contract_value_exactly"
+  ],
+  "experiment_id": "btc-spot-perp-continuation-information-d1-v2",
+  "freeze_recorded_at": "2026-09-01T20:53:00Z",
+  "label_gate_override": {
+    "excluded_cross_segment_target_candidates": "counted_diagnostic_not_a_serialized_label",
+    "excluded_missing_exact_open_target_candidates": "counted_diagnostic_not_a_serialized_label",
+    "remove": {
+      "invalid_or_cross_segment_labels_maximum": 0
+    },
+    "set": {
+      "serialized_invalid_labels_maximum": 0
+    },
+    "unchanged_sufficiency_gates": {
+      "evaluation_label_coverage_minimum": 0.98,
+      "evaluation_label_rows_each_year_minimum": 340,
+      "evaluation_label_rows_minimum": 1700,
+      "per_year_label_coverage_minimum": 0.95,
+      "pre_2021_training_labels_minimum": 300
+    }
+  },
+  "outputs_root": "artifacts/agent-level-experiment/btc-focused/spot-perp-continuation-d1-v2",
+  "predecessor": {
+    "disposition": "preflight_invalid_before_any_D1_historical_row",
+    "result_path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V1_PREFLIGHT_RESULT.md",
+    "result_sha256": "1c3ea1877b937b9f85a462516336c3eaf5453f73bf146fac4f11e73e16f7778d"
+  },
+  "schema_version": "btc-spot-perp-continuation-information-contract-v2",
+  "status": "frozen_before_any_D1_v2_historical_feature_label_or_model_access",
+  "v2_plan_addendum": {
+    "path": "research/btc/reports/BTC_SPOT_PERP_CONTINUATION_D1_V2_PLAN_ADDENDUM.md",
+    "sha256": "b38a5ba5ac2d6fa58a8de73afbedc4bfa61611a1d933b4cc70ca67afe0fbda8f"
+  }
+}

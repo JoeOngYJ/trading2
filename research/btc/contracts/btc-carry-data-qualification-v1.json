@@ -1,0 +1,115 @@
+{
+  "acquisition": {
+    "archive_boundary": {
+      "end_inclusive": "2025-12-31",
+      "monthly_partitions_expected_per_series": 72,
+      "start_inclusive": "2020-01-01"
+    },
+    "archive_interval": "1h",
+    "archive_series": [
+      "klines",
+      "markPriceKlines",
+      "indexPriceKlines",
+      "premiumIndexKlines",
+      "fundingRate"
+    ],
+    "current_public_snapshots": [
+      "spot_exchangeInfo_BTCUSDT",
+      "usd_m_exchangeInfo_BTCUSDT",
+      "usd_m_fundingInfo_BTCUSDT",
+      "usd_m_mark_and_index_BTCUSDT"
+    ],
+    "documentation_evidence": [
+      "official_binance_public_data_README",
+      "official_spot_and_USD_M_fee_page",
+      "official_USD_M_account_margin_and_leverage_documentation",
+      "official_USD_M_market_data_documentation"
+    ],
+    "official_archive_checksums_required": true,
+    "symbol": "BTCUSDT",
+    "venue": "Binance_spot_and_USD_M_perpetual"
+  },
+  "allowed_hosts": [
+    "data-api.binance.vision",
+    "data.binance.vision",
+    "developers.binance.com",
+    "fapi.binance.com",
+    "raw.githubusercontent.com",
+    "www.binance.com"
+  ],
+  "audit_id": "btc-carry-data-qualification-v1",
+  "bound_existing_inputs": [
+    {
+      "path": "research/btc/BTC_EVIDENCE_CATALOG.json",
+      "sha256": "8fe6e0e1a1935b183de3109518aa1acd11917bd68bd518e8f2aac8e6b938533f"
+    },
+    {
+      "path": "config/mandates/retail-btc-delta-neutral-research-v1.json",
+      "sha256": "d95a53ee493862549b932dc5f80600a02a0e38e4ba1b3da0d79d0b0c5bb9eeba"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-regime-routing/s1-ledger-v1/manifest.json",
+      "sha256": "5a99488be5dd8fac7b5d1628a3335fc9fb3548745cdb0269604e1d9d860af435"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/derivatives-crowding-data-audit-v1/funding.json",
+      "sha256": "34b3dd2c20160849f65ebc2267866446f9c334d8644400b6c3792641c240e7c3"
+    },
+    {
+      "path": "artifacts/agent-level-experiment/btc-focused/derivatives-crowding-data-audit-v2/basis.json",
+      "sha256": "6623a6f00c3bda0bbc431967e1b81235411ac15c07bb741ed8606916584a7a3f"
+    }
+  ],
+  "evidence_boundary": {
+    "development_only": "2020-01-01_through_2025-12-31",
+    "historical_data_may_not_be_called_promotion_holdout": true,
+    "prospective_evidence_required_after_future_strategy_freeze": true,
+    "sealed_or_ineligible_2026_history_must_not_be_acquired": true
+  },
+  "gates": {
+    "data_series_gate": {
+      "duplicate_open_times": 0,
+      "funding_duplicate_times": 0,
+      "funding_interval_hours_allowed": [
+        8
+      ],
+      "funding_missing_scheduled_events": 0,
+      "hourly_calendar_gaps_per_price_series": 0,
+      "invalid_or_nonfinite_numeric_rows": 0,
+      "monthly_archive_and_official_checksum_matches_required": true,
+      "price_series_identical_open_time_set_required": true,
+      "spot_development_coverage_required": true,
+      "timestamp_unit_and_UTC_validation_required": true
+    },
+    "strategy_readiness_gate": {
+      "current_public_rules_may_be_used_historically": false,
+      "effective_dated_historical_fee_evidence_required": true,
+      "effective_dated_historical_margin_brackets_required": true,
+      "exact_account_fee_required_before_promotion": true,
+      "liquidation_and_ADL_semantics_documented": true,
+      "missing_rule_or_fee_evidence": "blocked_not_imputed"
+    }
+  },
+  "no_credentials": true,
+  "output_root": "artifacts/agent-level-experiment/btc-focused/carry-data-qualification-v1",
+  "prohibited": [
+    "strategy_signal",
+    "parameter_selection",
+    "return_or_PnL_calculation",
+    "position_or_order_simulation",
+    "exchange_credentials",
+    "authenticated_endpoint",
+    "live_or_paper_order",
+    "partial_OB0_access",
+    "protected_service_access",
+    "2026_historical_market_data"
+  ],
+  "rule_semantics": {
+    "authenticated_account_fee_and_leverage_bracket_endpoints": "document_as_unavailable_without_calling",
+    "current_snapshots": "retrieval_dated_planning_evidence_only",
+    "historical_projection": "forbidden",
+    "unknown": "fail_closed"
+  },
+  "schema_version": "btc-carry-data-qualification-contract-v1",
+  "status": "frozen_before_any_new_acquisition"
+}

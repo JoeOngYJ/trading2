@@ -1,0 +1,41 @@
+{
+  "files": [
+    {
+      "path": "research/btc/contracts/btc-wide-precision-successors-inputs.json",
+      "sha256": "4f496779b76a939efdbb8bf81e6c61c87b36121a515877eaba60c7b4a99ef0a2"
+    },
+    {
+      "path": "research/btc/reference_r1_v3.py",
+      "sha256": "b8ce544728204d617a67b1907906d76a3ecd1597d14211bfa72d33e76dc7d648"
+    },
+    {
+      "path": "research/btc/reconcile_r2_v2.py",
+      "sha256": "031e4e7ea561a68ccbbafd33cad0a3e3f6a4d9c7229e9eb12b736a76f2373dab"
+    },
+    {
+      "path": "research/btc/tests/test_reference_r1_v3.py",
+      "sha256": "a74024e92165972cd36b9bda089d744d1b6614afac28c3f97852e164fb77251c"
+    },
+    {
+      "path": "research/btc/tests/test_reconcile_r2_v2.py",
+      "sha256": "b7e64775cb0eb1bacdaeb8aea2fb48d8c977c78188d20188b89b6dea17aac8f9"
+    },
+    {
+      "path": "research/btc/reports/BTC_WIDE_PRECISION_REVIEW.md",
+      "sha256": "379d0d95b38c5f87ed4cf8eefc9c24f4a18d8e40531eab2a30f1d456085045f8"
+    },
+    {
+      "path": "research/btc/contracts/btc-breakout-execution-source-audit-a0-v1.md",
+      "sha256": "1cc9f50278225b2029025516143c495f2cf7624c8a866b34b2549745882a7760"
+    },
+    {
+      "path": "research/btc/audit_breakout_execution_a0.py",
+      "sha256": "8a484eaa180f8045a9aeae0345ea0e977b1a0d7260b7e2c4fb794288afd6aee6"
+    },
+    {
+      "path": "src/trading_platform/research_breakout.py",
+      "sha256": "973280749d3316a055be4b5e99d0234a5cd1b1eff39ca61c0bfb2d2b320bbf61"
+    }
+  ],
+  "status": "reviewed_successors_frozen_before_replay_and_audit"
+}
