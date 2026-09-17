@@ -1,6 +1,255 @@
+# 2026-09-12T23:02:55.075495+00:00 — final prospective launch qualification
+
+Status: **STOP_FOR_CHATGPT_REVIEW**
+Run/stage: `prospective-liquidation-final-launch-20260912-v1` / final operational qualification only.
+Disposition: **B. OPERATIONAL BLOCKER REMAINS — do not launch.**
+Repository: `/data/Trading`; Git commit/worktree/dirty identity UNKNOWN. Isolated new candidate/evidence only.
+Report: `research/PROSPECTIVE_LIQUIDATION_FINAL_LAUNCH_REVIEW.md`, SHA-256 `8fa52e5b64fd2776475d969c03f6595d8fdfbf3703d05b8005ae8e6fcf64a9e0`.
+
+Final integrated synthetic qualification:296/296 PASS, zero failures/errors/skips; all169 prior tests including original56 preserved. Exact argv/interpreter/PYTHONPATH/exit0 and source hashes: `logs/full-integrated-qualification-1.json` in the run. Bounded960-second excluded live pilot completed exit0, including four feeds, controlled reconnect, normal900-second seal, four exact gzip→independent SSD→fresh original restores and complete session reconciliation. Actual pilot argv/cwd/exit/log: `logs/health-pilot-v2-1-command.json`; spec SHA `3f19d3f818ce04773daf2c10d63e791b198153b0cf0c46f693097e9829dc94bc`.
+
+User-approved timing v2 uses bounded-clock monthly95%,100ms diagnostic.32/32 clock proofs PASS; bound median255.279ms, worst receipt1,054.083ms; these are conservative uncertainty, not actual UTC errors. Bounded clock959/959 seconds; joint operational898/959=93.6392% including forced reconnect/startup,100ms joint156/959=16.2669%. No month of95% is claimed.
+
+Connected ShieldT7: `/media/joe/ShieldT7`, exFAT UUID EF5F-FBD3, separateUSB sda versus primaryNVMe nvme0n1; approximately3TB free. Four sealed segments72,482,033bytes→5,156,416bytes (14.0567×). Compressed journal0.46013GB/day, uncompressed6.46789GB/day.95 metadata files also backed up/restored exactly. Raw originals/restore copies preserved; no deletion.
+
+Remaining blocker: unchanged continuous-process full-manifest-prefix storage grows quadratically, about390.65GB of prefixes over381days. Current-layout primary632GB central/816GB at2× compressed traffic versus371GB free; backup813GB fitsSSD. A bounded index plus redundant-copy retirement/restart remains unqualified; even hypothetical bounded-index2× case425GB exceeds current primary byabout54GB. Prefer bounded storage repair then capacity decision, not buying a disk to hide quadratic metadata. No launch dates set.
+
+Inspected/changed: reviewed instructions/reports; read-only clock/disk metadata; new excluded source/health envelopes; isolated timing/receipt hooks, health reducer, sealed compression/backup, pilot orchestration and focused tests. Rationale: capture through ordinary timing uncertainty with explicit intervals, preserve exact raw bytes, prove independent recovery and account for storage honestly. Root material commands and component evidence are retained. Three authorities/stopping rule and202 prior qualification files verified unchanged. Earlier failed pilots and partial compression/rates remain visible.
+
+No alpha/X membership/count, returns, matching, profitability, protected2026/OB0/L2, soak/account interaction, purchase or production launch. Phase2 B and all rejected hypotheses remain closed. Recommended next step: review bounded manifest/retirement/restart repair and primary-capacity requirements; no research hypothesis change. **STOP_FOR_CHATGPT_REVIEW**.
+
+---
+
+# 2026-09-12 prospective liquidation launch qualification — B / STOP_FOR_CHATGPT_REVIEW
+
+Report `research/PROSPECTIVE_LIQUIDATION_LAUNCH_QUALIFICATION.md` SHA `54d278193da3caaf1ba37c03d5240a2ec3a01e12fb66605f32d9bec63e4a0df1`; run `research/btc/review_runs/prospective-liquidation-launch-qualification-20260912-v1/`.
+
+169 final synthetic component tests pass (all56 inherited retained), zero final failures/errors/skips. Initial source connectivity and repaired ticker snapshot/ACK initialization observed. Both bounded excluded pilots stopped: NTP timeout then UTC uncertainty bound102.838577ms>100ms. No third pilot, relaxation or production launch. Planned reconnect/rotation not reached; no clean committed pilot segment. All failures/unclean tails, runtime/source/specification hashes and logs retained.
+
+Direct/data available371GB. Interrupted persisted rates2.94–11.19GB/day imply conditional2.30–8.60TB per copy under382days/context+2x+50GiB; annual capacity NOTqualified. Existingbackup location reported, exactpath/capacity pending. Byte-onlygzip6 probe10.718x doesnot qualify productioncompression. No purchase, transfer, protecteddata or outcomes.
+
+The prior prospective plan and AlphaDiscoveryPhase2 decision B (NONEselected) arepreserved; no cheap historical family reopened, no breakout rescue. Currentdatesnull and12fullmonthstoppingrule unchanged. Nextreview is operationalclock/storage/backup repair only. **STOP_FOR_CHATGPT_REVIEW**.
+
+---
+
 # Research and Backtest Tracker
 
-Last reviewed: 2026-09-10
+## 2026-09-12 forced-liquidation acquisition route — C / STOP_FOR_CHATGPT_REVIEW
+
+Report: `research/FORCED_LIQUIDATION_DATA_ACQUISITION_ROUTE.md`; SHA-256 `f575e00caeaf6201a530f8ad1c5b5beefab11c767cf6cdd0f135fd2d754dfb09`.
+Evidence: `research/btc/review_runs/forced-liquidation-data-route-20260912-v1/`. Quote scope drafted but not sent.
+
+Tardis documents the four required feeds: Bybit allLiquidation/tickers/publicTrade and Binance spot native bookTicker for the 307-date 2025 envelope. Raw Bybit is needed for source/state lineage; Binance native book_ticker CSV is conditional on required-field and health evidence. Free trade event timestamps are not a qualified receipt bridge. Historical both-sided OI/2 accounting and frozen hypothesis remain unchanged.
+
+Public broad annual Tardis cost $26,400 before tax; conditional mixed raw/CSV route $22,800/year. No current narrow entitlement price established. Standard monthly/quarterly lookbacks fail the beginning of the envelope at today's purchase date. Tardis terms9.4 permit durable internal retention; Kaiko/Amberdata standard terms need amendments, and their exact historical native/receipt coverage remains unqualified. **C. QUOTE REQUIRED BEFORE DECISION**, not authorization to buy.
+
+Four Bybit and one Binance reported recording incidents overlap the envelope; activity-dependent Bybit losses preclude assuming benign missingness. Channel health and full source qualification remain unresolved. Fifteen documentation/source/metadata responses archived; 11 integrated documentation checks and 10 technical assertions passed, two report reviews PASS. No market dataset download, event set, future return, purchase, provider contact or alpha trial. Protected data remains sealed and prior rejections preserved.
+
+**STOP_FOR_CHATGPT_REVIEW.** Prior entries remain historical.
+
+
+## 2026-09-12 free Bybit data feasibility — NEED PAID DATA / STOP_FOR_CHATGPT_REVIEW
+
+Report: `research/BYBIT_FREE_DATA_FEASIBILITY.md`; evidence:`research/btc/review_runs/bybit-free-data-feasibility-20260912-v1/`.
+UserauthorizedfreehistoricalAPI/archivequalification,nopurchaseoroutcomes. 95GET200 downloaded
+496350908bytes; officialOI2880/2880rows across10selected2025dates;liquidation26971rows and697native
+parities; ticker2340280rows and1326nativeOIparities; fulltrade6204834pairedIDswithprice/side/size
+exact, while29Julyofficial-only and48DecemberTardis-onlyintradayrecordspersist. All29gzipCRCpass.
+
+HistoricalopenInterestislegitimateboth-sidedBTC; exactofficial2025sourceprovesdefinition.
+Single-sided/2isaproposedexplicitaccountingderivation,not2025fieldbackfillassumptionorchanged
+threshold. CurrentAPInewfielddiffersin1506rowsbyatmost.00100001BTC; retainprecision/unknowncause.
+OneJulyrawsnapshottimestamp/sequenceissuepersists. NoX,Y,return,matchingorbootstrapcomputed.
+
+Free10dayscannotmeet60eventdays/80%monthlycoverage;307calendardayswithcontextneededforthefrozen
+history,297beyondfreefirstdays. Paidliquidation-onlyhistorycouldstilllackOIreceipt/tradeavailability
+andBinancespotL1. NEEDPAIDDATAappliestocurrentidentifiedroute,notpurchaseauthorizationorproof
+allfreepossibilitiesexhausted. Actualprice/rightsUNRESOLVED; no300USDcommitmentorforwardcollector.
+
+Seven sourcequalifiersexit0,eightdocassertionspass; actualcommands/errors/sourcebytehashes,
+rawresponses,report/storage/ledgerretained. Breakoutclosed,Phase1unchanged,protected2026/OB0/L2
+sealed. ReportSHA `0bd8e54f961573a659ea6ddb41708373e1bd38c3800e8bab7c985a15f16a6b7f`. **STOP_FOR_CHATGPT_REVIEW.**
+
+Prior entries below remain historical.
+
+## 2026-09-12 alpha discovery Phase 1 — B / STOP_FOR_CHATGPT_REVIEW
+
+Report: `research/ALPHA_DISCOVERY_PHASE1.md`; evidence: `research/btc/review_runs/alpha-discovery-phase1-20260912-v1/`.
+Existing profitability still establishes no accepted alpha. Breakout is closed: fixed/adaptive
+matched effects−307.49/−183.38bps; the favorable sequential comparison does not rescue entry.
+All other reviewed rejections and sealed2026/OB0/L2 boundaries remain authoritative.
+
+Two mechanisms considered, zero new outcome trials. Native forced-long liquidation reports
+could introduce participant-constraint information absent from aggregate-flow proxies, but no
+qualified report/OI receipt history exists locally. This is the selected source-qualification
+priority. Known remaining leveraged-ETF demand is weaker because actual public residual orders
+are not established. No third idea, proxy rescue, backtest, acquisition or strategy was produced.
+
+Conditional proposedtest `btc-reported-liquidation-spot-information-v1-proposed` SHA `330b872d09f718339e49fbb36b6d680c56d61a19bfa725697121d6e26ec8d747` freezes one
+0.5%reportedclosures/OI event, one60minute spot target, exactmatching and jointown-date7day
+bootstrap,80bps absolute/incremental screening with unchanged30/40/80costcases. No Xcounts/Y/draws
+were calculated; source bindings UNRESOLVED. Final B means source qualification only, not ready
+for an outcome test. A new predictor on consumed2025BTC cannot become independent confirmation.
+
+Authority/source identities,14category inventory, incomplete ledger reconciliation, literature,
+independent static critiques, commands and metadata checks retained. No new strategy tests were
+applicable. Exact report hash `8c7d009b91d059516c18e26667e98d326a0fd40b19945cd5e13e49ea95d7a6fa`. Further work requires ChatGPT review.
+**STOP_FOR_CHATGPT_REVIEW.**
+
+Prior entries below remain historical.
+
+## 2026-09-12 exploratory breakout decomposition — B / STOP_FOR_CHATGPT_REVIEW
+
+Report: `research/BREAKOUT_PATH_DEPENDENCE_DIAGNOSIS.md`; evidence: `research/btc/review_runs/btc-breakout-path-dependence-diagnosis-v1-runtime-init-1/`.
+The rejected parent claim stays REJECTED. All11,700 M=true independent-entry labels were evaluated
+once with frozen exits/primary costs;238events retain exactmatching and original10,000bootstrap
+starts. Independent adaptive effect−183.38bps,95%[−333.93,−36.59]: event334.26 versus matched517.63bps.
+Only1/7positive entryyears; allleaveoutsnegative.100/101profitablebreakouts hold to day14; justone
+profitable channel exit precedes terminal reversal. The favorable sequential+215.16bps comparison
+first appears after sample/control/state construction; cadence itself is not causally isolated.
+DiagnosisB recommends closing broader breakout research absent a separately justified mechanism.
+Exploratory consumed development evidence only; no accepted alpha or independent confirmation.
+
+32tests,9guardprobes,813identitychecks and919finalsaved-evidencechecks pass;25,709savedprimaryleg
+parities pass, no strategy replay. First invocation failed before newlabels on a runtime import
+entropy probe; its evidence is sealed. The separate continuation restores the accepted parent
+runtime initialization and full import qualification without changing scientific bytes or guard
+restrictions. Commands/exits/diffs/source/input/output hashes are retained. No protected data,
+tuning, paper/live or next research stage. **STOP_FOR_CHATGPT_REVIEW.**
+
+## 2026-09-12 corrected breakout completed — REJECTED / STOP_FOR_CHATGPT_REVIEW
+
+The bounded source-only repair passed all qualification gates, then continued the same authorized `btc-breakout-corrected-claim-resolution-v1` once. Evidence: `research/btc/review_runs/btc-breakout-corrected-claim-resolution-v1-guard-repair-1/`; report: `research/BREAKOUT_CORRECTED_CLAIM_RESOLUTION_V1_RESULT.md`. Original BLOCKED attempt remains unchanged. Contract SHA `f9a32cdd2affe259795df86d0c89c9ff4c675b7fe4407e3a02c1126b03a69035`; no economic choice changed.
+
+Qualification454identity checks,44+6synthetic tests and14fresh-process probes passed;600strategy arms/13,800cohorts/69passive cohorts/10,000frozen draws completed once, exit0, zero historical denials. Final saved-export integrity passed. Existing legacy archives and repaired identities preserved without rerun. Full commands, hashes, source/runtime/design/outputs and negative evidence are retained.
+
+**REJECTED by the frozen raw-effect gate:** matched14-day effect−307.49bps,95%[−513.71,−128.80],238/238events matched; adequacy passes. Corrected M net expectancy232.04bps,95%[−3.43,484.71]; stress221.81/severe181.01bps. Favorable candidate-vs-participation215.16bps,[31.88,422.38],rank.005 does not override the predeclared raw rejection. Common57Mentry execution impact is zero gross and negligible net arithmetic difference; corrections preserved those point profits. Full continuous profitability remains UNKNOWN/UNIDENTIFIABLE:10boundary entries include5unresolved, and candidate conservative all-entry bounds are negative. M is post-simulation analysis conditioning only.
+
+This closes the exact frozen breakout claim under its authorized decision rule; it does not establish that every trend phenomenon is absent. Do not retune thresholds, horizon, stop, risk, costs or controls. Reviewed research dispositionC remains consistent with no accepted alpha. No independent evidence or protected data was consumed; no further stage is authorized. **STOP_FOR_CHATGPT_REVIEW.**
+
+Prior entries below remain historical.
+
+## 2026-09-12 source-only guard repair — qualified; authorized continuation IN_PROGRESS
+
+Continuation evidence: `research/btc/review_runs/btc-breakout-corrected-claim-resolution-v1-guard-repair-1/`.
+User explicitly authorized one source-only import repair and continuation of the same frozen claim-resolution execution on qualification PASS. Original BLOCKED evidence remains unchanged. Contract SHA `f9a32cdd2affe259795df86d0c89c9ff4c675b7fe4407e3a02c1126b03a69035` and all economic/design choices remain unchanged.
+
+Requalification passed before outcomes:454 identity checks,44 original plus6 import-semantics tests,14 fresh-process guard probes, zero failures/errors/skips/unclassified denials. Qualified runtime is unchanged CPython3.13.14. Source-only loader reads and verifies exact pinned source under the active guard; project bytecode remains prohibited. Retained199 schedules and10,000 bootstrap draws match exactly; no replacements generated. Accepted ten-file archive and both legacy builds reconfirmed without rerunning. Qualification PASS SHA `3b8acbe2e891283c42cca9e4c7001e70afd499da25551dddbc26463a73d78c09`.
+
+Historical execution started once after PASS. This is a continuation of the same consumed-development claim-resolution experiment, not independent evidence or a new trial. Final economic disposition pending. No protected2026/OB0/L2, service, optimization or unrelated strategy access. Stop for ChatGPT review after result.
+
+Prior entries below remain historical.
+
+Last reviewed: 2026-09-12 (corrected claim-resolution pre-outcome qualification BLOCKED)
+
+## 2026-09-12 corrected breakout qualification — BLOCKED / STOP_FOR_CHATGPT_REVIEW
+
+Explicit user authorization bound contract SHA
+f9a32cdd2affe259795df86d0c89c9ff4c675b7fe4407e3a02c1126b03a69035 to one historical claim-resolution
+execution. Exact bytes frozen under `research/btc/review_runs/btc-breakout-corrected-claim-resolution-v1/`.
+Source/runtime/legacy canonical/time-topology verification passed.199control schedules and10,000
+bootstrap draws froze before outcomes;13,002opportunities,11,700Mtrue,23cohorts.
+
+New44synthetic tests passed, but their process exited1 at the subsequent no-denials guard gate:
+5 optional CPython project-bytecode read probes were denied, then source imports succeeded. The
+profile hook persisted. This is an engineering qualification failure, not strategy rejection.
+Historical outcomes were never computed; guard/schedule follow-up qualification stopped.
+No repair, gate exemption, repeated tests or economic execution followed the failure.
+
+Report: `research/BREAKOUT_CORRECTED_CLAIM_RESOLUTION_V1.md`.
+Hashes/commands/logs/source/contract/schedules/failure preserved in this run's manifest.
+Legacy reproduction remains accepted; reviewed C and protected-data boundaries stand.
+Next review only: synthetic pinned-source import/guard repair and qualification before resumption.
+No2026/OB0/L2/services, tuning, newalpha or comparator. **BLOCKED. STOP_FOR_CHATGPT_REVIEW.**
+
+Prior entries below remain historical.
+
+Last reviewed: 2026-09-12 (legacy reproducibility repaired; corrected performance not run)
+
+## 2026-09-12 legacy runtime reproduction repair — STOP_FOR_CHATGPT_REVIEW
+
+`research/BREAKOUT_LEGACY_REPRODUCTION_REPAIR.md` and
+`research/btc/review_runs/breakout-legacy-repair-20260912-v1/legacy_repair_manifest.json` record disposition
+**A. LEGACY REPRODUCTION REPAIRED**. Two clean computational builds under qualified CPython3.13.14
+match all10 archived core artifacts and each other exactly (30 byte comparisons). The authoritative
+forecast SHA remains c6dda69d4f0ddae3dd13a57e39a49278bbebc3f8def72d29cac79812664511e7.
+New integration35/35, inherited7/7 and guard7/7 pass under this environment; all named commands
+exit0, legacy unrounded/control assertions pass, corrected historical calls0. Final evidence
+checks131/131 pass separately. The August binary remains UNKNOWN; this is a qualified compatible
+environment. Frozen source, parameters, costs, inputs and archived evidence are unchanged.
+
+Git identity remains UNKNOWN; isolated candidate:
+`/data/Trading/trading2_codex_handoff/review_runs/breakout-legacy-repair-20260912-v1/candidate`.
+The runtime addendum, actual imports, exact commands/exits, source/config/input/output hashes and
+retained logs are in this run. No corrected performance or independent market evidence is produced.
+Legacy primary/stress/severe returns remain 0.1693554713741534 / 0.16139102227246216 /
+0.13014101538893663 at67 trades each; **REPRODUCED LEGACY DEVELOPMENT EVIDENCE ONLY**.
+
+Draft `research/btc/contracts/btc-breakout-corrected-claim-resolution-proposed-v1.md`
+SHA `f9a32cdd2affe259795df86d0c89c9ff4c675b7fe4407e3a02c1126b03a69035` proposes corrected claim resolution without execution.
+Coverage-conditioned expectancy in fully observed windows is explicitly distinct from unidentified
+continuous-account profitability across gaps. ChatGPT must separately review the coverage policy,
+control/uncertainty gates and implementation qualification before historical execution.
+No alpha acceptance follows. Reviewed reset dispositionC, prior rejected families and contamination
+boundaries stand. No protected data, service interaction, tuning or unrelated research occurred.
+
+**RETURN FOR CHATGPT REVIEW — corrected breakout claim-resolution is now technically ready for separate authorization.**
+
+Prior entries below remain historical; the new note supersedes their unresolved legacy-build gate.
+
+Last reviewed: 2026-09-12 (evidence integrity resolution; no new strategy run)
+
+## 2026-09-12 evidence integrity resolution — STOP_FOR_CHATGPT_REVIEW
+
+`research/EVIDENCE_INTEGRITY_RESOLUTION.md` and
+`research/btc/review_runs/evidence-integrity-resolution-20260912-v1/` establish the breakout
+mismatch cause: runtime-sensitive volume arithmetic propagates into forecast lineage hashes.
+Python 3.10 exactly reproduces Stage 3A sums; current 3.13 exactly reproduces archived sums.
+Compression is not the cause. Existing legacy decisions/trades/report agree, but full canonical
+identity fails. Original archive/replay 10 files agree; required new two-build reconciliation
+and original historical runtime identity remain unresolved. Breakout decision B; final B.
+No corrected historical performance or new alpha run is authorized or executed.
+
+HAR coverage loss exactly follows source gaps and frozen reset/history rules; no harmless
+coverage fix demonstrated. Top-two cannot reconstruct a historical investable population from
+current metadata. Ridge/C2 remain unqualified; cash summary notices preserve old bodies and
+explicitly supersede obsolete active wording. Old cash registry/context pins remain historical,
+not renewed permission. The supplemental experiment ledger reconciles 30 history rows, 75 contracts
+and 183 decisions; total trials and full independence history remain UNKNOWN. Prior reset C and
+closed funding/flow families stand. Frozen strategy sources, costs, parameters and results remain.
+
+Diagnostics/document checks only; no sealed 2026/partial OB0/L2/services or protected source access.
+Next proposal for separate review: runtime-bound legacy-only provenance repair, then reviewer
+coverage-policy decision. No stage transition follows automatically.
+
+## 2026-09-12 edge research reset — outcome C, review pending
+
+The user-requested repository audit is complete: `research/EDGE_RESEARCH_RESET.md` and
+`research/btc/review_runs/edge-research-reset-20260912-v1/`. No new strategy hypothesis selected.
+Useful HAR/semivariance/funding information exists in consumed development, but no independently
+confirmed, practically capturable incremental trading edge is established. Rejections include
+actual forecast/economic failures, insufficient samples, coverage and implementation defects;
+they are not interchangeable. Preserve every prior disposition.
+
+This audit supersedes stale history summaries, not frozen experiment evidence: cash-ETF C2
+has three provisional development arms and v2 numeric ledger exposure of2019–2023, despite
+older no-economics/locked wording below. New static ridge/cash/carry source concerns are in
+the reset; no historical impact or corrected result has been calculated. The funding timing
+example and net-carry readiness failure were reused, not rerun. Stage3A remains BLOCKED.
+
+Decision C: stop strategy engineering and identify the specific information required to
+continue. No new family, controls, parameters, risk, costs or mandate; no sealed2026, partial
+OB0 or service access. STOP_FOR_CHATGPT_REVIEW. Older entries below remain historical records.
+
+## 2026-09-12 project direction proposal — review pending
+
+User requested a stop/shift decision focused on individual trading economics. Proposed stopping
+broad strategy expansion and capping any further closure work at 10 engineering hours over two
+weeks, subject to review and personal usefulness. No new family, benchmark, mandate or experiment
+is activated. Stage 3A canonical legacy output identity remains BLOCKED; corrected historical
+performance remains NOT_RUN. Existing rejections and evidence are preserved. Planning only:
+`research/btc/review_runs/project-direction-decision-20260912-v1/PROJECT_DIRECTION_PLAN.md`.
+Current persistent state: `research/btc/CODEX_REVIEW_STATUS.md`. STOP_FOR_CHATGPT_REVIEW.
 
 Consolidated BTC program review: `research/btc/BTC_PROGRAM_REVIEW_2026_09_10.md`.
 Summary only; no new market run or acceptance changes.
@@ -692,7 +941,7 @@ closed.
 | Multi-timeframe regime/entry experiment | Deferred during OB0 | Revisit only if L2 survives its own data, statistical, and economic gates |
 | BTC/ETH causal relationship analysis | Initial scaffold complete | `scripts/analyze_btc_relationships.py`; report shows high contemporaneous correlation but near-zero simple lead-lag correlation; requires walk-forward significance tests |
 | BTC mathematical breakout scaffold | Initial smoke test complete | `scripts/backtest_btc_breakout.py`; causal raw breakout loses at 1h after costs; EMA/ADX retained as controls only |
-| Walk-forward causal BTC model | Initial diagnostic complete | `scripts/walkforward_btc_causal_model.py`; current BTC/ETH/volatility/volume features show no stable 1h/4h predictive edge yet |
+| Walk-forward causal BTC model | **Implementation-limited historical diagnostic** | `scripts/walkforward_btc_causal_model.py`; horizon/clock, purge, gap and log-return accounting defects plus UNKNOWN original producer/input binding prevent a clean prediction or economic conclusion. Two early reports are unqualified; see `research/EVIDENCE_INTEGRITY_RESOLUTION.md`. |
 | BTC 5m taker-flow recovery | **Complete** | 24 archives, 210,528 rows, zero gaps/duplicates/invalid rows; deterministic dataset and accepted manifest under `artifacts/agent-level-experiment/btc-taker-trade-flow/` |
 | Taker-trade-flow event study | **Exploratory complete — not tradable standalone** | 2025 shows asymmetric reversal after extreme buying, but mean effect is far below 24 bps round-trip cost |
 | BTC taker-flow history expansion | **Complete** | Official Aug 2017–Jul 2026 archives verified; 878,985-row segmented development set and gap-free 61,056-row sealed 2026 holdout |
@@ -1116,3 +1365,37 @@ whole repository with an exact whitelist, bind exact C0/E0 authority tuples, enu
 RunSpec-to-RunContext projection, use context-appropriate AuthorityRef consumer types, make role
 mapping exact, and semantically pin every contract/spec/obligation boundary before freezing its
 manifest. `no_trade` remains the only actionable arm.
+
+
+## Prospective liquidation and Alpha Discovery Phase 2 — 2026-09-12
+
+Run `prospective-and-alpha-phase2-20260912-v1`. **STOP_FOR_CHATGPT_REVIEW**. Separate workstreams, no new alpha outcomes.
+
+- Collection prototype: **READY_FOR_PROSPECTIVE_COLLECTION_REVIEW**; 56/56 synthetic tests, zero failures/errors/skips. Source `08c8c11d1da56e30c940284a6eb1a2113f151ae9bdd021684b2cbb50390219e0`. Correct native topic is `tickers.BTCUSDT`. Four feeds only, exact raw bytes and separate ingress/dispatch clocks; conservative health/state/recovery evidence. No live connection or collection. Proposed 12-full-month fixed stop and endpoint count-only feasibility conditions require review. Clock producer, launch health/resource/storage/backup qualification remain outstanding.
+- Phase2: **B. NO FREE/CHEAP HISTORICAL HYPOTHESIS IS CURRENTLY STRONG ENOUGH**. CFTC disclosure, signed expiry unwind and delayed CPI error screened; NONE selected. Missing participant information and capture rationale are not repaired by cheap data alone. No closed family reopened or result rerun.
+- Historical $22,800-$26,400/year acquisition declined. No purchase or commercial contact. CFTC fixed release-delay implementation has exception cases; recorded source caveat, old REJECTED unchanged. Unknown prior experiments remain UNKNOWN.
+- Reports: `research/PROSPECTIVE_LIQUIDATION_COLLECTION_PLAN.md` (96d762799b9627b5128e7d8405b01264ff365113bd0212112a2b32d15c4a0c59), `research/ALPHA_DISCOVERY_PHASE2.md` (74dde8d3134a40cfa1e2a676762a374647cf0c016a2093b0c6c33f4ca84a4138). Exact proposals/code/runtime, final tests, earlier attempts, independent reviews, source registers, commands, hashes and ledger under `research/btc/review_runs/prospective-and-alpha-phase2-20260912-v1/`.
+- Current UTC synchronization UNVERIFIED; storage scenarios are planning estimates, not observed message rates. No protected2026/OB0/L2, service/account/soak interaction, X event set, target return or independent evidence access. Next: review only; no launch or market-outcome authorization implied.
+
+
+## 2026-09-13T00:08:03.944051+00:00 — prospective compact storage lifecycle (operational only)
+
+`prospective-liquidation-storage-lifecycle-20260913-v1`: **B. STORAGE/LIFECYCLE BLOCKER REMAINS — do not launch.** **STOP_FOR_CHATGPT_REVIEW**.
+
+Report: `research/PROSPECTIVE_LIQUIDATION_STORAGE_LIFECYCLE_QUALIFICATION.md`. Evidence: `/data/Trading/research/btc/review_runs/prospective-liquidation-storage-lifecycle-20260913-v1`. Final required tests: 386/386 PASS. All 31 inherited sources and 451 prior qualification artifacts are preserved. Compact segment chains, verified redundant-copy retirement, compressed-only restart and bounded reconciliation receipts are implemented. An actual-SSD synthetic eight-segment/two-process check passed.
+
+The required live pilot failed initial clock admission before connecting feeds: the native NTP message was marked ignored. No clock rule was changed or retried; no market observations or alpha calculations occurred. The provisional primary central projection is 273.68 GB including working space/reserve, versus 371.15 GB free; the doubled case requires 452.80 GB, an 81.65 GB deficit. Retained 1× / 2× high cases require 498.89 / 903.20 GB. Backup central projection is 485.77 GB and the largest retained case 1,224.75 GB, versus about 3 TB free. These final figures include allocation overhead and additional size-triggered seals; the original rotation policy is unchanged. No new live rate, final PRIMARY ADEQUATE classification or launch authorization is claimed.
+
+Next: review the storage changes and bounded live qualification once fresh usable clock evidence exists. Hypothesis, timing-v2, stopping rule, no-peeking boundary and Phase 2 disposition B remain unchanged.
+
+
+## Prospective liquidation integrated live qualification — 2026-09-13
+
+Run `prospective-liquidation-integrated-live-qualification-20260913-v1`: **A. FULL OPERATIONAL QUALIFICATION PASSED — prospective collection is ready for final launch authorization.** Status `STOP_FOR_CHATGPT_REVIEW`; production collection not started.
+
+389/389 tests passed. Two fresh processes connected all four approved feeds, completed three normal 15-minute rotations in total, archived 12 source/health segments with exact gzip/independent-SSD/restore verification, retired redundant originals, reconstructed compressed-only history after a clean restart, and continued the global chain through sequence 11. Final digest `19756f3129b36f1c43e2b23039ffb0c9ab074f3d4ad2d922c764bbde05558775`. Bounded-clock health was 97.0329%; the separate <=100-ms diagnostic was 8.1950%. Live compression was 14.1283x and 0.593 GB/day. The 319.81-GB central primary requirement fits current capacity by 51.29 GB after reserve; disclosed 2x/high deficits preserve the 100-GiB warning and 64-GiB clean stop. The independent T7 fits all backup cases.
+
+Report: `research/PROSPECTIVE_LIQUIDATION_INTEGRATED_LIVE_QUALIFICATION.md`. Proposed unlaunched package: `research/btc/review_runs/prospective-liquidation-integrated-live-qualification-20260913-v1/launch/prospective_collection_specification.json` (`beddfe3ed7c06644dd0a163927605cb4c8851ae39c342a2c7490fd9bc102295c`). No event/return/alpha computation or protected-data access. Pilot observations remain permanently excluded. Final launch requires separate ChatGPT authorization.
+## 2026-09-13 — prospective collector boot persistence
+
+Prepared isolated run `prospective-liquidation-production-service-20260913-v1` after the user requested automatic restart on system boot. The release preserves the qualified public-feed evidence design and adds a fail-closed continuous runner plus user-systemd service/timer. Synthetic qualification passed 394/394 and qualification-only opened no network. Persistent unit registration was rejected before execution by automatic approval review pending explicit post-disclosure authorization, so collection remains unstarted. The Samsung T7 UUID `EF5F-FBD3` is also presently mounted read-only and must be repaired/verified `rw`; the service will refuse market connections while that blocker remains. Full details and exact hashes: `research/PROSPECTIVE_LIQUIDATION_BOOT_AUTOSTART.md`. No alpha/outcome calculation or protected-data access occurred.

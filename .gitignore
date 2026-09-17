@@ -11,6 +11,9 @@ config/*.env
 .codex/
 .reliability-candidates/
 artifacts/
+research/btc/review_runs/
+research/btc/prospective/
+trading2_codex_handoff/
 tmp/
 __pycache__/
 *.py[cod]

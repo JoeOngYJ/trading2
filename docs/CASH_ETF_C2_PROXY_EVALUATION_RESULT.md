@@ -1,5 +1,29 @@
 # Cash-ETF C2 Proxy Evaluation Result
 
+## Current audit disposition — 2026-09-12
+
+**Archived, unqualified development diagnostics; no accepted arm and no rerun authorization.**
+The current research authority is [EDGE_RESEARCH_RESET](../research/EDGE_RESEARCH_RESET.md).
+The [audit-status metadata](../config/research/cash-etf-evidence-audit-status-20260912-v1.json)
+supersedes the operational interpretation of the old `cash-etf-status-v1.json` active label;
+that pinned registry remains a historical record.
+
+Later aggregate reports exist through `c2-proxy-evaluation-v8/report.json`, including a third
+quarterly defensive-rotation arm. The current evaluator's turn-of-month entry differs from the
+frozen contract; its equity and trade accounting disagree, its purported month-block intervals
+are trade order statistics, and required matched controls are absent. Exact producer-byte
+binding for each old report is UNKNOWN. The numbers below remain preserved observations of
+unqualified outputs, not validated results for the frozen hypotheses. The slow-trend profit
+factor quoted below appears in v4 and later, while the v3 report retains experiment ID v2 and
+reports profit factor zero; the old prose is not an exact report manifest.
+
+The later development-only runs do not restore untouched status to 2019–2023: the earlier C1
+pragmatic v2 subledger numerically processed that period. Strategy-outcome exposure there is
+not established; independent eligibility remains UNKNOWN. Locked data remain inaccessible.
+See the [evidence-integrity investigation](../research/EVIDENCE_INTEGRITY_RESOLUTION.md).
+
+## Historical summary retained from 2026-08-30
+
 Updated: 2026-08-30 23:00 UTC
 
 The corrected development-only evaluator (`cash-etf-c2-proxy-evaluation-v3`) ran on the v5 GBP

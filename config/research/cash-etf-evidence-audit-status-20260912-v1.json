@@ -1,0 +1,64 @@
+{
+  "accepted_strategy_arms": [],
+  "actionable_arm_id": "no_trade",
+  "approved_execution_instruments": [],
+  "audit_id": "evidence-integrity-resolution-20260912-v1",
+  "authority_path": "research/EDGE_RESEARCH_RESET.md",
+  "authority_sha256": "12b17c04a92aa05820811c62593ca6ff3a801309334bf5c7e0cd153846f23820",
+  "cash_etf_lane_state": "archived_unqualified",
+  "contamination": {
+    "2009_2018": "consumed development; multiple provisional outputs",
+    "2019_2023": "C1 pragmatic v2 numerically processed this period; no strategy-outcome exposure established; independent eligibility UNKNOWN",
+    "2024_2025": "locked in inspected metadata; independence not certified; no access authorized",
+    "2026": "excluded; no access authorized"
+  },
+  "date": "2026-09-12",
+  "detailed_findings_path": "research/btc/review_runs/evidence-integrity-resolution-20260912-v1/defect_blast_radius/findings.md",
+  "executable_changes": false,
+  "historical_performance_rerun": false,
+  "historical_status": {
+    "interpretation": "Preserved historical registry. Its active label and historical next steps do not confer current authorization. Existing checksum pins were not rewritten to absorb audit annotations.",
+    "path": "config/research/cash-etf-status-v1.json",
+    "sha256": "b7d01ff765e57764b76f3b943ecd8bd17284ae5bacf22e228ba3c8a024da61fa"
+  },
+  "integrity_resolution_path": "research/EVIDENCE_INTEGRITY_RESOLUTION.md",
+  "known_current_source_defects": [
+    "TOM entry uses next-month first-session open rather than frozen final-session open",
+    "Holdings are changed before applying a full close-to-close return, inconsistent with next-open entry",
+    "Trade list and daily equity path use different fill/cost accounting",
+    "Purported month-block intervals are sorted individual-trade order statistics",
+    "Calendar-year returns are sums rather than compounded returns",
+    "Best-three-year metric does not satisfy best-three-month contract gate",
+    "Quarterly trade_count includes fee-only records",
+    "Required static/matched/random/inversion controls are absent"
+  ],
+  "legacy_validator_consequence": "Program/handoff documentation annotations no longer match preserved historical context_artifacts pins. Do not refresh those pins as an acceptance repair. The old context validator was not run because it reads/hashes underlying ledgers; it is not a current stage authorization.",
+  "new_hypothesis_authorized": false,
+  "performance_rerun_authorized": false,
+  "protected_data_access_authorized": false,
+  "raw_market_rows_accessed_in_this_audit": false,
+  "research_disposition": "C_CURRENT_EVIDENCE_DOES_NOT_SUPPORT_AN_EDGE",
+  "result_lineage": {
+    "aggregate_reports": [
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v2/report.json",
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v3/report.json",
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v4/report.json",
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v5/report.json",
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v6/report.json",
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v7/report.json",
+      "artifacts/agent-level-experiment/cash-etf/c2-proxy-evaluation-v8/report.json"
+    ],
+    "earlier_reports_disposition": "preserved unqualified diagnostics; preliminary defects remain invalid",
+    "exact_producer_bytes_for_each_report": "UNKNOWN",
+    "latest_report_disposition": "development_diagnostics_provisional; not accepted alpha",
+    "outcome_exposed_arms": [
+      "cash-etf-slow-trend-proxy-v1",
+      "cash-etf-turn-of-month-proxy-v1",
+      "cash-etf-quarterly-defensive-rotation-v1"
+    ],
+    "producer_runtime_for_each_report": "UNKNOWN"
+  },
+  "review_state": "STOP_FOR_CHATGPT_REVIEW",
+  "schema_version": "cash-etf-evidence-audit-status-v1",
+  "scope": "documentation and stored aggregate/source lineage only"
+}

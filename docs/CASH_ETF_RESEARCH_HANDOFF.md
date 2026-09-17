@@ -1,5 +1,24 @@
 # Cash-ETF Research Session Handoff
 
+## Current audit disposition — 2026-09-12
+
+**STOP_FOR_CHATGPT_REVIEW. No strategy arm is accepted; no evaluator rerun is authorized.**
+The implementation instructions and active/not-yet-run status below are retained historical
+notes, superseded by [EDGE_RESEARCH_RESET](../research/EDGE_RESEARCH_RESET.md) and the
+[evidence-integrity investigation](../research/EVIDENCE_INTEGRITY_RESOLUTION.md).
+Use the [current audit-status metadata](../config/research/cash-etf-evidence-audit-status-20260912-v1.json);
+the old checksum-pinned `cash-etf-status-v1.json` remains historical and its active state confers
+no current authorization.
+
+C2 aggregate diagnostics exist through v8 and expose three development arms. All remain
+unqualified because execution/accounting, controls, uncertainty and producer binding are
+incomplete or defective. No executable code was repaired or performance rerun in this audit.
+The v4 statement below about no 2019+ numeric decoding applies only to that successor: earlier
+pragmatic v2 processed 2009–2023. No strategy-outcome exposure in 2019–2023 is established, but
+the period cannot be called untouched. Locked data and all execution routes remain closed.
+
+## Historical handoff and continuation notes
+
 Updated: 2026-08-30 22:00 UTC  
 Program: `retail-cash-etf-multi-strategy-v1`  
 Current stage: `C2` — **active, contract frozen; evaluator not yet run**  

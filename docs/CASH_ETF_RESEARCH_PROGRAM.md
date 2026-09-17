@@ -1,5 +1,23 @@
 # Cash-ETF-First Research Program
 
+## Current audit disposition — 2026-09-12
+
+**Archived research lane; strategy engineering and further performance evaluation are paused.**
+The old C1-only account below is historical. Later C1 GBP ledgers and C2 development diagnostics
+exist, including slow trend, turn-of-month and quarterly defensive rotation. All three remain
+unqualified; no strategy or execution instrument is accepted and the actionable route is
+`no_trade`. Source and evaluator defects prevent treating their figures as validated evidence.
+
+Earlier C1 pragmatic v2 numerically processed 2009–2023; later development-only successors do
+not undo that exposure. Strategy-outcome access in 2019–2023 is not established, and its
+independent eligibility is UNKNOWN. No locked-data access or new experiment is authorized.
+Use [EDGE_RESEARCH_RESET](../research/EDGE_RESEARCH_RESET.md), the
+[evidence-integrity investigation](../research/EVIDENCE_INTEGRITY_RESOLUTION.md), and the
+[current audit-status metadata](../config/research/cash-etf-evidence-audit-status-20260912-v1.json).
+The pinned `cash-etf-status-v1.json` active label is a historical record, not current authority.
+
+## Historical program specification and early status
+
 Program ID: `retail-cash-etf-multi-strategy-v1`  
 Current stage: `C1` — **blocked before numeric ledger construction**  
 Actionable disposition: `no_trade`
